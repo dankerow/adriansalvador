@@ -1,0 +1,25 @@
+@import "~bootstrap/scss/reboot";
+
+html {
+	height: 100%;
+}
+
+body {
+	overflow-y: auto;
+
+	&::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: #181818;
+	}
+
+	&::-webkit-scrollbar-button {
+		display: none;
+	}
+
+	&::-webkit-scrollbar-corner {
+		background: transparent;
+	}
+}
