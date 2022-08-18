@@ -1,0 +1,33 @@
+.pswp__button--arrow .pswp__icn {
+	width: 40px !important;
+	height: 40px !important;
+}
+
+.pswp__custom-caption {
+	background: rgba(27, 27, 27, 0.80);
+	border-radius: 0.15rem;
+	bottom: 16px;
+	color: #fff;
+	font-size: 16px;
+	left: 50%;
+	max-width: 300px;
+	padding: 2px 8px;
+	position: absolute;
+	text-align: center;
+	transform: translateX(-50%);
+	width: calc(100% - 32px);
+}
+
+.pswp__custom-caption {
+	a {
+		color: #ffffffbf;
+
+		&:hover {
+			color: #fff;
+		}
+	}
+}
+
+.hidden-caption-content {
+	display: none;
+}
