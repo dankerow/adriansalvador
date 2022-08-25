@@ -269,8 +269,8 @@ export default {
 		gzip: true,
 		i18n: true,
 		routes: async () => {
-			const cdnURL = process.env.NODE_ENV === 'production' ? process.env.CDN_BASE_URL : process.env.CDN_BASE_URL_DEV
-			const { data } = await get(`${cdnURL}/sitemap`)
+			const apiURL = process.env.NODE_ENV === 'production' ? process.env.API_BASE_URL : process.env.API_BASE_URL_DEV
+			const { data } = await get(`${apiURL}/sitemap`)
 			return data
 		}
 	},
