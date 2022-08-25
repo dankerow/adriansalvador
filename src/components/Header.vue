@@ -10,7 +10,7 @@
 						no-prefetch
 					>
 						<span class="text text-uppercase">[Adrian Salvador]</span>
-						<span class="capton text-uppercase">{{ $t('metadata.description') }}</span>
+						<span class="caption text-uppercase">{{ $t('metadata.description') }}</span>
 					</NuxtLink>
 				</div>
 			</div>
