@@ -21,7 +21,7 @@
     "@yeger/vue2-masonry-wall": "^2.0.46",
     "aos": "3.0.0-beta.6",
     "bootstrap": "5.2.0",
-    "core-js": "^3.24.1",
+    "core-js": "^3.25.0",
     "nuxt": "^2.15.8",
     "nuxt-helmet": "^2.1.1",
     "photoswipe": "^5.3.0",
