@@ -2292,17 +2292,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxtjs/sentry@npm:^5.1.7":
-  version: 5.1.7
-  resolution: "@nuxtjs/sentry@npm:5.1.7"
+"@nuxtjs/sentry@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@nuxtjs/sentry@npm:6.0.0"
   dependencies:
-    "@sentry/browser": ^6.17.3
-    "@sentry/integrations": ^6.17.3
-    "@sentry/node": ^6.17.3
-    "@sentry/webpack-plugin": ^1.18.4
+    "@sentry/browser": ^6.19.7
+    "@sentry/integrations": ^6.19.7
+    "@sentry/node": ^6.19.7
     consola: ^2.15.3
     lodash.mergewith: ^4.6.2
-  checksum: 64142a0186d2d5af4ae1e4bf21fb58cf23f2344b01dbd02a96405740c8de703cb6e3ed9047f6bbe404e0cabfce866db2fe741e85ab2f78ee508de5fee33ae31c
+  checksum: 5ff488f5cdfe4e8686389f7595a00c4761daa9bb25f31e773934ca427e371a570794e6cbe02bab95ec9b481cb696be5aadd74b60029040f253007f5a40a8d9ef
   languageName: node
   linkType: hard
 
@@ -2364,7 +2363,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/browser@npm:^6.17.3":
+"@sentry/browser@npm:^6.19.7":
   version: 6.19.7
   resolution: "@sentry/browser@npm:6.19.7"
   dependencies:
@@ -2373,23 +2372,6 @@ __metadata:
     "@sentry/utils": 6.19.7
     tslib: ^1.9.3
   checksum: 071d00c76c2d0384580474c634c58c6196bbd1a3cf510da1309bd1565c57df7422fca8ceb717db189fa557f2c711a21664ee1ab935dfd9869faf416d388e6f78
-  languageName: node
-  linkType: hard
-
-"@sentry/cli@npm:^1.74.4":
-  version: 1.74.5
-  resolution: "@sentry/cli@npm:1.74.5"
-  dependencies:
-    https-proxy-agent: ^5.0.0
-    mkdirp: ^0.5.5
-    node-fetch: ^2.6.7
-    npmlog: ^4.1.2
-    progress: ^2.0.3
-    proxy-from-env: ^1.1.0
-    which: ^2.0.2
-  bin:
-    sentry-cli: bin/sentry-cli
-  checksum: f416416d85a567fef9cef9bbba5d700b63e7374531ed9b68f26fd4bf77cacb7067d483a53b5f24be4e98829a4260ad539de393e11710ef77bb61d57dcc6f7073
   languageName: node
   linkType: hard
 
@@ -2417,7 +2399,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/integrations@npm:^6.17.3":
+"@sentry/integrations@npm:^6.19.7":
   version: 6.19.7
   resolution: "@sentry/integrations@npm:6.19.7"
   dependencies:
@@ -2440,7 +2422,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/node@npm:^6.17.3":
+"@sentry/node@npm:^6.19.7":
   version: 6.19.7
   resolution: "@sentry/node@npm:6.19.7"
   dependencies:
@@ -2470,15 +2452,6 @@ __metadata:
     "@sentry/types": 6.19.7
     tslib: ^1.9.3
   checksum: a000223b9c646c64e3565e79cace1eeb75114342b768367c4dddd646476c215eb1bddfb70c63f05e2352d3bce2d7d415344e4757a001605d0e01ac74da5dd306
-  languageName: node
-  linkType: hard
-
-"@sentry/webpack-plugin@npm:^1.18.4":
-  version: 1.19.0
-  resolution: "@sentry/webpack-plugin@npm:1.19.0"
-  dependencies:
-    "@sentry/cli": ^1.74.4
-  checksum: 08a48378e0177f175337ef41107734aa6c1fcc76a806067d099048e71508184ee1b5b9889cc2ff4b9b2ef49242d1649ba1a47f5073d4173231c9ab60643fdba8
   languageName: node
   linkType: hard
 
@@ -3391,7 +3364,7 @@ __metadata:
     "@nuxtjs/google-gtag": ^1.0.4
     "@nuxtjs/i18n": ^7.3.0
     "@nuxtjs/pwa": ^3.3.5
-    "@nuxtjs/sentry": ^5.1.7
+    "@nuxtjs/sentry": ^6.0.0
     "@nuxtjs/sitemap": ^2.4.0
     "@nuxtjs/svg": ^0.4.0
     "@yeger/vue2-masonry-wall": ^2.0.48
@@ -11937,13 +11910,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"progress@npm:^2.0.3":
-  version: 2.0.3
-  resolution: "progress@npm:2.0.3"
-  checksum: f67403fe7b34912148d9252cb7481266a354bd99ce82c835f79070643bb3c6583d10dbcfda4d41e04bbc1d8437e9af0fb1e1f2135727878f5308682a579429b7
-  languageName: node
-  linkType: hard
-
 "promise-inflight@npm:^1.0.1":
   version: 1.0.1
   resolution: "promise-inflight@npm:1.0.1"
@@ -11983,13 +11949,6 @@ __metadata:
   version: 2.0.1
   resolution: "protocols@npm:2.0.1"
   checksum: 4a9bef6aa0449a0245ded319ac3cbfd032c3e76ebb562777037a3a832c99253d0e8bc2847f7be350236df620a11f7d4fe683ea7f59a2cc14c69f746b6259eda4
-  languageName: node
-  linkType: hard
-
-"proxy-from-env@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "proxy-from-env@npm:1.1.0"
-  checksum: ed7fcc2ba0a33404958e34d95d18638249a68c430e30fcb6c478497d72739ba64ce9810a24f53a7d921d0c065e5b78e3822759800698167256b04659366ca4d4
   languageName: node
   linkType: hard
 
