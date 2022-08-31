@@ -43,7 +43,7 @@
     "@nuxtjs/google-fonts": "3.0.0-0",
     "@nuxtjs/svg": "^0.4.0",
     "eslint": "^8.22.0",
-    "eslint-plugin-nuxt": "^3.2.0",
+    "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-vue": "^9.4.0",
     "nuxt-compress": "^5.0.0",
     "nuxt-purgecss": "^1.0.0",
