@@ -5,7 +5,10 @@ html {
 }
 
 body {
+	direction: ltr;
+	font-synthesis: none;
 	overflow-y: auto;
+	text-rendering: optimizeLegibility;
 
 	&::-webkit-scrollbar {
 		width: 8px;
