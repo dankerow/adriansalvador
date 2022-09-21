@@ -10,16 +10,15 @@
 			<div class="image-container" :style="`max-height: ${item.thumb.height}px;`">
 				<a
 					:data-pswp-src="item.url"
-					:data-pswp-width="item.tags.file['Image Width'].value"
-					:data-pswp-height="item.tags.file['Image Height'].value"
+					:data-pswp-width="item.metadata.width"
+					:data-pswp-height="item.metadata.height"
 					type="button"
 				>
 					<nuxt-img
 						class="image-thumbnail"
-						:src="item.thumb.url"
+						:src="`${item.thumb.url}?width=225`"
 						:height="item.thumb.height"
 						:width="item.thumb.width"
-						data-aos="fade-up"
 						loading="lazy"
 						draggable="false"
 						:style="`height: auto; max-width: ${item.thumb.width}px; width: 100%;`"
@@ -28,7 +27,7 @@
 				</a>
 
 				<div v-if="item.album" class="hidden-caption-content">
-					<NuxtLink :to="`/albums/${item.album.id}`" no-prefetch>
+					<NuxtLink :to="localePath(`/albums/${item.album.id}`)" no-prefetch>
 						{{ item.album.name }}
 					</NuxtLink>
 				</div>
@@ -122,6 +121,7 @@ export default {
 <style lang="scss" scoped>
 .image-container {
 	border-radius: 0.10rem;
+	background-color: #141414;
 	height: 100%;
 	overflow: clip;
 	position: relative;
