@@ -2,7 +2,8 @@
 	<section class="favorites py-10 py-lg-12">
 		<div class="container">
 			<p class="description mb-12" data-aos="fade-up">
-				<span class="first-letter">A</span>n aspiring film maker who was born and raised in Saudi Arabia, but originally Filipino, Adrian is a a filmmaker, photographer and overall artist open and exploring multiple medias of art. Through his immersion and integration into to different cultures he has been able to have a wider perspective of the world and its beauty. Aiming to explore subjects that evoke deep emotions of love and pain in his art.
+				<span class="first-letter">{{ $t('biography')[0] }}</span>
+				{{ $t('biography').substring(1) }}
 			</p>
 
 			<div class="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-4 g-lg-0 justify-content-center">
@@ -12,7 +13,7 @@
 							<div class="overlay" />
 						</div>
 						<div class="card-body">
-							<NuxtLink to="/albums/4ac306ea-bcec-41b6-b942-1938296a01d6" no-prefetch>
+							<NuxtLink :to="localePath('/albums/4ac306ea-bcec-41b6-b942-1938296a01d6')" no-prefetch>
 								<h2 class="album-title">
 									Rap God
 								</h2>
@@ -27,7 +28,7 @@
 							<div class="overlay" />
 						</div>
 						<div class="card-body">
-							<NuxtLink to="/albums/34b7cce4-bb76-4e31-9dd7-3ccde004db6a" no-prefetch>
+							<NuxtLink :to="localePath('/albums/34b7cce4-bb76-4e31-9dd7-3ccde004db6a')" no-prefetch>
 								<h2 class="album-title">
 									Kate 'N Drew
 								</h2>
@@ -38,12 +39,12 @@
 
 				<div class="col-lg-3">
 					<div class="card featured tilt" data-aos="zoom-in" data-aos-duration="400">
-						<span class="featured-badge">Featured</span>
+						<span class="featured-badge">{{ $t('cards.featured') }}</span>
 						<div class="cover french-immersion">
 							<div class="overlay" />
 						</div>
 						<div class="card-body">
-							<NuxtLink to="/albums/c10a66f4-4b18-427f-81b5-f6213d38cdc1" no-prefetch>
+							<NuxtLink :to="localePath('/albums/c10a66f4-4b18-427f-81b5-f6213d38cdc1')" no-prefetch>
 								<h2 class="album-title">
 									French Immersion
 								</h2>
@@ -58,7 +59,7 @@
 							<div class="overlay" />
 						</div>
 						<div class="card-body">
-							<NuxtLink to="/albums/ac8ae991-fce0-4b2d-8a0b-a3a6395d6f6d" no-prefetch>
+							<NuxtLink :to="localePath('/albums/ac8ae991-fce0-4b2d-8a0b-a3a6395d6f6d')" no-prefetch>
 								<h2 class="album-title">
 									When She Txts You GN
 								</h2>
@@ -73,7 +74,7 @@
 							<div class="overlay" />
 						</div>
 						<div class="card-body">
-							<NuxtLink to="/albums/56a14f2f-d344-4101-86e9-587369401016" no-prefetch>
+							<NuxtLink :to="localePath('/albums/56a14f2f-d344-4101-86e9-587369401016')" no-prefetch>
 								<h2 class="album-title">
 									High On Life
 								</h2>
