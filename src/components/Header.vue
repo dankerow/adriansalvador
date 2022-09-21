@@ -5,7 +5,7 @@
 				<div id="navbarCollapse" class="collapse navbar-collapse text-center">
 					<NuxtLink
 						class="navbar-brand mx-auto"
-						to="/"
+						:to="localePath('/')"
 						aria-label="Navbar Logo"
 						no-prefetch
 					>
