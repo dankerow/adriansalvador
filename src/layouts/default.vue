@@ -1,23 +1,9 @@
 <template>
 	<div>
-		<LazyHydrate when-visible>
-			<Header />
-		</LazyHydrate>
+		<Header />
 
-		<Nuxt role="main" />
+		<Nuxt keep-alive role="main" />
 
-		<LazyHydrate when-visible>
-			<Footer />
-		</LazyHydrate>
+		<Footer />
 	</div>
 </template>
-
-<script>
-import LazyHydrate from 'vue-lazy-hydration'
-
-export default {
-	components: {
-		LazyHydrate
-	}
-}
-</script>
