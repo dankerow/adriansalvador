@@ -13,6 +13,7 @@ export default {
 		port: process.env.SERVER_PORT
 	},
 	publicRuntimeConfig: {
+		apiBaseURL: process.env.NODE_ENV === 'production' ? process.env.API_BASE_URL : process.env.API_BASE_URL_DEV,
 		cdnBaseURL: process.env.NODE_ENV === 'production' ? process.env.CDN_BASE_URL : process.env.CDN_BASE_URL_DEV
 	},
 	// Global page headers: https://go.nuxtjs.dev/config-head
@@ -84,7 +85,7 @@ export default {
 		],
 		script: [
 			{
-				src: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/js/bootstrap.bundle.min.js',
+				src: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.1/js/bootstrap.bundle.min.js',
 				type: 'text/javascript',
 				crossOrigin: 'anonymous',
 				defer: true
@@ -220,7 +221,9 @@ export default {
 		keyframes: true,
 		whitelist: ['dark-mode', 'svg', 'aos-init', 'aos-animate', 'data-aos'],
 		whitelistPatterns: [
-			/pswp/
+			/pswp/,
+			/btn/,
+			/dropdown/
 		]
 	},
 
@@ -279,7 +282,7 @@ export default {
 	build: {
 		devtools: true,
 		transpile: ['photoswipe'],
-		extractCSS: true,
+		extractCSS: process.env.NODE_ENV === 'production',
 		html: {
 			minify: {
 				collapseBooleanAttributes: true,
