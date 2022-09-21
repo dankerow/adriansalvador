@@ -19,7 +19,42 @@
 }
 
 .pswp__custom-caption {
+	// scss-docs-start btn-css-vars
+	--#{$prefix}btn-padding-x: #{$btn-padding-x};
+	--#{$prefix}btn-padding-y: #{$btn-padding-y};
+	--#{$prefix}btn-font-family: #{$btn-font-family};
+	@include rfs($btn-font-size, --#{$prefix}btn-font-size);
+	--#{$prefix}btn-font-weight: #{$btn-font-weight};
+	--#{$prefix}btn-line-height: #{$btn-line-height};
+	--#{$prefix}btn-color: #{$body-color};
+	--#{$prefix}btn-border-radius: #{$btn-border-radius};
+	--#{$prefix}btn-box-shadow: #{$btn-box-shadow};
+	--#{$prefix}btn-disabled-opacity: #{$btn-disabled-opacity};
+	--#{$prefix}btn-focus-box-shadow: 0 0 0 #{$btn-focus-width} rgba(var(--#{$prefix}btn-focus-shadow-rgb), .5);
+	// scss-docs-end btn-css-vars
+
+	padding: var(--#{$prefix}btn-padding-y) var(--#{$prefix}btn-padding-x);
+	font-family: var(--#{$prefix}btn-font-family);
+	@include font-size(var(--#{$prefix}btn-font-size));
+	font-weight: var(--#{$prefix}btn-font-weight);
+	line-height: var(--#{$prefix}btn-line-height);
+	color: var(--#{$prefix}btn-color);
+	text-align: center;
+	text-decoration: if($link-decoration == none, null, none);
+	white-space: $btn-white-space;
+	vertical-align: middle;
+	cursor: if($enable-button-pointers, pointer, null);
+	user-select: none;
+	@include border-radius(var(--#{$prefix}btn-border-radius));
+	@include box-shadow(var(--#{$prefix}btn-box-shadow));
+	@include transition($btn-transition);
+
+	background-color: #242424;
+	border-color: #242424;
+	box-shadow: 0 0.125rem 0 rgb(69 69 69 / 50%);
+
 	a {
+		display: block;
 		color: #ffffffbf;
 
 		&:hover {
