@@ -1,5 +1,5 @@
 <template>
-	<div class="btn-group">
+	<div class="btn-group dropup-center dropup">
 		<button class="btn btn-dark btn-sm" type="button" disabled>
 			Theme Preference:
 		</button>
@@ -52,7 +52,7 @@ export default {
 }
 
 .dropdown-menu {
-	transition: all 0.3s ease-in-out;
+	z-index: 1021;
 
 	.dropdown-item {
 		border-radius: 0.15rem;
@@ -63,7 +63,6 @@ export default {
 		&:not(:last-child) {
 			margin-bottom: 0.25rem;
 		}
-
 	}
 }
 </style>
