@@ -1,8 +1,6 @@
 @import "~bootstrap/scss/buttons";
 
 .btn {
-	font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
-
 	&:hover {
 		transform: translateY(-1px);
 	}
