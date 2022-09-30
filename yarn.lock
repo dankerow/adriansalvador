@@ -2318,16 +2318,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxtjs/sentry@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "@nuxtjs/sentry@npm:6.0.0"
+"@nuxtjs/sentry@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "@nuxtjs/sentry@npm:6.0.1"
   dependencies:
     "@sentry/browser": ^6.19.7
     "@sentry/integrations": ^6.19.7
     "@sentry/node": ^6.19.7
     consola: ^2.15.3
     lodash.mergewith: ^4.6.2
-  checksum: 5ff488f5cdfe4e8686389f7595a00c4761daa9bb25f31e773934ca427e371a570794e6cbe02bab95ec9b481cb696be5aadd74b60029040f253007f5a40a8d9ef
+  checksum: b992a22362ab1ff64c6598045f2fa2d8ce45cada96297abf06d7c3236085814f06a6c8a4fbe168ee585443c154384b80c830ce7f6bcee51c4e48fcf71f0ecd7d
   languageName: node
   linkType: hard
 
@@ -3417,7 +3417,7 @@ __metadata:
     "@nuxtjs/google-gtag": ^1.0.4
     "@nuxtjs/i18n": ^7.3.0
     "@nuxtjs/pwa": ^3.3.5
-    "@nuxtjs/sentry": ^6.0.0
+    "@nuxtjs/sentry": ^6.0.1
     "@nuxtjs/sitemap": ^2.4.0
     "@nuxtjs/stylelint-module": ^4.1.0
     "@nuxtjs/svg": ^0.4.0
