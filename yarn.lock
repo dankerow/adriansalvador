@@ -3331,12 +3331,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yeger/vue2-masonry-wall@npm:^2.0.56":
-  version: 2.0.56
-  resolution: "@yeger/vue2-masonry-wall@npm:2.0.56"
+"@yeger/vue2-masonry-wall@npm:^2.0.58":
+  version: 2.0.58
+  resolution: "@yeger/vue2-masonry-wall@npm:2.0.58"
   peerDependencies:
     vue: ^2.0.0
-  checksum: 47279a16f7215b8a2baaf6673473b1fed8d6680d47404f5e84aec4f1716f3e7ff429dffd7b645e3c180c5d4f47dab4bbedd08e60bb1ecf0bd1a9fdfc02edfd59
+  checksum: 48111a5f0044a18b9e8b417de34fa8c3033bc67af7e04872caab903491144d98072b474f78f01254e53737a60ecb7c82d019289f33e11f636fd087a07645ba27
   languageName: node
   linkType: hard
 
@@ -3421,7 +3421,7 @@ __metadata:
     "@nuxtjs/sitemap": ^2.4.0
     "@nuxtjs/stylelint-module": ^4.1.0
     "@nuxtjs/svg": ^0.4.0
-    "@yeger/vue2-masonry-wall": ^2.0.56
+    "@yeger/vue2-masonry-wall": ^2.0.58
     aos: 3.0.0-beta.6
     bootstrap: 5.2.1
     core-js: ^3.25.3
