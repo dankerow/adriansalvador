@@ -85,7 +85,7 @@ export default {
 		],
 		script: [
 			{
-				src: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.1/js/bootstrap.bundle.min.js',
+				src: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.2/js/bootstrap.bundle.min.js',
 				type: 'text/javascript',
 				crossOrigin: 'anonymous',
 				defer: true
