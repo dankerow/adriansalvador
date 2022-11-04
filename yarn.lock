@@ -3426,7 +3426,7 @@ __metadata:
     nuxt-compress: ^5.0.0
     nuxt-helmet: ^2.1.1
     nuxt-purgecss: ^1.0.0
-    photoswipe: ^5.3.2
+    photoswipe: ^5.3.3
     postcss-html: ^1.5.0
     sass: ^1.55.0
     sass-loader: 10.3.1
@@ -11212,10 +11212,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"photoswipe@npm:^5.3.2":
-  version: 5.3.2
-  resolution: "photoswipe@npm:5.3.2"
-  checksum: c9a369e088b40e7dfac6b3bc402183dee2b3b04971299544910b00bfc97f550080baaf8b0ba1b4229bad8427c80cfa7bff7b693db43d9e6f74808687efe28025
+"photoswipe@npm:^5.3.3":
+  version: 5.3.3
+  resolution: "photoswipe@npm:5.3.3"
+  checksum: b114801f3fc6d245e9813e8832686923de6e8edd1134e434eb3bc298023ac2a6741d9bd0bf4a2edea61d4467a8f56e0adf1a9e300c0c3f8be5664e1171325e01
   languageName: node
   linkType: hard
 
