@@ -3532,7 +3532,7 @@ __metadata:
     stylelint-config-recommended-vue: ^1.1.0
     stylelint-config-standard: ^24.0.0
     stylelint-config-twbs-bootstrap: ^5.0.0
-    vanilla-tilt: ^1.7.2
+    vanilla-tilt: ^1.7.3
     vue: ^2.6.14
     vue-lazy-hydration: ^2.0.0-beta.4
     vue-server-renderer: ^2.6.14
@@ -15697,10 +15697,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vanilla-tilt@npm:^1.7.2":
-  version: 1.7.2
-  resolution: "vanilla-tilt@npm:1.7.2"
-  checksum: 6909bae39a32f7fa707f848468d0bd914020dd38931821f2ce7e1f0b546a123ebd76c64fec7398b351021cf72508bb7d8af5627c92435bec5892827f62127c67
+"vanilla-tilt@npm:^1.7.3":
+  version: 1.7.3
+  resolution: "vanilla-tilt@npm:1.7.3"
+  checksum: d63381d85b63b9a68c5aa14994ae6846e8ef3ba7fd8aa0e64f5e654af5219bf107ca160c65ed254ee481f7dae957abe4c7751e7770d9eaf2f11b30f5d19bde09
   languageName: node
   linkType: hard
 
