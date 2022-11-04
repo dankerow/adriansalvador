@@ -1381,13 +1381,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime-corejs3@npm:^7.19.1":
-  version: 7.19.1
-  resolution: "@babel/runtime-corejs3@npm:7.19.1"
+"@babel/runtime-corejs3@npm:^7.20.1":
+  version: 7.20.1
+  resolution: "@babel/runtime-corejs3@npm:7.20.1"
   dependencies:
     core-js-pure: ^3.25.1
-    regenerator-runtime: ^0.13.4
-  checksum: 38a1e8fcd2ba1f76c951259c98a5a11052123923adbf30ec8b2fec202dbbe38c6db61658ef9398e00c30f799e2e54ea036e56a09f43229261918bf5ec1b7d03a
+    regenerator-runtime: ^0.13.10
+  checksum: bac1463304deb0e395f78aef2bf0e042d0ae303285b9f55e443d8ce4d3d05ccb92ac0aa5ca4bf83526695d21b12a239317537b00918d6ebf7a4132e5ec2f6f33
   languageName: node
   linkType: hard
 
@@ -3398,7 +3398,7 @@ __metadata:
   resolution: "adriansalvador@workspace:."
   dependencies:
     "@babel/eslint-parser": ^7.19.1
-    "@babel/runtime-corejs3": ^7.19.1
+    "@babel/runtime-corejs3": ^7.20.1
     "@nuxt/image": ^0.7.1
     "@nuxt/types": ~2.15.8
     "@nuxtjs/axios": ^5.13.6
@@ -12748,6 +12748,13 @@ __metadata:
   version: 1.4.2
   resolution: "regenerate@npm:1.4.2"
   checksum: 3317a09b2f802da8db09aa276e469b57a6c0dd818347e05b8862959c6193408242f150db5de83c12c3fa99091ad95fb42a6db2c3329bfaa12a0ea4cbbeb30cb0
+  languageName: node
+  linkType: hard
+
+"regenerator-runtime@npm:^0.13.10":
+  version: 0.13.10
+  resolution: "regenerator-runtime@npm:0.13.10"
+  checksum: 09893f5a9e82932642d9a999716b6c626dc53ef2a01307c952ebbf8e011802360163a37c304c18a6c358548be5a72b448e37209954a18696f21e438c81cbb4b9
   languageName: node
   linkType: hard
 
