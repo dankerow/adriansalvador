@@ -7,7 +7,7 @@ specifiers:
   '@nuxtjs/axios': ^5.13.6
   '@nuxtjs/color-mode': 2.1.1
   '@nuxtjs/device': ^2.1.0
-  '@nuxtjs/eslint-config': ^11.0.0
+  '@nuxtjs/eslint-config': ^12.0.0
   '@nuxtjs/eslint-module': ^3.1.0
   '@nuxtjs/google-fonts': 3.0.0-1
   '@nuxtjs/google-gtag': ^1.0.4
@@ -68,7 +68,7 @@ devDependencies:
   '@nuxt/types': 2.15.8_sass@1.56.1
   '@nuxtjs/color-mode': 2.1.1
   '@nuxtjs/device': 2.1.0
-  '@nuxtjs/eslint-config': 11.0.0_eslint@8.27.0
+  '@nuxtjs/eslint-config': 12.0.0_eslint@8.27.0
   '@nuxtjs/eslint-module': 3.1.0_eslint@8.27.0
   '@nuxtjs/google-fonts': 3.0.0-1
   '@nuxtjs/svg': 0.4.0_s72bufat24j4xi363kb5czieqe
@@ -1889,8 +1889,8 @@ packages:
       defu: 3.2.2
     dev: true
 
-  /@nuxtjs/eslint-config/11.0.0_eslint@8.27.0:
-    resolution: {integrity: sha512-o4zFOpU8gJgwrC/gLE7c2E0XEjkv2fEixCGG1y+dZYzBPyzTorkQmfxskSF3WRXcZkpkS9uUYlRkeOSdYB7z0w==}
+  /@nuxtjs/eslint-config/12.0.0_eslint@8.27.0:
+    resolution: {integrity: sha512-ewenelo75x0eYEUK+9EBXjc/OopQCvdkmYmlZuoHq5kub/vtiRpyZ/autppwokpHUq8tiVyl2ejMakoiHiDTrg==}
     peerDependencies:
       eslint: ^8.23.0
     dependencies:
@@ -1900,8 +1900,9 @@ packages:
       eslint-plugin-n: 15.5.1_eslint@8.27.0
       eslint-plugin-node: 11.1.0_eslint@8.27.0
       eslint-plugin-promise: 6.1.1_eslint@8.27.0
-      eslint-plugin-unicorn: 43.0.2_eslint@8.27.0
+      eslint-plugin-unicorn: 44.0.2_eslint@8.27.0
       eslint-plugin-vue: 9.7.0_eslint@8.27.0
+      local-pkg: 0.4.2
     transitivePeerDependencies:
       - '@typescript-eslint/parser'
       - eslint-import-resolver-typescript
@@ -4896,11 +4897,11 @@ packages:
       eslint: 8.27.0
     dev: true
 
-  /eslint-plugin-unicorn/43.0.2_eslint@8.27.0:
-    resolution: {integrity: sha512-DtqZ5mf/GMlfWoz1abIjq5jZfaFuHzGBZYIeuJfEoKKGWRHr2JiJR+ea+BF7Wx2N1PPRoT/2fwgiK1NnmNE3Hg==}
+  /eslint-plugin-unicorn/44.0.2_eslint@8.27.0:
+    resolution: {integrity: sha512-GLIDX1wmeEqpGaKcnMcqRvMVsoabeF0Ton0EX4Th5u6Kmf7RM9WBl705AXFEsns56ESkEs0uyelLuUTvz9Tr0w==}
     engines: {node: '>=14.18'}
     peerDependencies:
-      eslint: '>=8.18.0'
+      eslint: '>=8.23.1'
     dependencies:
       '@babel/helper-validator-identifier': 7.19.1
       ci-info: 3.6.1
