@@ -22,7 +22,7 @@ specifiers:
   aos: 3.0.0-beta.6
   bootstrap: 5.2.2
   core-js: ^3.26.0
-  eslint: ^8.26.0
+  eslint: ^8.27.0
   eslint-plugin-nuxt: ^4.0.0
   eslint-plugin-vue: ^9.7.0
   node-zopfli-es: ~1.0.3
