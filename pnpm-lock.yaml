@@ -16,7 +16,7 @@ specifiers:
   '@nuxtjs/sentry': ^6.0.1
   '@nuxtjs/sitemap': ^2.4.0
   '@nuxtjs/svg': ^0.4.0
-  '@yeger/vue2-masonry-wall': ^2.0.71
+  '@yeger/vue2-masonry-wall': ^2.0.73
   aos: 3.0.0-beta.6
   bootstrap: 5.2.2
   core-js: ^3.26.1
@@ -46,7 +46,7 @@ dependencies:
   '@nuxtjs/pwa': 3.3.5
   '@nuxtjs/sentry': 6.0.1
   '@nuxtjs/sitemap': 2.4.0
-  '@yeger/vue2-masonry-wall': 2.0.71_vue@2.7.14
+  '@yeger/vue2-masonry-wall': 2.0.73_vue@2.7.14
   aos: 3.0.0-beta.6
   bootstrap: 5.2.2
   core-js: 3.26.1
@@ -2716,8 +2716,8 @@ packages:
   /@xtuc/long/4.2.2:
     resolution: {integrity: sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==}
 
-  /@yeger/vue2-masonry-wall/2.0.71_vue@2.7.14:
-    resolution: {integrity: sha512-0AWtNZtD06IYnGXV0h0e0EoAylYE+aerOkbaY2rhPNPc0BB6SwquXQDDOMEYBg0tujsiq4KLLkR78ZAigRVrGQ==}
+  /@yeger/vue2-masonry-wall/2.0.73_vue@2.7.14:
+    resolution: {integrity: sha512-EVrvuso2ee12zDGbZ++85mULxj1EPzZxDxJdVrjz1Nzy7b5gb5IGhVTPltLzVdBYxFaU8rzrnaK12Y7UMmY8Gw==}
     engines: {node: '>=12'}
     peerDependencies:
       vue: ^2.0.0
