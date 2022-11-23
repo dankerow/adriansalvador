@@ -28,7 +28,7 @@ specifiers:
   nuxt-compress: ^5.0.0
   nuxt-helmet: ^2.1.1
   nuxt-purgecss: ^1.0.0
-  photoswipe: ^5.3.3
+  photoswipe: ^5.3.4
   postcss-html: ^1.5.0
   sass: ^1.56.1
   sass-loader: 10.4.1
@@ -52,7 +52,7 @@ dependencies:
   core-js: 3.26.1
   nuxt: 2.15.8_vue@2.7.14
   nuxt-helmet: 2.1.1
-  photoswipe: 5.3.3
+  photoswipe: 5.3.4
   vanilla-tilt: 1.7.3
   vue: 2.7.14
   vue-lazy-hydration: 2.0.0-beta.4
@@ -7826,8 +7826,8 @@ packages:
   /performance-now/2.1.0:
     resolution: {integrity: sha512-7EAHlyLHI56VEIdK57uwHdHKIaAGbnXPiw0yWbarQZOKaKpvUIgW0jWRVLiatnM+XXlSwsanIBH/hzGMJulMow==}
 
-  /photoswipe/5.3.3:
-    resolution: {integrity: sha512-BUuulwZwkYFKADSe5xf0dd+wf6dws34ZvqP8R3oYHepRauOXoQHvw600sw1HlWd8K0S3LRCS4jxyR5fTuI383Q==}
+  /photoswipe/5.3.4:
+    resolution: {integrity: sha512-SN+RWHqxJvdwzXJsh8KrG+ajjPpdTX5HpKglEd0k9o6o5fW+QHPkW8//Bo11MB+NQwTa/hFw8BDv2EdxiDXjNw==}
     engines: {node: '>= 0.12.0'}
     dev: false
 
