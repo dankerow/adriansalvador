@@ -11,7 +11,7 @@
 			<template v-else>
 				<template v-for="item in items">
 					<li v-if="!item.hidden" :key="item.id">
-						<NuxtLink class="text" :to="item.url" no-prefetch>
+						<NuxtLink class="text" :to="localePath(item.url)" no-prefetch>
 							{{ item.name }}
 						</NuxtLink>
 					</li>
