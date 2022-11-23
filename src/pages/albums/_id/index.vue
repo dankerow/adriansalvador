@@ -102,7 +102,7 @@
 				<div class="row row-cols-1 justify-content-center">
 					<div class="col">
 						<LazyHydrate when-visible>
-							<GalleryGrid :id="`gallery-grid-${album.id}`" :images="images" :srr-columns="ssrColumns" />
+							<GalleryGrid :id="`gallery-grid-${album.id}`" :images="images" :ssr-columns="ssrColumns" />
 						</LazyHydrate>
 					</div>
 				</div>
