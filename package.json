@@ -47,7 +47,7 @@
     "nuxt-compress": "^5.0.0",
     "nuxt-purgecss": "^1.0.0",
     "postcss-html": "^1.5.0",
-    "sass": "^1.56.1",
+    "sass": "^1.56.2",
     "sass-loader": "10.4.1",
     "shrink-ray-current": "^4.1.3"
   },
