@@ -13,7 +13,7 @@ specifiers:
   '@nuxtjs/google-gtag': ^1.0.4
   '@nuxtjs/i18n': ^7.3.0
   '@nuxtjs/pwa': ^3.3.5
-  '@nuxtjs/sentry': ^6.0.1
+  '@nuxtjs/sentry': ^6.0.2
   '@nuxtjs/sitemap': ^2.4.0
   '@nuxtjs/svg': ^0.4.0
   '@yeger/vue2-masonry-wall': ^2.3.1
@@ -44,7 +44,7 @@ dependencies:
   '@nuxtjs/google-gtag': 1.0.4
   '@nuxtjs/i18n': 7.3.0_vue@2.7.14
   '@nuxtjs/pwa': 3.3.5
-  '@nuxtjs/sentry': 6.0.1
+  '@nuxtjs/sentry': 6.0.2
   '@nuxtjs/sitemap': 2.4.0
   '@yeger/vue2-masonry-wall': 2.3.1_vue@2.7.14
   aos: 3.0.0-beta.6
@@ -1983,8 +1983,8 @@ packages:
       - supports-color
     dev: false
 
-  /@nuxtjs/sentry/6.0.1:
-    resolution: {integrity: sha512-mvkzwYpRz6KzyrlR9QC7380xjAUGfBDI58QOSrv4BawZUHDcCH3TIbJBtcq6PEfczm5cbG1xG+K4MR401bNt9A==}
+  /@nuxtjs/sentry/6.0.2:
+    resolution: {integrity: sha512-Vx8FlFiRIq/SIxWL7Mu8bveOT3bGNu5mZ7nl+nvtPdjMOi8WSx6FttcqunvIlHr1erUgVey9T0eDuyt1PkKA6w==}
     dependencies:
       '@sentry/browser': 6.19.7
       '@sentry/integrations': 6.19.7
