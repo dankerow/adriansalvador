@@ -30,7 +30,7 @@ specifiers:
   nuxt-purgecss: ^1.0.0
   photoswipe: ^5.3.4
   postcss-html: ^1.5.0
-  sass: ^1.56.1
+  sass: ^1.56.2
   sass-loader: 10.4.1
   shrink-ray-current: ^4.1.3
   vanilla-tilt: ^1.7.3
@@ -65,7 +65,7 @@ optionalDependencies:
 devDependencies:
   '@babel/runtime-corejs3': 7.20.6
   '@nuxt/image': 0.7.1
-  '@nuxt/types': 2.15.8_sass@1.56.1
+  '@nuxt/types': 2.15.8_sass@1.56.2
   '@nuxtjs/color-mode': 2.1.1
   '@nuxtjs/device': 2.1.0
   '@nuxtjs/eslint-config': 12.0.0_eslint@8.29.0
@@ -78,8 +78,8 @@ devDependencies:
   nuxt-compress: 5.0.0_nuxt@2.15.8
   nuxt-purgecss: 1.0.0
   postcss-html: 1.5.0
-  sass: 1.56.1
-  sass-loader: 10.4.1_sass@1.56.1
+  sass: 1.56.2
+  sass-loader: 10.4.1_sass@1.56.2
   shrink-ray-current: 4.1.3_node-zopfli-es@1.0.7
 
 packages:
@@ -1677,7 +1677,7 @@ packages:
     transitivePeerDependencies:
       - encoding
 
-  /@nuxt/types/2.15.8_sass@1.56.1:
+  /@nuxt/types/2.15.8_sass@1.56.2:
     resolution: {integrity: sha512-zBAG5Fy+SIaZIerOVF1vxy1zz16ZK07QSbsuQAjdtEFlvr+vKK+0AqCv8r8DBY5IVqdMIaw5FgNUz5py0xWdPg==}
     dependencies:
       '@types/autoprefixer': 9.7.2
@@ -1698,7 +1698,7 @@ packages:
       '@types/webpack-bundle-analyzer': 3.9.3
       '@types/webpack-dev-middleware': 4.1.2
       '@types/webpack-hot-middleware': 2.25.4
-      sass-loader: 10.1.1_sass@1.56.1
+      sass-loader: 10.1.1_sass@1.56.2
     transitivePeerDependencies:
       - fibers
       - node-sass
@@ -9067,7 +9067,7 @@ packages:
   /safer-buffer/2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  /sass-loader/10.1.1_sass@1.56.1:
+  /sass-loader/10.1.1_sass@1.56.2:
     resolution: {integrity: sha512-W6gVDXAd5hR/WHsPicvZdjAWHBcEJ44UahgxcIE196fW2ong0ZHMPO1kZuI5q0VlvMQZh32gpv69PLWQm70qrw==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -9086,12 +9086,12 @@ packages:
       klona: 2.0.5
       loader-utils: 2.0.4
       neo-async: 2.6.2
-      sass: 1.56.1
+      sass: 1.56.2
       schema-utils: 3.1.1
       semver: 7.3.8
     dev: true
 
-  /sass-loader/10.4.1_sass@1.56.1:
+  /sass-loader/10.4.1_sass@1.56.2:
     resolution: {integrity: sha512-aX/iJZTTpNUNx/OSYzo2KsjIUQHqvWsAhhUijFjAPdZTEhstjZI9zTNvkTTwsx+uNUJqUwOw5gacxQMx4hJxGQ==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -9110,13 +9110,13 @@ packages:
       klona: 2.0.5
       loader-utils: 2.0.4
       neo-async: 2.6.2
-      sass: 1.56.1
+      sass: 1.56.2
       schema-utils: 3.1.1
       semver: 7.3.8
     dev: true
 
-  /sass/1.56.1:
-    resolution: {integrity: sha512-VpEyKpyBPCxE7qGDtOcdJ6fFbcpOM+Emu7uZLxVrkX8KVU/Dp5UF7WLvzqRuUhB6mqqQt1xffLoG+AndxTZrCQ==}
+  /sass/1.56.2:
+    resolution: {integrity: sha512-ciEJhnyCRwzlBCB+h5cCPM6ie/6f8HrhZMQOf5vlU60Y1bI1rx5Zb0vlDZvaycHsg/MqFfF1Eq2eokAa32iw8w==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
