@@ -11,7 +11,7 @@ specifiers:
   '@nuxtjs/eslint-module': ^3.1.0
   '@nuxtjs/google-fonts': 3.0.0-1
   '@nuxtjs/google-gtag': ^1.0.4
-  '@nuxtjs/i18n': ^7.3.0
+  '@nuxtjs/i18n': ^7.3.1
   '@nuxtjs/pwa': ^3.3.5
   '@nuxtjs/sentry': ^6.0.2
   '@nuxtjs/sitemap': ^2.4.0
@@ -42,7 +42,7 @@ specifiers:
 dependencies:
   '@nuxtjs/axios': 5.13.6
   '@nuxtjs/google-gtag': 1.0.4
-  '@nuxtjs/i18n': 7.3.0_vue@2.7.14
+  '@nuxtjs/i18n': 7.3.1_vue@2.7.14
   '@nuxtjs/pwa': 3.3.5
   '@nuxtjs/sentry': 6.0.2
   '@nuxtjs/sitemap': 2.4.0
@@ -1938,14 +1938,15 @@ packages:
     resolution: {integrity: sha512-0Xgbx1uQ9pKeV2QdU9xoxJVdgH66qyGQJ0l8pzVxz5X476qvJunj6fbcjWk0gT+MEX/VOAhfT/zw0Z1z9q9oNg==}
     dev: false
 
-  /@nuxtjs/i18n/7.3.0_vue@2.7.14:
-    resolution: {integrity: sha512-KBmFzgHjaJ/b+I/nISWUkAxcigjc5FiR1ScRzq/eC8Ahxi5zIulfF8vRROmYbW1gP6B2yYBblOuWemW/T/YM0A==}
+  /@nuxtjs/i18n/7.3.1_vue@2.7.14:
+    resolution: {integrity: sha512-DZP6xR8zZA1ApcNjLnukH3BhMRCfi3r236epuXVuPWWOObPf5vkp+VamewnPiSU+zs0Age+PbaaIUryFv/6pDA==}
     engines: {node: '>=14.16'}
     dependencies:
       '@babel/parser': 7.20.3
       '@babel/traverse': 7.20.1
       '@intlify/vue-i18n-extensions': 1.0.2
       '@intlify/vue-i18n-loader': 1.1.0
+      '@nuxt/utils': 2.15.8
       cookie: 0.5.0
       devalue: 2.0.1
       is-https: 4.0.0
