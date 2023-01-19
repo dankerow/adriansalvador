@@ -19,7 +19,7 @@ specifiers:
   '@yeger/vue2-masonry-wall': ^2.3.1
   aos: 3.0.0-beta.6
   bootstrap: 5.2.3
-  core-js: ^3.26.1
+  core-js: ^3.27.2
   eslint: ^8.29.0
   eslint-plugin-nuxt: ^4.0.0
   eslint-plugin-vue: ^9.8.0
@@ -49,7 +49,7 @@ dependencies:
   '@yeger/vue2-masonry-wall': 2.3.1_vue@2.7.14
   aos: 3.0.0-beta.6
   bootstrap: 5.2.3
-  core-js: 3.26.1
+  core-js: 3.27.2
   nuxt: 2.15.8_vue@2.7.14
   nuxt-helmet: 2.1.1
   photoswipe: 5.3.4
@@ -4019,8 +4019,8 @@ packages:
     deprecated: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
     requiresBuild: true
 
-  /core-js/3.26.1:
-    resolution: {integrity: sha512-21491RRQVzUn0GGM9Z1Jrpr6PNPxPi+Za8OM9q4tksTSnlbXXGKK1nXNg/QvwFYettXvSX6zWKCtHHfjN4puyA==}
+  /core-js/3.27.2:
+    resolution: {integrity: sha512-9ashVQskuh5AZEZ1JdQWp1GqSoC1e1G87MzRqg2gIfVAQ7Qn9K+uFj8EcniUFA4P2NLZfV+TOlX1SzoKfo+s7w==}
     requiresBuild: true
     dev: false
 
