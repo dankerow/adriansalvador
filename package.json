@@ -22,7 +22,7 @@
     "aos": "3.0.0-beta.6",
     "bootstrap": "5.2.3",
     "core-js": "^3.26.1",
-    "nuxt": "^2.15.8",
+    "nuxt": "^2.16.0",
     "nuxt-helmet": "^2.1.1",
     "photoswipe": "^5.3.4",
     "vanilla-tilt": "^1.8.0",
