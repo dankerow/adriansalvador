@@ -6,7 +6,7 @@ specifiers:
   '@nuxt/types': ~2.15.8
   '@nuxtjs/axios': ^5.13.6
   '@nuxtjs/color-mode': 2.1.1
-  '@nuxtjs/device': ^2.1.0
+  '@nuxtjs/device': ^3.1.0
   '@nuxtjs/eslint-config': ^12.0.0
   '@nuxtjs/eslint-module': ^3.1.0
   '@nuxtjs/google-fonts': 3.0.0-1
@@ -67,7 +67,7 @@ devDependencies:
   '@nuxt/image': 0.7.1
   '@nuxt/types': 2.15.8_sass@1.56.2
   '@nuxtjs/color-mode': 2.1.1
-  '@nuxtjs/device': 2.1.0
+  '@nuxtjs/device': 3.1.0
   '@nuxtjs/eslint-config': 12.0.0_eslint@8.29.0
   '@nuxtjs/eslint-module': 3.1.0_eslint@8.29.0
   '@nuxtjs/google-fonts': 3.0.0-1
@@ -1883,10 +1883,14 @@ packages:
       lodash.template: 4.5.0
     dev: true
 
-  /@nuxtjs/device/2.1.0:
-    resolution: {integrity: sha512-TYBdt1w2bmCCWp+MhgcBATZtqyUBi3nSdNpcLGILw5USLwCsC/yZtIkq9YisuEzuRnod9w/RZpoE80MxLftEuA==}
+  /@nuxtjs/device/3.1.0:
+    resolution: {integrity: sha512-jXWCVuPmzsGpn86GTA9/TOmfWulf9h3r2g6o5LpoZk4P1a9McMlpbDiaMPmyG5erfCj6H+XoZ6HBPCN9DtoCDA==}
     dependencies:
-      defu: 3.2.2
+      '@nuxt/kit': 3.0.0
+      defu: 6.1.1
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
     dev: true
 
   /@nuxtjs/eslint-config/12.0.0_eslint@8.29.0:
@@ -4389,6 +4393,7 @@ packages:
 
   /defu/3.2.2:
     resolution: {integrity: sha512-8UWj5lNv7HD+kB0e9w77Z7TdQlbUYDVWqITLHNqFIn6khrNHv5WQo38Dcm1f6HeNyZf0U7UbPf6WeZDSdCzGDQ==}
+    dev: false
 
   /defu/4.0.1:
     resolution: {integrity: sha512-lC+G0KvvWRbisQa50+iFelm3/eMmwo4IlBmfASOVlw9MZpHHyQeVsZxc5j23+TQy5ydgEoTVSrWl7ptou1kzJQ==}
@@ -9465,6 +9470,7 @@ packages:
 
   /sourcemap-codec/1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
+    deprecated: Please use @jridgewell/sourcemap-codec instead
     dev: true
 
   /spdx-correct/3.1.1:
