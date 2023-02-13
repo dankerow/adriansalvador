@@ -1,8 +1,8 @@
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
-export default ({ app }) => {
-	app.AOS = AOS.init(
+export default defineNuxtPlugin((nuxtApp) => {
+	nuxtApp.AOS = AOS.init(
 		{
 			once: true,
 			throttleDelay: 399,
@@ -10,4 +10,4 @@ export default ({ app }) => {
 			duration: 800
 		}
 	)
-}
+})
