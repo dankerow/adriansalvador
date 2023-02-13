@@ -1,18 +1,27 @@
+<script setup lang="ts">
+const colorMode = useColorMode()
+const { locale, locales, setLocale } = useI18n()
+
+const availableLocales = computed(() => {
+	return (locales.value).filter((l: { code: any; value: any; }) => l.code !== locale.value)
+})
+</script>
+
 <template>
 	<div class="btn-group dropup-center dropup">
-		<button class="btn btn-dark btn-sm" type="button" disabled>
+		<button class="btn btn-sm" :class="{ 'btn-dark': colorMode.value === 'dark' }" type="button" disabled>
 			Language:
 		</button>
 
-		<button class="btn btn-dark btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-			{{ $i18n.locales.find(locale => locale.code === $i18n.locale).name }}
+		<button class="btn btn-sm dropdown-toggle" :class="{ 'btn-dark': colorMode.value === 'dark' }" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+			{{ locales.find(l => l.code === locale).name }}
 		</button>
 
-		<ul :class="`dropdown-menu ${$colorMode.value === 'dark' ? 'dropdown-menu-dark' : '' }`">
+		<ul :class="`dropdown-menu ${colorMode.value === 'dark' ? 'dropdown-menu-dark' : ''}`">
 			<li
 				v-for="locale in availableLocales"
 				:key="locale.code"
-				@click="changeLocale(locale.code)"
+				@click="setLocale(locale.code)"
 			>
 				<span class="dropdown-item">
 					{{ locale.name }}
@@ -21,21 +30,6 @@
 		</ul>
 	</div>
 </template>
-
-<script>
-export default {
-	computed: {
-		availableLocales() {
-			return this.$i18n.locales.filter(locale => locale.code !== this.$i18n.locale)
-		}
-	},
-	methods: {
-		changeLocale(locale) {
-			return this.$i18n.setLocale(locale)
-		}
-	}
-}
-</script>
 
 <style lang="scss" scoped>
 .btn-sm {
