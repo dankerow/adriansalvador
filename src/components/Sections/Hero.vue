@@ -1,7 +1,20 @@
+<script setup lang="ts">
+const runtimeConfig = useRuntimeConfig()
+</script>
+
 <template>
 	<section class="hero">
-		<video id="background-video" autoplay loop muted :poster="require('~/assets/images/reflections-poster.jpg')">
-			<source :src="`${$config.cdnBaseURL}/videos/reflections.mp4`" type="video/mp4">
+		<video
+			id="background-video"
+			autoplay
+			loop
+			muted
+			poster="~/assets/images/reflections-poster.jpg"
+		>
+			<source
+				:src="`${runtimeConfig.public.cdnBaseURL}/videos/reflections.mp4`"
+				type="video/mp4"
+			>
 		</video>
 	</section>
 </template>
