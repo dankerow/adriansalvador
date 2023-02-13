@@ -1,7 +1,83 @@
+<script setup lang="ts">
+import { Ref } from 'vue'
+
+import PhotoSwipeLightbox from 'photoswipe/lightbox'
+import 'photoswipe/photoswipe.css'
+
+interface Props {
+	id: string,
+	images: any[],
+	ssrColumns?: number,
+	columnWidth?: number,
+	gap?: number,
+}
+
+const props = withDefaults(defineProps<Props>(), {
+	ssrColumns: 4,
+	columnWidth: 195,
+	gap: 15
+})
+
+const localePath = useLocalePath()
+
+const imagesData: Ref<any[]> = ref(props.images)
+const lightbox: Ref<PhotoSwipeLightbox|null> = ref(null)
+
+onMounted(() => {
+	if (!lightbox.value) {
+		lightbox.value = new PhotoSwipeLightbox({
+			gallery: `#${props.id}`,
+			children: '.image-container',
+			pswpModule: () => import('photoswipe')
+		})
+
+		lightbox.value.on('uiRegister', () => {
+			lightbox.value.pswp.ui.registerElement({
+				name: 'custom-caption',
+				order: 9,
+				isButton: false,
+				appendTo: 'root',
+				html: 'Caption text',
+				onInit: (el: HTMLElement) => {
+					lightbox.value.pswp.on('change', () => {
+						const currSlideElement = lightbox.value.pswp.currSlide.data.element
+						let captionHTML = ''
+
+						if (currSlideElement) {
+							const hiddenCaption = currSlideElement.querySelector('.hidden-caption-content')
+							if (hiddenCaption) {
+								captionHTML = hiddenCaption.innerHTML
+							} else {
+								captionHTML = currSlideElement.querySelector('img').getAttribute('alt')
+							}
+						}
+
+						el.innerHTML = captionHTML || ''
+					})
+				}
+			})
+		})
+
+		lightbox.value.init()
+	}
+})
+
+onUnmounted(() => {
+	if (lightbox) {
+		lightbox.value.destroy()
+		lightbox.value = null
+	}
+})
+
+watch(() => props.images, (newImages) => {
+	imagesData.value = newImages
+})
+</script>
+
 <template>
 	<masonry-wall
 		:id="id"
-		:items="images"
+		:items="imagesData"
 		:ssr-columns="ssrColumns"
 		:column-width="columnWidth"
 		:gap="gap"
@@ -35,88 +111,6 @@
 		</template>
 	</masonry-wall>
 </template>
-
-<script>
-import PhotoSwipeLightbox from 'photoswipe/dist/photoswipe-lightbox.esm.js'
-import 'photoswipe/dist/photoswipe.css'
-
-export default {
-	components: {
-		MasonryWall: () => import('@yeger/vue2-masonry-wall')
-	},
-	props: {
-		id: {
-			type: String,
-			required: true
-		},
-		images: {
-			type: Array,
-			required: true
-		},
-		ssrColumns: {
-			type: Number,
-			default: () => 4
-		},
-		columnWidth: {
-			type: Number,
-			default: () => 195
-		},
-		gap: {
-			type: Number,
-			default: () => 15
-		}
-	},
-	data() {
-		return {
-			lightbox: null
-		}
-	},
-	mounted() {
-		if (!this.lightbox) {
-			this.lightbox = new PhotoSwipeLightbox({
-				gallery: `#${this.id}`,
-				children: '.image-container',
-				pswpModule: () => import('photoswipe')
-			})
-
-			this.lightbox.on('uiRegister', () => {
-				this.lightbox.pswp.ui.registerElement({
-					name: 'custom-caption',
-					order: 9,
-					isButton: false,
-					appendTo: 'root',
-					html: 'Caption text',
-					onInit: (el, pswp) => {
-						this.lightbox.pswp.on('change', () => {
-							const currSlideElement = this.lightbox.pswp.currSlide.data.element
-							let captionHTML = ''
-							if (currSlideElement) {
-								const hiddenCaption = currSlideElement.querySelector('.hidden-caption-content')
-								if (hiddenCaption) {
-									// get caption from element with class hidden-caption-content
-									captionHTML = hiddenCaption.innerHTML
-								} else {
-									// get caption from alt attribute
-									captionHTML = currSlideElement.querySelector('img').getAttribute('alt')
-								}
-							}
-							el.innerHTML = captionHTML || ''
-						})
-					}
-				})
-			})
-
-			this.lightbox.init()
-		}
-	},
-	unmounted() {
-		if (this.lightbox) {
-			this.lightbox.destroy()
-			this.lightbox = null
-		}
-	}
-}
-</script>
 
 <style lang="scss" scoped>
 .image-container {
