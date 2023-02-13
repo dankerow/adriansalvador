@@ -1,6 +1,11 @@
+<script setup lang="ts">
+const colorMode = useColorMode()
+const localePath = useLocalePath()
+</script>
+
 <template>
 	<header>
-		<nav :class="`navbar ${$colorMode.value === 'dark' ? 'navbar-dark' : '' } navbar-expand`">
+		<nav class="navbar navbar-expand" :class="{ 'navbar-dark': colorMode.value === 'dark' }">
 			<div class="container-fluid">
 				<div id="navbarCollapse" class="collapse navbar-collapse text-center">
 					<NuxtLink
