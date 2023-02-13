@@ -11,7 +11,7 @@ specifiers:
   '@types/node': ^18.13.0
   '@yeger/vue-masonry-wall': ^3.4.3
   aos: 3.0.0-beta.6
-  bootstrap: 5.2.3
+  bootstrap: 5.3.0-alpha1
   eslint: ^8.34.0
   eslint-plugin-nuxt: ^4.0.0
   nuxt: 3.2.0
@@ -29,7 +29,7 @@ dependencies:
   '@nuxtjs/i18n': 8.0.0-beta.9
   '@yeger/vue-masonry-wall': 3.4.3
   aos: 3.0.0-beta.6
-  bootstrap: 5.2.3
+  bootstrap: 5.3.0-alpha1
   nuxt-lazy-hydrate: 0.1.0
   nuxt-security: 0.10.2
   photoswipe: 5.3.5
@@ -2336,8 +2336,8 @@ packages:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
     dev: true
 
-  /bootstrap/5.2.3:
-    resolution: {integrity: sha512-cEKPM+fwb3cT8NzQZYEu4HilJ3anCrWqh3CHAok1p9jXqMPsPTBhU25fBckEJHJ/p+tTxTFTsFQGM+gaHpi3QQ==}
+  /bootstrap/5.3.0-alpha1:
+    resolution: {integrity: sha512-ABZpKK4ObS3kKlIqH+ZVDqoy5t/bhFG0oHTAzByUdon7YIom0lpCeTqRniDzJmbtcWkNe800VVPBiJgxSYTYew==}
     peerDependencies:
       '@popperjs/core': ^2.11.6
     dev: false
