@@ -1,18 +1,33 @@
+<script setup lang="ts">
+import type { Ref, ComputedRef } from 'vue'
+
+const colorMode = useColorMode()
+
+const colors: Ref<string[]> = ref(['system', 'light', 'dark'])
+
+const availableColors: ComputedRef<string[]> = computed(() => {
+	return colors.value.filter((color: string) => color !== colorMode.preference)
+})
+</script>
+
 <template>
 	<div class="btn-group dropup-center dropup">
-		<button class="btn btn-dark btn-sm" type="button" disabled>
+		<button class="btn btn-sm" :class="{ 'btn-dark': colorMode.value === 'dark' }" type="button" disabled>
 			Theme Preference:
 		</button>
 
-		<button class="btn btn-dark btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-			{{ $colorMode.preference }}
+		<button class="btn btn-sm dropdown-toggle" :class="{ 'btn-dark': colorMode.value === 'dark' }" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+			{{ colorMode.preference }}
 		</button>
 
-		<ul :class="`dropdown-menu ${$colorMode.value === 'dark' ? 'dropdown-menu-dark' : '' }`">
+		<ul
+			class="dropdown-menu"
+			:class="{ 'dropdown-menu-dark': colorMode.value === 'dark' }"
+		>
 			<li
 				v-for="color of availableColors"
 				:key="color"
-				@click="$colorMode.preference = color"
+				@click="colorMode.preference = color"
 			>
 				<span class="dropdown-item text-capitalize">
 					{{ color }}
@@ -21,21 +36,6 @@
 		</ul>
 	</div>
 </template>
-
-<script>
-export default {
-	data() {
-		return {
-			colors: ['system', 'light', 'dark']
-		}
-	},
-	computed: {
-		availableColors() {
-			return this.colors.filter(color => color !== this.$colorMode.preference)
-		}
-	}
-}
-</script>
 
 <style lang="scss" scoped>
 .btn-sm {
