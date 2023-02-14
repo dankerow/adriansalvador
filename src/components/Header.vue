@@ -5,21 +5,23 @@ const localePath = useLocalePath()
 
 <template>
 	<header>
-		<nav class="navbar navbar-expand" :class="{ 'navbar-dark': colorMode.value === 'dark' }">
-			<div class="container-fluid">
-				<div id="navbarCollapse" class="collapse navbar-collapse text-center">
-					<NuxtLink
-						class="navbar-brand mx-auto"
-						:to="localePath('/')"
-						aria-label="Navbar Logo"
-						no-prefetch
-					>
-						<span class="text text-uppercase">[Adrian Salvador]</span>
-						<span class="caption text-uppercase">{{ $t('metadata.description') }}</span>
-					</NuxtLink>
+		<ColorScheme tag="nav">
+			<nav class="navbar navbar-expand" :class="{ 'navbar-dark': colorMode.value === 'dark' }">
+				<div class="container-fluid">
+					<div id="navbarCollapse" class="collapse navbar-collapse text-center">
+						<NuxtLink
+							class="navbar-brand mx-auto"
+							:to="localePath('/')"
+							aria-label="Navbar Logo"
+							no-prefetch
+						>
+							<span class="text text-uppercase">[Adrian Salvador]</span>
+							<span class="caption text-uppercase">{{ $t('metadata.description') }}</span>
+						</NuxtLink>
+					</div>
 				</div>
-			</div>
-		</nav>
+			</nav>
+		</ColorScheme>
 	</header>
 </template>
 
@@ -58,7 +60,7 @@ header {
 .dark-mode {
 	header {
 		.navbar {
-			background-color: rgb(20, 20, 20);
+			background-color: rgb(14, 14, 14);
 		}
 	}
 }

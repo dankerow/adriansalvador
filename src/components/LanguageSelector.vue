@@ -9,25 +9,27 @@ const availableLocales = computed(() => {
 
 <template>
 	<div class="btn-group dropup-center dropup">
-		<button class="btn btn-sm" :class="{ 'btn-dark': colorMode.value === 'dark' }" type="button" disabled>
-			Language:
-		</button>
+		<ColorScheme>
+			<button class="btn btn-sm" :class="{ 'btn-dark': colorMode.value === 'dark' }" type="button" disabled>
+				Language:
+			</button>
 
-		<button class="btn btn-sm dropdown-toggle" :class="{ 'btn-dark': colorMode.value === 'dark' }" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-			{{ locales.find(l => l.code === locale).name }}
-		</button>
+			<button class="btn btn-sm dropdown-toggle" :class="{ 'btn-dark': colorMode.value === 'dark' }" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				{{ locales.find(l => l.code === locale).name }}
+			</button>
 
-		<ul :class="`dropdown-menu ${colorMode.value === 'dark' ? 'dropdown-menu-dark' : ''}`">
-			<li
-				v-for="locale in availableLocales"
-				:key="locale.code"
-				@click="setLocale(locale.code)"
-			>
-				<span class="dropdown-item">
-					{{ locale.name }}
-				</span>
-			</li>
-		</ul>
+			<ul :class="`dropdown-menu ${colorMode.value === 'dark' ? 'dropdown-menu-dark' : ''}`">
+				<li
+					v-for="locale in availableLocales"
+					:key="locale.code"
+					@click="setLocale(locale.code)"
+				>
+					<span class="dropdown-item">
+						{{ locale.name }}
+					</span>
+				</li>
+			</ul>
+		</ColorScheme>
 	</div>
 </template>
 

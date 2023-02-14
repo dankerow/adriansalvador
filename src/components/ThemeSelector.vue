@@ -12,28 +12,30 @@ const availableColors: ComputedRef<string[]> = computed(() => {
 
 <template>
 	<div class="btn-group dropup-center dropup">
-		<button class="btn btn-sm" :class="{ 'btn-dark': colorMode.value === 'dark' }" type="button" disabled>
-			Theme Preference:
-		</button>
+		<ColorScheme>
+			<button class="btn btn-sm" :class="{ 'btn-dark': colorMode.value === 'dark' }" type="button" disabled>
+				Theme Preference:
+			</button>
 
-		<button class="btn btn-sm dropdown-toggle" :class="{ 'btn-dark': colorMode.value === 'dark' }" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-			{{ colorMode.preference }}
-		</button>
+			<button class="btn btn-sm dropdown-toggle" :class="{ 'btn-dark': colorMode.value === 'dark' }" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				{{ colorMode.preference }}
+			</button>
 
-		<ul
-			class="dropdown-menu"
-			:class="{ 'dropdown-menu-dark': colorMode.value === 'dark' }"
-		>
-			<li
-				v-for="color of availableColors"
-				:key="color"
-				@click="colorMode.preference = color"
+			<ul
+				class="dropdown-menu"
+				:class="{ 'dropdown-menu-dark': colorMode.value === 'dark' }"
 			>
-				<span class="dropdown-item text-capitalize">
-					{{ color }}
-				</span>
-			</li>
-		</ul>
+				<li
+					v-for="color of availableColors"
+					:key="color"
+					@click="colorMode.preference = color"
+				>
+					<span class="dropdown-item text-capitalize">
+						{{ color }}
+					</span>
+				</li>
+			</ul>
+		</ColorScheme>
 	</div>
 </template>
 
