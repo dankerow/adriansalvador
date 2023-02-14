@@ -232,19 +232,19 @@ nav {
 
 .dark-mode {
 	nav {
-		background-image: linear-gradient(to bottom, rgba(27, 27, 27, 0.6), rgba(27, 27, 27, 0.9), rgba(27, 27, 27, 1));
+		background-image: linear-gradient(to bottom, rgba(15, 15, 15, 0.6), rgba(15, 15, 15, 0.9), rgba(15, 15, 15, 1));
 	}
 
 	.pagination {
 		--bs-pagination-color: #8a8a8a;
-		--bs-pagination-bg: rgb(24, 24, 24);
+		--bs-pagination-bg: rgb(15, 15, 15);
 		--bs-pagination-border-color: #606060;
 		--bs-pagination-hover-color: #212121;
 		--bs-pagination-active-color: #e9e9e9;
 		--bs-pagination-active-bg: #1b1b1b;
 		--bs-pagination-active-border-color: #909090;
 		--bs-pagination-disabled-color: #4a4a4a;
-		--bs-pagination-disabled-bg: rgb(24, 24, 24);
+		--bs-pagination-disabled-bg: rgb(15, 15, 15);
 		--bs-pagination-disabled-border-color: #242424;
 	}
 }
