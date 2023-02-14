@@ -16,7 +16,7 @@
 		<div class="footer-bottom py-3">
 			<div class="container">
 				<p class="mb-0">
-					© 2022 Adrian Salvador. Made by
+					© {{ new Date().getFullYear() }} Adrian Salvador. Made by
 					<a href="https://danmutombo.com" rel="noreferrer" target="_blank">
 						Dan Mutombo
 					</a>
@@ -31,7 +31,6 @@ footer {
 	background-color: rgb(245, 245, 245);
 	color: #989898;
 	font-size: 12px;
-	margin-top: 2rem;
 
 	.footer-actions {
 		background-color: rgb(235, 235, 235);
