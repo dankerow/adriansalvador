@@ -47,7 +47,7 @@ export default {
 	ul {
 		width: auto;
 
-		li {
+		:slotted(li) {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -84,18 +84,40 @@ export default {
 				}
 			}
 		}
-	}
-}
 
-.dark-mode {
-	.list {
-		ul {
-			li {
-				.text {
-					color: #9f9f9f;
+		li {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 
-					&:hover {
-						color: #f5f5f5;
+			.text {
+				font-family: "Favorit SSENSE Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+				font-size: 12px;
+				font-stretch: normal;
+				font-style: normal;
+				font-weight: normal;
+				letter-spacing: .09px;
+				line-height: 15px;
+				position: relative;
+				transition: color 300ms ease-in-out;
+
+				&:before {
+					bottom: 0;
+					background-color: currentColor;
+					content: "";
+					height: 0.5px;
+					left: auto;
+					position: absolute;
+					right: 0;
+					transition: width 0.2s linear;
+					width: 0;
+				}
+
+				&:hover {
+					&:before {
+						left: 0;
+						right: auto;
+						width: 100%;
 					}
 				}
 			}
