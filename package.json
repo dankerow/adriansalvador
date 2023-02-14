@@ -28,6 +28,7 @@
     "@nuxtjs/google-fonts": "3.0.0-1",
     "@types/aos": "^3.0.4",
     "@types/node": "^18.13.0",
+    "@vite-pwa/nuxt": "^0.0.5",
     "eslint": "^8.34.0",
     "eslint-plugin-nuxt": "^4.0.0",
     "nuxt": "3.2.0",
