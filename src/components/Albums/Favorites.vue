@@ -108,6 +108,7 @@ export default {
 }
 
 .favorites {
+	background: radial-gradient(circle at center, black 0%, #101010 100%);
 	min-height: 100vh;
 	overflow-x: clip;
 
@@ -215,23 +216,23 @@ export default {
 			}
 
 			&.rap-god {
-				background-image: url('~assets/images/Untitled_Artwork.jpg');
+				background-image: url('~/assets/images/Untitled_Artwork.jpg');
 			}
 
 			&.katendrew {
-				background-image: url('~assets/images/Untitled_Artwork 1.jpg');
+				background-image: url('~/assets/images/Untitled_Artwork 1.jpg');
 			}
 
 			&.whenshetxtsyougn {
-				background-image: url('~assets/images/Untitled_Artwork 2.jpg');
+				background-image: url('~/assets/images/Untitled_Artwork 2.jpg');
 			}
 
 			&.highonlife {
-				background-image: url('~assets/images/Untitled_Artwork 3.jpg');
+				background-image: url('~/assets/images/Untitled_Artwork 3.jpg');
 			}
 
 			&.french-immersion {
-				background-image: url('~assets/images/Untitled_Artwork 4.jpg');
+				background-image: url('~/assets/images/Untitled_Artwork 4.jpg');
 			}
 		}
 
