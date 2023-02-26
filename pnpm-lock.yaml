@@ -10,7 +10,7 @@ specifiers:
   '@types/aos': ^3.0.4
   '@types/node': ^18.14.0
   '@vite-pwa/nuxt': ^0.0.5
-  '@yeger/vue-masonry-wall': ^3.4.3
+  '@yeger/vue-masonry-wall': ^3.4.4
   aos: 3.0.0-beta.6
   bootstrap: 5.3.0-alpha1
   eslint: ^8.34.0
@@ -28,7 +28,7 @@ specifiers:
 
 dependencies:
   '@nuxtjs/i18n': 8.0.0-beta.9
-  '@yeger/vue-masonry-wall': 3.4.3
+  '@yeger/vue-masonry-wall': 3.4.4
   aos: 3.0.0-beta.6
   bootstrap: 5.3.0-alpha1
   nuxt-lazy-hydrate: 0.1.0
@@ -3096,8 +3096,8 @@ packages:
       vue: 3.2.47
     dev: true
 
-  /@yeger/vue-masonry-wall/3.4.3:
-    resolution: {integrity: sha512-ZbLhLmvwmTkzKJt5n5qns96FkxNoCOMV+CAPTKItfPS2p0e29QkEQi8Uq4KR0XdAwXc0rH+2a0xnkeYgUnI7Qw==}
+  /@yeger/vue-masonry-wall/3.4.4:
+    resolution: {integrity: sha512-LSQmLVsntTNTdc2N79dpkuUySYGZUnj/hvFTXPEuNG3eLwy1EKgd2otllVmX5eQeXEp3NVV0HKaRf8y+TsglIw==}
     peerDependencies:
       vue: ^3.0.0
     dev: false
