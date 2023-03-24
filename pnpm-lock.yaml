@@ -32,7 +32,6 @@ specifiers:
   sass-loader: 13.2.1
   typescript: ^4.9.5
   vanilla-tilt: ^1.8.0
-  vue-gtag-next: ^1.14.0
 
 dependencies:
   '@nuxtjs/i18n': 8.0.0-beta.10
@@ -68,7 +67,6 @@ devDependencies:
   sass: 1.60.0
   sass-loader: 13.2.1_sass@1.60.0
   typescript: 4.9.5
-  vue-gtag-next: 1.14.0
 
 packages:
 
@@ -9807,12 +9805,6 @@ packages:
       semver: 7.3.8
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /vue-gtag-next/1.14.0:
-    resolution: {integrity: sha512-iJl+cOG2GU5NuxqzSSIpt03WVOvZqyKB9TOy7d55KiuvRklcnb2nlqxW5B/a3/sbIt7fla+XEkRyMCcoz0zAHw==}
-    peerDependencies:
-      vue: ^3.0.0-rc.11
     dev: true
 
   /vue-i18n-routing/0.12.2_vue-i18n@9.3.0-beta.16:
