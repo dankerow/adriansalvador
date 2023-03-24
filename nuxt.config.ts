@@ -1,13 +1,22 @@
-const hostname = process.env.NODE_ENV !== 'production' ? `http://${process.env.HOST}:${process.env.PORT}` : process.env.BASE_URL
+const isDevelopment = process.env.NODE_ENV === 'development'
+const isProduction = process.env.NODE_ENV === 'production'
 
 export default defineNuxtConfig({
   rootDir: './',
   srcDir: 'src',
 
+  debug: isDevelopment,
+  sourcemap: isDevelopment,
+
+  nitro: {
+    compressPublicAssets: true
+  },
+
   runtimeConfig: {
     public: {
-      apiBaseURL: process.env.NODE_ENV === 'production' ? process.env.API_BASE_URL : process.env.API_BASE_URL_DEV,
-      cdnBaseURL: process.env.NODE_ENV === 'production' ? process.env.CDN_BASE_URL : process.env.CDN_BASE_URL_DEV
+      apiBaseURL: isProduction ? process.env.API_BASE_URL : process.env.API_BASE_URL_DEV,
+      cdnBaseURL: isProduction ? process.env.CDN_BASE_URL : process.env.CDN_BASE_URL_DEV,
+      google_analytics_id: process.env.GOOGLE_GTAG
     }
   },
 
@@ -16,13 +25,16 @@ export default defineNuxtConfig({
   ],
 
   modules: [
+    '@nuxt/devtools',
     '@nuxt/image-edge',
     '@nuxtjs/color-mode',
+    '@nuxtjs/critters',
     '@nuxtjs/device',
+    '@nuxtjs/fontaine',
     '@nuxtjs/google-fonts',
     '@nuxtjs/i18n',
+    '@vueuse/nuxt',
     'nuxt-icon',
-    'nuxt-lazy-hydrate',
     'nuxt-security',
     'nuxt-purgecss'
   ],
@@ -47,7 +59,7 @@ export default defineNuxtConfig({
 
   i18n: {
     strategy: 'prefix_and_default',
-    baseUrl: hostname,
+    baseUrl: process.env.BASE_URL,
     locales: [
       { code: 'en', iso: 'en-US', name: 'English', file: 'en.json' },
       { code: 'fr', iso: 'fr-FR', name: 'Français', file: 'fr.json' }
@@ -61,18 +73,13 @@ export default defineNuxtConfig({
   },
 
   image: {
-    domains: [process.env.NODE_ENV === 'production' ? process.env.CDN_BASE_URL : process.env.CDN_BASE_URL_DEV]
+    domains: [isProduction ? process.env.CDN_BASE_URL : process.env.CDN_BASE_URL_DEV]
   },
 
   purgecss: {
     variables: true,
     keyframes: true,
-    safelist: ['dark-mode', 'svg', 'aos-init', 'aos-animate', 'data-aos'],
-    blocklist: [
-      /pswp/,
-      /btn/,
-      /dropdown/
-    ]
+    safelist: ['dark-mode', 'svg', 'aos-init', 'aos-animate', 'data-aos', /pswp/, /btn/, /dropdown/],
   },
 
   pwa: {
