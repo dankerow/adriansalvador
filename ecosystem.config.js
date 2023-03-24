@@ -1,11 +1,15 @@
+const env = require('dotenv').config()
+
 module.exports = {
 	apps: [
 		{
 			name: 'adriansalvador',
 			exec_mode: 'cluster',
 			instances: 'max',
-			script: './node_modules/nuxt/bin/nuxt.js',
-			args: 'start'
+			env: {
+				...env.parsed
+			},
+			script: './.output/server/index.mjs'
 		}
 	]
 }
