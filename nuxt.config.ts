@@ -35,8 +35,9 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@vueuse/nuxt',
     'nuxt-icon',
+    'nuxt-gtag',
+    'nuxt-purgecss',
     'nuxt-security',
-    'nuxt-purgecss'
   ],
 
   colorMode: {
