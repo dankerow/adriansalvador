@@ -1,3 +1,34 @@
+<script setup lang="ts">
+import type { ComputedRef, Ref } from 'vue'
+import type { Album } from '@/types/albums'
+
+import VanillaTilt from 'vanilla-tilt'
+
+const localePath = useLocalePath()
+const { isDesktop } = useDevice()
+const cdnBaseURL = useRuntimeConfig().public.cdnBaseURL
+
+const props = withDefaults(defineProps<{
+	albums?: Album[]
+}>(), {
+	albums: () => []
+})
+
+const albums: Ref<Album[]> = ref(props.albums || [])
+
+const favorites: ComputedRef<Album[]> = computed(() => albums.value?.filter((album) => album.favorite))
+const featured: ComputedRef<Album|undefined> = computed(() => albums.value?.find((album) => album.featured))
+
+onMounted(() => {
+	if (isDesktop) {
+		const tiltElements = document.querySelectorAll('.tilt')
+		VanillaTilt.init(tiltElements, {
+			reverse: true
+		})
+	}
+})
+</script>
+
 <template>
 	<section class="favorites py-10 py-lg-12">
 		<div class="container">
@@ -6,100 +37,129 @@
 				{{ $t('biography').substring(1) }}
 			</p>
 
-			<div class="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-4 g-lg-0 justify-content-center">
+			<div
+				v-parallax
+				data-rellax-xs-speed="0"
+				data-rellax-mobile-speed="0"
+				data-rellax-tablet-speed="0"
+				data-parallax-speed="-1" data-rellax-percentage="0.5"
+				class="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-4 g-lg-0 justify-content-center pt-5"
+			>
 				<div class="col-lg-2">
 					<div class="card card-sm" data-aos="fade-right" tabindex="-1">
-						<div class="cover rap-god">
+						<div class="cover">
+							<nuxt-img v-if="favorites[0]" :src="`${cdnBaseURL}/images/${favorites[0].cover.name}?width=500`" alt="Album's cover" loading="lazy" />
 							<div class="overlay" />
 						</div>
+
 						<div class="card-body">
-							<NuxtLink :to="localePath('/albums/4ac306ea-bcec-41b6-b942-1938296a01d6')" no-prefetch>
-								<h2 class="album-title">
-									Rap God
-								</h2>
-							</NuxtLink>
+							<h2 class="album-title">
+								{{ favorites[0] ? favorites[0].name : 'X' }}
+							</h2>
 						</div>
+
+						<NuxtLink
+							v-if="favorites[0] && favorites[0].url"
+							:title="favorites[0].name"
+							:to="localePath(favorites[0].url)"
+							class="stretched-link"
+						/>
 					</div>
 				</div>
 
 				<div class="col-lg-2">
 					<div class="card" data-aos="fade-right">
-						<div class="cover katendrew">
+						<div class="cover">
+							<nuxt-img v-if="favorites[1]" :src="`${cdnBaseURL}/images/${favorites[1].cover.name}?width=500`" alt="Album's cover" loading="lazy" />
 							<div class="overlay" />
 						</div>
+
 						<div class="card-body">
-							<NuxtLink :to="localePath('/albums/34b7cce4-bb76-4e31-9dd7-3ccde004db6a')" no-prefetch>
-								<h2 class="album-title">
-									Kate 'N Drew
-								</h2>
-							</NuxtLink>
+							<h2 class="album-title">
+								{{ favorites[1] ? favorites[1].name : 'X' }}
+							</h2>
 						</div>
+
+						<NuxtLink
+							v-if="favorites[1] && favorites[1].url"
+							:title="favorites[1].name"
+							:to="localePath(favorites[1].url)"
+							class="stretched-link"
+						/>
 					</div>
 				</div>
 
 				<div class="col-lg-3">
 					<div class="card featured tilt" data-aos="zoom-in" data-aos-duration="400">
 						<span class="featured-badge">{{ $t('cards.featured') }}</span>
-						<div class="cover french-immersion">
+
+						<div class="cover">
+							<nuxt-img v-if="featured" :src="`${cdnBaseURL}/images/${featured.cover.name}?width=500`" alt="Album's cover" loading="lazy" />
 							<div class="overlay" />
 						</div>
+
 						<div class="card-body">
-							<NuxtLink :to="localePath('/albums/c10a66f4-4b18-427f-81b5-f6213d38cdc1')" no-prefetch>
-								<h2 class="album-title">
-									French Immersion
-								</h2>
-							</NuxtLink>
+							<h2 class="album-title">
+								{{ featured ? featured.name : 'X' }}
+							</h2>
 						</div>
+
+						<NuxtLink
+							v-if="featured && featured.url"
+							:title="featured.name"
+							:to="localePath(featured.url)"
+							class="stretched-link"
+						/>
 					</div>
 				</div>
 
 				<div class="col-lg-2">
 					<div class="card" data-aos="fade-left">
-						<div class="cover whenshetxtsyougn">
+						<div class="cover">
+							<nuxt-img v-if="favorites[2]" :src="`${cdnBaseURL}/images/${favorites[2].cover.name}?width=500`" alt="Album's cover" loading="lazy" />
 							<div class="overlay" />
 						</div>
+
 						<div class="card-body">
-							<NuxtLink :to="localePath('/albums/ac8ae991-fce0-4b2d-8a0b-a3a6395d6f6d')" no-prefetch>
-								<h2 class="album-title">
-									When She Txts You GN
-								</h2>
-							</NuxtLink>
+							<h2 class="card-title album-title">
+								{{ favorites[2] ? favorites[2].name : 'X' }}
+							</h2>
 						</div>
+
+						<NuxtLink
+							v-if="favorites[2] && favorites[2].url"
+							:title="favorites[2].name"
+							:to="localePath(favorites[2].url)"
+							class="stretched-link"
+						/>
 					</div>
 				</div>
 
 				<div class="col-lg-2">
 					<div class="card card-sm" data-aos="fade-left" tabindex="-1">
-						<div class="cover highonlife">
+						<div class="cover">
+							<nuxt-img v-if="favorites[3]" :src="`${cdnBaseURL}/images/${favorites[3].cover.name}?width=500`" alt="Album's cover" loading="lazy" />
 							<div class="overlay" />
 						</div>
+
 						<div class="card-body">
-							<NuxtLink :to="localePath('/albums/56a14f2f-d344-4101-86e9-587369401016')" no-prefetch>
-								<h2 class="album-title">
-									High On Life
-								</h2>
-							</NuxtLink>
+							<h2 class="album-title">
+								{{ favorites[3] ? favorites[3].name : 'X' }}
+							</h2>
 						</div>
+
+						<NuxtLink
+							v-if="favorites[3] && favorites[3].url"
+							:title="favorites[3].name"
+							:to="localePath(favorites[3].url)"
+							class="stretched-link"
+						/>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 </template>
-
-<script>
-import VanillaTilt from 'vanilla-tilt'
-
-export default {
-	mounted() {
-		if (this.$device.isDesktop) {
-			VanillaTilt.init(document.querySelectorAll('.tilt'), {
-				reverse: true
-			})
-		}
-	}
-}
-</script>
 
 <style lang="scss" scoped>
 .container-fluid {
@@ -108,12 +168,12 @@ export default {
 }
 
 .favorites {
-	background: radial-gradient(circle at center, black 0%, #101010 100%);
+	background: radial-gradient(circle at center, white 0%, #ededed 100%);
 	min-height: 100vh;
-	overflow-x: clip;
+	overflow-x: hidden;
 
 	p {
-		font-size: 18px;
+		font-size: 1.125em;
 
 		.first-letter {
 			font-weight: bold;
@@ -123,19 +183,19 @@ export default {
 
 		&:before {
 			content: '"';
-			font-size: 22px;
+			font-size: 1.375em;
 			font-weight: bold;
 		}
 
 		&:after {
 			content: '"';
-			font-size: 22px;
+			font-size: 1.375em;
 			font-weight: bold;
 		}
 	}
 
 	.card {
-		background-color: transparent;
+		background-color: rgb(14, 14, 14);
 		border: none;
 		border-radius: 0.30rem;
 		box-shadow:
@@ -205,6 +265,13 @@ export default {
 			transition: filter 300ms linear;
 			width: 100%;
 
+			img {
+				border-radius: 0.30rem;
+				height: 100%;
+				object-fit: cover;
+				width: 100%;
+			}
+
 			.overlay {
 				background-image: linear-gradient(to bottom, rgba(3, 3, 7, 0.3), rgba(4, 4, 12, 0.8));
 				bottom: 0;
@@ -213,26 +280,6 @@ export default {
 				right: 0;
 				top: 0;
 				transition: .08s;
-			}
-
-			&.rap-god {
-				background-image: url('~/assets/images/Untitled_Artwork.jpg');
-			}
-
-			&.katendrew {
-				background-image: url('~/assets/images/Untitled_Artwork 1.jpg');
-			}
-
-			&.whenshetxtsyougn {
-				background-image: url('~/assets/images/Untitled_Artwork 2.jpg');
-			}
-
-			&.highonlife {
-				background-image: url('~/assets/images/Untitled_Artwork 3.jpg');
-			}
-
-			&.french-immersion {
-				background-image: url('~/assets/images/Untitled_Artwork 4.jpg');
 			}
 		}
 
@@ -287,6 +334,8 @@ export default {
 
 .dark-mode {
 	.favorites {
+		background: radial-gradient(circle at center, black 0%, #101010 100%);
+
 		p {
 			.first-letter {
 				color: #f5f5f5;
