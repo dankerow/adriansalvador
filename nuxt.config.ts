@@ -58,7 +58,7 @@ export default defineNuxtConfig({
   },
 
   i18n: {
-    strategy: 'prefix_and_default',
+    strategy: 'no_prefix',
     baseUrl: process.env.BASE_URL,
     locales: [
       { code: 'en', iso: 'en-US', name: 'English', file: 'en.json' },
