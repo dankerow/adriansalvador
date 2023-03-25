@@ -2,9 +2,8 @@
 import type { Directions } from 'vue-i18n-routing'
 import type { LocaleObject } from '#i18n'
 
-const route = useRoute()
 const colorMode = useColorMode()
-const { t, locale, locales } = useI18n()
+const { locale, locales } = useI18n()
 const head = useLocaleHead({
 	addDirAttribute: true,
 	identifierAttribute: 'id',
@@ -79,7 +78,7 @@ useHead({
 	],
 	script: [
 		{
-			src: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js',
+			src: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0-alpha2/js/bootstrap.bundle.min.js',
 			type: 'text/javascript',
 			defer: true
 		}
@@ -109,7 +108,11 @@ onMounted(() => {
 	<div>
 		<Header />
 
+		<SectionsHero />
+
 		<slot />
+
+		<LazySectionsContact />
 
 		<div class="sticky-bottom">
 			<div class="footer-actions py-3">
@@ -126,7 +129,7 @@ onMounted(() => {
 			</div>
 		</div>
 
-		<Footer />
+		<LazyFooter />
 	</div>
 </template>
 
