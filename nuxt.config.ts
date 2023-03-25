@@ -15,8 +15,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiBaseURL: isProduction ? process.env.API_BASE_URL : process.env.API_BASE_URL_DEV,
-      cdnBaseURL: isProduction ? process.env.CDN_BASE_URL : process.env.CDN_BASE_URL_DEV,
-      google_analytics_id: process.env.GOOGLE_GTAG
+      cdnBaseURL: isProduction ? process.env.CDN_BASE_URL : process.env.CDN_BASE_URL_DEV
     }
   },
 
