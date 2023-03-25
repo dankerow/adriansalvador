@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const runtimeConfig = useRuntimeConfig()
+const cdnBaseUrl = useRuntimeConfig().public.cdnBaseURL
 </script>
 
 <template>
@@ -12,7 +12,7 @@ const runtimeConfig = useRuntimeConfig()
 			poster="~/assets/images/reflections-poster.jpg"
 		>
 			<source
-				:src="`${runtimeConfig.public.cdnBaseURL}/videos/reflections.mp4`"
+				:src="`${cdnBaseUrl}/videos/reflections.mp4`"
 				type="video/mp4"
 			>
 		</video>
