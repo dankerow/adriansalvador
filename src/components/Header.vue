@@ -5,23 +5,21 @@ const localePath = useLocalePath()
 
 <template>
 	<header>
-		<ColorScheme tag="nav">
-			<nav class="navbar navbar-expand" :class="{ 'navbar-dark': colorMode.value === 'dark' }">
-				<div class="container-fluid">
-					<div id="navbarCollapse" class="collapse navbar-collapse text-center">
-						<NuxtLink
-							class="navbar-brand mx-auto"
-							:to="localePath('/')"
-							aria-label="Navbar Logo"
-							no-prefetch
-						>
-							<span class="text text-uppercase">[Adrian Salvador]</span>
-							<span class="caption text-uppercase">{{ $t('metadata.description') }}</span>
-						</NuxtLink>
-					</div>
+		<nav class="navbar navbar-expand">
+			<div class="container-fluid">
+				<div id="navbarCollapse" class="collapse navbar-collapse text-center">
+					<NuxtLink
+						class="navbar-brand mx-auto"
+						:to="localePath('/')"
+						aria-label="Navbar Logo"
+						no-prefetch
+					>
+						<span class="text text-uppercase">[Adrian Salvador]</span>
+						<span class="caption text-uppercase">{{ $t('metadata.description') }}</span>
+					</NuxtLink>
 				</div>
-			</nav>
-		</ColorScheme>
+			</div>
+		</nav>
 	</header>
 </template>
 
@@ -35,7 +33,8 @@ header {
 	z-index: 9999;
 
 	.navbar {
-		background-color: rgb(245, 245, 245);
+		background-color: rgba(245, 245, 245, 0.8);
+		backdrop-filter: blur(12px);
 
 		.navbar-brand {
 			user-select: none;
@@ -60,7 +59,7 @@ header {
 .dark-mode {
 	header {
 		.navbar {
-			background-color: rgb(14, 14, 14);
+			background-color: rgba(14, 14, 14, 0.8);
 		}
 	}
 }
