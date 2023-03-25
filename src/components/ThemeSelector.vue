@@ -3,35 +3,37 @@ import type { Ref, ComputedRef } from 'vue'
 
 const colorMode = useColorMode()
 
-const colors: Ref<string[]> = ref(['system', 'light', 'dark'])
+const themes: Ref<string[]> = ref(['system', 'light', 'dark'])
 
-const availableColors: ComputedRef<string[]> = computed(() => {
-	return colors.value.filter((color: string) => color !== colorMode.preference)
+const availableThemes: ComputedRef<string[]> = computed(() => {
+	return themes.value.filter((theme: string) => theme !== colorMode.preference)
 })
+
+const setTheme = (theme: string) => {
+	document.documentElement.setAttribute('data-bs-theme', colorMode.value === 'dark' ? 'light' : 'dark')
+	colorMode.preference = theme
+}
 </script>
 
 <template>
 	<div class="btn-group dropup-center dropup">
 		<ColorScheme>
-			<button class="btn btn-sm" :class="{ 'btn-dark': colorMode.value === 'dark' }" type="button" disabled>
+			<button class="btn btn-sm" :class="{ 'btn-white': colorMode.value === 'light', 'btn-dark': colorMode.value === 'dark' }" type="button" disabled>
 				Theme Preference:
 			</button>
 
-			<button class="btn btn-sm dropdown-toggle" :class="{ 'btn-dark': colorMode.value === 'dark' }" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+			<button class="btn btn-sm dropdown-toggle" :class="{ 'btn-white': colorMode.value === 'light', 'btn-dark': colorMode.value === 'dark' }" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 				{{ colorMode.preference }}
 			</button>
 
-			<ul
-				class="dropdown-menu"
-				:class="{ 'dropdown-menu-dark': colorMode.value === 'dark' }"
-			>
+			<ul class="dropdown-menu">
 				<li
-					v-for="color of availableColors"
-					:key="color"
-					@click="colorMode.preference = color"
+					v-for="theme of availableThemes"
+					:key="theme"
+					@click="setTheme(theme)"
 				>
 					<span class="dropdown-item text-capitalize">
-						{{ color }}
+						{{ theme }}
 					</span>
 				</li>
 			</ul>
