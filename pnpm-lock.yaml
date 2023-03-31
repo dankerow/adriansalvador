@@ -26,6 +26,7 @@ specifiers:
   nuxt-icon: ^0.3.3
   nuxt-purgecss: ^2.0.0
   nuxt-security: ^0.13.0
+  nuxt-simple-sitemap: ^2.2.0
   photoswipe: ^5.3.6
   rellax: ^1.12.1
   sass: ^1.60.0
@@ -64,6 +65,7 @@ devDependencies:
   nuxt-gtag: 0.3.0
   nuxt-icon: 0.3.3
   nuxt-purgecss: 2.0.0
+  nuxt-simple-sitemap: 2.2.0
   sass: 1.60.0
   sass-loader: 13.2.1_sass@1.60.0
   typescript: 4.9.5
@@ -1965,7 +1967,7 @@ packages:
       knitwork: 1.0.0
       lodash.template: 4.5.0
       mlly: 1.2.0
-      pathe: 1.0.0
+      pathe: 1.1.0
       pkg-types: 1.0.2
       scule: 1.0.0
       semver: 7.3.8
@@ -2038,7 +2040,7 @@ packages:
       create-require: 1.1.1
       defu: 6.1.2
       jiti: 1.18.2
-      pathe: 1.0.0
+      pathe: 1.1.0
       pkg-types: 1.0.2
       postcss-import-resolver: 2.0.0
       scule: 1.0.0
@@ -6950,6 +6952,22 @@ packages:
       - supports-color
     dev: false
 
+  /nuxt-simple-sitemap/2.2.0:
+    resolution: {integrity: sha512-8BN9H4LFxYY8SGFDG8mhMNpBjh0IawsCwmry2Zhb1ynzdIy5sz6Fr+J864XJxbKX7u/tIsWdkVbnr2ch+kM4iw==}
+    dependencies:
+      '@nuxt/kit': 3.3.2
+      chalk: 5.2.0
+      defu: 6.1.2
+      escape-string-regexp: 5.0.0
+      knitwork: 1.0.0
+      pathe: 1.1.0
+      radix3: 1.0.0
+      ufo: 1.1.1
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
+
   /nuxt/3.3.2_6klbhqv7mdgnfcbdq6bkb3e7sq:
     resolution: {integrity: sha512-9xNd9+7M03oYktHnuEEgNRJYfkFwjlLvRi1NsEuEyzcc0SgazGZT89CBsQnlWI3wFMhoxoYPGJ8rc4sJAhJ1Gg==}
     engines: {node: ^14.18.0 || ^16.10.0 || ^17.0.0 || ^18.0.0 || ^19.0.0}
@@ -8968,7 +8986,7 @@ packages:
       local-pkg: 0.4.3
       magic-string: 0.27.0
       mlly: 1.2.0
-      pathe: 1.0.0
+      pathe: 1.1.0
       pkg-types: 1.0.2
       scule: 1.0.0
       strip-literal: 1.0.1

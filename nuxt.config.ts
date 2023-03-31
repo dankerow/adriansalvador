@@ -37,6 +37,7 @@ export default defineNuxtConfig({
     'nuxt-gtag',
     'nuxt-purgecss',
     'nuxt-security',
+    'nuxt-simple-sitemap'
   ],
 
   colorMode: {
@@ -77,9 +78,8 @@ export default defineNuxtConfig({
   },
 
   purgecss: {
-    variables: true,
     keyframes: true,
-    safelist: ['dark-mode', 'aos-init', 'aos-animate', 'data-aos', /pswp/, /btn/, /dropdown/],
+    safelist: ['dark-mode', 'aos-init', 'aos-animate', 'data-aos', /^pswp/, /^btn-/, /^dropdown/]
   },
 
   pwa: {
@@ -105,8 +105,20 @@ export default defineNuxtConfig({
   },
 
   security: {
-    hidePoweredBy: false,
+    enabled: !isDevelopment,
     headers: false
+  },
+
+  sitemap: {
+    enabled: !isDevelopment,
+    siteUrl: process.env.BASE_URL,
+    urls: async () => {
+      const apiURL = isProduction ? process.env.API_BASE_URL : process.env.API_BASE_URL_DEV
+      const data = await fetch(`${apiURL}/sitemap`)
+      if (!data.ok) return []
+
+      return data.json()
+    }
   },
 
   build: {
