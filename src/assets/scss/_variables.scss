@@ -3,15 +3,15 @@
 // Color system
 
 $white:    #fff !default;
-$gray-100: #f4f4f4 !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #242424 !default;
+$gray-100: #e3e3e3 !default;
+$gray-200: #c8c8c8 !default;
+$gray-300: #a4a4a4 !default;
+$gray-400: #818181 !default;
+$gray-500: #666666 !default;
+$gray-600: #515151 !default;
+$gray-700: #434343 !default;
+$gray-800: #383838 !default;
+$gray-900: #171717 !default;
 $black:    #000 !default;
 
 $grays: (
@@ -120,8 +120,6 @@ $link-hover-color:                        shift-color($link-color, $link-shade-p
 $paragraph-margin-bottom:   .675rem !default;
 
 // Components
-//
-// Define common padding and border radius sizes and more.
 
 $border-width:                2px !default;
 
@@ -144,13 +142,9 @@ $focus-ring-blur:       0 !default;
 $focus-ring-box-shadow: 0 2px $focus-ring-blur $focus-ring-width $focus-ring-color !default;
 
 // Typography
-//
-// Font, line-height, and color for body text, headings, and more.
 
 $font-family-sans-serif:      'Archivo', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 
-// $font-size-root affects the value of `rem`, which is used for as well font sizes, paddings, and margins
-// $font-size-base affects the font size of the body text
 $font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
 $font-size-sm:                $font-size-base * .875 !default;
 $font-size-lg:                $font-size-base * 1.25 !default;
@@ -160,6 +154,13 @@ $font-weight-normal:          400 !default;
 $font-weight-base:            $font-weight-normal !default;
 
 $line-height-base:            1.5 !default;
+
+$h1-font-size:                $font-size-base * 1.625 !default;
+$h2-font-size:                $font-size-base * 1.25 !default;
+$h3-font-size:                $font-size-base * 1.0625 !default;
+$h4-font-size:                $font-size-base * .9375 !default;
+$h5-font-size:                $font-size-base * .8125 !default;
+$h6-font-size:                $font-size-base * .625 !default;
 
 $small-font-size:             .875em !default;
 
@@ -175,17 +176,11 @@ $input-btn-padding-x:         .75rem !default;
 $input-btn-font-family:       var(--#{$prefix}font-monospace) !default;
 $input-btn-font-size:         $font-size-sm !default;
 
-$input-btn-focus-width:         $focus-ring-width !default;
-
 // Buttons
 //
 // For each of Bootstrap's buttons, define text, `back`ground, and border color.
 
 $btn-white-space:             nowrap !default; // Set to `nowrap` to prevent text wrapping
-
-$btn-focus-width:             $input-btn-focus-width !default;
-
-$btn-border-radius:           $border-radius !default;
 
 $btn-transition:              color .3s ease-in-out, background-color .3s ease-in-out, border-color .3s ease-in-out, box-shadow .3s ease-in-out, transform .3s ease-in-out !default;
 
@@ -215,8 +210,6 @@ $nav-link-transition:               color .3s ease-in-out, background-color .3s 
 $navbar-padding-y:                  $spacer * .875 !default;
 $navbar-padding-x:                  null !default;
 
-$navbar-nav-link-padding-x:         .5rem !default;
-
 $navbar-brand-font-size:            $font-size-sm !default;
 
 $navbar-toggler-transition:         box-shadow .3s ease-in-out !default;
@@ -240,6 +233,28 @@ $pagination-padding-y:              .265rem !default;
 $pagination-padding-x:              .65rem !default;
 
 $pagination-transition:              color .3s ease-in-out, background-color .3s ease-in-out, border-color .3s ease-in-out, box-shadow .3s ease-in-out !default;
+
+// Cards
+
+$card-spacer-y:                     $spacer !default;
+$card-spacer-x:                     $spacer !default;
+$card-title-spacer-y:               $spacer * .5 !default;
+$card-border-width:                 1px !default;
+$card-border-radius:                $border-radius !default;
+$card-border-color:                 rgba(38, 38, 38, 0.8) !default;
+$card-inner-border-radius:          subtract($card-border-radius, $card-border-width) !default;
+$card-cap-padding-y:                $card-spacer-y * .5 !default;
+$card-cap-padding-x:                $card-spacer-x !default;
+$card-cap-bg:                       rgba(24, 24, 24, .1) !default;
+$card-cap-color:                    null !default;
+$card-height:                       null !default;
+$card-color:                        null !default;
+$card-bg:                           rgba(38, 38, 38, 0.3) !default;
+$card-img-overlay-padding:          $spacer !default;
+
+/// Breadcrumb
+
+$breadcrumb-bg:                     rgba(38, 38, 38, 0.3) !default;
 
 // Close
 
