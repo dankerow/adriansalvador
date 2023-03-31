@@ -30,9 +30,6 @@ body {
 	$link-color: #e9e9e9;
 
 	body {
-		--#{$variable-prefix}body-color: #aaaaaa;
-		--#{$variable-prefix}body-bg: #1b1b1b;
-
 		&::-webkit-scrollbar-thumb {
 			background: #121212;
 		}
