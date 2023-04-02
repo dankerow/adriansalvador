@@ -37,11 +37,11 @@
     "@vueuse/nuxt": "^9.13.0",
     "eslint": "^8.37.0",
     "eslint-plugin-nuxt": "^4.0.0",
-    "nuxt": "3.3.2",
+    "nuxt": "3.3.3",
     "nuxt-gtag": "^0.3.0",
     "nuxt-icon": "^0.3.3",
     "nuxt-purgecss": "^2.0.0",
-    "nuxt-simple-sitemap": "^2.2.0",
+    "nuxt-simple-sitemap": "^2.4.0",
     "sass": "^1.60.0",
     "sass-loader": "13.2.2",
     "typescript": "^5.0.3"
