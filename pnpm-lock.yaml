@@ -88,8 +88,8 @@ devDependencies:
     specifier: ^2.0.0
     version: 2.0.0(postcss@8.4.21)(rollup@2.79.1)
   nuxt-simple-sitemap:
-    specifier: ^2.4.0
-    version: 2.4.0(rollup@2.79.1)
+    specifier: ^2.4.1
+    version: 2.4.1(rollup@2.79.1)
   sass:
     specifier: ^1.60.0
     version: 1.60.0
@@ -7431,7 +7431,7 @@ packages:
   /nuxt-config-schema@0.4.5(rollup@2.79.1):
     resolution: {integrity: sha512-Y5anu5puDfMJfDP7IYjXsn6Dvj262HtjZqa73jCBbFRCc5jnjrs+BEpJJmtPG32ZsqzO2+RL4oTNb3H6IfKZLQ==}
     dependencies:
-      '@nuxt/kit': 3.3.2(rollup@2.79.1)
+      '@nuxt/kit': 3.3.3(rollup@2.79.1)
       changelogen: 0.4.1
       defu: 6.1.2
       jiti: 1.18.2
@@ -7505,8 +7505,8 @@ packages:
       - supports-color
     dev: false
 
-  /nuxt-simple-sitemap@2.4.0(rollup@2.79.1):
-    resolution: {integrity: sha512-EdeP7EyuZTZnpzlmEcSRWtv47eG73CdQtPFw2A8k8KZQJDT+/7V5qlLw8fqMcpCdlC3sTPVW1musYCWWe5qR4g==}
+  /nuxt-simple-sitemap@2.4.1(rollup@2.79.1):
+    resolution: {integrity: sha512-o/Djj14GV/9UHOxXshJVoYOTcfpNCzhqVmGze4bnUXAHMHFAmlbuZSad3c0veWd4nUcGxTDBHktYf64BkbTIOg==}
     dependencies:
       '@nuxt/kit': 3.3.2(rollup@2.79.1)
       chalk: 5.2.0
