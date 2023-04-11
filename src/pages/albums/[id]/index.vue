@@ -13,12 +13,14 @@ const { data: album } = await useFutch(`/albums/${params.id}`)
 const pages: Ref<number> = ref(0)
 const currentPage: Ref<number> = ref(1)
 
-const { data: images, pending: pendingImages, error: errorImages } = await useLazyAsyncData(() => useFaetch(`/albums/${params.id}/images`, {
-	params: {
-		limit: 50,
-		page: currentPage.value
-	}
-}), { watch: [currentPage], immediate: process.client, default: () => shallowRef() })
+const { data: images, pending: pendingImages, error: errorImages } = await useLazyAsyncData(() =>
+	useFaetch(`/albums/${params.id}/images`, {
+		params: {
+			limit: 50,
+			page: currentPage.value
+		}
+	})
+, { watch: [currentPage], immediate: process.client, default: () => shallowRef() })
 
 watch(images, (newImages) => {
 	images.value = newImages
@@ -68,9 +70,11 @@ const getImagesView: ComputedRef<object[]> = computed(() => {
 </script>
 
 <template>
-	<section class="min-vh-100 pt-5">
+	<section class="min-vh-100 pt-4">
+		<Breadcrumb :links="[{ name: 'Albums', path: '/albums' }, { name: album.name }]" class="mb-6" />
+
 		<div class="container">
-			<div class="row row-cols-1 row-cols-sm-2 align-items-center text-center text-lg-start justify-content-center justify-content-md-between">
+			<div class="row row-cols-1 row-cols-sm-2 align-items-center text-center text-lg-start justify-content-center justify-content-md-between" data-aos="fade-down">
 				<div class="col">
 					<h1 class="h3 fw-bold mb-0">
 						{{ album.name }}
@@ -111,7 +115,7 @@ const getImagesView: ComputedRef<object[]> = computed(() => {
 
 			<hr>
 
-			<div class="row row-cols-1 justify-content-center">
+			<div class="row row-cols-1 justify-content-center" data-aos="fade-up">
 				<div class="col">
 					<AlbumsLoadingCards v-if="pendingImages" />
 					<GalleryGrid v-else-if="images?.data" :id="`gallery-grid-${album.id}`" :images="getImagesView" :ssr-columns="1" />
@@ -126,15 +130,15 @@ const getImagesView: ComputedRef<object[]> = computed(() => {
 				</div>
 			</div>
 		</div>
-
-		<Pagination
-			:current-page="currentPage"
-			:pages="pages"
-			@next-page="changePage(currentPage + 1)"
-			@previous-page="changePage(currentPage - 1)"
-			@change-page="changePage"
-		/>
 	</section>
+
+	<Pagination
+		:current-page="currentPage"
+		:pages="pages"
+		@next-page="changePage(currentPage + 1)"
+		@previous-page="changePage(currentPage - 1)"
+		@change-page="changePage"
+	/>
 </template>
 
 <style lang="scss" scoped>
