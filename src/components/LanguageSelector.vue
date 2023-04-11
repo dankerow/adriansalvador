@@ -1,20 +1,23 @@
 <script setup lang="ts">
+import type { LocaleObject } from 'vue-i18n-routing'
+import type { ComputedRef } from 'vue'
+
 const colorMode = useColorMode()
 const { locale, locales, setLocale } = useI18n()
 
-const availableLocales = computed(() => {
-	return (locales.value).filter((l: { code: any; value: any; }) => l.code !== locale.value)
+const availableLocales: ComputedRef<LocaleObject[]> = computed(() => {
+	return (locales.value as LocaleObject[]).filter(l => l.code !== locale.value)
 })
 </script>
 
 <template>
 	<div class="btn-group dropup-center dropup">
 		<ColorScheme>
-			<button class="btn btn-sm" :class="{ 'btn-dark': colorMode.value === 'dark' }" type="button" disabled>
+			<button class="btn btn-sm" :class="{ 'btn-white': colorMode.value === 'light', 'btn-dark': colorMode.value === 'dark' }" type="button" disabled>
 				Language:
 			</button>
 
-			<button class="btn btn-sm dropdown-toggle" :class="{ 'btn-dark': colorMode.value === 'dark' }" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+			<button class="btn btn-sm dropdown-toggle" :class="{ 'btn-white': colorMode.value === 'light', 'btn-dark': colorMode.value === 'dark' }" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 				{{ locales.find(l => l.code === locale).name }}
 			</button>
 
