@@ -1,6 +1,6 @@
-import type { FetchOptions } from 'ofetch'
+import type { NitroFetchOptions } from "nitropack"
 
-export default <T>(url: string, options: FetchOptions = {}): Promise<T> => {
+export default <T>(url: string, options: NitroFetchOptions<Request> = {}): Promise<T> => {
 	const config = useRuntimeConfig()
 
 	return $fetch(url, {
