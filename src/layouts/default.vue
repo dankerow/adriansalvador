@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import type { Directions } from 'vue-i18n-routing'
-import type { LocaleObject } from '#i18n'
+import type { Directions, LocaleObject } from 'vue-i18n-routing'
 
 const colorMode = useColorMode()
 const { locale, locales } = useI18n()
