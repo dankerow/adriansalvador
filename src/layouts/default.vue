@@ -108,8 +108,6 @@ onMounted(() => {
 	<div>
 		<Header />
 
-		<SectionsHero />
-
 		<slot />
 
 		<LazySectionsContact />
