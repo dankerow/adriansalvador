@@ -1,9 +1,9 @@
 <template>
-	<section class="contact py-10 py-lg-12 text-center">
+	<section class="contact pt-8 pb-4 pt-lg-10 pb-lg-8 text-center">
 		<div class="container">
 			<div class="col-lg-7 mx-auto">
 				<h1 class="display-6 fw-bold text-body-emphasis">Any inquiries or collaborations?</h1>
-				<p class="fs-6 mb-4">
+				<p class="fs-3 mb-4">
 					{{ $t('contact.description') }}
 				</p>
 
