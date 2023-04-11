@@ -6,39 +6,39 @@ const colorMode = useColorMode()
 const themes: Ref<string[]> = ref(['system', 'light', 'dark'])
 
 const availableThemes: ComputedRef<string[]> = computed(() => {
-	return themes.value.filter((theme: string) => theme !== colorMode.preference)
+  return themes.value.filter((theme: string) => theme !== colorMode.preference)
 })
 
 const setTheme = (theme: string) => {
-	document.documentElement.setAttribute('data-bs-theme', colorMode.value === 'dark' ? 'light' : 'dark')
-	colorMode.preference = theme
+  document.documentElement.setAttribute('data-bs-theme', colorMode.value === 'dark' ? 'light' : 'dark')
+  colorMode.preference = theme
 }
 </script>
 
 <template>
-	<div class="btn-group dropup-center dropup">
-		<ColorScheme>
-			<button class="btn btn-sm" :class="{ 'btn-white': colorMode.value === 'light', 'btn-dark': colorMode.value === 'dark' }" type="button" disabled>
-				Theme Preference:
-			</button>
+  <div class="btn-group dropup-center dropup">
+    <ColorScheme>
+      <button class="btn btn-sm" :class="{ 'btn-white': colorMode.value === 'light', 'btn-dark': colorMode.value === 'dark' }" type="button" disabled>
+        Theme Preference:
+      </button>
 
-			<button class="btn btn-sm dropdown-toggle" :class="{ 'btn-white': colorMode.value === 'light', 'btn-dark': colorMode.value === 'dark' }" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-				{{ colorMode.preference }}
-			</button>
+      <button class="btn btn-sm dropdown-toggle" :class="{ 'btn-white': colorMode.value === 'light', 'btn-dark': colorMode.value === 'dark' }" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ colorMode.preference }}
+      </button>
 
-			<ul class="dropdown-menu">
-				<li
-					v-for="theme of availableThemes"
-					:key="theme"
-					@click="setTheme(theme)"
-				>
-					<span class="dropdown-item text-capitalize">
-						{{ theme }}
-					</span>
-				</li>
-			</ul>
-		</ColorScheme>
-	</div>
+      <ul class="dropdown-menu">
+        <li
+          v-for="theme of availableThemes"
+          :key="theme"
+          @click="setTheme(theme)"
+        >
+          <span class="dropdown-item text-capitalize">
+            {{ theme }}
+          </span>
+        </li>
+      </ul>
+    </ColorScheme>
+  </div>
 </template>
 
 <style lang="scss" scoped>

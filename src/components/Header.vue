@@ -1,20 +1,20 @@
 <template>
-	<header>
-		<nav class="navbar navbar-expand">
-			<div class="container-fluid">
-				<div id="navbarCollapse" class="collapse navbar-collapse text-center">
-					<NuxtLink
-						class="navbar-brand mx-auto"
-						to="/"
-						aria-label="Navbar Logo"
-					>
-						<span class="text text-uppercase">[Adrian Salvador]</span>
-						<span class="caption text-uppercase">{{ $t('metadata.description') }}</span>
-					</NuxtLink>
-				</div>
-			</div>
-		</nav>
-	</header>
+  <header>
+    <nav class="navbar navbar-expand">
+      <div class="container-fluid">
+        <div id="navbarCollapse" class="collapse navbar-collapse text-center">
+          <NuxtLink
+            class="navbar-brand mx-auto"
+            to="/"
+            aria-label="Navbar Logo"
+          >
+            <span class="text text-uppercase">[Adrian Salvador]</span>
+            <span class="caption text-uppercase">{{ $t('metadata.description') }}</span>
+          </NuxtLink>
+        </div>
+      </div>
+    </nav>
+  </header>
 </template>
 
 <style lang="scss" scoped>

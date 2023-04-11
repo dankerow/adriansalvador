@@ -1,16 +1,16 @@
 <template>
-	<footer>
-		<div class="footer-bottom py-3">
-			<div class="container">
-				<p class="mb-0">
-					© {{ new Date().getFullYear() }} Adrian Salvador. Made by
-					<a href="https://danmutombo.com" rel="noreferrer" target="_blank">
-						Dan Mutombo
-					</a>
-				</p>
-			</div>
-		</div>
-	</footer>
+  <footer>
+    <div class="footer-bottom py-3">
+      <div class="container">
+        <p class="mb-0">
+          © {{ new Date().getFullYear() }} Adrian Salvador. Made by
+          <a href="https://danmutombo.com" rel="noreferrer" target="_blank">
+            Dan Mutombo
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <style lang="scss" scoped>

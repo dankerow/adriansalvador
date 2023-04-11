@@ -4,177 +4,176 @@ import type { Album } from '@/types/albums'
 
 import VanillaTilt from 'vanilla-tilt'
 
+const props = withDefaults(defineProps<{
+  albums?: Album[]
+}>(), {
+  albums: () => []
+})
 const { isDesktop } = useDevice()
 const cdnBaseURL = useRuntimeConfig().public.cdnBaseURL
-
-const props = withDefaults(defineProps<{
-	albums?: Album[]
-}>(), {
-	albums: () => []
-})
 
 const albums: Ref<Album[]> = ref(props.albums || [])
 
 const favorites: ComputedRef<Album[]> = computed(() => {
-	return albums.value?.filter((album) => album.favorite).map((album) => {
-		album.url = `/albums/${album.id}`
+  return albums.value?.filter((album) => album.favorite).map((album) => {
+    album.url = `/albums/${album.id}`
 
-		return album
-	})
+    return album
+  })
 })
 
 const featured: ComputedRef<Album|null> = computed(() => {
-	const album = albums.value?.find((album) => album.featured)
-	if (!album) return null
+  const album = albums.value?.find((album) => album.featured)
+  if (!album) return null
 
-	album.url = `/albums/${album.id}`
-	return album
+  album.url = `/albums/${album.id}`
+  return album
 })
 
 onMounted(() => {
-	if (isDesktop) {
-		const tiltElements = document.querySelectorAll('.tilt') as unknown as HTMLElement[]
-		VanillaTilt.init(tiltElements, {
-			reverse: true
-		})
-	}
+  if (isDesktop) {
+    const tiltElements = document.querySelectorAll('.tilt') as unknown as HTMLElement[]
+    VanillaTilt.init(tiltElements, {
+      reverse: true
+    })
+  }
 })
 </script>
 
 <template>
-	<section class="favorites py-10 py-lg-12">
-		<div class="container">
-			<div class="card mb-12" data-aos="fade-up">
-				<div class="card-body pb-4">
-					<p class="card-text">
-						<span class="first-letter">{{ $t('biography')[0] }}</span>
-						{{ $t('biography').substring(1) }}
-					</p>
-				</div>
-			</div>
+  <section class="favorites py-10 py-lg-12">
+    <div class="container">
+      <div class="card mb-12" data-aos="fade-up">
+        <div class="card-body pb-4">
+          <p class="card-text">
+            <span class="first-letter">{{ $t('biography')[0] }}</span>
+            {{ $t('biography').substring(1) }}
+          </p>
+        </div>
+      </div>
 
-			<div
-				v-parallax
-				data-rellax-xs-speed="0"
-				data-rellax-mobile-speed="0"
-				data-rellax-tablet-speed="0"
-				data-parallax-speed="-1" data-rellax-percentage="0.5"
-				class="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-4 g-lg-0 justify-content-center pt-5"
-			>
-				<div class="col-lg-2">
-					<div class="card card-showcase card-sm" data-aos="fade-right" tabindex="-1">
-						<div class="cover">
-							<nuxt-img v-if="favorites[0]" :src="`${cdnBaseURL}/images/${favorites[0].cover.name}?width=500`" alt="Album's cover" loading="lazy" />
-							<div class="overlay" />
-						</div>
+      <div
+        v-parallax
+        data-rellax-xs-speed="0"
+        data-rellax-mobile-speed="0"
+        data-rellax-tablet-speed="0"
+        data-parallax-speed="-1" data-rellax-percentage="0.5"
+        class="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-4 g-lg-0 justify-content-center pt-5"
+      >
+        <div class="col-lg-2">
+          <div class="card card-showcase card-sm" data-aos="fade-right" tabindex="-1">
+            <div class="cover">
+              <nuxt-img v-if="favorites[0]" :src="`${cdnBaseURL}/images/${favorites[0].cover.name}?width=500`" alt="Album's cover" loading="lazy" />
+              <div class="overlay" />
+            </div>
 
-						<div class="card-body">
-							<h2 class="album-title">
-								{{ favorites[0] ? favorites[0].name : 'X' }}
-							</h2>
-						</div>
+            <div class="card-body">
+              <h2 class="album-title">
+                {{ favorites[0] ? favorites[0].name : 'X' }}
+              </h2>
+            </div>
 
-						<NuxtLink
-							v-if="favorites[0] && favorites[0].url"
-							:title="favorites[0].name"
-							:to="favorites[0].url"
-							class="stretched-link"
-						/>
-					</div>
-				</div>
+            <NuxtLink
+              v-if="favorites[0] && favorites[0].url"
+              :title="favorites[0].name"
+              :to="favorites[0].url"
+              class="stretched-link"
+            />
+          </div>
+        </div>
 
-				<div class="col-lg-2">
-					<div class="card card-showcase" data-aos="fade-right">
-						<div class="cover">
-							<nuxt-img v-if="favorites[1]" :src="`${cdnBaseURL}/images/${favorites[1].cover.name}?width=500`" alt="Album's cover" loading="lazy" />
-							<div class="overlay" />
-						</div>
+        <div class="col-lg-2">
+          <div class="card card-showcase" data-aos="fade-right">
+            <div class="cover">
+              <nuxt-img v-if="favorites[1]" :src="`${cdnBaseURL}/images/${favorites[1].cover.name}?width=500`" alt="Album's cover" loading="lazy" />
+              <div class="overlay" />
+            </div>
 
-						<div class="card-body">
-							<h2 class="album-title">
-								{{ favorites[1] ? favorites[1].name : 'X' }}
-							</h2>
-						</div>
+            <div class="card-body">
+              <h2 class="album-title">
+                {{ favorites[1] ? favorites[1].name : 'X' }}
+              </h2>
+            </div>
 
-						<NuxtLink
-							v-if="favorites[1] && favorites[1].url"
-							:title="favorites[1].name"
-							:to="favorites[1].url"
-							class="stretched-link"
-						/>
-					</div>
-				</div>
+            <NuxtLink
+              v-if="favorites[1] && favorites[1].url"
+              :title="favorites[1].name"
+              :to="favorites[1].url"
+              class="stretched-link"
+            />
+          </div>
+        </div>
 
-				<div class="col-lg-3">
-					<div class="card card-showcase featured tilt" data-aos="zoom-in" data-aos-duration="400">
-						<span class="featured-badge">{{ $t('cards.featured') }}</span>
+        <div class="col-lg-3">
+          <div class="card card-showcase featured tilt" data-aos="zoom-in" data-aos-duration="400">
+            <span class="featured-badge">{{ $t('cards.featured') }}</span>
 
-						<div class="cover">
-							<nuxt-img v-if="featured" :src="`${cdnBaseURL}/images/${featured.cover.name}?width=500`" alt="Album's cover" loading="lazy" />
-							<div class="overlay" />
-						</div>
+            <div class="cover">
+              <nuxt-img v-if="featured" :src="`${cdnBaseURL}/images/${featured.cover.name}?width=500`" alt="Album's cover" loading="lazy" />
+              <div class="overlay" />
+            </div>
 
-						<div class="card-body">
-							<h2 class="album-title">
-								{{ featured ? featured.name : 'X' }}
-							</h2>
-						</div>
+            <div class="card-body">
+              <h2 class="album-title">
+                {{ featured ? featured.name : 'X' }}
+              </h2>
+            </div>
 
-						<NuxtLink
-							v-if="featured && featured.url"
-							:title="featured.name"
-							:to="featured.url"
-							class="stretched-link"
-						/>
-					</div>
-				</div>
+            <NuxtLink
+              v-if="featured && featured.url"
+              :title="featured.name"
+              :to="featured.url"
+              class="stretched-link"
+            />
+          </div>
+        </div>
 
-				<div class="col-lg-2">
-					<div class="card card-showcase" data-aos="fade-left">
-						<div class="cover">
-							<nuxt-img v-if="favorites[2]" :src="`${cdnBaseURL}/images/${favorites[2].cover.name}?width=500`" alt="Album's cover" loading="lazy" />
-							<div class="overlay" />
-						</div>
+        <div class="col-lg-2">
+          <div class="card card-showcase" data-aos="fade-left">
+            <div class="cover">
+              <nuxt-img v-if="favorites[2]" :src="`${cdnBaseURL}/images/${favorites[2].cover.name}?width=500`" alt="Album's cover" loading="lazy" />
+              <div class="overlay" />
+            </div>
 
-						<div class="card-body">
-							<h2 class="card-title album-title">
-								{{ favorites[2] ? favorites[2].name : 'X' }}
-							</h2>
-						</div>
+            <div class="card-body">
+              <h2 class="card-title album-title">
+                {{ favorites[2] ? favorites[2].name : 'X' }}
+              </h2>
+            </div>
 
-						<NuxtLink
-							v-if="favorites[2] && favorites[2].url"
-							:title="favorites[2].name"
-							:to="favorites[2].url"
-							class="stretched-link"
-						/>
-					</div>
-				</div>
+            <NuxtLink
+              v-if="favorites[2] && favorites[2].url"
+              :title="favorites[2].name"
+              :to="favorites[2].url"
+              class="stretched-link"
+            />
+          </div>
+        </div>
 
-				<div class="col-lg-2">
-					<div class="card card-showcase card-sm" data-aos="fade-left" tabindex="-1">
-						<div class="cover">
-							<nuxt-img v-if="favorites[3]" :src="`${cdnBaseURL}/images/${favorites[3].cover.name}?width=500`" alt="Album's cover" loading="lazy" />
-							<div class="overlay" />
-						</div>
+        <div class="col-lg-2">
+          <div class="card card-showcase card-sm" data-aos="fade-left" tabindex="-1">
+            <div class="cover">
+              <nuxt-img v-if="favorites[3]" :src="`${cdnBaseURL}/images/${favorites[3].cover.name}?width=500`" alt="Album's cover" loading="lazy" />
+              <div class="overlay" />
+            </div>
 
-						<div class="card-body">
-							<h2 class="album-title">
-								{{ favorites[3] ? favorites[3].name : 'X' }}
-							</h2>
-						</div>
+            <div class="card-body">
+              <h2 class="album-title">
+                {{ favorites[3] ? favorites[3].name : 'X' }}
+              </h2>
+            </div>
 
-						<NuxtLink
-							v-if="favorites[3] && favorites[3].url"
-							:title="favorites[3].name"
-							:to="favorites[3].url"
-							class="stretched-link"
-						/>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+            <NuxtLink
+              v-if="favorites[3] && favorites[3].url"
+              :title="favorites[3].name"
+              :to="favorites[3].url"
+              class="stretched-link"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>

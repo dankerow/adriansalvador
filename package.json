@@ -6,9 +6,9 @@
     "dev": "nuxt dev",
     "build": "nuxt build",
     "preview": "nuxt preview",
-    "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
-    "lint": "yarn lint:js",
-    "lint:fix": "yarn lint:js --fix"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "pnpm lint --fix"
   },
   "dependencies": {
     "@yeger/vue-masonry-wall": "^3.4.4",

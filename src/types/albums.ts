@@ -14,7 +14,7 @@ export interface Album {
   readonly id: string
   name: string
   url?: string
-  cover: Omit<AlbumFile, "type" | "size" | "albumId" | "album" | "createdAt" | "updatedAt">
+  cover: Omit<AlbumFile, 'type' | 'size' | 'albumId' | 'album' | 'createdAt' | 'updatedAt'>
   hidden: boolean
   nsfw: boolean
   favorite: boolean

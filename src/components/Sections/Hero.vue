@@ -3,21 +3,21 @@ const cdnBaseUrl = useRuntimeConfig().public.cdnBaseURL
 </script>
 
 <template>
-	<section class="hero">
-		<video
-			id="background-video"
-			autoplay
-			loop
-			muted
-			playsinline
-			poster="~/assets/images/reflections-poster.jpg"
-		>
-			<source
-				:src="`${cdnBaseUrl}/videos/reflections.mp4`"
-				type="video/mp4"
-			>
-		</video>
-	</section>
+  <section class="hero">
+    <video
+      id="background-video"
+      autoplay
+      loop
+      muted
+      playsinline
+      poster="~/assets/images/reflections-poster.jpg"
+    >
+      <source
+        :src="`${cdnBaseUrl}/videos/reflections.mp4`"
+        type="video/mp4"
+      >
+    </video>
+  </section>
 </template>
 
 <style lang="scss" scoped>

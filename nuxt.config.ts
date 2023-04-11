@@ -74,7 +74,7 @@ export default defineNuxtConfig({
   },
 
   image: {
-    domains: [isProduction ? process.env.CDN_BASE_URL : process.env.CDN_BASE_URL_DEV]
+    domains: [isProduction ? process.env.CDN_BASE_URL as string : process.env.CDN_BASE_URL_DEV as string]
   },
 
   purgecss: {

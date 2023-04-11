@@ -1,47 +1,47 @@
 <script setup lang="ts">
 withDefaults(defineProps<{
-	title: string
-	items?: {
-		id: string
-		name: string
-		url: string
-		hidden?: boolean
-	}[]
-	more?: {
-		url: string
-	}
+  title: string
+  items?: {
+    id: string
+    name: string
+    url: string
+    hidden?: boolean
+  }[]
+  more?: {
+    url: string
+  }
 }>(), {
-	items: () => []
+  items: () => []
 })
 </script>
 
 <template>
-	<div class="list">
-		<h3 class="title">
-			{{ title }}
-		</h3>
+  <div class="list">
+    <h3 class="title">
+      {{ title }}
+    </h3>
 
-		<ul class="list-unstyled">
-			<template v-if="!items.length">
-				<slot name="items" />
-			</template>
-			<template v-else>
-				<template v-for="item in items" :key="item.id">
-					<li>
-						<NuxtLink class="text" :to="item.url">
-							{{ item.name }}
-						</NuxtLink>
-					</li>
-				</template>
-			</template>
+    <ul class="list-unstyled">
+      <template v-if="!items.length">
+        <slot name="items" />
+      </template>
+      <template v-else>
+        <template v-for="item in items" :key="item.id">
+          <li>
+            <NuxtLink class="text" :to="item.url">
+              {{ item.name }}
+            </NuxtLink>
+          </li>
+        </template>
+      </template>
 
-			<li v-if="more?.url">
-				<NuxtLink class="text" :to="more.url">
-					See more...
-				</NuxtLink>
-			</li>
-		</ul>
-	</div>
+      <li v-if="more?.url">
+        <NuxtLink class="text" :to="more.url">
+          See more...
+        </NuxtLink>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style lang="scss" scoped>
