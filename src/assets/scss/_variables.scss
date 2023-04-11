@@ -86,6 +86,8 @@ $enable-important-utilities:  true !default;
 
 $prefix:                      bs- !default;
 
+// Spacing
+
 $spacer: 1rem !default;
 $spacers: (
 	0: 0,
@@ -104,7 +106,6 @@ $spacers: (
 
 // Body
 
-$body-text-align:           null !default;
 $body-color:                $primary !default;
 $body-bg:                   $white !default;
 
@@ -112,8 +113,6 @@ $body-bg:                   $white !default;
 
 $link-color:                              $body-color !default;
 $link-decoration:                         none !default;
-$link-shade-percentage:                   20% !default;
-$link-hover-color:                        shift-color($link-color, $link-shade-percentage) !default;
 
 // Paragraphs
 
@@ -121,7 +120,7 @@ $paragraph-margin-bottom:   .675rem !default;
 
 // Components
 
-$border-width:                2px !default;
+$border-width:                1px !default;
 
 $border-color:                $gray-300 !default;
 
@@ -131,9 +130,6 @@ $border-radius-lg:            .3rem !default;
 
 $box-shadow:                  0 .5rem 1rem rgba($black, .15) !default;
 $box-shadow-sm:               0 .125rem .25rem rgba($black, .075) !default;
-
-$component-active-color:      $white !default;
-$component-active-bg:         $primary !default;
 
 $focus-ring-width:      0 !default;
 $focus-ring-opacity:    .25 !default;
@@ -168,8 +164,6 @@ $hr-margin-y:                 $spacer * 2 !default;
 $hr-color:                    #555 !default;
 
 // Buttons + Forms
-//
-// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
 
 $input-btn-padding-y:         .375rem !default;
 $input-btn-padding-x:         .75rem !default;
@@ -177,8 +171,6 @@ $input-btn-font-family:       var(--#{$prefix}font-monospace) !default;
 $input-btn-font-size:         $font-size-sm !default;
 
 // Buttons
-//
-// For each of Bootstrap's buttons, define text, `back`ground, and border color.
 
 $btn-white-space:             nowrap !default; // Set to `nowrap` to prevent text wrapping
 
