@@ -43,7 +43,6 @@
     "nuxt-purgecss": "^2.0.0",
     "nuxt-simple-sitemap": "^2.4.8",
     "sass": "^1.61.0",
-    "sass-loader": "13.2.2",
     "typescript": "^5.0.4"
   },
   "browserslist": [
