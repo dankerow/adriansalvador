@@ -4,7 +4,6 @@ import type { Album } from '@/types/albums'
 
 import VanillaTilt from 'vanilla-tilt'
 
-const localePath = useLocalePath()
 const { isDesktop } = useDevice()
 const cdnBaseURL = useRuntimeConfig().public.cdnBaseURL
 
@@ -16,12 +15,25 @@ const props = withDefaults(defineProps<{
 
 const albums: Ref<Album[]> = ref(props.albums || [])
 
-const favorites: ComputedRef<Album[]> = computed(() => albums.value?.filter((album) => album.favorite))
-const featured: ComputedRef<Album|undefined> = computed(() => albums.value?.find((album) => album.featured))
+const favorites: ComputedRef<Album[]> = computed(() => {
+	return albums.value?.filter((album) => album.favorite).map((album) => {
+		album.url = `/albums/${album.id}`
+
+		return album
+	})
+})
+
+const featured: ComputedRef<Album|null> = computed(() => {
+	const album = albums.value?.find((album) => album.featured)
+	if (!album) return null
+
+	album.url = `/albums/${album.id}`
+	return album
+})
 
 onMounted(() => {
 	if (isDesktop) {
-		const tiltElements = document.querySelectorAll('.tilt')
+		const tiltElements = document.querySelectorAll('.tilt') as unknown as HTMLElement[]
 		VanillaTilt.init(tiltElements, {
 			reverse: true
 		})
@@ -32,10 +44,14 @@ onMounted(() => {
 <template>
 	<section class="favorites py-10 py-lg-12">
 		<div class="container">
-			<p class="description mb-12" data-aos="fade-up">
-				<span class="first-letter">{{ $t('biography')[0] }}</span>
-				{{ $t('biography').substring(1) }}
-			</p>
+			<div class="card mb-12" data-aos="fade-up">
+				<div class="card-body pb-4">
+					<p class="card-text">
+						<span class="first-letter">{{ $t('biography')[0] }}</span>
+						{{ $t('biography').substring(1) }}
+					</p>
+				</div>
+			</div>
 
 			<div
 				v-parallax
@@ -46,7 +62,7 @@ onMounted(() => {
 				class="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-4 g-lg-0 justify-content-center pt-5"
 			>
 				<div class="col-lg-2">
-					<div class="card card-sm" data-aos="fade-right" tabindex="-1">
+					<div class="card card-showcase card-sm" data-aos="fade-right" tabindex="-1">
 						<div class="cover">
 							<nuxt-img v-if="favorites[0]" :src="`${cdnBaseURL}/images/${favorites[0].cover.name}?width=500`" alt="Album's cover" loading="lazy" />
 							<div class="overlay" />
@@ -61,14 +77,14 @@ onMounted(() => {
 						<NuxtLink
 							v-if="favorites[0] && favorites[0].url"
 							:title="favorites[0].name"
-							:to="localePath(favorites[0].url)"
+							:to="favorites[0].url"
 							class="stretched-link"
 						/>
 					</div>
 				</div>
 
 				<div class="col-lg-2">
-					<div class="card" data-aos="fade-right">
+					<div class="card card-showcase" data-aos="fade-right">
 						<div class="cover">
 							<nuxt-img v-if="favorites[1]" :src="`${cdnBaseURL}/images/${favorites[1].cover.name}?width=500`" alt="Album's cover" loading="lazy" />
 							<div class="overlay" />
@@ -83,14 +99,14 @@ onMounted(() => {
 						<NuxtLink
 							v-if="favorites[1] && favorites[1].url"
 							:title="favorites[1].name"
-							:to="localePath(favorites[1].url)"
+							:to="favorites[1].url"
 							class="stretched-link"
 						/>
 					</div>
 				</div>
 
 				<div class="col-lg-3">
-					<div class="card featured tilt" data-aos="zoom-in" data-aos-duration="400">
+					<div class="card card-showcase featured tilt" data-aos="zoom-in" data-aos-duration="400">
 						<span class="featured-badge">{{ $t('cards.featured') }}</span>
 
 						<div class="cover">
@@ -107,14 +123,14 @@ onMounted(() => {
 						<NuxtLink
 							v-if="featured && featured.url"
 							:title="featured.name"
-							:to="localePath(featured.url)"
+							:to="featured.url"
 							class="stretched-link"
 						/>
 					</div>
 				</div>
 
 				<div class="col-lg-2">
-					<div class="card" data-aos="fade-left">
+					<div class="card card-showcase" data-aos="fade-left">
 						<div class="cover">
 							<nuxt-img v-if="favorites[2]" :src="`${cdnBaseURL}/images/${favorites[2].cover.name}?width=500`" alt="Album's cover" loading="lazy" />
 							<div class="overlay" />
@@ -129,14 +145,14 @@ onMounted(() => {
 						<NuxtLink
 							v-if="favorites[2] && favorites[2].url"
 							:title="favorites[2].name"
-							:to="localePath(favorites[2].url)"
+							:to="favorites[2].url"
 							class="stretched-link"
 						/>
 					</div>
 				</div>
 
 				<div class="col-lg-2">
-					<div class="card card-sm" data-aos="fade-left" tabindex="-1">
+					<div class="card card-showcase card-sm" data-aos="fade-left" tabindex="-1">
 						<div class="cover">
 							<nuxt-img v-if="favorites[3]" :src="`${cdnBaseURL}/images/${favorites[3].cover.name}?width=500`" alt="Album's cover" loading="lazy" />
 							<div class="overlay" />
@@ -151,7 +167,7 @@ onMounted(() => {
 						<NuxtLink
 							v-if="favorites[3] && favorites[3].url"
 							:title="favorites[3].name"
-							:to="localePath(favorites[3].url)"
+							:to="favorites[3].url"
 							class="stretched-link"
 						/>
 					</div>
@@ -173,11 +189,9 @@ onMounted(() => {
 	overflow-x: hidden;
 
 	p {
-		font-size: 1.125em;
-
 		.first-letter {
 			font-weight: bold;
-			font-size: 58px;
+			font-size: 52px;
 			line-height: normal;
 		}
 
@@ -194,7 +208,7 @@ onMounted(() => {
 		}
 	}
 
-	.card {
+	.card-showcase {
 		background-color: rgb(14, 14, 14);
 		border: none;
 		border-radius: 0.30rem;
@@ -259,7 +273,7 @@ onMounted(() => {
 			filter: grayscale(100%);
 			height: 100%;
 			left: 0;
-			overflow: clip;
+			overflow: hidden;
 			position: absolute;
 			top: 0;
 			transition: filter 300ms linear;
@@ -317,7 +331,7 @@ onMounted(() => {
 }
 
 @media (max-width: 991.98px) {
-	.card {
+	.card-showcase {
 		margin: unset !important;
 
 		&.featured {
@@ -342,7 +356,7 @@ onMounted(() => {
 			}
 		}
 
-		.card {
+		.card-showcase {
 			&.featured {
 				border-top: 3px solid rgb(70, 70, 70);
 
