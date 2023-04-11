@@ -70,77 +70,79 @@ const getImagesView: ComputedRef<object[]> = computed(() => {
 </script>
 
 <template>
-  <section class="min-vh-100 pt-4">
-    <Breadcrumb :links="[{ name: 'Albums', path: '/albums' }, { name: album.name }]" class="mb-6" />
+  <div>
+    <section class="min-vh-100 pt-4">
+      <Breadcrumb :links="[{ name: 'Albums', path: '/albums' }, { name: album.name }]" class="mb-6" />
 
-    <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 align-items-center text-center text-lg-start justify-content-center justify-content-md-between" data-aos="fade-down">
-        <div class="col">
-          <h1 class="h3 fw-bold mb-0">
-            {{ album.name }}
-          </h1>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 align-items-center text-center text-lg-start justify-content-center justify-content-md-between" data-aos="fade-down">
+          <div class="col">
+            <h1 class="h3 fw-bold mb-0">
+              {{ album.name }}
+            </h1>
 
-          <p class="information">
-            {{ album.fileCount }} images
-          </p>
-        </div>
+            <p class="information">
+              {{ album.fileCount }} images
+            </p>
+          </div>
 
-        <div class="col">
-          <div class="row gx-2 justify-content-end">
-            <div class="col col-md-auto">
-              <button
-                :class="`btn ${colorMode.value !== 'light' ? 'btn-gray-dark text-light' : 'btn-gray text-primary'}`"
-                type="button"
-                aria-label="Share album's link"
-                @click.prevent="share"
-              >
-                {{ $t('albums.buttons.share.metadata.title') }}
-              </button>
-            </div>
+          <div class="col">
+            <div class="row gx-2 justify-content-end">
+              <div class="col col-md-auto">
+                <button
+                  :class="`btn ${colorMode.value !== 'light' ? 'btn-gray-dark text-light' : 'btn-gray text-primary'}`"
+                  type="button"
+                  aria-label="Share album's link"
+                  @click.prevent="share"
+                >
+                  {{ $t('albums.buttons.share.metadata.title') }}
+                </button>
+              </div>
 
-            <div class="col col-md-auto">
-              <a
-                :class="`btn ${colorMode.value !== 'light' ? 'btn-gray-dark text-light' : 'btn-gray text-primary'}`"
-                type="button"
-                aria-label="Download all album's images"
-                :href="`${cdnBaseURL}/albums/${album.id}/download`"
-                download
-              >
-                {{ $t('albums.buttons.download.metadata.title') }}
-              </a>
+              <div class="col col-md-auto">
+                <a
+                  :class="`btn ${colorMode.value !== 'light' ? 'btn-gray-dark text-light' : 'btn-gray text-primary'}`"
+                  type="button"
+                  aria-label="Download all album's images"
+                  :href="`${cdnBaseURL}/albums/${album.id}/download`"
+                  download
+                >
+                  {{ $t('albums.buttons.download.metadata.title') }}
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <hr>
+        <hr>
 
-      <div class="row row-cols-1 justify-content-center" data-aos="fade-up">
-        <div class="col">
-          <AlbumsLoadingCards v-if="pendingImages" />
-          <GalleryGrid v-else-if="images?.data" :id="`gallery-grid-${album.id}`" :images="getImagesView" :ssr-columns="1" />
-          <template v-else-if="errorImages">
-            <div class="alert alert-danger" role="alert">
-              <h2 class="alert-heading h6 fw-bolder">
-                Something went wrong
-              </h2>
-              <p class="mb-0">
-                We couldn't load the images for this album. Please try again later.
-              </p>
-            </div>
-          </template>
+        <div class="row row-cols-1 justify-content-center" data-aos="fade-up">
+          <div class="col">
+            <AlbumsLoadingCards v-if="pendingImages" />
+            <GalleryGrid v-else-if="images?.data" :id="`gallery-grid-${album.id}`" :images="getImagesView" :ssr-columns="1" />
+            <template v-else-if="errorImages">
+              <div class="alert alert-danger" role="alert">
+                <h2 class="alert-heading h6 fw-bolder">
+                  Something went wrong
+                </h2>
+                <p class="mb-0">
+                  We couldn't load the images for this album. Please try again later.
+                </p>
+              </div>
+            </template>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <Pagination
-    :current-page="currentPage"
-    :pages="pages"
-    @next-page="changePage(currentPage + 1)"
-    @previous-page="changePage(currentPage - 1)"
-    @change-page="changePage"
-  />
+    <Pagination
+      :current-page="currentPage"
+      :pages="pages"
+      @next-page="changePage(currentPage + 1)"
+      @previous-page="changePage(currentPage - 1)"
+      @change-page="changePage"
+    />
+  </div>
 </template>
 
 <style lang="scss" scoped>
