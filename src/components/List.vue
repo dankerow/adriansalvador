@@ -1,16 +1,18 @@
-<script lang="ts">
-export default {
-	props: {
-		title: {
-			type: String,
-			required: true
-		},
-		items: {
-			type: Array,
-			default: () => []
-		}
+<script setup lang="ts">
+withDefaults(defineProps<{
+	title: string
+	items?: {
+		id: string
+		name: string
+		url: string
+		hidden?: boolean
+	}[]
+	more?: {
+		url: string
 	}
-}
+}>(), {
+	items: () => []
+})
 </script>
 
 <template>
@@ -24,14 +26,20 @@ export default {
 				<slot name="items" />
 			</template>
 			<template v-else>
-				<template v-for="item in items">
-					<li v-if="!item.hidden" :key="item.id">
-						<NuxtLink class="text" :to="localePath(item.url)" no-prefetch>
+				<template v-for="item in items" :key="item.id">
+					<li>
+						<NuxtLink class="text" :to="item.url">
 							{{ item.name }}
 						</NuxtLink>
 					</li>
 				</template>
 			</template>
+
+			<li v-if="more?.url">
+				<NuxtLink class="text" :to="more.url">
+					See more...
+				</NuxtLink>
+			</li>
 		</ul>
 	</div>
 </template>
