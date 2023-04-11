@@ -9,6 +9,7 @@ const cdnBaseUrl = useRuntimeConfig().public.cdnBaseURL
 			autoplay
 			loop
 			muted
+			playsinline
 			poster="~/assets/images/reflections-poster.jpg"
 		>
 			<source
