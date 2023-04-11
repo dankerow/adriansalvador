@@ -1,8 +1,3 @@
-<script setup lang="ts">
-const colorMode = useColorMode()
-const localePath = useLocalePath()
-</script>
-
 <template>
 	<header>
 		<nav class="navbar navbar-expand">
@@ -10,9 +5,8 @@ const localePath = useLocalePath()
 				<div id="navbarCollapse" class="collapse navbar-collapse text-center">
 					<NuxtLink
 						class="navbar-brand mx-auto"
-						:to="localePath('/')"
+						to="/"
 						aria-label="Navbar Logo"
-						no-prefetch
 					>
 						<span class="text text-uppercase">[Adrian Salvador]</span>
 						<span class="caption text-uppercase">{{ $t('metadata.description') }}</span>
