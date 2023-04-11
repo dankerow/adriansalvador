@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Ref } from 'vue'
+import type { Ref } from 'vue'
 
 import PhotoSwipeLightbox from 'photoswipe/lightbox'
 import 'photoswipe/photoswipe.css'
@@ -17,8 +17,6 @@ const props = withDefaults(defineProps<Props>(), {
 	columnWidth: 195,
 	gap: 15
 })
-
-const localePath = useLocalePath()
 
 const imagesData: Ref<any[]> = ref(props.images)
 const lightbox: Ref<PhotoSwipeLightbox|null> = ref(null)
@@ -68,10 +66,6 @@ onUnmounted(() => {
 		lightbox.value = null
 	}
 })
-
-watch(() => props.images, (newImages) => {
-	imagesData.value = newImages
-})
 </script>
 
 <template>
@@ -92,18 +86,18 @@ watch(() => props.images, (newImages) => {
 				>
 					<nuxt-img
 						class="image-thumbnail"
-						:src="`${item.thumb.url}?width=225`"
+						:src="`${item.thumb.url}?width=325`"
 						:height="item.thumb.height"
 						:width="item.thumb.width"
 						loading="lazy"
 						draggable="false"
-						:style="`height: auto; max-width: ${item.thumb.width}px; width: 100%;`"
+						style="height: 100%; width: 100%;"
 						alt=""
 					/>
 				</a>
 
 				<div v-if="item.album" class="hidden-caption-content">
-					<NuxtLink :to="localePath(`/albums/${item.album.id}`)" no-prefetch>
+					<NuxtLink :to="`/albums/${item.album.id}`">
 						{{ item.album.name }}
 					</NuxtLink>
 				</div>
@@ -117,14 +111,18 @@ watch(() => props.images, (newImages) => {
 	border-radius: 0.10rem;
 	background-color: #141414;
 	height: 100%;
-	overflow: clip;
+	overflow: hidden;
 	position: relative;
-	transition: transform .35s ease-in-out;
 	user-select: none;
 	width: fit-content;
 
-	&:hover {
-		transform: scale(1.02);
+	img {
+		image-rendering: crisp-edges;
+		transition: transform .3s ease-in-out;
+
+		&:hover {
+			transform: scale(1.05);
+		}
 	}
 }
 </style>
