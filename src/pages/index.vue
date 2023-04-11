@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type  { ComputedRef } from 'vue'
+import type { ComputedRef } from 'vue'
 import type { Album } from '@/types/albums'
 
 definePageMeta({
@@ -20,7 +20,7 @@ definePageMeta({
 				'@context': 'https://schema.org/',
 				'@type': 'WebSite',
 				url: 'https://salvadoradrian.com/',
-				name: 'Adrian Salvador',
+				name: 'Adrian Salvador'
 			}
 		},
 		{
@@ -31,7 +31,7 @@ definePageMeta({
 				name: 'Introducing the self-driving bicycle in the Netherlands',
 				description: 'This spring, Google is introducing the self-driving bicycle in Amsterdam, the world\'s premier cycling city. The Dutch cycle more than any other nation in the world, almost 900 kilometres per year per person, amounting to over 15 billion kilometres annually. The self-driving bicycle enables safe navigation through the city for Amsterdam residents, and furthers Google\'s ambition to improve urban mobility with technology. Google Netherlands takes enormous pride in the fact that a Dutch team worked on this innovation that will have great impact in their home country.',
 				thumbnailUrl: [
-					'',
+					''
 				],
 				contentUrl: ''
 			}
@@ -41,15 +41,15 @@ definePageMeta({
 
 const { data: albumsFavorites } = await useFutch('/albums/favorites')
 
-const { pending: pendingAlbums, data: albums, error: errorAlbums  } = await useLazyAsyncData(() =>
+const { pending: pendingAlbums, data: albums, error: errorAlbums } = await useLazyAsyncData(() =>
 	useFaetch('/albums')
-	, { immediate: process.client, default: () => shallowRef() })
+, { immediate: process.client, default: () => shallowRef() })
 
 const cdnBaseURL = useRuntimeConfig().public.cdnBaseURL
 
 const { pending: pendingImages, data: randomImages, error: errorImages } = await useLazyAsyncData(() =>
-	useFaetch('/albums/random', { baseURL: cdnBaseURL })
-	, { immediate: process.client, default: () => shallowRef() })
+	useFaetch('/images/random', { baseURL: cdnBaseURL })
+, { immediate: process.client, default: () => shallowRef() })
 
 watch(albums, (newAlbums) => {
 	albums.value = newAlbums
@@ -79,13 +79,15 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
 
 <template>
 	<div>
+		<SectionsHero />
+
 		<AlbumsFavorites :albums="albumsFavorites?.data" />
 
 		<section class="gallery-preview py-10">
 			<div class="container-fluid g-6">
-				<div class="row row-cols-2 row-cols-md-3 row-cols-lg-3 g-2 justify-content-center">
+				<div class="row row-cols-2 row-cols-md-3 row-cols-lg-3 justify-content-center">
 					<div class="col-4 col-md-2 col-lg-auto">
-						<div class="case sticky-top text-start" data-aos="fade-right">
+						<aside class="case text-start" data-aos="fade-right">
 							<List :title="$t('videos.metadata.title')">
 								<template #items>
 									<li>
@@ -138,7 +140,7 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
 									</li>
 								</template>
 							</List>
-						</div>
+						</aside>
 					</div>
 
 					<div class="col col-md-8 col-lg-10">
@@ -156,7 +158,7 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
 					</div>
 
 					<div class="col col-md-2 col-lg-auto d-none d-md-block text-end">
-						<div class="case sticky-top" data-aos="fade-left">
+						<div class="case" data-aos="fade-left">
 							<List title="social">
 								<template #items>
 									<li>
@@ -182,7 +184,7 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
 
 <style lang="scss" scoped>
 .container-fluid {
-	overflow-x: hidden;
+	overflow-x: clip;
 }
 
 .gallery-preview {
@@ -193,6 +195,7 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
 .case {
 	padding: 0 0.875rem;
 	top: 90px;
+	position: sticky;
 }
 
 @media (max-width: 991.98px) {
