@@ -23,12 +23,12 @@ const availableLocales: ComputedRef<LocaleObject[]> = computed(() => {
 
       <ul :class="`dropdown-menu ${colorMode.value === 'dark' ? 'dropdown-menu-dark' : ''}`">
         <li
-          v-for="locale in availableLocales"
-          :key="locale.code"
-          @click="setLocale(locale.code)"
+          v-for="availableLocale in availableLocales"
+          :key="availableLocale.code"
+          @click="setLocale(availableLocale.code)"
         >
           <span class="dropdown-item">
-            {{ locale.name }}
+            {{ availableLocale.name }}
           </span>
         </li>
       </ul>
