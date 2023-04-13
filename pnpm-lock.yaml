@@ -43,8 +43,8 @@ devDependencies:
     specifier: ^3.1.0
     version: 3.1.0
   '@nuxtjs/fontaine':
-    specifier: ^0.2.4
-    version: 0.2.4
+    specifier: ^0.2.5
+    version: 0.2.5
   '@nuxtjs/google-fonts':
     specifier: 3.0.0
     version: 3.0.0
@@ -1224,6 +1224,7 @@ packages:
     transitivePeerDependencies:
       - rollup
       - supports-color
+    dev: true
 
   /@nuxt/kit@3.4.0:
     resolution: {integrity: sha512-CBS1wyyGnXpmzIDINnL96WPLvTjf2IQXrgz/hSKTUWra9h/iO/crLjqcuJWpIIMS420qiRoTnHDFALAXY8ktsw==}
@@ -1277,7 +1278,6 @@ packages:
     transitivePeerDependencies:
       - rollup
       - supports-color
-    dev: true
 
   /@nuxt/schema@3.0.0:
     resolution: {integrity: sha512-5fwsidhs5NjFzR8sIzHMXO0WFGkI3tCH3ViANn2W4N5qCwoYZ0n1sZBkQ9Esn1VoEed6RsIlTpWrPZPVtqNkGQ==}
@@ -1341,6 +1341,7 @@ packages:
     transitivePeerDependencies:
       - rollup
       - supports-color
+    dev: true
 
   /@nuxt/schema@3.4.0:
     resolution: {integrity: sha512-i04UuprxtMaBK1qCaAupJEIkUUJDt6vyMpBTJ0aajAxehL6O6xV3xqHB5iqDBmtOWlsRL8vGM+M/E/5E+lKuPg==}
@@ -1384,7 +1385,6 @@ packages:
     transitivePeerDependencies:
       - rollup
       - supports-color
-    dev: true
 
   /@nuxt/telemetry@2.2.0:
     resolution: {integrity: sha512-Z2UmPkBy5WjxvHKuUcl1X6vKWnIyWSP+9UGde1F+MzzZxYgAQybFud1uL2B3KCowxZdoqT1hd2WklV7EtyCwrQ==}
@@ -1512,12 +1512,12 @@ packages:
       - supports-color
     dev: true
 
-  /@nuxtjs/fontaine@0.2.4:
-    resolution: {integrity: sha512-egOlWIQUMxXPAG3ltryF+R9lntSX4ovJu9iJ5IMbFnxo03DXBJMFIJSWhUNL/5jPUHkBoEFolaLZma5UtPpCpQ==}
+  /@nuxtjs/fontaine@0.2.5:
+    resolution: {integrity: sha512-nnIYc41cNGxz4A89dkVS5e3SgGC0PRq9ND1dyDP9t5TDuUeF2+BcVs7EbOTKirxdKPRqI4pMNQb2vN77xyVMgQ==}
     dependencies:
-      '@nuxt/kit': 3.0.0
+      '@nuxt/kit': 3.4.0
       fontaine: 0.2.3
-      magic-string: 0.27.0
+      magic-string: 0.30.0
       pathe: 1.1.0
       ufo: 1.1.1
     transitivePeerDependencies:
@@ -2902,7 +2902,6 @@ packages:
 
   /consola@3.0.1:
     resolution: {integrity: sha512-08E7bC2N6gaFdzPU/qtBi4ulVvJitYnfrDdxEiwElC3jSNICbOvkcE+8N56EfIrBoxp37O9Qnn5ZZPElov83UQ==}
-    dev: true
 
   /console-control-strings@1.1.0:
     resolution: {integrity: sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==}
@@ -4140,7 +4139,6 @@ packages:
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 4.0.0
-    dev: true
 
   /google-fonts-helper@3.2.4:
     resolution: {integrity: sha512-M740UjqBOxmG2qFUW7Lhgak9WDpsT18zxLJuG+MP4r+G1vhqbWm3x3D40xFEzhveQAneaEr8WjPxf+vcx9Xohg==}
@@ -5672,7 +5670,7 @@ packages:
   /nuxt-config-schema@0.4.5:
     resolution: {integrity: sha512-Y5anu5puDfMJfDP7IYjXsn6Dvj262HtjZqa73jCBbFRCc5jnjrs+BEpJJmtPG32ZsqzO2+RL4oTNb3H6IfKZLQ==}
     dependencies:
-      '@nuxt/kit': 3.3.3
+      '@nuxt/kit': 3.4.1
       changelogen: 0.4.1
       defu: 6.1.2
       jiti: 1.18.2
@@ -5686,7 +5684,7 @@ packages:
   /nuxt-csurf@1.2.0:
     resolution: {integrity: sha512-sO8Hm3fR+GB3DMc0y1Slzt+f9LiUKpvF/qvUUZBWz1ZknfTRTYemZkfSNcoYf0/hoL2Wb9O0c8pFtzj0hs8Spw==}
     dependencies:
-      '@nuxt/kit': 3.3.3
+      '@nuxt/kit': 3.4.1
       defu: 6.1.2
     transitivePeerDependencies:
       - rollup
@@ -6877,7 +6875,6 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
-    dev: true
 
   /send@0.18.0:
     resolution: {integrity: sha512-qqWzuOjSFOuqPjFe4NOsMLafToQQwBSOEpS+FwEt3A2V3vKubTquT3vmLTQpFgMXp8AlFWFuP1qKaJZOtPpVXg==}
@@ -7498,7 +7495,6 @@ packages:
       estree-walker: 3.0.3
       magic-string: 0.30.0
       unplugin: 1.3.1
-    dev: true
 
   /unenv@1.3.1:
     resolution: {integrity: sha512-4hTMiJf1TgQNnOsZxaI6XpCpVvOUNYLW3NxEkjdzXf+Dukys4b01AShapcXzKzvgoyoWByP3MLbg/CkzcKx+GA==}
