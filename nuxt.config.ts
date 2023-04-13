@@ -116,9 +116,5 @@ export default defineNuxtConfig({
 
       return data.json()
     }
-  },
-
-  build: {
-    transpile: ['@yeger/vue-masonry-wall']
   }
 })
