@@ -24,6 +24,7 @@ export default defineNuxtConfig({
   ],
 
   modules: [
+    '@kevinmarrec/nuxt-pwa',
     '@nuxt/devtools',
     '@nuxt/image-edge',
     '@nuxtjs/color-mode',
@@ -80,12 +81,6 @@ export default defineNuxtConfig({
   },
 
   pwa: {
-    scope: '/',
-    srcDir: './scripts/service-worker',
-    filename: 'sw.ts',
-    strategies: 'injectManifest',
-    injectRegister: false,
-    includeManifestIcons: false,
     manifest: {
       name: 'Adrian Salvador',
       start_url: '/',
@@ -94,10 +89,6 @@ export default defineNuxtConfig({
       display: 'fullscreen',
       background_color: '#fff',
       theme_color: '#1b1b1b'
-    },
-    devOptions: {
-      enabled: true,
-      type: 'module'
     }
   },
 

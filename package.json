@@ -20,6 +20,7 @@
     "vanilla-tilt": "^1.8.0"
   },
   "devDependencies": {
+    "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@nuxt/devtools": "^0.4.0",
     "@nuxt/eslint-config": "^0.1.1",
     "@nuxt/image-edge": "1.0.0-28020728.5df24eb",
