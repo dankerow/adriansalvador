@@ -90,16 +90,6 @@ onMounted(() => {
   }
 
   setTheme(colorMode.value)
-
-  window.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('[data-bs-theme-value]')
-      .forEach((toggle) => {
-        toggle.addEventListener('click', () => {
-          const theme = toggle.getAttribute('data-bs-theme-value') as string
-          setTheme(theme)
-        })
-      })
-  })
 })
 </script>
 
@@ -108,8 +98,6 @@ onMounted(() => {
     <Header />
 
     <slot />
-
-    <LazySectionsContact />
 
     <div class="sticky-bottom">
       <div class="footer-actions py-3">
