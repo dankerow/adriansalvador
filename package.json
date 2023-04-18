@@ -37,7 +37,7 @@
     "@vueuse/nuxt": "^10.0.2",
     "eslint": "^8.38.0",
     "nuxt": "3.4.1",
-    "nuxt-gtag": "^0.5.4",
+    "nuxt-gtag": "^0.5.5",
     "nuxt-icon": "^0.3.3",
     "nuxt-purgecss": "^2.0.0",
     "nuxt-simple-sitemap": "^2.4.11",
