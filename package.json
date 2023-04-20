@@ -31,7 +31,7 @@
     "@nuxtjs/google-fonts": "3.0.0",
     "@nuxtjs/i18n": "8.0.0-beta.11",
     "@types/aos": "^3.0.4",
-    "@types/node": "^18.15.11",
+    "@types/node": "^18.15.12",
     "@types/rellax": "^1.7.4",
     "@vueuse/core": "^10.0.2",
     "@vueuse/nuxt": "^10.0.2",
@@ -50,5 +50,5 @@
     "Firefox ESR",
     "not dead"
   ],
-  "packageManager": "pnpm@8.3.0"
+  "packageManager": "pnpm@8.3.1"
 }
