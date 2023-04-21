@@ -22,7 +22,10 @@ useHead({
     lang: () => locale.value,
     dir: () => localeMap[locale.value] ?? 'auto'
   },
-  title: 'Adrian Salvador',
+  title: null,
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${titleChunk} - Adrian Salvador | Photographer` : 'Adrian Salvador | Photographer'
+  },
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     { name: 'description', content: description },
@@ -33,7 +36,7 @@ useHead({
     },
     {
       name: 'twitter:site',
-      content: 'Adrian Salvador'
+      content: 'Adrian Salvador | Photographer'
     },
     {
       name: 'twitter:creator',
@@ -54,7 +57,7 @@ useHead({
     {
       name: 'og:title',
       property: 'og:title',
-      content: 'Adrian Salvador'
+      content: 'Adrian Salvador | Photographer'
     },
     {
       name: 'og:description',
@@ -76,7 +79,7 @@ useHead({
   ],
   script: [
     {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0-alpha2/js/bootstrap.bundle.min.js',
+      src: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.min.js',
       type: 'text/javascript',
       defer: true
     }
@@ -114,9 +117,3 @@ onMounted(() => {
     <LazyFooter />
   </div>
 </template>
-
-<style lang="scss">
-.footer-actions {
-	background-image: linear-gradient(to bottom, rgba(15, 15, 15, 0.6), rgba(15, 15, 15, 0.9), rgba(15, 15, 15, 1));
-}
-</style>

@@ -21,7 +21,10 @@ useHead({
     lang: () => locale.value,
     dir: () => localeMap[locale.value] ?? 'auto'
   },
-  title: 'Adrian Salvador',
+  title: null,
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${titleChunk} - Adrian Salvador | Photographer` : 'Adrian Salvador | Photographer'
+  },
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     { name: 'description', content: description },
@@ -32,7 +35,7 @@ useHead({
     },
     {
       name: 'twitter:site',
-      content: 'Adrian Salvador'
+      content: 'Adrian Salvador | Photographer'
     },
     {
       name: 'twitter:creator',
@@ -53,7 +56,7 @@ useHead({
     {
       name: 'og:title',
       property: 'og:title',
-      content: 'Adrian Salvador'
+      content: 'Adrian Salvador | Photographer'
     },
     {
       name: 'og:description',
@@ -118,6 +121,12 @@ onMounted(() => {
 
 <style lang="scss">
 .footer-actions {
-	background-image: linear-gradient(to bottom, rgba(15, 15, 15, 0.6), rgba(15, 15, 15, 0.9), rgba(15, 15, 15, 1));
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+}
+
+.dark-mode {
+  .footer-actions {
+    background-image: linear-gradient(to bottom, rgba(15, 15, 15, 0.6), rgba(15, 15, 15, 0.9), rgba(15, 15, 15, 1));
+  }
 }
 </style>
