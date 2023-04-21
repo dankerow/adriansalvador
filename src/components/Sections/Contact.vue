@@ -10,19 +10,17 @@
         </p>
 
         <div class="d-grid gap-4 d-sm-flex justify-content-sm-center">
-          <a href="mailto:adriansalvador@gmail.com" aria-label="Email" target="_blank" rel="noreferrer">
-            <Icon name="ph:at-duotone" />
+          <a href="mailto:me@salvadoradrian.com" aria-label="Email" target="_blank" rel="noreferrer">
+            <Icon name="ph:envelope-simple-duotone" size="1.5em" />
           </a>
-
           <a href="https://www.instagram.com/adriansalvadore/" aria-label="Instagram" target="_blank" rel="noreferrer">
-            <Icon name="ph:instagram-logo-duotone" />
+            <Icon name="ph:instagram-logo-duotone" size="1.5em" />
           </a>
         </div>
       </div>
     </div>
   </section>
 </template>
-
 
 <style lang="scss">
 .contact {
