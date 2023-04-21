@@ -19,7 +19,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const imagesData: Ref<any[]> = ref(props.images)
-const lightbox: Ref<PhotoSwipeLightbox|null> = ref(null)
+const lightbox: Ref<PhotoSwipeLightbox|undefined> = ref()
 
 onMounted(() => {
   if (!lightbox.value) {
@@ -29,20 +29,20 @@ onMounted(() => {
       pswpModule: () => import('photoswipe')
     })
 
-    lightbox.value.on('uiRegister', () => {
-      lightbox.value.pswp.ui.registerElement({
+    lightbox.value?.on('uiRegister', () => {
+      lightbox.value?.pswp.ui.registerElement({
         name: 'custom-caption',
         order: 9,
         isButton: false,
         appendTo: 'root',
         html: 'Caption text',
         onInit: (el: HTMLElement) => {
-          lightbox.value.pswp.on('change', () => {
-            const currSlideElement = lightbox.value.pswp.currSlide.data.element
+          lightbox.value?.pswp.on('change', () => {
+            const currSlideElement = lightbox.value?.pswp.currSlide.data.element
             let captionHTML = ''
 
             if (currSlideElement) {
-              const hiddenCaption = currSlideElement.querySelector('.hidden-caption-content')
+              const hiddenCaption = currSlideElement.querySelector('.hidden-caption-content') as HTMLElement
               if (hiddenCaption) {
                 captionHTML = hiddenCaption.innerHTML
               } else {
@@ -56,14 +56,14 @@ onMounted(() => {
       })
     })
 
-    lightbox.value.init()
+    lightbox.value?.init()
   }
 })
 
 onUnmounted(() => {
-  if (lightbox) {
-    lightbox.value.destroy()
-    lightbox.value = null
+  if (lightbox.value) {
+    lightbox.value?.destroy()
+    lightbox.value = undefined
   }
 })
 </script>
@@ -77,18 +77,19 @@ onUnmounted(() => {
     :gap="gap"
   >
     <template #default="{ item }">
-      <div class="image-container" :style="`max-height: ${item.thumb.height}px;`">
+      <div class="image-container">
         <a
+          :href="item.url"
           :data-pswp-src="item.url"
           :data-pswp-width="item.metadata.width"
           :data-pswp-height="item.metadata.height"
+          aria-label="View image"
           type="button"
         >
           <nuxt-img
             class="image-thumbnail"
             :src="`${item.thumb.url}?width=325`"
-            :height="item.thumb.height"
-            :width="item.thumb.width"
+            :width="325"
             loading="lazy"
             draggable="false"
             style="height: 100%; width: 100%;"
