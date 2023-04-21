@@ -1,11 +1,39 @@
 <script setup lang="ts">
-const cdnBaseUrl = useRuntimeConfig().public.cdnBaseURL
+const cdnBaseURL = useRuntimeConfig().public.cdnBaseURL
+
+onBeforeMount(() => {
+  const lazyVideos = [].slice.call(document.querySelectorAll('video.lazy') as unknown as HTMLVideoElement[])
+
+  if ('IntersectionObserver' in window) {
+    const lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach((video) => {
+        if (video.isIntersecting) {
+          for (const source in video.target.children) {
+            const videoSource = video.target.children[source] as HTMLSourceElement;
+            if (videoSource.tagName === 'SOURCE') {
+              videoSource.src = videoSource.dataset.src
+            }
+          }
+
+          video.target.load();
+          video.target.classList.remove('lazy');
+          lazyVideoObserver.unobserve(video.target);
+        }
+      });
+    });
+
+    lazyVideos.forEach((lazyVideo) => {
+      lazyVideoObserver.observe(lazyVideo)
+    })
+  }
+})
 </script>
 
 <template>
   <section class="hero">
     <video
       id="background-video"
+      class="lazy"
       autoplay
       loop
       muted
@@ -13,7 +41,7 @@ const cdnBaseUrl = useRuntimeConfig().public.cdnBaseURL
       poster="~/assets/images/reflections-poster.jpg"
     >
       <source
-        :src="`${cdnBaseUrl}/videos/reflections.mp4`"
+        :data-src="`${cdnBaseURL}/videos/reflections.mp4`"
         type="video/mp4"
       >
     </video>
