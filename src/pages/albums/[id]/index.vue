@@ -10,6 +10,10 @@ const params = useRoute().params
 
 const { data: album } = await useFutch(`/albums/${params.id}`)
 
+if (!album.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Album Not Found' })
+}
+
 const pages: Ref<number> = ref(0)
 const currentPage: Ref<number> = ref(1)
 
@@ -61,7 +65,7 @@ const cdnBaseURL = useRuntimeConfig().public.cdnBaseURL
 
 const getImagesView: ComputedRef<object[]> = computed(() => {
   return images.value.data.map((image: any) => {
-    image.url = `${cdnBaseURL}/gallery/${album.value.name}/${image.name}`
+    image.url = `${cdnBaseURL}/gallery/${encodeURIComponent(album.value.name)}/${encodeURIComponent(image.name)}`
     image.thumb.url = `${cdnBaseURL}/images/${image.name}`
 
     return image
