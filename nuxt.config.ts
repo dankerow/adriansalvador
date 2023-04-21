@@ -59,6 +59,10 @@ export default defineNuxtConfig({
     display: 'swap'
   },
 
+  gtag: {
+    id: isProduction && process.env.GTAG_ID ? process.env.GTAG_ID : undefined,
+  },
+
   i18n: {
     strategy: 'no_prefix',
     baseUrl: process.env.BASE_URL,
@@ -81,14 +85,22 @@ export default defineNuxtConfig({
   },
 
   pwa: {
+    meta: {
+      mobileApp: true,
+      name: 'Adrian Salvador | Photographer',
+      appleStatusBarStyle: 'black-translucent'
+    },
     manifest: {
-      name: 'Adrian Salvador',
+      name: 'Adrian Salvador | Photographer',
       start_url: '/',
-      short_name: 'Adrian S.',
+      short_name: 'Adrian Salvador',
       lang: 'en',
       display: 'fullscreen',
       background_color: '#fff',
       theme_color: '#1b1b1b'
+    },
+    workbox: {
+      enabled: false
     }
   },
 
