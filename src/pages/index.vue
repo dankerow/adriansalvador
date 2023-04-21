@@ -28,16 +28,14 @@ definePageMeta({
       json: {
         '@context': 'https://schema.org',
         '@type': 'VideoObject',
-        name: 'Introducing the self-driving bicycle in the Netherlands',
-        description: 'This spring, Google is introducing the self-driving bicycle in Amsterdam, the world\'s premier cycling city. The Dutch cycle more than any other nation in the world, almost 900 kilometres per year per person, amounting to over 15 billion kilometres annually. The self-driving bicycle enables safe navigation through the city for Amsterdam residents, and furthers Google\'s ambition to improve urban mobility with technology. Google Netherlands takes enormous pride in the fact that a Dutch team worked on this innovation that will have great impact in their home country.',
-        thumbnailUrl: [
-          ''
-        ],
-        contentUrl: ''
+        name: 'Reflections',
+        contentUrl: 'https://cdn.salvadoradrian.com/videos/reflections.mp4'
       }
     }
   ]
 })
+
+const cdnBaseURL = useRuntimeConfig().public.cdnBaseURL
 
 const { data: albumsFavorites } = await useFutch('/albums/favorites')
 
@@ -45,10 +43,8 @@ const { pending: pendingAlbums, data: albums, error: errorAlbums } = await useLa
   useFaetch('/albums')
 , { immediate: process.client, default: () => shallowRef() })
 
-const cdnBaseURL = useRuntimeConfig().public.cdnBaseURL
-
 const { pending: pendingImages, data: randomImages, error: errorImages } = await useLazyAsyncData(() =>
-  useFaetch('/images/random', { baseURL: cdnBaseURL })
+  useFaetch('/images/random')
 , { immediate: process.client, default: () => shallowRef() })
 
 watch(albums, (newAlbums) => {
@@ -61,7 +57,7 @@ watch(randomImages, (newRandomImages) => {
 
 const getRandomImagesView: ComputedRef<Album[]> = computed(() => {
   return randomImages.value.map((image: any) => {
-    image.url = `${cdnBaseURL}/gallery/${image.album?.name}/${image.name}`
+    image.url = `${cdnBaseURL}/gallery/${encodeURIComponent(image.album?.name)}/${encodeURIComponent(image.name)}`
     image.thumb.url = `${cdnBaseURL}/images/${image.name}`
 
     return image
@@ -81,12 +77,12 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
   <div>
     <SectionsHero />
 
-    <AlbumsFavorites :albums="albumsFavorites?.data" />
+    <SectionsShowcase :albums="albumsFavorites?.data" />
 
     <section class="gallery-preview py-10">
-      <div class="container-fluid g-6">
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-3 justify-content-center">
-          <div class="col-4 col-md-2 col-lg-auto">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-4 col-md-2 col-lg-1">
             <aside class="case text-start" data-aos="fade-right">
               <List :title="$t('videos.metadata.title')">
                 <template #items>
@@ -125,7 +121,7 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
                 <List v-if="!errorAlbums" title="albums" :items="getAlbumsView" :more="{ url: '/albums' }" />
               </template>
 
-              <List title="social" class="d-block d-sm-none">
+              <List title="social">
                 <template #items>
                   <li>
                     <a class="text" href="https://www.instagram.com/adriansalvadore/" rel="noreferrer" target="_blank" aria-label="My Instagram Profile">
@@ -143,7 +139,7 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
             </aside>
           </div>
 
-          <div class="col col-md-8 col-lg-10">
+          <div class="col col-md-8 col-lg-11">
             <template v-if="pendingImages">
               <AlbumsLoadingCards data-aos="fade-up" />
             </template>
@@ -151,34 +147,27 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
               <p>{{ errorImages }}</p>
             </template>
             <template v-else-if="randomImages">
+              <div class="hstack gap-3 mb-2 justify-content-end">
+                <div class="small text-body-secondary">
+                  Displaying trending images
+                </div>
+                <div class="vr" />
+                <div class="small text-body-secondary">
+                  <NuxtLink to="/albums" class="text-decoration-underline">
+                    Albums
+                  </NuxtLink>
+                </div>
+              </div>
               <div data-aos="fade-up">
                 <GalleryGrid id="gallery-grid" :images="getRandomImagesView" :ssr-columns="1" />
               </div>
             </template>
           </div>
-
-          <div class="col col-md-2 col-lg-auto d-none d-md-block text-end">
-            <div class="case" data-aos="fade-left">
-              <List title="social">
-                <template #items>
-                  <li>
-                    <a class="text" href="https://www.instagram.com/adriansalvadore/" rel="noreferrer" target="_blank" aria-label="My Instagram Profile">
-                      Instagram
-                    </a>
-                  </li>
-
-                  <li>
-                    <a class="text" href="https://vimeo.com/user181229489" rel="noreferrer" target="_blank" aria-label="My Vimeo Profile">
-                      Vimeo
-                    </a>
-                  </li>
-                </template>
-              </List>
-            </div>
-          </div>
         </div>
       </div>
     </section>
+
+    <LazySectionsContact />
   </div>
 </template>
 
@@ -193,7 +182,7 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
 }
 
 .case {
-	padding: 0 0.875rem;
+	padding: 0 0.25rem;
 	top: 90px;
 	position: sticky;
 }
