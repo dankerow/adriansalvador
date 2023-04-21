@@ -59,7 +59,7 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
 
 <template>
   <div>
-    <section class="min-vh-100 pt-4">
+    <section class="min-vh-100 py-4">
       <Breadcrumb :links="[{ name: 'Albums' }]" class="mb-6" />
 
       <div class="container">
