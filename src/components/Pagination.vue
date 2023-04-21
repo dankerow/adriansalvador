@@ -232,7 +232,7 @@ nav {
 
 .dark-mode {
 	nav {
-		background-image: linear-gradient(to bottom, rgba(15, 15, 15, 0.6), rgba(15, 15, 15, 0.9), rgba(15, 15, 15, 1));
+		background-image: linear-gradient(to bottom, rgba(15, 15, 15, 0.4), rgba(15, 15, 15, 0.6), rgba(15, 15, 15, 1));
 	}
 
 	.pagination {
