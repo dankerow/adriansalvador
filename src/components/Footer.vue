@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="text-body-secondary">
     <div class="footer-bottom py-3">
       <div class="container">
         <p class="mb-0">
@@ -16,7 +16,6 @@
 <style lang="scss" scoped>
 footer {
 	background-color: rgb(245, 245, 245);
-	color: #989898;
 	font-size: 0.75em;
 
 	.footer-bottom {
