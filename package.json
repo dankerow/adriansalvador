@@ -35,7 +35,7 @@
     "@types/rellax": "^1.7.4",
     "@vueuse/core": "^10.0.2",
     "@vueuse/nuxt": "^10.0.2",
-    "eslint": "^8.38.0",
+    "eslint": "^8.39.0",
     "nuxt": "3.4.2",
     "nuxt-gtag": "^0.5.7",
     "nuxt-icon": "^0.3.3",
