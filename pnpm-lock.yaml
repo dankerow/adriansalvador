@@ -1458,7 +1458,7 @@ packages:
       defu: 6.1.2
       estree-walker: 3.0.3
       is-https: 4.0.0
-      js-cookie: 3.0.2
+      js-cookie: 3.0.4
       knitwork: 1.0.0
       magic-string: 0.27.0
       mlly: 1.2.0
@@ -4613,8 +4613,8 @@ packages:
       '@sideway/pinpoint': 2.0.0
     dev: true
 
-  /js-cookie@3.0.2:
-    resolution: {integrity: sha512-5EgA+ev3+vChW7A7t2Oz2Lbr5u/5Pb1ikENtFuYP6GPZpX5Mm84WRlRtD9+9p7myNphw6N24AG/UzrE4HgGLtA==}
+  /js-cookie@3.0.4:
+    resolution: {integrity: sha512-tlu5VGqPFMP5eBefnmszCFZkPXG2n527NRN9XdNtN6FZ5n/0e98TdDm8BOz290OIIsxtXb9XTJjfqE6gVhOHQw==}
     engines: {node: '>=14', npm: '>=9.5.0'}
     dev: true
 
