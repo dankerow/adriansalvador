@@ -9,7 +9,10 @@ export default defineNuxtConfig({
   sourcemap: isDevelopment,
 
   nitro: {
-    compressPublicAssets: true
+    compressPublicAssets: {
+      brotli: true,
+      gzip: false
+    }
   },
 
   runtimeConfig: {
