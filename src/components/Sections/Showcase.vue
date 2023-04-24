@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Album } from '~/types/albums';
+import { Album } from '~/types/albums'
 
-const props = withDefaults(defineProps<{
+withDefaults(defineProps<{
   albums?: Album[]
 }>(), {
   albums: () => []
@@ -9,7 +9,7 @@ const props = withDefaults(defineProps<{
 </script>
 
 <template>
-  <section class="showcase py-10 py-lg-12">
+  <section class="showcase min-vh-100 py-10 py-lg-12">
     <div class="container">
       <div class="card mb-12" data-aos="fade-up">
         <div class="card-body pb-4">
@@ -39,8 +39,6 @@ const props = withDefaults(defineProps<{
 
 .showcase {
   background: radial-gradient(circle at center, white 0%, #ededed 100%);
-  min-height: 100vh;
-  overflow-x: hidden;
 
   p {
     .first-letter {
