@@ -11,6 +11,10 @@ definePageMeta({
         '@type': 'Person',
         name: 'Adrian Salvador',
         jobTitle: 'Photographer',
+        sameAs: [
+          'https://www.instagram.com/adriansalvadore/',
+          'https://vimeo.com/user181229489'
+        ],
         url: 'https://salvadoradrian.com/'
       }
     },
@@ -58,7 +62,6 @@ watch(randomImages, (newRandomImages) => {
 const getRandomImagesView: ComputedRef<Album[]> = computed(() => {
   return randomImages.value.map((image: any) => {
     image.url = `${cdnBaseURL}/gallery/${encodeURIComponent(image.album?.name)}/${encodeURIComponent(image.name)}`
-    image.thumb.url = `${cdnBaseURL}/images/${image.name}`
 
     return image
   })
@@ -74,12 +77,12 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
 </script>
 
 <template>
-  <div>
+  <main>
     <SectionsHero />
 
     <SectionsShowcase :albums="albumsFavorites?.data" />
 
-    <section class="gallery-preview py-10">
+    <section class="gallery-preview min-vh-100 py-10">
       <div class="container-fluid">
         <div class="row justify-content-center">
           <div class="col-4 col-md-2 col-lg-1">
@@ -159,7 +162,7 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
                 </div>
               </div>
               <div data-aos="fade-up">
-                <GalleryGrid id="gallery-grid" :images="getRandomImagesView" :ssr-columns="1" />
+                <GalleryGrid id="gallery-grid" :images="getRandomImagesView" />
               </div>
             </template>
           </div>
@@ -168,7 +171,7 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
     </section>
 
     <LazySectionsContact />
-  </div>
+  </main>
 </template>
 
 <style lang="scss" scoped>
@@ -177,8 +180,8 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
 }
 
 .gallery-preview {
-	min-height: 100vh;
 	background: radial-gradient(ellipse at center, white 0%, #ededed 100%);
+  z-index: 50;
 }
 
 .case {
