@@ -81,7 +81,7 @@ export default defineNuxtConfig({
 
   purgecss: {
     keyframes: true,
-    safelist: ['dark-mode', 'aos-init', 'aos-animate', 'data-aos', /^pswp/, /^btn-/, /^dropdown/]
+    safelist: ['dark-mode', 'aos-init', 'aos-animate', 'data-aos', /^pswp/, /^btn-/, /^dropdown/, 'icon-link', 'svg']
   },
 
   pwa: {
