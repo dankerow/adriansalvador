@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const cdnBaseURL = useRuntimeConfig().public.cdnBaseURL
 
-onBeforeMount(() => {
+onMounted(() => {
   const lazyVideos = [].slice.call(document.querySelectorAll('video.lazy') as unknown as HTMLVideoElement[])
 
   if ('IntersectionObserver' in window) {
