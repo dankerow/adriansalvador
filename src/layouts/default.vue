@@ -25,10 +25,12 @@ useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} - Adrian Salvador | Photographer` : 'Adrian Salvador | Photographer'
   },
+  bodyAttrs: {
+    class: 'overflow-x-hidden'
+  },
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     { name: 'description', content: description },
-    { name: 'robots', content: 'noydir,noodp,noarchive,nocache,notranslate,follow,imageindex,index' },
     {
       name: 'twitter:card',
       content: 'summary'
@@ -85,6 +87,12 @@ useHead({
   ]
 })
 
+const route = useRoute()
+
+const isAlbums = computed(() => {
+  return route.path.includes('/albums')
+})
+
 onMounted(() => {
   const setTheme = function(theme: string) {
     document.documentElement.setAttribute('data-bs-theme', theme)
@@ -100,22 +108,7 @@ onMounted(() => {
 
     <slot />
 
-    <div class="sticky-bottom">
-      <div class="footer-actions py-3">
-        <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-auto">
-              <ThemeSelector />
-            </div>
-            <div class="col-auto">
-              <LanguageSelector />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <LazyFooter />
+    <Footer :actions-fixed="!isAlbums" />
   </div>
 </template>
 
