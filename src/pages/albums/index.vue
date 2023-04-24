@@ -2,10 +2,6 @@
 import { ComputedRef, Ref } from 'vue'
 import { Album } from '@/types/albums'
 
-definePageMeta({
-  layout: 'gallery'
-})
-
 useHead({
   title: 'Albums',
   meta: [
@@ -45,6 +41,8 @@ watch(albums, (newAlbums) => {
 })
 
 const changePage = (index: number) => {
+  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+
   currentPage.value = index
 }
 
@@ -58,7 +56,7 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
 </script>
 
 <template>
-  <div>
+  <main>
     <section class="min-vh-100 py-4">
       <Breadcrumb :links="[{ name: 'Albums' }]" class="mb-6" />
 
@@ -71,11 +69,16 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
               </div>
 
               <div class="card-body">
-                <h4 class="card-title text-truncate mb-0">
-                  <span class="align-middle d-inline-block"># # # # # #</span>
-
-                  <Icon name="material-symbols:open-in-new" class="open-new float-end" />
-                </h4>
+                <div class="hstack">
+                  <div>
+                    <Icon name="ph:folder-duotone" class="icon-link me-2" />
+                  </div>
+                  <div>
+                    <h4 class="card-title text-truncate mb-0">
+                      # # # # # # # #
+                    </h4>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -88,13 +91,20 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
               </div>
 
               <div class="card-body">
-                <h4 class="card-title text-truncate mb-0">
-                  <Icon v-if="album.favorite || album.featured" name="ph:folder-star-duotone" class="align-middle d-inline-block me-2" />
-                  <Icon v-else name="ph:folder-duotone" class="align-middle d-inline-block me-2" />
-                  <span class="align-middle d-inline-block">{{ album.name }}</span>
-
-                  <Icon name="material-symbols:open-in-new" class="open-new align-middle d-inline-block float-end" size="1em" />
-                </h4>
+                <div class="hstack gap-2">
+                  <div>
+                    <Icon v-if="album.favorite || album.featured" name="ph:folder-star-duotone" class="icon-link" />
+                    <Icon v-else name="ph:folder-duotone" class="icon-link" />
+                  </div>
+                  <div class="text-truncate">
+                    <h4 class="card-title mb-0">
+                      {{ album.name }}
+                    </h4>
+                  </div>
+                  <div class="ms-auto">
+                    <Icon name="material-symbols:open-in-new" class="open-new icon-link" size="1em" />
+                  </div>
+                </div>
               </div>
 
               <NuxtLink
@@ -115,7 +125,7 @@ const getAlbumsView: ComputedRef<Album[]> = computed(() => {
       @previous-page="changePage(currentPage - 1)"
       @change-page="changePage"
     />
-  </div>
+  </main>
 </template>
 
 <style lang="scss" scoped>
