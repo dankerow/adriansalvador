@@ -15,6 +15,10 @@ export default defineNuxtConfig({
     }
   },
 
+  experimental: {
+    watcher: 'parcel'
+  },
+
   runtimeConfig: {
     public: {
       apiBaseURL: isProduction ? process.env.API_BASE_URL : process.env.API_BASE_URL_DEV,
@@ -89,7 +93,7 @@ export default defineNuxtConfig({
 
   pwa: {
     meta: {
-      mobileApp: true,
+      mobileAppIOS: true,
       name: 'Adrian Salvador | Photographer',
       appleStatusBarStyle: 'black-translucent'
     },
@@ -100,7 +104,6 @@ export default defineNuxtConfig({
       lang: 'en',
       display: 'fullscreen',
       background_color: '#fff',
-      theme_color: '#1b1b1b'
     },
     workbox: {
       enabled: false
