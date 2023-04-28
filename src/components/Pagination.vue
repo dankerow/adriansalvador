@@ -215,12 +215,6 @@ nav {
 	&[aria-current='page'] {
 		cursor: default;
 	}
-
-	svg {
-		height: .870rem;
-		vertical-align: middle;
-		width: .870rem;
-	}
 }
 
 .page-item {
@@ -239,7 +233,7 @@ nav {
 		--bs-pagination-color: #8a8a8a;
 		--bs-pagination-bg: rgb(15, 15, 15);
 		--bs-pagination-border-color: #606060;
-		--bs-pagination-hover-color: #212121;
+		--bs-pagination-hover-color: #e9e9e9;
 		--bs-pagination-active-color: #e9e9e9;
 		--bs-pagination-active-bg: #1b1b1b;
 		--bs-pagination-active-border-color: #909090;
