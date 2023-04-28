@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import type { Ref, ComputedRef } from 'vue'
-
-definePageMeta({
-  layout: 'gallery'
-})
+import { Album, AlbumFile } from '@/types/albums'
 
 const colorMode = useColorMode()
 const params = useRoute().params
 
-const { data: album } = await useFutch(`/albums/${params.id}`)
+const { data: album }: { data: Ref<Album> } = await useFutch(`/albums/${params.id}`)
 
 if (!album.value) {
   throw createError({ statusCode: 404, statusMessage: 'Album Not Found' })
@@ -58,15 +55,16 @@ const share = async () => {
 }
 
 const changePage = (index: number) => {
+  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+
   currentPage.value = index
 }
 
 const cdnBaseURL = useRuntimeConfig().public.cdnBaseURL
 
-const getImagesView: ComputedRef<object[]> = computed(() => {
+const getImagesView: ComputedRef<AlbumFile[]> = computed(() => {
   return images.value.data.map((image: any) => {
     image.url = `${cdnBaseURL}/gallery/${encodeURIComponent(album.value.name)}/${encodeURIComponent(image.name)}`
-    image.thumb.url = `${cdnBaseURL}/images/${image.name}`
 
     return image
   })
@@ -74,7 +72,7 @@ const getImagesView: ComputedRef<object[]> = computed(() => {
 </script>
 
 <template>
-  <div>
+  <main>
     <section class="min-vh-100 pt-4">
       <Breadcrumb :links="[{ name: 'Albums', path: '/albums' }, { name: album.name }]" class="mb-6" />
 
@@ -120,21 +118,19 @@ const getImagesView: ComputedRef<object[]> = computed(() => {
 
         <hr>
 
-        <div class="row row-cols-1 justify-content-center" data-aos="fade-up">
-          <div class="col">
-            <AlbumsLoadingCards v-if="pendingImages" />
-            <GalleryGrid v-else-if="images?.data" :id="`gallery-grid-${album.id}`" :images="getImagesView" :ssr-columns="1" />
-            <template v-else-if="errorImages">
-              <div class="alert alert-danger" role="alert">
-                <h2 class="alert-heading h6 fw-bolder">
-                  Something went wrong
-                </h2>
-                <p class="mb-0">
-                  We couldn't load the images for this album. Please try again later.
-                </p>
-              </div>
-            </template>
-          </div>
+        <div data-aos="fade-up">
+          <AlbumsLoadingCards v-if="pendingImages" />
+          <GalleryGrid v-else-if="images?.data" :id="`gallery-grid-${album.id}`" :images="getImagesView" />
+          <template v-else-if="errorImages">
+            <div class="alert alert-danger" role="alert">
+              <h2 class="alert-heading h6 fw-bolder">
+                Something went wrong
+              </h2>
+              <p class="mb-0">
+                We couldn't load the images for this album. Please try again later.
+              </p>
+            </div>
+          </template>
         </div>
       </div>
     </section>
@@ -146,7 +142,7 @@ const getImagesView: ComputedRef<object[]> = computed(() => {
       @previous-page="changePage(currentPage - 1)"
       @change-page="changePage"
     />
-  </div>
+  </main>
 </template>
 
 <style lang="scss" scoped>
