@@ -4,23 +4,28 @@ export interface AlbumFile {
   url?: string
   readonly type: string
   readonly size: number
-  albumId: string
-  album?: object
-  readonly createdAt: string
-  readonly updatedAt: string
+  albumId: string | null
+  album?: Album
+  readonly createdAt: number
+  readonly updatedAt: number
 }
 
 export interface Album {
   readonly id: string
   name: string
   url?: string
-  cover: Omit<AlbumFile, 'type' | 'size' | 'albumId' | 'album' | 'createdAt' | 'updatedAt'>
+  draft: boolean
   hidden: boolean
   nsfw: boolean
   favorite: boolean
   featured: boolean
-  readonly fileCount: number
+  coverId: string | null
+  cover?: Omit<AlbumFile, 'type' | 'size' | 'albumId' | 'album' | 'createdAt' | 'updatedAt'>
+  coverFallbackId: string | null
+  coverFallback?: Omit<AlbumFile, 'type' | 'size' | 'albumId' | 'album' | 'createdAt' | 'updatedAt'>
+  fileCount: number
   images: AlbumFile[]
-  readonly createdAt: string
-  readonly updatedAt: string
+  readonly postedAt: number | null
+  readonly createdAt: number
+  readonly updatedAt: number
 }
