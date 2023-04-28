@@ -1,36 +1,27 @@
 <script setup lang="ts">
-import type { Directions, LocaleObject } from 'vue-i18n-routing'
-
 const colorMode = useColorMode()
-const { locale, locales } = useI18n()
+const { t } = useI18n()
 const head = useLocaleHead({
   addDirAttribute: true,
   identifierAttribute: 'id',
   addSeoAttributes: true
 })
 
-const description = ref('"Capturing the essence of people through a lens."')
-
-const localeMap = (locales.value as LocaleObject[]).reduce((acc, l) => {
-  acc[l.code!] = l.dir ?? 'auto'
-  return acc
-}, {} as Record<string, Directions>)
-
 useHead({
   htmlAttrs: {
-    lang: () => locale.value,
-    dir: () => localeMap[locale.value] ?? 'auto'
+    lang: () => head.value.htmlAttrs.lang,
+    dir: () => head.value.htmlAttrs.dir ?? 'auto'
   },
   title: null,
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} - Adrian Salvador | Photographer` : 'Adrian Salvador | Photographer'
+    return titleChunk ? `${titleChunk} - Adrian Salvador` : 'Adrian Salvador | Photographer'
   },
   bodyAttrs: {
     class: 'overflow-x-hidden'
   },
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    { name: 'description', content: description },
+    { name: 'description', content: () => t('metadata.description') },
     {
       name: 'twitter:card',
       content: 'summary'
@@ -49,7 +40,7 @@ useHead({
     },
     {
       name: 'twitter:description',
-      content: description
+      content: () => t('metadata.description')
     },
     {
       name: 'twitter:image',
@@ -63,7 +54,7 @@ useHead({
     {
       name: 'og:description',
       property: 'og:description',
-      content: description
+      content: () => t('metadata.description')
     },
     {
       name: 'og:image',
