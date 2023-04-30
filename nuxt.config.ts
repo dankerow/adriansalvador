@@ -20,8 +20,8 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    apiBaseUrl: isProduction ? process.env.API_BASE_URL : process.env.API_BASE_URL_DEV,
     public: {
-      apiBaseURL: isProduction ? process.env.API_BASE_URL : process.env.API_BASE_URL_DEV,
       cdnBaseURL: isProduction ? process.env.CDN_BASE_URL : process.env.CDN_BASE_URL_DEV
     }
   },
