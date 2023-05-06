@@ -1,10 +1,16 @@
-import { UseFetchOptions } from '#app'
+import type { UseFetchOptions } from 'nuxt/app'
+import defu from 'defu'
 
-export default (url: string, options: UseFetchOptions<object> = {}) => {
+export default <T>(url: string, options: UseFetchOptions<T> = {}) => {
   const config = useRuntimeConfig()
 
-  return useFetch(url, {
-    baseURL: options.baseURL ?? config.apiBaseUrl,
-    ...options
-  })
+  const defaults: UseFetchOptions<T> = {
+    baseURL: config.public.apiBaseUrl,
+
+    key: url
+  }
+
+  const params = defu(defaults, options)
+
+  return useFetch(url, params)
 }
