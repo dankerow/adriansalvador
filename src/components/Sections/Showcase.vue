@@ -31,10 +31,8 @@ withDefaults(defineProps<{
           </p>
         </div>
         <div class="card-footer text-body-secondary">
-          <span>
-            <Icon name="ph:map-pin-duotone" class="icon-link me-2" />
-            <span class="text-decoration-underline">Brisbane, Australia</span>
-          </span>
+          <Icon name="ph:map-pin-duotone" class="me-2" />
+          <span class="text-decoration-underline">Brisbane, Australia</span>
         </div>
       </div>
 
