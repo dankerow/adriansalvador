@@ -41,6 +41,7 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxtjs/i18n',
     '@vueuse/nuxt',
+    '@vueuse/motion/nuxt',
     'nuxt-icon',
     'nuxt-gtag',
     'nuxt-purgecss',
@@ -88,7 +89,7 @@ export default defineNuxtConfig({
 
   purgecss: {
     keyframes: true,
-    safelist: ['dark-mode', 'aos-init', 'aos-animate', 'data-aos', /^pswp/, /^btn-/, /^dropdown/, 'icon-link', 'svg']
+    safelist: ['dark-mode', /^pswp/, /^btn-/, /^dropdown/, 'icon-link', 'svg']
   },
 
   pwa: {
