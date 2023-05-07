@@ -11,13 +11,15 @@
     "lint:fix": "pnpm lint --fix"
   },
   "dependencies": {
+    "@vueuse/motion": "2.0.0-beta.27",
     "@yeger/vue-masonry-wall": "^3.4.4",
-    "aos": "3.0.0-beta.6",
     "bootstrap": "5.3.0-alpha3",
+    "gsap": "^3.11.5",
     "nuxt-security": "^0.13.0",
     "photoswipe": "^5.3.7",
     "rellax": "^1.12.1",
-    "vanilla-tilt": "^1.8.0"
+    "vanilla-tilt": "^1.8.0",
+    "vue3-marquee": "^3.1.2"
   },
   "devDependencies": {
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
@@ -31,7 +33,6 @@
     "@nuxtjs/google-fonts": "3.0.0",
     "@nuxtjs/i18n": "8.0.0-beta.11",
     "@parcel/watcher": "^2.1.0",
-    "@types/aos": "^3.0.4",
     "@types/node": "^18.16.3",
     "@types/rellax": "^1.7.4",
     "@vueuse/core": "^10.1.0",
