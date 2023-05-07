@@ -24,7 +24,7 @@
 
 <style lang="scss">
 .contact {
-	background: radial-gradient(ellipse at center, white 0%, #ededed 100%);
+	background: radial-gradient(ellipse at center, white 0%, #fafafa 100%);
 }
 
 .dark-mode {
