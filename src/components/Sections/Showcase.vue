@@ -11,7 +11,19 @@ withDefaults(defineProps<{
 <template>
   <section class="showcase min-vh-100 py-10 py-lg-12">
     <div class="container">
-      <div class="card mb-12" data-aos="fade-up">
+      <div
+        v-motion="{
+          initial: { opacity: 0, y: 100 },
+          visible: {
+            y: 0,
+            opacity: 1
+          },
+          transition: {
+            delay: 1500
+          }
+        }"
+        class="card mb-12"
+      >
         <div class="card-body pb-4">
           <p class="card-text">
             <span class="first-letter">{{ $t('biography')[0] }}</span>
@@ -38,7 +50,7 @@ withDefaults(defineProps<{
 }
 
 .showcase {
-  background: radial-gradient(circle at center, white 0%, #ededed 100%);
+  background: radial-gradient(circle at center, white 0%, #fafafa 100%);
 
   p {
     .first-letter {
