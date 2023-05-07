@@ -24,7 +24,7 @@ const previousPage = () => {
 </script>
 
 <template>
-  <nav class="sticky-bottom" aria-label="Pagination">
+  <nav class="sticky-bottom z-1" aria-label="Pagination">
     <ul v-if="currentPage === 1" class="pagination justify-content-center">
       <li class="page-item disabled">
         <span class="page-link" tabindex="-1" aria-label="First" aria-disabled="true">
@@ -226,7 +226,7 @@ nav {
 
 .dark-mode {
 	nav {
-		background-image: linear-gradient(to bottom, rgba(15, 15, 15, 0.4), rgba(15, 15, 15, 0.6), rgba(15, 15, 15, 1));
+		background-image: linear-gradient(to bottom, rgba(14, 14, 14, 0.4), rgba(14, 14, 14, 0.6), rgba(14, 14, 14, 1));
 	}
 
 	.pagination {
