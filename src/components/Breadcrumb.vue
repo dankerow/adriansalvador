@@ -9,8 +9,17 @@ defineProps<{
 
 <template>
   <div class="container my-3">
-    <nav aria-label="breadcrumb" data-aos="fade-down">
-      <ol class="breadcrumb py-2 px-3 bg-dark-gray rounded-2">
+    <nav
+      v-motion="{
+        initial: { opacity: 0, y: -100 },
+        visibleOnce: {
+          y: 0,
+          opacity: 1
+        }
+      }"
+      aria-label="breadcrumb"
+    >
+      <ol class="breadcrumb py-2 px-3 rounded-2">
         <li class="breadcrumb-item">
           <NuxtLink class="link-body-emphasis" to="/">
             <Icon name="ph:house-simple-duotone" />
