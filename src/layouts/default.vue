@@ -16,9 +16,6 @@ useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} - Adrian Salvador` : 'Adrian Salvador | Photographer'
   },
-  bodyAttrs: {
-    class: 'overflow-x-hidden'
-  },
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     { name: 'description', content: () => t('metadata.description') },
@@ -80,6 +77,10 @@ useHead({
 
 const route = useRoute()
 
+const isHome = computed(() => {
+  return route.path === '/'
+})
+
 const isAlbums = computed(() => {
   return route.path.includes('/albums')
 })
@@ -95,22 +96,13 @@ onMounted(() => {
 
 <template>
   <div>
-    <Header />
+    <Loader />
+    <LazyCursor />
+
+    <Header :fixed="isHome" />
 
     <slot />
 
     <Footer :actions-fixed="!isAlbums" />
   </div>
 </template>
-
-<style lang="scss">
-.footer-actions {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
-}
-
-.dark-mode {
-  .footer-actions {
-    background-image: linear-gradient(to bottom, rgba(15, 15, 15, 0.6), rgba(15, 15, 15, 0.9), rgba(15, 15, 15, 1));
-  }
-}
-</style>
