@@ -6,11 +6,10 @@ export default <T>(url: string, options: UseFetchOptions<T> = {}) => {
 
   const defaults: UseFetchOptions<T> = {
     baseURL: config.public.apiBaseUrl,
-
     key: url
   }
 
-  const params = defu(defaults, options)
+  const params = defu(options, defaults)
 
   return useFetch(url, params)
 }

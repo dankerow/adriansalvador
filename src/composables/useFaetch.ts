@@ -8,7 +8,7 @@ export default <T>(url: string, options: NitroFetchOptions<Request> = {}): Promi
     baseURL: config.apiBaseUrl
   }
 
-  const params = defu(defaults, options)
+  const params = defu(options, defaults)
 
   return $fetch(url, params)
 }
