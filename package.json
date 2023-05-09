@@ -17,7 +17,6 @@
     "gsap": "^3.11.5",
     "nuxt-security": "^0.13.0",
     "photoswipe": "^5.3.7",
-    "rellax": "^1.12.1",
     "vanilla-tilt": "^1.8.0",
     "vue3-marquee": "^3.1.2"
   },

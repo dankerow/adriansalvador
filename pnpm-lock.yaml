@@ -19,9 +19,6 @@ dependencies:
   photoswipe:
     specifier: ^5.3.7
     version: 5.3.7
-  rellax:
-    specifier: ^1.12.1
-    version: 1.12.1
   vanilla-tilt:
     specifier: ^1.8.0
     version: 1.8.0
@@ -6646,10 +6643,6 @@ packages:
       define-properties: 1.2.0
       functions-have-names: 1.2.3
     dev: true
-
-  /rellax@1.12.1:
-    resolution: {integrity: sha512-XBIi0CDpW5FLTujYjYBn1CIbK2CJL6TsAg/w409KghP2LucjjzBjsujXDAjyBLWgsfupfUcL5WzdnIPcGfK7XA==}
-    dev: false
 
   /require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
