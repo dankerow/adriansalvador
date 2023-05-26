@@ -1,12 +1,6 @@
-const isDevelopment = process.env.NODE_ENV === 'development'
-const isProduction = process.env.NODE_ENV === 'production'
-
 export default defineNuxtConfig({
   rootDir: './',
   srcDir: 'src',
-
-  debug: isDevelopment,
-  sourcemap: isDevelopment,
 
   nitro: {
     compressPublicAssets: {
@@ -21,8 +15,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      apiBaseUrl: isProduction ? process.env.API_BASE_URL : process.env.API_BASE_URL_DEV,
-      cdnBaseUrl: isProduction ? process.env.CDN_BASE_URL : process.env.CDN_BASE_URL_DEV
+      apiBaseUrl: process.env.API_BASE_URL_DEV,
+      cdnBaseUrl: process.env.CDN_BASE_URL_DEV
     }
   },
 
@@ -32,7 +26,6 @@ export default defineNuxtConfig({
 
   modules: [
     '@kevinmarrec/nuxt-pwa',
-    '@nuxt/devtools',
     '@nuxt/image-edge',
     '@nuxtjs/color-mode',
     '@nuxtjs/critters',
@@ -42,11 +35,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
-    'nuxt-icon',
-    'nuxt-gtag',
-    'nuxt-purgecss',
-    'nuxt-security',
-    'nuxt-simple-sitemap'
+    'nuxt-icon'
   ],
 
   colorMode: {
@@ -67,10 +56,6 @@ export default defineNuxtConfig({
     display: 'swap'
   },
 
-  gtag: {
-    id: isProduction && process.env.GTAG_ID ? process.env.GTAG_ID : undefined,
-  },
-
   i18n: {
     strategy: 'no_prefix',
     baseUrl: process.env.BASE_URL,
@@ -84,12 +69,7 @@ export default defineNuxtConfig({
   },
 
   image: {
-    domains: [isProduction ? process.env.CDN_BASE_URL as string : process.env.CDN_BASE_URL_DEV as string]
-  },
-
-  purgecss: {
-    keyframes: true,
-    safelist: ['dark-mode', /^pswp/, /^btn-/, /^dropdown/, 'icon-link', 'svg']
+    domains: [process.env.CDN_BASE_URL_DEV as string]
   },
 
   pwa: {
@@ -111,20 +91,56 @@ export default defineNuxtConfig({
     }
   },
 
-  security: {
-    enabled: !isDevelopment,
-    headers: false
+  $development: {
+    modules: [
+      '@nuxt/devtools'
+    ],
+
+    debug: true,
+    sourcemap: true,
   },
 
-  sitemap: {
-    enabled: !isDevelopment,
-    siteUrl: process.env.BASE_URL,
-    urls: async () => {
-      const apiURL = isProduction ? process.env.API_BASE_URL : process.env.API_BASE_URL_DEV
-      const data = await fetch(`${apiURL}/sitemap`)
-      if (!data.ok) return []
+  $production: {
+    modules: [
+      'nuxt-gtag',
+      'nuxt-purgecss',
+      'nuxt-security',
+      'nuxt-simple-sitemap'
+    ],
 
-      return data.json()
-    }
+    runtimeConfig: {
+      public: {
+        apiBaseUrl: process.env.API_BASE_URL,
+        cdnBaseUrl: process.env.CDN_BASE_URL
+      }
+    },
+
+    gtag: {
+      id: process.env.GTAG_ID ?? undefined,
+    },
+
+    image: {
+      domains: [process.env.CDN_BASE_URL as string]
+    },
+
+    purgecss: {
+      keyframes: true,
+      safelist: ['dark-mode', /^pswp/, /^btn-/, /^dropdown/, /^masonry/, 'icon-link', 'svg']
+    },
+
+    security: {
+      headers: false
+    },
+
+    sitemap: {
+      siteUrl: process.env.BASE_URL,
+      urls: async () => {
+        const apiURL = process.env.API_BASE_URL
+        const data = await fetch(`${apiURL}/sitemap`)
+        if (!data.ok) return []
+
+        return data.json()
+      }
+    },
   }
 })
