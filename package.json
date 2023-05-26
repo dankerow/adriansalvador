@@ -11,7 +11,7 @@
     "lint:fix": "pnpm lint --fix"
   },
   "dependencies": {
-    "@vueuse/motion": "2.0.0-beta.27",
+    "@vueuse/motion": "2.0.0",
     "@yeger/vue-masonry-wall": "^3.5.0",
     "bootstrap": "5.3.0-alpha3",
     "gsap": "^3.11.5",
@@ -22,9 +22,9 @@
   },
   "devDependencies": {
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
-    "@nuxt/devtools": "^0.5.3",
+    "@nuxt/devtools": "^0.5.5",
     "@nuxt/eslint-config": "^0.1.1",
-    "@nuxt/image-edge": "1.0.0-28059208.2abef1b",
+    "@nuxt/image-edge": "1.0.0-28085463.06254b7",
     "@nuxtjs/color-mode": "3.2.0",
     "@nuxtjs/critters": "^0.4.1",
     "@nuxtjs/device": "^3.1.0",
@@ -32,7 +32,7 @@
     "@nuxtjs/google-fonts": "3.0.1",
     "@nuxtjs/i18n": "8.0.0-beta.12",
     "@parcel/watcher": "^2.1.0",
-    "@types/node": "^18.16.14",
+    "@types/node": "^18.16.15",
     "@types/rellax": "^1.7.4",
     "@vueuse/core": "^10.1.2",
     "@vueuse/nuxt": "^10.1.2",
