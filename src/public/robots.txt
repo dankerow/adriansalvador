@@ -1,0 +1,3 @@
+User-agent: *
+
+sitemap: http://salvadoradrian.com/sitemap.xml
