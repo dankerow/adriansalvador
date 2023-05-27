@@ -33,7 +33,6 @@
     "@nuxtjs/i18n": "8.0.0-beta.12",
     "@parcel/watcher": "^2.1.0",
     "@types/node": "^18.16.16",
-    "@types/rellax": "^1.7.4",
     "@vueuse/core": "^10.1.2",
     "@vueuse/nuxt": "^10.1.2",
     "eslint": "^8.41.0",

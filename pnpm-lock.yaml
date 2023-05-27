@@ -63,9 +63,6 @@ devDependencies:
   '@types/node':
     specifier: ^18.16.16
     version: 18.16.16
-  '@types/rellax':
-    specifier: ^1.7.4
-    version: 1.7.4
   '@vueuse/core':
     specifier: ^10.1.2
     version: 10.1.2(vue@3.3.4)
@@ -1779,10 +1776,6 @@ packages:
 
   /@types/node@18.16.16:
     resolution: {integrity: sha512-NpaM49IGQQAUlBhHMF82QH80J08os4ZmyF9MkpCzWAGuOHqE4gTEbhzd7L3l5LmWuZ6E0OiC1FweQ4tsiW35+g==}
-    dev: true
-
-  /@types/rellax@1.7.4:
-    resolution: {integrity: sha512-2WAC+xAhLuJZjm/es2L7JL9BSSRo85bwzWPxGvXInN0YtOlyTjrVgpOinUKBV4xydtQuHntXKCMdkSlO8awimw==}
     dev: true
 
   /@types/resolve@1.20.2:
