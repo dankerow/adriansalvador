@@ -13,7 +13,7 @@
   "dependencies": {
     "@vueuse/motion": "2.0.0",
     "@yeger/vue-masonry-wall": "^3.5.0",
-    "bootstrap": "5.3.0-alpha3",
+    "bootstrap": "5.3.0",
     "gsap": "^3.11.5",
     "nuxt-security": "^0.13.0",
     "photoswipe": "^5.3.7",
@@ -24,11 +24,11 @@
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@nuxt/devtools": "^0.5.5",
     "@nuxt/eslint-config": "^0.1.1",
-    "@nuxt/image-edge": "1.0.0-28085504.69f8eb0",
+    "@nuxt/image-edge": "1.0.0-28092818.5c21f4c",
     "@nuxtjs/color-mode": "3.2.0",
     "@nuxtjs/critters": "^0.4.1",
     "@nuxtjs/device": "^3.1.0",
-    "@nuxtjs/fontaine": "^0.2.5",
+    "@nuxtjs/fontaine": "^0.3.0",
     "@nuxtjs/google-fonts": "3.0.1",
     "@nuxtjs/i18n": "8.0.0-beta.12",
     "@parcel/watcher": "^2.1.0",
@@ -36,7 +36,7 @@
     "@vueuse/core": "^10.1.2",
     "@vueuse/nuxt": "^10.1.2",
     "eslint": "^8.41.0",
-    "nuxt": "3.5.1",
+    "nuxt": "3.5.2",
     "nuxt-gtag": "^0.5.7",
     "nuxt-icon": "^0.4.1",
     "nuxt-purgecss": "^2.0.0",
@@ -50,5 +50,5 @@
     "Firefox ESR",
     "not dead"
   ],
-  "packageManager": "pnpm@8.5.1"
+  "packageManager": "pnpm@8.6.0"
 }
