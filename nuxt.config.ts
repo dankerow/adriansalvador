@@ -13,13 +13,6 @@ export default defineNuxtConfig({
     watcher: 'parcel'
   },
 
-  runtimeConfig: {
-    public: {
-      apiBaseUrl: process.env.API_BASE_URL_DEV,
-      cdnBaseUrl: process.env.CDN_BASE_URL_DEV
-    }
-  },
-
   css: [
     '@/assets/scss/bedrock.scss'
   ],
@@ -92,28 +85,35 @@ export default defineNuxtConfig({
   },
 
   $development: {
-    modules: [
-      '@nuxt/devtools'
-    ],
-
     debug: true,
     sourcemap: true,
+
+    runtimeConfig: {
+      public: {
+        apiBaseUrl: process.env.API_BASE_URL_DEV,
+        cdnBaseUrl: process.env.CDN_BASE_URL_DEV
+      }
+    },
+
+    modules: [
+      '@nuxt/devtools'
+    ]
   },
 
   $production: {
-    modules: [
-      'nuxt-gtag',
-      'nuxt-purgecss',
-      'nuxt-security',
-      'nuxt-simple-sitemap'
-    ],
-
     runtimeConfig: {
       public: {
         apiBaseUrl: process.env.API_BASE_URL,
         cdnBaseUrl: process.env.CDN_BASE_URL
       }
     },
+
+    modules: [
+      'nuxt-gtag',
+      'nuxt-purgecss',
+      'nuxt-security',
+      'nuxt-simple-sitemap'
+    ],
 
     gtag: {
       id: process.env.GTAG_ID ?? undefined,
@@ -141,6 +141,6 @@ export default defineNuxtConfig({
 
         return data.json()
       }
-    },
+    }
   }
 })
