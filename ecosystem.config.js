@@ -5,7 +5,7 @@ module.exports = {
     {
       name: 'adriansalvador',
       exec_mode: 'cluster',
-      instances: 'max',
+      instances: 2,
       env: {
         ...env.parsed
       },
