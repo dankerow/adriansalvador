@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -9,8 +9,8 @@ dependencies:
     specifier: 2.0.0
     version: 2.0.0(vue@3.3.4)
   '@yeger/vue-masonry-wall':
-    specifier: ^3.6.1
-    version: 3.6.1(vue@3.3.4)
+    specifier: ^3.7.0
+    version: 3.7.0(vue@3.3.4)
   bootstrap:
     specifier: 5.3.0
     version: 5.3.0(@popperjs/core@2.11.8)
@@ -2095,8 +2095,8 @@ packages:
       - '@vue/composition-api'
       - vue
 
-  /@yeger/vue-masonry-wall@3.6.1(vue@3.3.4):
-    resolution: {integrity: sha512-w4BSz2IYPvWxvOn1qVXdKhD9YruyFVSLuUthwDBxOxHctkYERJILt6o1MuqmhR3vXE1AGBaD/fzolJwdw9BtRQ==}
+  /@yeger/vue-masonry-wall@3.7.0(vue@3.3.4):
+    resolution: {integrity: sha512-V7oJogqvYHv4ieOxYBBhgij/B3V+z+4ykz9ASYY/j9uAjvKglhbHjvucDMNng8oSbo+2zqEU4XCm+GJf2JGxNQ==}
     peerDependencies:
       vue: ^3.0.0
     dependencies:
