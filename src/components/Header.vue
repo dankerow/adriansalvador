@@ -45,7 +45,7 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 header {
-  .navbar  {
+  .navbar {
     backdrop-filter: blur(12px);
     background-color: rgba(255, 255, 255, 0.8);
 
