@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
-    "@nuxt/devtools": "^0.6.3",
+    "@nuxt/devtools": "^0.6.4",
     "@nuxt/eslint-config": "^0.1.1",
     "@nuxt/image": "rc",
     "@nuxtjs/color-mode": "3.3.0",
@@ -50,5 +50,5 @@
     "Firefox ESR",
     "not dead"
   ],
-  "packageManager": "pnpm@8.6.3"
+  "packageManager": "pnpm@8.6.5"
 }
