@@ -10,7 +10,6 @@ export default defineNuxtConfig({
   },
 
   experimental: {
-    watcher: 'parcel'
   },
 
   css: [

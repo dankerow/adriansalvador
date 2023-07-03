@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { Ref, ComputedRef } from 'vue'
 
+import { Dropdown } from 'bootstrap'
+
 const colorMode = useColorMode()
 
 const themes: Ref<string[]> = ref(['system', 'light', 'dark'])
