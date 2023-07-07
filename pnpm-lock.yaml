@@ -86,8 +86,8 @@ devDependencies:
     specifier: ^2.0.0
     version: 2.0.0(postcss@8.4.24)
   nuxt-simple-sitemap:
-    specifier: ^3.0.3
-    version: 3.0.3(nuxt@3.6.2)(vite@4.3.9)
+    specifier: ^3.0.4
+    version: 3.0.4(nuxt@3.6.2)(vite@4.3.9)
   sass:
     specifier: ^1.63.6
     version: 1.63.6
@@ -5764,8 +5764,8 @@ packages:
       - supports-color
     dev: false
 
-  /nuxt-simple-sitemap@3.0.3(nuxt@3.6.2)(vite@4.3.9):
-    resolution: {integrity: sha512-seopTybQkmr8g2LZnC1mKOJZwmpnXJFETsINyWHhfOrNaI400tB/xUX3e7njoyyCXO0krDoGCgnkpeLMmo7TUQ==}
+  /nuxt-simple-sitemap@3.0.4(nuxt@3.6.2)(vite@4.3.9):
+    resolution: {integrity: sha512-+VyK7c8ag6Wz4rTztAn/WEkBT8NA7mjqxAISq0MfMcm3JqZaaGXlxBJk0+94UBi64p24zIdZAPyDH0BrxXZZHw==}
     dependencies:
       '@nuxt/devtools-kit': 0.6.7(nuxt@3.6.2)(vite@4.3.9)
       '@nuxt/kit': 3.6.2
