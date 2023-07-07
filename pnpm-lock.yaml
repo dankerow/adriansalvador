@@ -86,8 +86,8 @@ devDependencies:
     specifier: ^2.0.0
     version: 2.0.0(postcss@8.4.24)
   nuxt-simple-sitemap:
-    specifier: ^3.0.2
-    version: 3.0.2(nuxt@3.6.2)(vite@4.3.9)
+    specifier: ^3.0.3
+    version: 3.0.3(nuxt@3.6.2)(vite@4.3.9)
   sass:
     specifier: ^1.63.6
     version: 1.63.6
@@ -988,8 +988,8 @@ packages:
     engines: {node: '>= 14'}
     dev: true
 
-  /@intlify/shared@9.3.0-beta.21:
-    resolution: {integrity: sha512-VcE3XKBlQXHKRKAGP7YB/7n0TFH4EibJSGJ+t4rZuC8gTL6r/eqYM1fsw3JJFe70wamqx1oEmd2Hu/pnPlsfiQ==}
+  /@intlify/shared@9.3.0-beta.22:
+    resolution: {integrity: sha512-GS+OHgYcHaq7a+zC1dlVvEHUYHVPKPC/tV3OmFyKJ2Lm7qAFmX29MQn9WOG4WtUme86tPp5LRFz6mYL5VQUJqQ==}
     engines: {node: '>= 16'}
     dev: true
 
@@ -5764,8 +5764,8 @@ packages:
       - supports-color
     dev: false
 
-  /nuxt-simple-sitemap@3.0.2(nuxt@3.6.2)(vite@4.3.9):
-    resolution: {integrity: sha512-To2cP0/Mh7fNDZ5+HlnyUQFq5OYIcD4Nrj4uNk2Ge2sWxpQ1e36udynaGClbI30xAEC65U/YXMlFMCfrN1qFTQ==}
+  /nuxt-simple-sitemap@3.0.3(nuxt@3.6.2)(vite@4.3.9):
+    resolution: {integrity: sha512-seopTybQkmr8g2LZnC1mKOJZwmpnXJFETsINyWHhfOrNaI400tB/xUX3e7njoyyCXO0krDoGCgnkpeLMmo7TUQ==}
     dependencies:
       '@nuxt/devtools-kit': 0.6.7(nuxt@3.6.2)(vite@4.3.9)
       '@nuxt/kit': 3.6.2
@@ -8041,7 +8041,7 @@ packages:
       vue-router:
         optional: true
     dependencies:
-      '@intlify/shared': 9.3.0-beta.21
+      '@intlify/shared': 9.3.0-beta.22
       '@intlify/vue-i18n-bridge': 0.8.0(vue-i18n@9.3.0-beta.17)
       '@intlify/vue-router-bridge': 0.8.0(vue@3.3.4)
       ufo: 1.1.2
