@@ -86,8 +86,8 @@ devDependencies:
     specifier: ^2.0.0
     version: 2.0.0(postcss@8.4.24)
   nuxt-simple-sitemap:
-    specifier: ^3.0.9
-    version: 3.0.9(nuxt@3.6.3)(vite@4.3.9)
+    specifier: ^3.0.11
+    version: 3.0.11(nuxt@3.6.3)(vite@4.3.9)
   sass:
     specifier: ^1.63.6
     version: 1.63.6
@@ -1262,8 +1262,8 @@ packages:
       nuxt: ^3.6.1
       vite: '*'
     dependencies:
-      '@nuxt/kit': 3.6.2
-      '@nuxt/schema': 3.6.2
+      '@nuxt/kit': 3.6.3
+      '@nuxt/schema': 3.6.3
       execa: 7.1.1
       nuxt: 3.6.3(@types/node@20.4.2)(eslint@8.45.0)(sass@1.63.6)(typescript@5.1.6)
       vite: 4.3.9(@types/node@20.4.2)(sass@1.63.6)
@@ -1359,7 +1359,7 @@ packages:
     resolution: {integrity: sha512-gCYglIwEuYOdIbcH21RbMfqgQ2jqyd9SJH+GmyvH9M/vBsL7eZ4XEatfZRWa2q1A4DcIMs09/LbQiR3HHy2wZw==}
     engines: {node: ^14.16.0 || >=16.11.0}
     dependencies:
-      '@nuxt/kit': 3.6.2
+      '@nuxt/kit': 3.6.3
       consola: 3.2.3
       defu: 6.1.2
       h3: 1.7.1
@@ -1425,7 +1425,6 @@ packages:
     transitivePeerDependencies:
       - rollup
       - supports-color
-    dev: true
 
   /@nuxt/schema@3.6.2:
     resolution: {integrity: sha512-wxb1/C5ozly5IwX0IRjVGml1n2KjZrTKsf6lTk3fdjUpW105kAvYX4j66PDOdBRE4vCwCsgaHJfWpUSeNBxbuA==}
@@ -1460,7 +1459,6 @@ packages:
     transitivePeerDependencies:
       - rollup
       - supports-color
-    dev: true
 
   /@nuxt/telemetry@2.3.0:
     resolution: {integrity: sha512-sXO8Qt0A1GKy6otyicKIO+FuhqzSWDJdWIY5RohxxaB9MOLuf7us39geZb+hIZYdXl7ILsypTGGj9TfR8byjOA==}
@@ -2287,7 +2285,7 @@ packages:
       style-value-types: 5.1.2
       vue: 3.3.4
     optionalDependencies:
-      '@nuxt/kit': 3.6.2
+      '@nuxt/kit': 3.6.3
     transitivePeerDependencies:
       - '@vue/composition-api'
       - rollup
@@ -5729,7 +5727,7 @@ packages:
   /nuxt-csurf@1.2.0:
     resolution: {integrity: sha512-sO8Hm3fR+GB3DMc0y1Slzt+f9LiUKpvF/qvUUZBWz1ZknfTRTYemZkfSNcoYf0/hoL2Wb9O0c8pFtzj0hs8Spw==}
     dependencies:
-      '@nuxt/kit': 3.6.2
+      '@nuxt/kit': 3.6.3
       defu: 6.1.2
     transitivePeerDependencies:
       - rollup
@@ -5788,21 +5786,21 @@ packages:
       - supports-color
     dev: false
 
-  /nuxt-simple-sitemap@3.0.9(nuxt@3.6.3)(vite@4.3.9):
-    resolution: {integrity: sha512-+g5DaJazFnrzB10O8bWLiJtTo9c4147WmG03wzQuocd+Jp03EKBdBugSc6alGlWYkJWwfhaMrNMANUFYxFWnQQ==}
+  /nuxt-simple-sitemap@3.0.11(nuxt@3.6.3)(vite@4.3.9):
+    resolution: {integrity: sha512-nH2OIrsDfetE5WZI5N0KCw97C80eJv5p0ZwM0BvTdMZmHDCVTinkMcx/GMk48OSfYtk829iiQyWW0rudYcYCIQ==}
     dependencies:
       '@nuxt/devtools-kit': 0.6.7(nuxt@3.6.3)(vite@4.3.9)
-      '@nuxt/kit': 3.6.2
+      '@nuxt/kit': 3.6.3
       chalk: 5.3.0
       defu: 6.1.2
       escape-string-regexp: 5.0.0
       fast-glob: 3.3.0
       knitwork: 1.0.0
       nuxt-site-config: 1.0.5
-      nuxt-site-config-kit: 1.0.5
+      nuxt-site-config-kit: 1.0.7
       pathe: 1.1.1
       radix3: 1.0.1
-      semver: 7.5.4
+      site-config-stack: 1.0.7
       ufo: 1.1.2
     transitivePeerDependencies:
       - nuxt
@@ -5814,8 +5812,8 @@ packages:
   /nuxt-site-config-kit@1.0.5:
     resolution: {integrity: sha512-2en2IG0pwSSvtE46UWMM7Cv2GbfU1VdSWrBhK7NxXfj4B/OPRtI+UjgK0I9fjf2PixaVhTCZLMQqd0Oxau/sHA==}
     dependencies:
-      '@nuxt/kit': 3.6.2
-      '@nuxt/schema': 3.6.2
+      '@nuxt/kit': 3.6.3
+      '@nuxt/schema': 3.6.3
       defu: 6.1.2
       pkg-types: 1.0.3
       site-config-stack: 1.0.5
@@ -5825,11 +5823,25 @@ packages:
       - supports-color
     dev: true
 
+  /nuxt-site-config-kit@1.0.7:
+    resolution: {integrity: sha512-oVSFT/3iMCJk8N4zFX3A3OTEWFVf70TfPbiQs9kb5bdQCBkV4SNB1gzhz4lT6GZZudxk1MWOHxRvJoKZ8oQVbg==}
+    dependencies:
+      '@nuxt/kit': 3.6.3
+      '@nuxt/schema': 3.6.3
+      defu: 6.1.2
+      pkg-types: 1.0.3
+      site-config-stack: 1.0.7
+      ufo: 1.1.2
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
+
   /nuxt-site-config@1.0.5:
     resolution: {integrity: sha512-aQ/imSl4dVCuCQftJsQsuYfiFOluuxT+vwTc5ScQ4C+EDoqhsXvGBVU1f+yY5TTAtdG+7NMshCzBjTf/D3uErg==}
     dependencies:
-      '@nuxt/kit': 3.6.2
-      '@nuxt/schema': 3.6.2
+      '@nuxt/kit': 3.6.3
+      '@nuxt/schema': 3.6.3
       nuxt-site-config-kit: 1.0.5
       pathe: 1.1.1
       site-config-stack: 1.0.5
@@ -7085,7 +7097,19 @@ packages:
   /site-config-stack@1.0.5:
     resolution: {integrity: sha512-1sToRHVWQ6RY//OuKea2KW78p64o8Uni6vK3TCYyJ6s6RWr5FH6w9MZHXuKpsdStmuPwiTZi6t0XTCLO8v9Wng==}
     dependencies:
-      '@nuxt/kit': 3.6.2
+      '@nuxt/kit': 3.6.3
+      defu: 6.1.2
+      pkg-types: 1.0.3
+      ufo: 1.1.2
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
+
+  /site-config-stack@1.0.7:
+    resolution: {integrity: sha512-mw+ZgKGVnTMgTnzoFgJequFCck4nHDfvELkUMdIJjQT42cN6yCrBw+szChCqDjOBCypiV872wlvmYGGadSxVdQ==}
+    dependencies:
+      '@nuxt/kit': 3.6.3
       defu: 6.1.2
       pkg-types: 1.0.3
       ufo: 1.1.2
