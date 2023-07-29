@@ -86,8 +86,8 @@ devDependencies:
     specifier: ^2.0.0
     version: 2.0.0(postcss@8.4.27)
   nuxt-simple-sitemap:
-    specifier: ^3.1.0
-    version: 3.1.0(nuxt@3.6.5)(vite@4.4.7)
+    specifier: ^3.1.1
+    version: 3.1.1(nuxt@3.6.5)(vite@4.4.7)
   sass:
     specifier: ^1.64.1
     version: 1.64.1
@@ -1358,7 +1358,7 @@ packages:
       ohash: 1.1.2
       pathe: 1.1.1
       std-env: 3.3.3
-      ufo: 1.1.2
+      ufo: 1.2.0
     optionalDependencies:
       ipx: 1.2.0
     transitivePeerDependencies:
@@ -1427,7 +1427,7 @@ packages:
       pkg-types: 1.0.3
       postcss-import-resolver: 2.0.0
       std-env: 3.3.3
-      ufo: 1.1.2
+      ufo: 1.2.0
       unimport: 3.1.0(rollup@3.26.3)
       untyped: 1.3.2
     transitivePeerDependencies:
@@ -1445,7 +1445,7 @@ packages:
       pkg-types: 1.0.3
       postcss-import-resolver: 2.0.0
       std-env: 3.3.3
-      ufo: 1.1.2
+      ufo: 1.2.0
       unimport: 3.1.0(rollup@3.26.3)
       untyped: 1.3.2
     transitivePeerDependencies:
@@ -1519,7 +1519,7 @@ packages:
       rollup-plugin-visualizer: 5.9.2(rollup@3.26.3)
       std-env: 3.3.3
       strip-literal: 1.0.1
-      ufo: 1.1.2
+      ufo: 1.2.0
       unplugin: 1.4.0
       vite: 4.3.9(@types/node@20.4.5)(sass@1.64.1)
       vite-node: 0.33.0(@types/node@20.4.5)(sass@1.64.1)
@@ -3919,7 +3919,7 @@ packages:
       enhanced-resolve: 5.15.0
       mlly: 1.4.0
       pathe: 1.1.1
-      ufo: 1.1.2
+      ufo: 1.2.0
     dev: true
 
   /fast-deep-equal@3.1.3:
@@ -4062,7 +4062,7 @@ packages:
       magic-regexp: 0.7.0
       magic-string: 0.30.1
       pathe: 1.1.1
-      ufo: 1.1.2
+      ufo: 1.2.0
       unplugin: 1.4.0
     transitivePeerDependencies:
       - encoding
@@ -4376,7 +4376,7 @@ packages:
       deepmerge: 4.3.1
       hookable: 5.5.3
       ofetch: 1.1.1
-      ufo: 1.1.2
+      ufo: 1.2.0
     dev: true
 
   /gopd@1.0.1:
@@ -4411,7 +4411,7 @@ packages:
       destr: 2.0.0
       iron-webcrypto: 0.7.1
       radix3: 1.0.1
-      ufo: 1.1.2
+      ufo: 1.2.0
       uncrypto: 0.1.3
     dev: true
 
@@ -4692,7 +4692,7 @@ packages:
       node-fetch-native: 1.2.0
       pathe: 1.1.1
       sharp: 0.32.4
-      ufo: 1.1.2
+      ufo: 1.2.0
       xss: 1.0.14
     dev: true
     optional: true
@@ -5038,7 +5038,7 @@ packages:
       mlly: 1.4.0
       node-forge: 1.3.1
       pathe: 1.1.1
-      ufo: 1.1.2
+      ufo: 1.2.0
     dev: true
 
   /local-pkg@0.4.3:
@@ -5152,7 +5152,7 @@ packages:
       magic-string: 0.30.1
       mlly: 1.4.0
       type-level-regexp: 0.1.17
-      ufo: 1.1.2
+      ufo: 1.2.0
       unplugin: 1.4.0
     dev: true
 
@@ -5411,7 +5411,7 @@ packages:
       acorn: 8.10.0
       pathe: 1.1.1
       pkg-types: 1.0.3
-      ufo: 1.1.2
+      ufo: 1.2.0
 
   /mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
@@ -5526,7 +5526,7 @@ packages:
       serve-static: 1.15.0
       source-map-support: 0.5.21
       std-env: 3.3.3
-      ufo: 1.1.2
+      ufo: 1.2.0
       uncrypto: 0.1.3
       unenv: 1.5.2
       unimport: 3.1.0(rollup@3.26.3)
@@ -5832,8 +5832,8 @@ packages:
       - supports-color
     dev: false
 
-  /nuxt-simple-sitemap@3.1.0(nuxt@3.6.5)(vite@4.4.7):
-    resolution: {integrity: sha512-zjKcps47hSHgp2EgNrM4ByAPOzirTJPWMyylpepUijP4CfhmdtsRlfyMR6U7y7EfXlGwR3TuSYSF1KBQkutu9Q==}
+  /nuxt-simple-sitemap@3.1.1(nuxt@3.6.5)(vite@4.4.7):
+    resolution: {integrity: sha512-0XLfaxsnv7F2lhf9L5Ri2IzaKcqu0nK9f7oOiQFwt/RiyS0wcYfRJQShUGhWBKVmKhH9swMfUHyBpNpjm0SvaQ==}
     dependencies:
       '@nuxt/devtools-kit': 0.7.1(nuxt@3.6.5)(vite@4.4.7)
       '@nuxt/kit': 3.6.5
@@ -6007,7 +6007,7 @@ packages:
     dependencies:
       destr: 2.0.0
       node-fetch-native: 1.2.0
-      ufo: 1.1.2
+      ufo: 1.2.0
     dev: true
 
   /ohash@1.1.2:
@@ -7629,10 +7629,10 @@ packages:
 
   /ufo@1.1.2:
     resolution: {integrity: sha512-TrY6DsjTQQgyS3E3dBaOXf0TpPD8u9FVrVYmKVegJuFw51n/YB9XPt+U6ydzFG5ZIN7+DIjPbNmXoBj9esYhgQ==}
+    dev: true
 
   /ufo@1.2.0:
     resolution: {integrity: sha512-RsPyTbqORDNDxqAdQPQBpgqhWle1VcTSou/FraClYlHf6TZnQcGslpLcAphNR+sQW4q5lLWLbOsRlh9j24baQg==}
-    dev: true
 
   /ultrahtml@1.3.0:
     resolution: {integrity: sha512-xmXvE8tC8t4PVqy0/g1fe7H9USY/Brr425q4dD/0QbQMQit7siCtb06+SCqE4GfU24nwsZz8Th1g7L7mm1lL5g==}
@@ -7810,7 +7810,7 @@ packages:
       mri: 1.2.0
       node-fetch-native: 1.2.0
       ofetch: 1.1.1
-      ufo: 1.1.2
+      ufo: 1.2.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -8107,7 +8107,7 @@ packages:
   /vue-bundle-renderer@1.0.3:
     resolution: {integrity: sha512-EfjX+5TTUl70bki9hPuVp+54JiZOvFIfoWBcfXsSwLzKEiDYyHNi5iX8srnqLIv3YRnvxgbntdcG1WPq0MvffQ==}
     dependencies:
-      ufo: 1.1.2
+      ufo: 1.2.0
     dev: true
 
   /vue-demi@0.13.11(vue@3.3.4):
@@ -8185,7 +8185,7 @@ packages:
       '@intlify/shared': 9.3.0-beta.24
       '@intlify/vue-i18n-bridge': 0.8.0(vue-i18n@9.3.0-beta.22)
       '@intlify/vue-router-bridge': 0.8.0(vue@3.3.4)
-      ufo: 1.1.2
+      ufo: 1.2.0
       vue: 3.3.4
       vue-demi: 0.13.11(vue@3.3.4)
       vue-i18n: 9.3.0-beta.22(vue@3.3.4)
