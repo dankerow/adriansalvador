@@ -86,8 +86,8 @@ devDependencies:
     specifier: ^2.0.0
     version: 2.0.0(postcss@8.4.27)
   nuxt-simple-sitemap:
-    specifier: ^3.0.15
-    version: 3.0.15(nuxt@3.6.5)(vite@4.4.7)
+    specifier: ^3.1.0
+    version: 3.1.0(nuxt@3.6.5)(vite@4.4.7)
   sass:
     specifier: ^1.64.1
     version: 1.64.1
@@ -2990,6 +2990,7 @@ packages:
 
   /color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+    requiresBuild: true
     dev: true
 
   /color-string@1.9.1:
@@ -5831,8 +5832,8 @@ packages:
       - supports-color
     dev: false
 
-  /nuxt-simple-sitemap@3.0.15(nuxt@3.6.5)(vite@4.4.7):
-    resolution: {integrity: sha512-7XBOrlYYr+OleSF63BH0THiAGdJhHyxyttQxb9c8w2tau1xg+zHrmxWKJZKFlaux6e4femsmZB2M/kRNuYq7Tw==}
+  /nuxt-simple-sitemap@3.1.0(nuxt@3.6.5)(vite@4.4.7):
+    resolution: {integrity: sha512-zjKcps47hSHgp2EgNrM4ByAPOzirTJPWMyylpepUijP4CfhmdtsRlfyMR6U7y7EfXlGwR3TuSYSF1KBQkutu9Q==}
     dependencies:
       '@nuxt/devtools-kit': 0.7.1(nuxt@3.6.5)(vite@4.4.7)
       '@nuxt/kit': 3.6.5
@@ -5847,7 +5848,7 @@ packages:
       radix3: 1.0.1
       semver: 7.5.4
       site-config-stack: 1.0.8
-      ufo: 1.1.2
+      ufo: 1.2.0
     transitivePeerDependencies:
       - nuxt
       - rollup
@@ -5863,7 +5864,7 @@ packages:
       defu: 6.1.2
       pkg-types: 1.0.3
       site-config-stack: 1.0.8
-      ufo: 1.1.2
+      ufo: 1.2.0
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -5877,7 +5878,7 @@ packages:
       nuxt-site-config-kit: 1.0.8
       pathe: 1.1.1
       site-config-stack: 1.0.8
-      ufo: 1.1.2
+      ufo: 1.2.0
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -7136,7 +7137,7 @@ packages:
       '@nuxt/kit': 3.6.5
       defu: 6.1.2
       pkg-types: 1.0.3
-      ufo: 1.1.2
+      ufo: 1.2.0
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -7628,6 +7629,10 @@ packages:
 
   /ufo@1.1.2:
     resolution: {integrity: sha512-TrY6DsjTQQgyS3E3dBaOXf0TpPD8u9FVrVYmKVegJuFw51n/YB9XPt+U6ydzFG5ZIN7+DIjPbNmXoBj9esYhgQ==}
+
+  /ufo@1.2.0:
+    resolution: {integrity: sha512-RsPyTbqORDNDxqAdQPQBpgqhWle1VcTSou/FraClYlHf6TZnQcGslpLcAphNR+sQW4q5lLWLbOsRlh9j24baQg==}
+    dev: true
 
   /ultrahtml@1.3.0:
     resolution: {integrity: sha512-xmXvE8tC8t4PVqy0/g1fe7H9USY/Brr425q4dD/0QbQMQit7siCtb06+SCqE4GfU24nwsZz8Th1g7L7mm1lL5g==}
