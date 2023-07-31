@@ -9,8 +9,8 @@ const head = useLocaleHead({
 
 useHead({
   htmlAttrs: {
-    lang: () => head.value.htmlAttrs.lang,
-    dir: () => head.value.htmlAttrs.dir ?? 'auto'
+    lang: () => head.value.htmlAttrs?.lang,
+    dir: () => head.value.htmlAttrs?.dir ?? 'auto'
   },
   title: null,
   titleTemplate: (titleChunk) => {
