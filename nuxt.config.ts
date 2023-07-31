@@ -133,13 +133,15 @@ export default defineNuxtConfig({
     },
 
     sitemap: {
-      siteUrl: process.env.BASE_URL,
+      site: {
+        url: process.env.BASE_URL
+      },
       urls: async () => {
         const apiURL = process.env.API_BASE_URL
-        const data = await fetch(`${apiURL}/sitemap`)
-        if (!data.ok) return []
+        const data = await fetch(`${apiURL}/sitemap`).catch(() => {})
+        if (!data?.ok) return []
 
-        return data.json()
+        return data?.json()
       }
     }
   }
