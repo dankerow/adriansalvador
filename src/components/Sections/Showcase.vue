@@ -22,7 +22,7 @@ withDefaults(defineProps<{
             delay: 1500
           }
         }"
-        class="card mb-12"
+        class="card mb-16"
       >
         <div class="card-body pb-4">
           <p class="card-text">
@@ -30,6 +30,7 @@ withDefaults(defineProps<{
             {{ $t('biography').substring(1) }}
           </p>
         </div>
+
         <div class="card-footer text-body-secondary">
           <Icon name="ph:map-pin-duotone" class="me-2" />
           <span class="text-decoration-underline">Brisbane, Australia</span>
