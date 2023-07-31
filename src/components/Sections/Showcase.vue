@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Album } from '@/types/albums'
+import type { Album } from '@/types/albums'
 
 withDefaults(defineProps<{
   albums?: Album[]
