@@ -1,9 +1,21 @@
 <script setup lang="ts">
 const error = useError() as any
+
+if (process.dev)
+  console.error(error)
+
+const reload = async () => {
+  try {
+    await clearError({ redirect: '/' })
+  }
+  catch (err) {
+    console.error(err)
+  }
+}
 </script>
 
 <template>
-  <div>
+  <NuxtLayout>
     <main v-if="error" class="text-bg-primary vh-100 d-flex justify-content-center align-items-center flex-column">
       <div class="container">
         <div class="text-center">
@@ -22,17 +34,12 @@ const error = useError() as any
             Let's find a better place for you to go.
           </p>
 
-          <button class="btn btn-sm btn-dark" @click.prevent="$router.back()">
-            <Icon name="ph:arrow-counter-clockwise-bold" />
-            Go back
-          </button>
-          <NuxtLink to="/" class="btn btn-sm btn-dark">
+          <button class="btn btn-sm btn-dark" @click.prevent="reload()">
             Take me home
             <Icon name="ph:house-bold" />
-          </NuxtLink>
+          </button>
         </div>
       </div>
     </main>
-    <Footer />
-  </div>
+  </NuxtLayout>
 </template>
