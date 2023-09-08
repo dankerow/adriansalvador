@@ -1,16 +1,10 @@
 <script setup lang="ts">
 const colorMode = useColorMode()
-const { t } = useI18n()
-const head = useLocaleHead({
-  addDirAttribute: true,
-  identifierAttribute: 'id',
-  addSeoAttributes: true
-})
 
 useHead({
   htmlAttrs: {
-    lang: () => head.value.htmlAttrs?.lang,
-    dir: () => head.value.htmlAttrs?.dir ?? 'auto'
+    lang: 'en-US',
+    dir: 'ltr'
   },
   title: null,
   titleTemplate: (titleChunk) => {
@@ -18,7 +12,7 @@ useHead({
   },
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    { name: 'description', content: () => t('metadata.description') },
+    { name: 'description', content: 'Capturing the essence of people through a lens.' },
     {
       name: 'twitter:card',
       content: 'summary'
@@ -37,7 +31,7 @@ useHead({
     },
     {
       name: 'twitter:description',
-      content: () => t('metadata.description')
+      content: 'Capturing the essence of people through a lens.'
     },
     {
       name: 'twitter:image',
@@ -51,20 +45,18 @@ useHead({
     {
       name: 'og:description',
       property: 'og:description',
-      content: () => t('metadata.description')
+      content: 'Capturing the essence of people through a lens.'
     },
     {
       name: 'og:image',
       property: 'og:image',
       content: 'https://salvadoradrian.com/icon.png'
-    },
-    ...(head.value.meta || [])
+    }
   ],
   link: [
     { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     { rel: 'preconnect', href: 'https://cdn.salvadoradrian.com' },
-    { rel: 'dns-prefetch', href: 'https://cdnjs.cloudflare.com' },
-    ...(head.value.link || [])
+    { rel: 'dns-prefetch', href: 'https://cdnjs.cloudflare.com' }
   ],
   script: [
     {

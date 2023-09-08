@@ -25,7 +25,6 @@ export default defineNuxtConfig({
     '@nuxtjs/device',
     '@nuxtjs/fontaine',
     '@nuxtjs/google-fonts',
-    '@nuxtjs/i18n',
     '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
     'nuxt-icon'
@@ -47,18 +46,6 @@ export default defineNuxtConfig({
       }
     },
     display: 'swap'
-  },
-
-  i18n: {
-    strategy: 'no_prefix',
-    baseUrl: process.env.BASE_URL,
-    locales: [
-      { code: 'en', iso: 'en-US', name: 'English', file: 'en.json' },
-      { code: 'fr', iso: 'fr-FR', name: 'Français', file: 'fr.json' }
-    ],
-    defaultLocale: 'en',
-    lazy: true,
-    langDir: 'locales'
   },
 
   image: {
