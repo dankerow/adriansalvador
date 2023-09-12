@@ -73,10 +73,6 @@ const isHome = computed(() => {
   return route.path === '/'
 })
 
-const isAlbums = computed(() => {
-  return route.path.includes('/albums')
-})
-
 onMounted(() => {
   const setTheme = function(theme: string) {
     document.documentElement.setAttribute('data-bs-theme', theme)
@@ -95,6 +91,6 @@ onMounted(() => {
 
     <slot />
 
-    <Footer :actions-fixed="!isAlbums" />
+    <Footer />
   </div>
 </template>
