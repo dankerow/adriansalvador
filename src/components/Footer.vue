@@ -1,34 +1,21 @@
-<script setup lang="ts">
-withDefaults(defineProps<{
-  actionsFixed?: boolean
-}>(), {
-  actionsFixed: false
-})
-</script>
-
 <template>
-  <footer class="text-body-secondary" :class="{ 'd-inline': actionsFixed }">
-    <div class="footer-actions py-3" :class="{ 'sticky-bottom': actionsFixed }">
+  <footer class="text-body-secondary">
+    <div class="footer-bottom text-center py-3">
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-auto">
+            <p class="mb-0">
+              © {{ new Date().getFullYear() }} Adrian Salvador. Made by
+              <a class="d-inline-block position-relative" href="https://danmutombo.com" rel="noopener" target="_blank">
+                Dan Mutombo
+              </a>
+            </p>
+          </div>
+
+          <div class="col-auto">
             <ThemeSelector />
           </div>
-          <div class="col-auto">
-            <LanguageSelector />
-          </div>
         </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom text-center py-3">
-      <div class="container">
-        <p class="mb-0">
-          © {{ new Date().getFullYear() }} Adrian Salvador. Made by
-          <a class="d-inline-block position-relative" href="https://danmutombo.com" rel="noreferrer" target="_blank">
-            Dan Mutombo
-          </a>
-        </p>
       </div>
     </div>
   </footer>
@@ -68,7 +55,7 @@ footer {
 
 .dark-mode {
 	footer {
-		background-color: rgb(20, 20, 20);
+		background-color: rgb(11, 11, 11);
 	}
 }
 </style>
