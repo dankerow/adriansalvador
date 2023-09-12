@@ -1,12 +1,7 @@
 <script setup lang="ts">
 withDefaults(defineProps<{
   title: string
-  items?: {
-    id: string
-    name: string
-    url: string
-    hidden?: boolean
-  }[]
+  items?: object[]
   more?: {
     url: string
   }
