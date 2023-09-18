@@ -26,9 +26,6 @@ dependencies:
   vanilla-tilt:
     specifier: ^1.8.1
     version: 1.8.1
-  vue3-marquee:
-    specifier: ^4.0.0
-    version: 4.0.0(vue@3.3.4)
 
 devDependencies:
   '@kevinmarrec/nuxt-pwa':
@@ -7938,15 +7935,6 @@ packages:
       '@vue/devtools-api': 6.5.0
       vue: 3.3.4
     dev: true
-
-  /vue3-marquee@4.0.0(vue@3.3.4):
-    resolution: {integrity: sha512-/CPyAi0TQM2Cdcf8PBT/A7uXRVHHncN3MyKRcFBqkj5ph2tlVk08D5K6fyY2S5tYscgLJc3ma2vhPTrrkZih1A==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      vue: ^3.2
-    dependencies:
-      vue: 3.3.4
-    dev: false
 
   /vue@3.3.4:
     resolution: {integrity: sha512-VTyEYn3yvIeY1Py0WaYGZsXnz3y5UnGi62GjVEqvEGPl6nxbOrCXbVOTQWBEJUqAyTUk2uJ5JLVnYJ6ZzGbrSw==}

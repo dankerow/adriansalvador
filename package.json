@@ -17,8 +17,7 @@
     "gsap": "^3.12.2",
     "nuxt-security": "^0.14.4",
     "photoswipe": "^5.4.1",
-    "vanilla-tilt": "^1.8.1",
-    "vue3-marquee": "^4.0.0"
+    "vanilla-tilt": "^1.8.1"
   },
   "devDependencies": {
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
