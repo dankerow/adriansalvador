@@ -1,5 +1,6 @@
 <script setup lang="ts">
 defineProps<{
+  pinned?: Boolean
   currentPage: Number
   pages: Number
 }>()
@@ -24,7 +25,7 @@ const previousPage = () => {
 </script>
 
 <template>
-  <nav class="sticky-bottom z-1" aria-label="Pagination">
+  <nav :class="{ 'pinned sticky-bottom z-1': pinned }" aria-label="Pagination">
     <ul v-if="currentPage === 1" class="pagination justify-content-center">
       <li class="page-item disabled">
         <span class="page-link" tabindex="-1" aria-label="First" aria-disabled="true">
@@ -196,7 +197,10 @@ const previousPage = () => {
 <style lang="scss" scoped>
 nav {
 	padding: 1rem 0;
-	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+
+  &.pinned {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+  }
 }
 
 .pagination {
@@ -226,7 +230,9 @@ nav {
 
 .dark-mode {
 	nav {
-		background-image: linear-gradient(to bottom, rgba(14, 14, 14, 0.4), rgba(14, 14, 14, 0.6), rgba(14, 14, 14, 1));
+    &.pinned {
+      background-image: linear-gradient(to bottom, rgba(14, 14, 14, 0.4), rgba(14, 14, 14, 0.6), rgba(14, 14, 14, 1));
+    }
 	}
 
 	.pagination {
