@@ -10,12 +10,20 @@ const props = withDefaults(defineProps<{
   albums: () => []
 })
 const { isDesktop } = useDevice()
-const cdnBaseURL = useRuntimeConfig().public.cdnBaseURL
+const cdnBaseUrl = useRuntimeConfig().public.cdnBaseUrl
 
-const albums: Ref<Album[]> = ref(props.albums || [])
+const albums: Ref<Album[]> = ref(props.albums ?? [])
+
+const getCover = (album: Album) => {
+  return album.cover ?? album.coverFallback
+}
+
+const getCoverUrl = (album: Album) => {
+  return album.cover ? `${cdnBaseUrl}/covers/${encodeURIComponent(album.cover.name)}` : album.coverFallback ? `${cdnBaseUrl}/gallery/${encodeURIComponent(album.name)}/${encodeURIComponent(album.coverFallback.name)}` : ''
+}
 
 const favorites: ComputedRef<Album[]> = computed(() => {
-  return albums.value?.filter((album) => album.favorite).map((album) => {
+  return albums.value.filter((album) => album.favorite).map((album) => {
     album.url = `/albums/${album.id}`
 
     return album
@@ -41,18 +49,31 @@ onMounted(() => {
 </script>
 
 <template>
-  <div
-    v-parallax
-    data-rellax-xs-speed="0"
-    data-rellax-mobile-speed="0"
-    data-rellax-tablet-speed="0"
-    data-parallax-speed="-1" data-rellax-percentage="0.5"
-    class="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-4 g-lg-0 justify-content-center pt-5"
-  >
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-4 g-lg-0 justify-content-center">
     <div class="col-lg-2">
-      <div class="card card-showcase card-sm" data-aos="fade-right" tabindex="-1">
+      <div
+        v-motion="{
+          initial: { opacity: 0, x: -100 },
+          visibleOnce: {
+            x: 0,
+            opacity: 1
+          }
+        }"
+        class="card card-showcase card-sm"
+        tabindex="-1"
+      >
         <div class="cover">
-          <nuxt-img v-if="favorites[0]" :src="`${cdnBaseURL}/images/${favorites[0].cover.name}?width=500`" alt="Album's cover" placeholder loading="lazy" />
+          <nuxt-img
+            v-if="favorites[0] && getCover(favorites[0])"
+            format="webp"
+            :src="getCoverUrl(favorites[0])"
+            :width="460"
+            :height="(460 / getCover(favorites[0]).width) * getCover(favorites[0]).height"
+            sizes="sm:100vw md:50vw lg:460px xl:660px"
+            alt="Album's cover"
+            placeholder
+            loading="lazy"
+          />
           <div class="overlay" />
         </div>
 
@@ -64,17 +85,36 @@ onMounted(() => {
 
         <NuxtLink
           v-if="favorites[0] && favorites[0].url"
-          :title="favorites[0].name"
-          :to="favorites[0].url"
+          :to="favorites[0]?.url"
           class="stretched-link"
         />
       </div>
     </div>
 
     <div class="col-lg-2">
-      <div class="card card-showcase" data-aos="fade-right">
+      <div
+        v-motion="{
+          initial: {
+            opacity: 0,
+            x: -100
+          },
+          visibleOnce: {
+            x: 0,
+            opacity: 1
+          }
+        }"
+        class="card card-showcase"
+      >
         <div class="cover">
-          <nuxt-img v-if="favorites[1]" :src="`${cdnBaseURL}/images/${favorites[1].cover.name}?width=500`" alt="Album's cover" placeholder loading="lazy" />
+          <nuxt-img
+            v-if="favorites[1] && getCover(favorites[1])"
+            format="webp"
+            :src="getCoverUrl(favorites[1])"
+            :width="500"
+            alt="Album's cover"
+            placeholder
+            loading="lazy"
+          />
           <div class="overlay" />
         </div>
 
@@ -86,7 +126,6 @@ onMounted(() => {
 
         <NuxtLink
           v-if="favorites[1] && favorites[1].url"
-          :title="favorites[1].name"
           :to="favorites[1].url"
           class="stretched-link"
         />
@@ -94,11 +133,36 @@ onMounted(() => {
     </div>
 
     <div class="col-lg-3">
-      <div class="card card-showcase featured tilt" data-aos="zoom-in" data-aos-duration="400">
-        <span class="featured-badge">{{ $t('cards.featured') }}</span>
+      <div
+        v-motion="{
+          initial: {
+            scale: 0,
+            opacity: 0
+          },
+          visibleOnce: {
+            scale: 1,
+            opacity: 1,
+            transition: {
+              duration: 400
+            }
+          }
+        }"
+        class="card card-showcase featured tilt"
+      >
+        <span class="featured-badge">
+          Featured
+        </span>
 
         <div class="cover">
-          <nuxt-img v-if="featured" :src="`${cdnBaseURL}/images/${featured.cover.name}?width=500`" alt="Album's cover" placeholder loading="lazy" />
+          <nuxt-img
+            v-if="featured"
+            format="webp"
+            :src="getCoverUrl(featured)"
+            :width="500"
+            alt="Album's cover"
+            placeholder
+            loading="lazy"
+          />
           <div class="overlay" />
         </div>
 
@@ -110,17 +174,33 @@ onMounted(() => {
 
         <NuxtLink
           v-if="featured && featured.url"
-          :title="featured.name"
-          :to="featured.url"
+          :to="featured?.url"
           class="stretched-link"
         />
       </div>
     </div>
 
     <div class="col-lg-2">
-      <div class="card card-showcase" data-aos="fade-left">
+      <div
+        v-motion="{
+          initial: { opacity: 0, x: 100 },
+          visibleOnce: {
+            x: 0,
+            opacity: 1
+          }
+        }"
+        class="card card-showcase"
+      >
         <div class="cover">
-          <nuxt-img v-if="favorites[2]" :src="`${cdnBaseURL}/images/${favorites[2].cover.name}?width=500`" alt="Album's cover" placeholder loading="lazy" />
+          <nuxt-img
+            v-if="favorites[2] && getCover(favorites[2])"
+            format="webp"
+            :src="getCoverUrl(favorites[2])"
+            :width="500"
+            alt="Album's cover"
+            placeholder
+            loading="lazy"
+          />
           <div class="overlay" />
         </div>
 
@@ -132,17 +212,34 @@ onMounted(() => {
 
         <NuxtLink
           v-if="favorites[2] && favorites[2].url"
-          :title="favorites[2].name"
-          :to="favorites[2].url"
+          :to="favorites[2]?.url"
           class="stretched-link"
         />
       </div>
     </div>
 
     <div class="col-lg-2">
-      <div class="card card-showcase card-sm" data-aos="fade-left" tabindex="-1">
+      <div
+        v-motion="{
+          initial: { opacity: 0, x: 100 },
+          visibleOnce: {
+            x: 0,
+            opacity: 1
+          }
+        }"
+        class="card card-showcase card-sm"
+        tabindex="-1"
+      >
         <div class="cover">
-          <nuxt-img v-if="favorites[3]" :src="`${cdnBaseURL}/images/${favorites[3].cover.name}?width=500`" alt="Album's cover" placeholder loading="lazy" />
+          <nuxt-img
+            v-if="favorites[3] && getCover(favorites[3])"
+            format="webp"
+            :src="getCoverUrl(favorites[3])"
+            :width="500"
+            alt="Album's cover"
+            placeholder
+            loading="lazy"
+          />
           <div class="overlay" />
         </div>
 
@@ -154,8 +251,7 @@ onMounted(() => {
 
         <NuxtLink
           v-if="favorites[3] && favorites[3].url"
-          :title="favorites[3].name"
-          :to="favorites[3].url"
+          :to="favorites[3]?.url"
           class="stretched-link"
         />
       </div>
@@ -168,15 +264,6 @@ onMounted(() => {
   background-color: rgb(14, 14, 14);
   border: none;
   border-radius: 0.30rem;
-  box-shadow:
-    0 1.4px 3.2px 10px rgba(0, 0, 0, 0.017),
-    0 3.1px 7.2px 10px rgba(0, 0, 0, 0.024),
-    0 5.4px 12.6px 10px rgba(0, 0, 0, 0.03),
-    0 8.6px 20px 10px rgba(0, 0, 0, 0.035),
-    0 13.3px 30.9px 10px rgba(0, 0, 0, 0.04),
-    0 20.8px 48.2px 10px rgba(0, 0, 0, 0.046),
-    0 34.5px 80.1px 10px rgba(0, 0, 0, 0.053),
-    0 69px 95px 10px rgba(0, 0, 0, 0.07);
   color: #fff;
   margin: 10px 0 60px;
   position: relative;
