@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
-    "@nuxt/devtools": "^0.8.3",
+    "@nuxt/devtools": "^0.8.4",
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxt/image": "rc",
     "@nuxtjs/color-mode": "3.3.0",
