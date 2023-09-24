@@ -7,8 +7,6 @@ const { page } = useCounter()
 const actionItemsTags = 'a, button'
 const textsTags = 'h1, h2, h3, h4, h5, h6, p, span, li'
 
-const hoveredElement = ref(null)
-
 const focusMouse = (element: HTMLElement, items: NodeListOf<HTMLElement>) => {
   items.forEach((text) => {
     text.addEventListener('pointerenter', () => {
@@ -33,7 +31,7 @@ const scaleMouse = (element, items: NodeListOf<HTMLElement>) => {
   items.forEach((link) => {
     link.addEventListener('pointerenter', () => {
       gsap.to(element, {
-        scale: 1.8,
+        scale: 4.5,
         duration: 1,
         ease: 'power4.out',
       })
@@ -45,8 +43,6 @@ const scaleMouse = (element, items: NodeListOf<HTMLElement>) => {
         duration: 1,
         ease: 'power4.out',
       })
-
-      hoveredElement.value = null
     })
   })
 }
@@ -61,7 +57,9 @@ const refreshItems = () => {
   focusMouse(cursor, newTexts)
 }
 
-onMounted(async () => {
+const rootElement = ref(null)
+
+useSafeOnMounted(rootElement, async () => {
   if (ScrollTrigger.isTouch !== 1) {
     const cursor = document.querySelector('#cursor') as HTMLElement
     cursor.style.backgroundColor = 'transparent'
@@ -110,9 +108,6 @@ onMounted(async () => {
         })
       }
 
-      const tagName = document.elementFromPoint(e.clientX, e.clientY)?.tagName
-      hoveredElement.value = tagName?.toLowerCase()
-
       xTo(e.clientX)
       yTo(e.clientY)
     })
@@ -127,11 +122,8 @@ onNuxtReady(() => {
 <template>
   <div
     id="cursor"
+    ref="rootElement"
     class="border border-white pe-none position-fixed top-0 start-0 rounded-circle align-items-center justify-content-center"
-    :style="{ 'display': 'none', 'height': '35px', 'width': '35px', 'z-index': 1500 }"
-  >
-    <div v-if="hoveredElement" style="font-size: 0.475rem;">
-      <span v-if="hoveredElement === 'img'" style="color: white;mix-blend-mode:color-burn;">Preview</span>
-    </div>
-  </div>
+    :style="{ 'display': 'none', 'height': '0.8rem', 'width': '0.8rem', 'z-index': 5, 'mix-blend-mode': 'exclusion' }"
+  />
 </template>
