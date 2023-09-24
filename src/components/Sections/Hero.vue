@@ -49,7 +49,7 @@ onMounted(() => {
           Salvador
         </h1>
 
-        <p class="fs-2 lh-1 ms-4 mb-8">
+        <p class="fs-1 lh-1 ms-4 mb-8">
           "Capturing the essence of people through a lens."
         </p>
       </div>
