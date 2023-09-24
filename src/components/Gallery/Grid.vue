@@ -86,8 +86,8 @@ watch(() => props.images, (newImages) => {
       <div class="image-container" :style="{ height: `${((columnWidth + gap) / (item.width / item.height)).toFixed(0)}px` }">
         <a
           :href="item.url"
-          :data-pswp-width="item.width"
-          :data-pswp-height="item.height"
+          :data-pswp-width="item.metadata.width"
+          :data-pswp-height="item.metadata.height"
           rel="noreferrer"
           aria-label="View image"
         >
@@ -96,7 +96,7 @@ watch(() => props.images, (newImages) => {
             format="webp"
             :src="item.url"
             :width="columnWidth + gap"
-            :height="(((columnWidth * 1.5) + gap) / (item.width / item.height)).toFixed(0)"
+            :height="((columnWidth + gap) / (item.metadata.width / item.metadata.height)).toFixed(0)"
             :sizes="`sm:100vw md:50vw lg:${(columnWidth) + gap}px xl:${((columnWidth) + gap) + 200}px`"
             loading="lazy"
             draggable="false"
