@@ -128,14 +128,14 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="videoPlayer" class="video-player position-relative overflow-hidden m-auto h-auto">
+  <div ref="videoPlayer" class="video-player position-relative overflow-hidden m-auto d-flex flex-column justify-content-center">
     <video
       ref="video"
-      class="rounded-3 m-auto shadow-md"
-      style=" width: 100%; height: auto;"
+      class="w-100 h-100 rounded-3 m-auto shadow-md"
       loop
       muted
       playsinline
+      :poster="poster"
       @click="toggleVideoPlayback"
     >
       <source
@@ -144,23 +144,35 @@ onUnmounted(() => {
       >
     </video>
 
-    <div class="video-controls position-absolute w-100 d-flex align-items-center justify-content-between bottom-0 rounded-bottom-2">
-      <button ref="playbackButton" class="playback-button" type="button" aria-label="Playback Action">
-        <Icon v-if="isPaused" name="ph:play-duotone" />
-        <Icon v-else name="ph:pause-duotone" />
-      </button>
-
-      <div class="progress-container" @mouseenter="mouseEnter" @mousemove="mouseMove" @mouseleave="mouseLeave" @click="seekBarClicked">
-        <progress ref="seekBar" class="seek-bar" value="0" max="1" />
+    <div class="video-controls position-absolute end-0 bottom-0 start-0 rounded-bottom-2">
+      <div
+        class="progress-container position-relative mb-2"
+        @mouseenter="mouseEnter"
+        @mousemove="mouseMove"
+        @mouseleave="mouseLeave"
+        @click="seekBarClicked"
+      >
+        <progress ref="seekBar" value="0" max="1" />
         <div ref="seekHoverBar" class="seek-hover-bar" :style="{ left: `${seekHoverPos}px` }" />
       </div>
 
-      <div class="volume-container">
-        <Icon v-if="isMuted" name="ph:speaker-simple-slash-duotone" @click="toggleMute" />
-        <Icon v-else name="ph:speaker-simple-high-duotone" @click="toggleMute" />
+      <div class="bottom-controls d-flex justify-content-between align-items-center">
+        <div class="left-controls d-flex align-items-center">
+          <button ref="playbackButton" class="playback-button" type="button" aria-label="Playback Action">
+            <Icon v-if="isPaused" name="ph:play-duotone" />
+            <Icon v-else name="ph:pause-duotone" />
+          </button>
+        </div>
 
-        <div class="volume-slider-container">
-          <input ref="volumeControl" class="volume-bar" type="range" min="0" max="1" step="0.1" @input="adjustVolume">
+        <div class="right-controls d-flex align-items-center">
+          <div class="volume-container d-flex align-items-center">
+            <div class="me-2">
+              <Icon v-if="isMuted" name="ph:speaker-simple-slash-duotone" @click="toggleMute" />
+              <Icon v-else name="ph:speaker-simple-high-duotone" @click="toggleMute" />
+            </div>
+
+            <input ref="volumeControl" class="volume-bar" type="range" min="0" max="1" step="0.1" @input="adjustVolume">
+          </div>
         </div>
       </div>
     </div>
@@ -181,10 +193,9 @@ onUnmounted(() => {
 
 .video-controls {
   background: rgba(0 ,0 ,0 , 0.7);
-  height: 38px;
   opacity: 0;
   padding: 10px;
-  transition: opacity 0.3s ease-in-out, transform 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
   transform: translateY(100%);
 }
 
@@ -194,6 +205,7 @@ onUnmounted(() => {
   color: #fff;
   cursor: pointer;
   opacity: 0.7;
+  transition: all 0.3s ease-in-out;
 
   &:hover {
     opacity: 1;
@@ -206,28 +218,6 @@ onUnmounted(() => {
   position: relative;
 
   &:hover {
-    .volume-slider-container {
-      visibility: visible;
-    }
-  }
-}
-
-.volume-slider-container {
-  cursor: pointer;
-  opacity: 0.7;
-  position: absolute;
-  right: 50%;
-  top: -590%;
-  visibility: hidden;
-
-  &::-webkit-slider-thumb {
-    background-color: rgb(95, 95, 95);
-    cursor: pointer;
-  }
-
-  &:hover {
-    opacity: 1;
-
     .n-icon {
       opacity: 1;
     }
@@ -235,41 +225,44 @@ onUnmounted(() => {
 
   .n-icon {
     opacity: 0.5;
+    transition: all 0.3s ease-in-out;
   }
 
   .volume-bar {
     background: #ddd;
     height: 100%;
-    outline: none;
     opacity: 0.7;
-    transition: opacity .2s ease-in-out;
-    transform: rotate(270deg);
-    transform-origin: right;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
 .progress-container {
-  position: relative;
-  width: 100%;
-}
+  height: 15px;
 
-.seek-bar {
-  height: 15px; // Set a height for the progress bar
-  opacity: 0.7;
-  width: 100%;
+  progress {
+    height: 15px; // Set a height for the progress bar
+    opacity: 0.7;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
 
-  &:hover {
-    opacity: 1;
+    &:hover {
+      opacity: 1;
+    }
   }
-}
 
-.seek-hover-bar {
-  background-color: rgb(135, 135, 135);
-  position: absolute;
-  height: 14px;
-  top: 2px;
-  visibility: hidden;
-  width: 3px;
-  margin-left: 2px;
+  .seek-hover-bar {
+    background-color: rgb(135, 135, 135);
+    position: absolute;
+    height: 14px;
+    top: 2px;
+    visibility: hidden;
+    width: 3px;
+    margin-left: 2px;
+  }
 }
 </style>
