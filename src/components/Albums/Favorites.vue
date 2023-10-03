@@ -19,7 +19,7 @@ const getCover = (album: Album) => {
 }
 
 const getCoverUrl = (album: Album) => {
-  return album.cover ? `${cdnBaseUrl}/covers/${encodeURIComponent(album.cover.name)}` : album.coverFallback ? `${cdnBaseUrl}/gallery/${encodeURIComponent(album.name)}/${encodeURIComponent(album.coverFallback.name)}` : ''
+  return album.cover ? `${cdnBaseUrl}/covers/${encodeURIComponent(album.cover.name)}` : album.coverFallback ? `${cdnBaseUrl}/s-files/${encodeURIComponent(album.coverFallback.name)}` : ''
 }
 
 const favorites: ComputedRef<Album[]> = computed(() => {
@@ -68,7 +68,7 @@ onMounted(() => {
             format="webp"
             :src="getCoverUrl(favorites[0])"
             :width="460"
-            :height="(460 / getCover(favorites[0]).width) * getCover(favorites[0]).height"
+            :height="(460 / getCover(favorites[0]).metadata.width) * getCover(favorites[0]).metadata.height"
             sizes="sm:100vw md:50vw lg:460px xl:660px"
             alt="Album's cover"
             placeholder
@@ -111,6 +111,8 @@ onMounted(() => {
             format="webp"
             :src="getCoverUrl(favorites[1])"
             :width="500"
+            :height="(500 / getCover(favorites[1]).metadata.width) * getCover(favorites[1]).metadata.height"
+            sizes="sm:100vw md:50vw lg:500px xl:700px"
             alt="Album's cover"
             placeholder
             loading="lazy"
@@ -158,7 +160,9 @@ onMounted(() => {
             v-if="featured"
             format="webp"
             :src="getCoverUrl(featured)"
-            :width="500"
+            :width="560"
+            :height="(560 / getCover(featured).metadata.width) * getCover(featured).metadata.height"
+            sizes="sm:100vw md:50vw lg:460px xl:760px"
             alt="Album's cover"
             placeholder
             loading="lazy"
@@ -197,6 +201,8 @@ onMounted(() => {
             format="webp"
             :src="getCoverUrl(favorites[2])"
             :width="500"
+            :height="(500 / getCover(favorites[2]).metadata.width) * getCover(favorites[2]).metadata.height"
+            sizes="sm:100vw md:50vw lg:500px xl:700px"
             alt="Album's cover"
             placeholder
             loading="lazy"
@@ -235,7 +241,9 @@ onMounted(() => {
             v-if="favorites[3] && getCover(favorites[3])"
             format="webp"
             :src="getCoverUrl(favorites[3])"
-            :width="500"
+            :width="460"
+            :height="(460 / getCover(favorites[3]).metadata.width) * getCover(favorites[3]).metadata.height"
+            sizes="sm:100vw md:50vw lg:460px xl:660px"
             alt="Album's cover"
             placeholder
             loading="lazy"
