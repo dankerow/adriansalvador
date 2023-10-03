@@ -11,6 +11,7 @@ withDefaults(defineProps<{
 
 const videoPlayer: Ref<HTMLElement|null> = ref(null)
 const video: Ref<HTMLMediaElement|null> = ref(null)
+const hideControls = ref(true)
 const playbackButton: Ref<HTMLButtonElement|null> = ref(null)
 const volumeControl: Ref<HTMLInputElement | null> = ref(null)
 const seekBar: Ref<HTMLInputElement|null> = ref(null)
@@ -90,6 +91,12 @@ onMounted(() => {
   video.value?.addEventListener('play', updatePlaybackStatus)
   video.value?.addEventListener('pause', updatePlaybackStatus)
 
+  const videoCanPlay = !!video.value?.canPlayType;
+  if (videoCanPlay) {
+    video.value!.controls = false
+    hideControls.value = false
+  }
+
   const { stop } = useIntersectionObserver(
     video.value,
     (entries) => {
@@ -134,8 +141,8 @@ onUnmounted(() => {
       class="w-100 h-100 rounded-3 m-auto shadow-md"
       loop
       muted
+      controls
       playsinline
-      :poster="poster"
       @click="toggleVideoPlayback"
     >
       <source
@@ -144,7 +151,7 @@ onUnmounted(() => {
       >
     </video>
 
-    <div class="video-controls position-absolute end-0 bottom-0 start-0 rounded-bottom-2">
+    <div class="video-controls position-absolute end-0 bottom-0 start-0 rounded-bottom-2" :class="{ hidden: hideControls }">
       <div
         class="progress-container position-relative mb-2"
         @mouseenter="mouseEnter"
