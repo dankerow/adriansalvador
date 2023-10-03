@@ -83,7 +83,7 @@ watch(() => props.images, (newImages) => {
     :scroll-container="scrollContainer"
   >
     <template #default="{ item }">
-      <div class="image-container" :style="{ height: `${((columnWidth + gap) / (item.width / item.height)).toFixed(0)}px` }">
+      <div class="image-container" :style="{ height: `${((columnWidth + gap) / (item.metadata.width / item.metadata.height)).toFixed(0)}px` }">
         <a
           :href="item.url"
           :data-pswp-width="item.metadata.width"
