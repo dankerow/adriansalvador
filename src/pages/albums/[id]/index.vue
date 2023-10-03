@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import type { Ref, ComputedRef } from 'vue'
-import { Album, AlbumFile } from '@/types/albums'
+import type { Album, AlbumFile } from '@/types/albums'
 
 const colorMode = useColorMode()
 const params = useRoute().params
+const cdnBaseUrl = useRuntimeConfig().public.cdnBaseUrl
 
 const { data: album }: { data: Ref<Album> } = await useFutch(`/albums/${params.id}`)
 
@@ -14,14 +15,16 @@ if (!album.value) {
 const pages: Ref<number> = ref(0)
 const currentPage: Ref<number> = ref(1)
 
-const { data: images, pending: pendingImages, error: errorImages } = await useLazyAsyncData(() =>
-  useFaetch(`/albums/${params.id}/images`, {
+const { data: images, pending: pendingImages, error: errorImages } = await useFutch<{ data: AlbumFile[], count: number, pages: number }>(`/albums/${params.id}/files`,
+  {
     params: {
       limit: 50,
       page: currentPage.value
-    }
+    },
+    lazy: true,
+    watch: [currentPage],
+    default: () => shallowRef()
   })
-, { watch: [currentPage], immediate: process.client, default: () => shallowRef() })
 
 watch(images, (newImages) => {
   images.value = newImages
@@ -60,11 +63,16 @@ const changePage = (index: number) => {
   currentPage.value = index
 }
 
-const cdnBaseURL = useRuntimeConfig().public.cdnBaseURL
+const onDownload = async () => {
+  useTrackEvent('download', {
+    category: 'albums',
+    label: album.value.name
+  })
+}
 
 const getImagesView: ComputedRef<AlbumFile[]> = computed(() => {
   return images.value.data.map((image: any) => {
-    image.url = `${cdnBaseURL}/gallery/${encodeURIComponent(album.value.name)}/${encodeURIComponent(image.name)}`
+    image.url = `${cdnBaseUrl}/s-files/${encodeURIComponent(image.name)}`
 
     return image
   })
@@ -72,12 +80,12 @@ const getImagesView: ComputedRef<AlbumFile[]> = computed(() => {
 </script>
 
 <template>
-  <main>
+  <div>
     <section class="min-vh-100 pt-4">
       <Breadcrumb :links="[{ name: 'Albums', path: '/albums' }, { name: album.name }]" class="mb-6" />
 
       <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 align-items-center text-center text-lg-start justify-content-center justify-content-md-between" data-aos="fade-down">
+        <div class="row row-cols-1 row-cols-sm-2 align-items-center text-center text-lg-start justify-content-center justify-content-md-between">
           <div class="col">
             <h1 class="h3 fw-bold mb-0">
               {{ album.name }}
@@ -92,24 +100,26 @@ const getImagesView: ComputedRef<AlbumFile[]> = computed(() => {
             <div class="row gx-2 justify-content-end">
               <div class="col col-md-auto">
                 <button
-                  :class="`btn ${colorMode.value !== 'light' ? 'btn-gray-dark text-light' : 'btn-gray text-primary'}`"
+                  :class="`btn ${colorMode.value !== 'light' ? 'btn-secondary' : 'btn-gray text-primary'}`"
                   type="button"
                   aria-label="Share album's link"
                   @click.prevent="share"
                 >
-                  {{ $t('albums.buttons.share.metadata.title') }}
+                  Share Album
                 </button>
               </div>
 
               <div class="col col-md-auto">
                 <a
-                  :class="`btn ${colorMode.value !== 'light' ? 'btn-gray-dark text-light' : 'btn-gray text-primary'}`"
+                  :class="`btn ${colorMode.value !== 'light' ? 'btn-dark text-light' : 'btn-gray text-primary'}`"
                   type="button"
                   aria-label="Download all album's images"
-                  :href="`${cdnBaseURL}/albums/${album.id}/download`"
+                  :href="`${cdnBaseUrl}/albums/${album.id}/download`"
+                  rel="noreferrer"
                   download
+                  @click.stop="onDownload"
                 >
-                  {{ $t('albums.buttons.download.metadata.title') }}
+                  Download Album
                 </a>
               </div>
             </div>
@@ -118,9 +128,9 @@ const getImagesView: ComputedRef<AlbumFile[]> = computed(() => {
 
         <hr>
 
-        <div data-aos="fade-up">
+        <div>
           <AlbumsLoadingCards v-if="pendingImages" />
-          <GalleryGrid v-else-if="images?.data" :id="`gallery-grid-${album.id}`" :images="getImagesView" />
+          <GalleryGrid v-else-if="images?.data" :images="getImagesView" />
           <template v-else-if="errorImages">
             <div class="alert alert-danger" role="alert">
               <h2 class="alert-heading h6 fw-bolder">
@@ -136,13 +146,14 @@ const getImagesView: ComputedRef<AlbumFile[]> = computed(() => {
     </section>
 
     <Pagination
+      :pinned="true"
       :current-page="currentPage"
       :pages="pages"
       @next-page="changePage(currentPage + 1)"
       @previous-page="changePage(currentPage - 1)"
       @change-page="changePage"
     />
-  </main>
+  </div>
 </template>
 
 <style lang="scss" scoped>
