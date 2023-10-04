@@ -35,14 +35,13 @@
           Let's get in touch! I'm always eager to chat with you about anything related to my work. Whether you want to ask me something, share your ideas, or hire me for a project, I'm all ears!
         </p>
 
-        <div class="d-grid gap-4 d-sm-flex justify-content-sm-center">
-          <a href="mailto:me@salvadoradrian.com" aria-label="Email" target="_blank" rel="noreferrer">
-            <Icon name="ph:envelope-simple-duotone" size="1.5em" />
-          </a>
-          <a href="https://www.instagram.com/adriansalvadore/" aria-label="Instagram" target="_blank" rel="noreferrer">
-            <Icon name="ph:instagram-logo-duotone" size="1.5em" />
-          </a>
-        </div>
+        <a class="me-2" href="mailto:me@salvadoradrian.com" aria-label="Email" target="_blank" rel="noreferrer">
+          <Icon name="ph:envelope-simple-duotone" size="1.5em" />
+        </a>
+
+        <a href="https://www.instagram.com/adriansalvadore/" aria-label="Instagram" target="_blank" rel="noreferrer">
+          <Icon name="ph:instagram-logo-duotone" size="1.5em" />
+        </a>
       </div>
     </div>
   </section>
@@ -73,3 +72,5 @@ p {
   }
 }
 </style>
+<script setup lang="ts">
+</script>
