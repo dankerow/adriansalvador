@@ -9,7 +9,7 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <section class="showcase min-vh-100 h-100 pt-4 pb-10 py-lg-12">
+  <section class="showcase min-vh-100 h-100 overflow-x-hidden pt-4 pb-10 py-lg-12">
     <div class="container-fluid mb-12">
       <div
         v-motion="{
