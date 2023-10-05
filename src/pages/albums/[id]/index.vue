@@ -85,7 +85,7 @@ const getImagesView: ComputedRef<AlbumFile[]> = computed(() => {
       <Breadcrumb :links="[{ name: 'Albums', path: '/albums' }, { name: album.name }]" class="mb-6" />
 
       <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 align-items-center text-center text-lg-start justify-content-center justify-content-md-between">
+        <div class="row row-cols-1 row-cols-sm-2 align-items-center text-start justify-content-center justify-content-md-between">
           <div class="col">
             <h1 class="h3 fw-bold mb-0">
               {{ album.name }}
