@@ -72,5 +72,3 @@ p {
   }
 }
 </style>
-<script setup lang="ts">
-</script>
