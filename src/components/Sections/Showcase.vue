@@ -33,7 +33,7 @@ withDefaults(defineProps<{
       </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
       <AlbumsFavorites :albums="albums" />
     </div>
   </section>
