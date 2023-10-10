@@ -248,7 +248,15 @@ onMounted(() => {
 
               <div class="card-body text-center">
                 <div style="padding:56.25% 0 0 0;position:relative;">
-                  <iframe src="https://player.vimeo.com/video/733139039?h=4e51f52b13&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen />
+                  <iframe
+                    src="https://player.vimeo.com/video/733139039?h=4e51f52b13&title=0&byline=0&portrait=0"
+                    class="border-0"
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowfullscreen
+                    referrerpolicy="no-referrer"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </div>
@@ -262,7 +270,15 @@ onMounted(() => {
 
               <div class="card-body">
                 <div style="padding:56.25% 0 0 0;position:relative;">
-                  <iframe src="https://player.vimeo.com/video/756745468?h=101bafbac3&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen />
+                  <iframe
+                    src="https://player.vimeo.com/video/756745468?h=101bafbac3&title=0&byline=0&portrait=0"
+                    class="border-0"
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowfullscreen
+                    referrerpolicy="no-referrer"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </div>
@@ -276,7 +292,15 @@ onMounted(() => {
 
               <div class="card-body">
                 <div style="padding:56.25% 0 0 0;position:relative;">
-                  <iframe src="https://player.vimeo.com/video/733133632?h=d9334f5298&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen />
+                  <iframe
+                    src="https://player.vimeo.com/video/733133632?h=d9334f5298&title=0&byline=0&portrait=0"
+                    class="border-0"
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowfullscreen
+                    referrerpolicy="no-referrer"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </div>
