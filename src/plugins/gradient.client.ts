@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 export default defineNuxtPlugin(() => {
   /*
   *   Stripe WebGl Gradient Animation
