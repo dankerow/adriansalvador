@@ -2,6 +2,10 @@ export default defineNuxtConfig({
   rootDir: './',
   srcDir: 'src',
 
+  typescript: {
+    strict: true,
+  },
+
   nitro: {
     compressPublicAssets: {
       brotli: true,
