@@ -128,7 +128,7 @@ onMounted(() => {
 
     <SectionsShowcase :albums="[...albumsFavorites?.data, ...albumFeatured?.data]" />
 
-    <section class="gallery-preview pt-5 pb-10 min-vh-100" style="height: auto; max-height: 500vh">
+    <section class="gallery-preview pt-5 pb-10 min-vh-100 h-100">
       <div class="container-fluid">
         <div
           v-motion="{
@@ -188,20 +188,11 @@ onMounted(() => {
         </template>
 
         <template v-else-if="randomImages">
-          <div
-            v-motion="{
-              initial: { opacity: 0, y: 100 },
-              visibleOnce: {
-                y: 0,
-                opacity: 1
-              },
-              transition: {
-                delay: 1500
-              }
-            }"
-          >
-            <GalleryGrid :images="getRandomImagesView" :min-columns="1" :max-columns="6" />
-          </div>
+          <GalleryGrid
+            :images="getRandomImagesView"
+            :min-columns="1"
+            :max-columns="6"
+          />
         </template>
       </div>
     </section>
@@ -248,8 +239,8 @@ onMounted(() => {
       </div>
 
       <div class="container">
-        <div class="row">
-          <div class="col-4 mb-3 mb-sm-0">
+        <div class="row row-cols-1 row-cols-lg-3">
+          <div class="col mb-3 mb-sm-0">
             <div class="card shadow">
               <div class="card-header text-center">
                 The Spot
@@ -263,7 +254,7 @@ onMounted(() => {
             </div>
           </div>
 
-          <div class="col-4 mb-3 mb-sm-0">
+          <div class="col mb-3 mb-sm-0">
             <div class="card shadow">
               <div class="card-header text-center">
                 Sophie Wake Up
@@ -277,7 +268,7 @@ onMounted(() => {
             </div>
           </div>
 
-          <div class="col-4 mb-3 mb-sm-0">
+          <div class="col mb-3 mb-sm-0">
             <div class="card shadow">
               <div class="card-header text-center">
                 Familiar Faces
