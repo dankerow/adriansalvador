@@ -156,7 +156,14 @@ const changePage = (index: number) => {
           <div v-for="album in albumsRecent.data" :key="album.id" class="col">
             <div class="card shadow-sm">
               <div class="card-img-top image-container">
-                <nuxt-img :src="getCoverUrl(album)" width="380" fit="cover" class="img-fluid" placeholder :alt="`${album.name}'s thumbnail`" loading="lazy" />
+                <nuxt-img
+                  :src="getCoverUrl(album)"
+                  width="380"
+                  fit="cover"
+                  class="img-fluid"
+                  :alt="`${album.name}'s thumbnail`"
+                  loading="lazy"
+                />
               </div>
 
               <div class="card-body">
@@ -248,7 +255,14 @@ const changePage = (index: number) => {
           <div v-for="album in albumsFavorites.data" :key="album.id" class="col">
             <div class="card shadow-sm">
               <div class="card-img-top image-container">
-                <nuxt-img :src="getCoverUrl(album)" width="380" fit="cover" class="img-fluid" placeholder :alt="`${album.name}'s thumbnail`" loading="lazy" />
+                <nuxt-img
+                  :src="getCoverUrl(album)"
+                  width="380"
+                  fit="cover"
+                  class="img-fluid"
+                  :alt="`${album.name}'s thumbnail`"
+                  loading="lazy"
+                />
               </div>
 
               <div class="card-body">
@@ -340,7 +354,14 @@ const changePage = (index: number) => {
           <div v-for="album in albums.data" :key="album.id" class="col">
             <div class="card shadow-sm">
               <div class="card-img-top image-container">
-                <nuxt-img :src="getCoverUrl(album)" width="380" fit="cover" class="img-fluid" placeholder :alt="`${album.name}'s thumbnail`" loading="lazy" />
+                <nuxt-img
+                  :src="getCoverUrl(album)"
+                  width="380"
+                  fit="cover"
+                  class="img-fluid"
+                  :alt="`${album.name}'s thumbnail`"
+                  loading="lazy"
+                />
               </div>
 
               <div class="card-body">
