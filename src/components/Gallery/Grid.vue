@@ -97,7 +97,7 @@ watch(() => props.images, (newImages) => {
             :src="item.url"
             :width="columnWidth + gap"
             :height="((columnWidth + gap) / (item.metadata.width / item.metadata.height)).toFixed(0)"
-            :sizes="`sm:100vw md:50vw lg:${(columnWidth) + gap}px xl:${((columnWidth) + gap) + 200}px`"
+            :sizes="`sm:50vw md:${(columnWidth) + gap}px lg:${(columnWidth) + gap + 100}px xl:${((columnWidth) + gap) + 200}px`"
             loading="lazy"
             draggable="false"
             :alt="item.name"
