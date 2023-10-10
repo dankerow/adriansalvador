@@ -18,8 +18,8 @@ export const useFutch = <T>(url: string, options: UseFetchOptions<T> = {}) => {
   const config = useRuntimeConfig()
 
   const defaults: UseFetchOptions<T> = {
-    baseURL: config.public.apiBaseUrl,
-    key: url
+    baseURL: config.public.apiBaseUrl
+    // key: url
   }
 
   const params = defu(options, defaults)
