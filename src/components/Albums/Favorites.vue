@@ -71,7 +71,6 @@ onMounted(() => {
             :height="(460 / getCover(favorites[0]).metadata.width) * getCover(favorites[0]).metadata.height"
             sizes="sm:100vw md:50vw lg:460px xl:660px"
             alt="Album's cover"
-            placeholder
             loading="lazy"
           />
           <div class="overlay" />
@@ -114,7 +113,6 @@ onMounted(() => {
             :height="(500 / getCover(favorites[1]).metadata.width) * getCover(favorites[1]).metadata.height"
             sizes="sm:100vw md:50vw lg:500px xl:700px"
             alt="Album's cover"
-            placeholder
             loading="lazy"
           />
           <div class="overlay" />
@@ -164,7 +162,6 @@ onMounted(() => {
             :height="(560 / getCover(featured).metadata.width) * getCover(featured).metadata.height"
             sizes="sm:100vw md:50vw lg:460px xl:760px"
             alt="Album's cover"
-            placeholder
             loading="lazy"
           />
           <div class="overlay" />
@@ -204,7 +201,6 @@ onMounted(() => {
             :height="(500 / getCover(favorites[2]).metadata.width) * getCover(favorites[2]).metadata.height"
             sizes="sm:100vw md:50vw lg:500px xl:700px"
             alt="Album's cover"
-            placeholder
             loading="lazy"
           />
           <div class="overlay" />
@@ -245,7 +241,6 @@ onMounted(() => {
             :height="(460 / getCover(favorites[3]).metadata.width) * getCover(favorites[3]).metadata.height"
             sizes="sm:100vw md:50vw lg:460px xl:660px"
             alt="Album's cover"
-            placeholder
             loading="lazy"
           />
           <div class="overlay" />
@@ -275,7 +270,7 @@ onMounted(() => {
   color: #fff;
   margin: 10px 0 60px;
   position: relative;
-  height: 500px;
+  height: calc(500px + 10vw);
   text-align: center;
   z-index: 1;
 
@@ -369,7 +364,7 @@ onMounted(() => {
 
   &.card-sm {
     margin: 30px -10px 60px;
-    height: 460px;
+    height: calc(460px + 10vw);
     z-index: 0;
 
     .card-body {
