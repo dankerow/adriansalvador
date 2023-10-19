@@ -24,7 +24,6 @@ export default defineNuxtConfig({
 
   modules: [
     '@kevinmarrec/nuxt-pwa',
-    '@nuxt/image',
     '@nuxtjs/color-mode',
     '@nuxtjs/critters',
     '@nuxtjs/device',
