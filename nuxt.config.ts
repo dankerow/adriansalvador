@@ -83,10 +83,6 @@ export default defineNuxtConfig({
       }
     },
 
-    modules: [
-      '@nuxt/devtools'
-    ],
-
     image: {
       domains: [process.env.CDN_BASE_URL_DEV as string]
     }
