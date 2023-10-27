@@ -49,7 +49,7 @@ onMounted(() => {
           Salvador
         </h1>
 
-        <p class="fs-1 lh-1 ms-4 mb-8">
+        <p class="lh-1 ms-4 mb-8">
           "Capturing the essence of people through a lens."
         </p>
       </div>
@@ -60,31 +60,35 @@ onMounted(() => {
 <style lang="scss" scoped>
 .hero {
   &::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
     background-size: 40px 40px;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), radial-gradient(circle, rgb(255, 255, 255, 0.4) 1px, rgba(255, 255, 255, 0) 1px);
-
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
     z-index: 0;
   }
 
   .bottom {
     h1 {
-      font-size: 12rem;
+      font-size: calc(1.5rem + 8vw);
+    }
+
+    p {
+      font-size: calc(1rem + 1vw);
     }
   }
 }
 
 #gradient-canvas-hero {
-  z-index: -1;
+  --gradient-color-1: #000000;
+  --gradient-color-2: #242424;
+  --gradient-color-3: #222222;
+  --gradient-color-4: #181818;
+
+  height:100%;
   position: absolute;
   width:100%;
-  height:100%;
-  --gradient-color-1: #000000;
-  --gradient-color-2: #202020;
-  --gradient-color-3: #181818;
-  --gradient-color-4: #141414;
+  z-index: -1;
 }
 </style>
