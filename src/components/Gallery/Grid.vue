@@ -23,12 +23,10 @@ const props = withDefaults(defineProps<Props>(), {
 const imagesData: Ref<any[]> = ref(props.images)
 const lightbox: Ref<PhotoSwipeLightbox|null> = ref(null)
 
-const rootElement = ref<HTMLElement>()
-
-useSafeOnMounted(rootElement, () => {
+onMounted(() => {
   if (!lightbox.value) {
     lightbox.value = new PhotoSwipeLightbox({
-      gallery: rootElement.value.$el,
+      gallery: '.masonry-wall',
       children: 'a',
       pswpModule: () => import('photoswipe'),
       wheelToZoom: true
@@ -73,7 +71,6 @@ watch(() => props.images, (newImages) => {
 
 <template>
   <masonry-wall
-    ref="rootElement"
     :items="imagesData"
     :column-width="columnWidth"
     :min-columns="minColumns"

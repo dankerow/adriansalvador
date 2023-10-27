@@ -57,9 +57,7 @@ const refreshItems = () => {
   focusMouse(cursor, newTexts)
 }
 
-const rootElement = ref(null)
-
-useSafeOnMounted(rootElement, async () => {
+onMounted(() => {
   if (ScrollTrigger.isTouch !== 1) {
     const cursor = document.querySelector('#cursor') as HTMLElement
     cursor.style.backgroundColor = 'transparent'
@@ -122,7 +120,6 @@ onNuxtReady(() => {
 <template>
   <div
     id="cursor"
-    ref="rootElement"
     class="border border-white pe-none position-fixed top-0 start-0 rounded-circle align-items-center justify-content-center"
     :style="{ 'display': 'none', 'height': '0.8rem', 'width': '0.8rem', 'z-index': 5, 'mix-blend-mode': 'exclusion' }"
   />
