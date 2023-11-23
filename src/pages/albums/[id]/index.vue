@@ -19,7 +19,7 @@ const { data: images, pending: pendingImages, error: errorImages } = await useFu
   {
     params: {
       limit: 50,
-      page: currentPage.value
+      page: currentPage
     },
     lazy: true,
     watch: [currentPage],
