@@ -1,19 +1,18 @@
 <script setup lang="ts">
-import type { Ref, ComputedRef } from 'vue'
 import type { Album, AlbumFile } from '@/types/albums'
 
 const colorMode = useColorMode()
 const params = useRoute().params
 const cdnBaseUrl = useRuntimeConfig().public.cdnBaseUrl
 
-const { data: album }: { data: Ref<Album> } = await useFutch(`/albums/${params.id}`)
+const { data: album } = await useFutch<{ data: Album }>(`/albums/${params.id}`)
 
 if (!album.value) {
   throw createError({ statusCode: 404, statusMessage: 'Album Not Found' })
 }
 
-const pages: Ref<number> = ref(0)
-const currentPage: Ref<number> = ref(1)
+const pages = ref<number>(0)
+const currentPage = ref<number>(1)
 
 const { data: images, pending: pendingImages, error: errorImages } = await useFutch<{ data: AlbumFile[], count: number, pages: number }>(`/albums/${params.id}/files`,
   {
@@ -70,7 +69,7 @@ const onDownload = async () => {
   })
 }
 
-const getImagesView: ComputedRef<AlbumFile[]> = computed(() => {
+const getImagesView = computed<AlbumFile[]>(() => {
   return images.value.data.map((image: any) => {
     image.url = `${cdnBaseUrl}/s-files/${encodeURIComponent(image.name)}`
 

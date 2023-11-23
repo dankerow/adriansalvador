@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { ComputedRef, Ref } from 'vue'
 import type { Album, AlbumFile } from '@/types/albums'
 
 definePageMeta({
@@ -90,7 +89,7 @@ watch(randomImages, (newRandomImages) => {
   randomImages.value = newRandomImages
 })
 
-const getRandomImagesView: ComputedRef<AlbumFile[] | []> = computed(() => {
+const getRandomImagesView = computed<AlbumFile[] | []>(() => {
   const data = randomImages.value || []
 
   return data.map((image: AlbumFile) => ({
@@ -99,10 +98,10 @@ const getRandomImagesView: ComputedRef<AlbumFile[] | []> = computed(() => {
   }))
 })
 
-const rootElement: Ref<HTMLElement|null> = ref(null)
-const filmsTrack: Ref<HTMLElement|null> = ref(null)
-const filmsContainer: Ref<HTMLElement|null> = ref(null)
-const track: Ref<HTMLElement|null> = ref(null)
+const rootElement = ref<HTMLElement|null>(null)
+const filmsTrack = ref<HTMLElement|null>(null)
+const filmsContainer = ref<HTMLElement|null>(null)
+const track = ref<HTMLElement|null>(null)
 
 onMounted(() => {
   gsap

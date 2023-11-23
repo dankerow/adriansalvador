@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { ComputedRef, Ref } from 'vue'
 import type { Album } from '@/types/albums'
 
 import VanillaTilt from 'vanilla-tilt'
@@ -12,7 +11,7 @@ const props = withDefaults(defineProps<{
 const { isDesktop } = useDevice()
 const cdnBaseUrl = useRuntimeConfig().public.cdnBaseUrl
 
-const albums: Ref<Album[]> = ref(props.albums ?? [])
+const albums = ref<Album[]>(props.albums ?? [])
 
 const getCover = (album: Album) => {
   return album.cover ?? album.coverFallback
@@ -22,7 +21,7 @@ const getCoverUrl = (album: Album) => {
   return album.cover ? `${cdnBaseUrl}/covers/${encodeURIComponent(album.cover.name)}` : album.coverFallback ? `${cdnBaseUrl}/s-files/${encodeURIComponent(album.coverFallback.name)}` : ''
 }
 
-const favorites: ComputedRef<Album[]> = computed(() => {
+const favorites = computed<Album[]>(() => {
   return albums.value.filter((album) => album.favorite).map((album) => {
     album.url = `/albums/${album.id}`
 
@@ -30,7 +29,7 @@ const favorites: ComputedRef<Album[]> = computed(() => {
   })
 })
 
-const featured: ComputedRef<Album|null> = computed(() => {
+const featured = computed<Album|null>(() => {
   const album = albums.value?.find((album) => album.featured)
   if (!album) return null
 

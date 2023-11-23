@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { Ref } from 'vue'
-
 withDefaults(defineProps<{
   src: string
   poster?: string
@@ -9,16 +7,16 @@ withDefaults(defineProps<{
   type: 'video/mp4'
 })
 
-const videoPlayer: Ref<HTMLElement|null> = ref(null)
-const video: Ref<HTMLMediaElement|null> = ref(null)
-const hideControls = ref(true)
-const playbackButton: Ref<HTMLButtonElement|null> = ref(null)
-const volumeControl: Ref<HTMLInputElement | null> = ref(null)
-const seekBar: Ref<HTMLInputElement|null> = ref(null)
-const isPaused: Ref<boolean> = ref(true)
-const isMuted: Ref<boolean> = ref(true)
-const seekHoverBar: Ref<HTMLDivElement|null> = ref(null)
-const seekHoverPos = ref(0)
+const videoPlayer = ref<HTMLElement | null>(null)
+const video = ref<HTMLMediaElement | null>(null)
+const hideControls = ref<boolean>(true)
+const playbackButton = ref<HTMLButtonElement | null>(null)
+const volumeControl = ref<HTMLInputElement | null>(null)
+const seekBar = ref<HTMLInputElement | null>(null)
+const isPaused = ref<boolean>(true)
+const isMuted = ref<boolean>(true)
+const seekHoverBar = ref<HTMLDivElement | null> (null)
+const seekHoverPos = ref<number>(0)
 
 const toggleVideoPlayback = () => {
   if (video.value?.paused) {

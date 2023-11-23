@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { Ref } from 'vue'
-
 import PhotoSwipeLightbox from 'photoswipe/lightbox'
 import 'photoswipe/photoswipe.css'
 
@@ -20,8 +18,8 @@ const props = withDefaults(defineProps<Props>(), {
   gap: 20
 })
 
-const imagesData: Ref<any[]> = ref(props.images)
-const lightbox: Ref<PhotoSwipeLightbox|null> = ref(null)
+const imagesData = ref<any[]>(props.images)
+const lightbox = ref<PhotoSwipeLightbox | null>(null)
 
 onMounted(() => {
   if (!lightbox.value) {

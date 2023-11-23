@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { Ref } from 'vue'
 import type { Album } from '@/types/albums'
 
 useHead({
@@ -22,8 +21,8 @@ useHead({
   ]
 })
 
-const pages: Ref<number> = ref(0)
-const currentPage: Ref<number> = ref(1)
+const pages = ref<number>(0)
+const currentPage = ref<number>(1)
 
 const cdnBaseUrl = useRuntimeConfig().public.cdnBaseUrl
 

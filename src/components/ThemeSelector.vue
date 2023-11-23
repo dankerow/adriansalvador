@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import type { Ref, ComputedRef } from 'vue'
-
 const colorMode = useColorMode()
 
-const themes: Ref<string[]> = ref(['system', 'light', 'dark'])
+const themes = ref<string[]>(['system', 'light', 'dark'])
 
-const availableThemes: ComputedRef<string[]> = computed(() => {
+const availableThemes = computed<string[]>(() => {
   return themes.value.filter((theme: string) => theme !== colorMode.preference)
 })
 
