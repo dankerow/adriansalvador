@@ -30,14 +30,14 @@ export default {
 <style lang="scss" scoped>
 h3 {
 	font-weight: bold;
-	font-size: 12px;
+	font-size: 0.75rem;
 	text-transform: uppercase;
 }
 
 ul {
 	li {
-		line-height: 15px;
-		margin-bottom: 2px;
+		line-height: 0.938rem;
+		margin-bottom: 0.125rem;
 	}
 }
 </style>

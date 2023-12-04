@@ -27,13 +27,13 @@ footer {
 	font-size: 0.75em;
 
 	.footer-bottom {
-		font-size: 12px;
+		font-size: 0.75rem;
 
 		a {
 			&:before {
 				content: "";
 				width: 0;
-				height: 0.5px;
+				height: 0.031rem;
 				background-color: currentColor;
 				right: 0;
 				left: auto;

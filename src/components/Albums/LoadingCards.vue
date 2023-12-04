@@ -13,7 +13,7 @@
 <style lang="scss" scoped>
 .image-container {
 	background: rgb(24, 24, 24);
-	height: 320px;
+	height: 18.75rem;
 	position: relative;
 }
 </style>

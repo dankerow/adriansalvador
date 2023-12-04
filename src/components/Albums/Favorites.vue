@@ -267,9 +267,9 @@ onMounted(() => {
   border: none;
   border-radius: 0.30rem;
   color: #fff;
-  margin: 10px 0 60px;
+  height: calc(31.25rem + 10vw);
+  margin: 0.625rem 0 3.75rem;
   position: relative;
-  height: calc(500px + 10vw);
   text-align: center;
   z-index: 1;
 
@@ -281,15 +281,15 @@ onMounted(() => {
     > .card-body {
       .album-title {
         color: #fff;
-        text-shadow: 0 2px 0 #5f5f5f;
+        text-shadow: 0 0.125rem 0 #5f5f5f;
       }
     }
   }
 
   &.featured {
-    border-top: 3px solid rgb(27, 27, 27);
-    margin: -30px -20px 0;
+    border-top: 0.188rem solid rgb(27, 27, 27);
     height: 100%;
+    margin: -1.875rem -1.25rem 0;
     z-index: 2;
 
     .featured-badge {
@@ -298,13 +298,13 @@ onMounted(() => {
       color: #fff;
       display: inline-block;
       position: absolute;
-      left: calc(50% - 49px);
+      left: calc(50% - 3.125rem);
       line-height: 1;
-      padding: 4px 20px 5px 20px;
-      font-size: 12px;
+      padding: 0.25rem 1.25rem 0.313rem 1.25rem;
+      font-size: 0.75rem;
       text-align: center;
       text-transform: uppercase;
-      top: -11px;
+      top: -0.625rem;
       user-select: none;
       z-index: 2;
     }
@@ -348,27 +348,27 @@ onMounted(() => {
     .album-title {
       bottom: 0;
       color: #9c9c9c;
-      font-size: 20px;
+      font-size: 1.25rem;
       font-weight: 800;
       left: 0;
       padding: 0 1rem;
       position: absolute;
       right: 0;
       text-transform: uppercase;
-      text-shadow: 0 2px 0 #1b1b1b;
+      text-shadow: 0 0.125rem 0 #1b1b1b;
       transition: color 300ms ease-in-out, text-shadow 300ms ease-in-out;
       user-select: none;
     }
   }
 
   &.card-sm {
-    margin: 30px -10px 60px;
-    height: calc(460px + 10vw);
+    margin: 1.825rem -0.625rem 3.75rem;
+    height: calc(28.75rem + 10vw);
     z-index: 0;
 
     .card-body {
       .album-title {
-        font-size: 16px;
+        font-size: 1rem;
       }
     }
   }
@@ -380,12 +380,12 @@ onMounted(() => {
 
 		&.featured {
 			margin: unset !important;
-			height: 500px !important;
+			height: 31.25rem !important;
 		}
 
 		&.card-sm {
 			margin: unset !important;
-			height: 500px !important;
+			height: 31.25rem !important;
 		}
 	}
 }
@@ -393,11 +393,11 @@ onMounted(() => {
 .dark-mode {
   .card-showcase {
     &.featured {
-      border-top: 3px solid rgb(70, 70, 70);
+      border-top: 0.188rem solid rgb(70, 70, 70);
 
       .featured-badge {
         background-color: rgb(37, 37, 37);
-        border: 3px solid rgb(77, 77, 77);
+        border: 0.188rem solid rgb(77, 77, 77);
       }
     }
   }

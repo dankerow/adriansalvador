@@ -21,17 +21,17 @@
 <style lang="scss" scoped>
 header {
   .navbar {
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(0.75rem);
     background-color: rgba(255, 255, 255, 0.8);
 
     .navbar-brand {
       .text {
         letter-spacing: 1em;
-        font-size: calc(10px + (16 - 10) * ((100vw - 300px) / (1600 - 300)));
+        font-size: calc(0.625rem + (16 - 10) * ((100vw - 18.75rem) / (1600 - 300)));
       }
 
       .caption {
-        font-size: 10px;
+        font-size: 0.625rem;
         letter-spacing: 0.65em;
         white-space: break-spaces;
       }

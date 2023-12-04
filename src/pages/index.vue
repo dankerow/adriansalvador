@@ -318,11 +318,11 @@ onMounted(() => {
 }
 
 .overlay {
-  box-shadow: 16px 2px 20px 20px rgb(10, 10, 10);
+  box-shadow: 1rem 0.125rem 1.25rem 1.25rem rgb(10, 10, 10);
   background: rgb(10, 10, 10);
   overflow: hidden;
   width: 100%;
-  height: 87px;
+  height: 5.438rem;
 
   span {
     animation: animate 2.5s linear infinite;
@@ -330,7 +330,7 @@ onMounted(() => {
     background-size: 80%;
     color: rgb(10, 10, 10);
     background-clip: text;
-    -webkit-text-stroke: 3px rgba(255, 255, 255, 0);
+    -webkit-text-stroke: 0.188rem rgba(255, 255, 255, 0);
   }
 }
 
@@ -344,9 +344,9 @@ onMounted(() => {
 }
 
 .card {
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(0.75rem);
   background-image: linear-gradient(0deg, rgba(4, 4, 4, 0.3) 10%, rgba(8, 8, 8, 0.3) 100%);
-  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border: 0.094rem solid rgba(255, 255, 255, 0.15);
   transition: border 0.3s ease-in-out, background-image 0.3s ease-in-out, transform 0.3s ease-in-out;
 
   &:hover {

@@ -60,8 +60,8 @@ onMounted(() => {
 <style lang="scss" scoped>
 .hero {
   &::before {
-    background-size: 40px 40px;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), radial-gradient(circle, rgb(255, 255, 255, 0.4) 1px, rgba(255, 255, 255, 0) 1px);
+    background-size: 2rem 2rem;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), radial-gradient(circle, rgb(255, 255, 255, 0.4) 0.063rem, rgba(255, 255, 255, 0) 0.063rem);
     content: '';
     height: 100%;
     position: absolute;
@@ -86,9 +86,9 @@ onMounted(() => {
   --gradient-color-3: #222222;
   --gradient-color-4: #181818;
 
-  height:100%;
+  height: 100%;
   position: absolute;
-  width:100%;
+  width: 100%;
   z-index: -1;
 }
 </style>

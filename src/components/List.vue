@@ -20,6 +20,7 @@ withDefaults(defineProps<{
       <template v-if="!items.length">
         <slot name="items" />
       </template>
+
       <template v-else>
         <template v-for="item in items" :key="item.id">
           <li>
@@ -42,7 +43,7 @@ withDefaults(defineProps<{
 <style lang="scss" scoped>
 .list {
 	.title {
-		font-size: 12.5px;
+		font-size: 0.781rem;
 		font-weight: bold;
 		text-transform: uppercase;
 	}
@@ -57,12 +58,12 @@ withDefaults(defineProps<{
 
 			.text {
 				font-family: "Favorit SSENSE Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-				font-size: 12px;
+				font-size: 0.75rem;
 				font-stretch: normal;
 				font-style: normal;
 				font-weight: normal;
-				letter-spacing: .09px;
-				line-height: 15px;
+				letter-spacing: .006rem;
+				line-height: 1rem;
 				position: relative;
 				transition: color 300ms ease-in-out;
 
@@ -70,7 +71,7 @@ withDefaults(defineProps<{
 					bottom: 0;
 					background-color: currentColor;
 					content: "";
-					height: 0.5px;
+					height: 0.031rem;
 					left: auto;
 					position: absolute;
 					right: 0;
@@ -95,12 +96,12 @@ withDefaults(defineProps<{
 
 			.text {
 				font-family: "Favorit SSENSE Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-				font-size: 12px;
+				font-size: 0.75rem;
 				font-stretch: normal;
 				font-style: normal;
 				font-weight: normal;
-				letter-spacing: .09px;
-				line-height: 15px;
+        letter-spacing: .006rem;
+        line-height: 1rem;
 				position: relative;
 				transition: color 300ms ease-in-out;
 
@@ -108,7 +109,7 @@ withDefaults(defineProps<{
 					bottom: 0;
 					background-color: currentColor;
 					content: "";
-					height: 0.5px;
+					height: 0.031rem;
 					left: auto;
 					position: absolute;
 					right: 0;

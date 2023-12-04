@@ -44,6 +44,6 @@ defineProps<{
 
 <style lang="scss" scoped>
 .breadcrumb {
-	border: 1px solid rgba(38, 38, 38, 0.8);
+	border: 0.063rem solid rgba(38, 38, 38, 0.8);
 }
 </style>

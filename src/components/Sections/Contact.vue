@@ -55,7 +55,7 @@
 p {
   .first-letter {
     font-weight: bold;
-    font-size: 52px;
+    font-size: 3.25rem;
     line-height: normal;
   }
 }

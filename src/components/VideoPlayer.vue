@@ -199,7 +199,7 @@ onUnmounted(() => {
 .video-controls {
   background: rgba(0 ,0 ,0 , 0.7);
   opacity: 0;
-  padding: 10px;
+  padding: 0.625rem;
   transition: all 0.3s ease-in-out;
   transform: translateY(100%);
 }
@@ -247,10 +247,10 @@ onUnmounted(() => {
 }
 
 .progress-container {
-  height: 15px;
+  height: 0.938rem;
 
   progress {
-    height: 15px; // Set a height for the progress bar
+    height: 0.938rem; // Set a height for the progress bar
     opacity: 0.7;
     width: 100%;
     transition: all 0.3s ease-in-out;
@@ -263,11 +263,11 @@ onUnmounted(() => {
   .seek-hover-bar {
     background-color: rgb(135, 135, 135);
     position: absolute;
-    height: 14px;
-    top: 2px;
+    height: 0.875rem;
+    top: 0.125rem;
     visibility: hidden;
-    width: 3px;
-    margin-left: 2px;
+    width: 0.188rem;
+    margin-left: 0.125rem;
   }
 }
 </style>
