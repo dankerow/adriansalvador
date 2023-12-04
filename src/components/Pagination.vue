@@ -1,8 +1,8 @@
 <script setup lang="ts">
 defineProps<{
-  pinned?: Boolean
-  currentPage: Number
-  pages: Number
+  pinned?: boolean
+  currentPage: number
+  pages: number
 }>()
 
 const emit = defineEmits<{
