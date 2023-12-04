@@ -224,7 +224,7 @@ nav {
 .page-item {
 	&.active .page-link {
 		border-radius: 0.10rem;
-		box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08);
+		box-shadow: 0 0.438rem 0.875rem rgba(50, 50, 93, .1), 0 0.188rem 0.375rem rgba(0, 0, 0, .08);
 	}
 }
 
