@@ -6,7 +6,7 @@ export const useFaetch = <T>(url: string, options: NitroFetchOptions<Request> = 
   const config = useRuntimeConfig()
 
   const defaults: NitroFetchOptions<Request> = {
-    baseURL: config.apiBaseUrl
+    baseURL: config.public.apiBaseUrl
   }
 
   const params = defu(options, defaults)
