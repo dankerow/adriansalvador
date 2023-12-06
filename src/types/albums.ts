@@ -4,6 +4,7 @@ export interface AlbumFile {
   url?: string
   readonly type: string
   readonly size: number
+  metadata: { width: number; height: number }
   albumId: string | null
   album?: Album
   readonly createdAt: number
