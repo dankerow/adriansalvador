@@ -68,7 +68,7 @@ onMounted(() => {
             :src="getCoverUrl(favorites[0])"
             :width="460"
             :height="(460 / getCover(favorites[0]).metadata.width) * getCover(favorites[0]).metadata.height"
-            sizes="sm:100vw md:50vw lg:460px xl:660px"
+            sizes="sm:100vw md:50vw lg:260px xl:460px"
             alt="Album's cover"
             loading="lazy"
           />
@@ -110,7 +110,7 @@ onMounted(() => {
             :src="getCoverUrl(favorites[1])"
             :width="500"
             :height="(500 / getCover(favorites[1]).metadata.width) * getCover(favorites[1]).metadata.height"
-            sizes="sm:100vw md:50vw lg:500px xl:700px"
+            sizes="sm:100vw md:50vw lg:300px xl:500px"
             alt="Album's cover"
             loading="lazy"
           />
@@ -159,7 +159,7 @@ onMounted(() => {
             :src="getCoverUrl(featured)"
             :width="560"
             :height="(560 / getCover(featured).metadata.width) * getCover(featured).metadata.height"
-            sizes="sm:100vw md:50vw lg:460px xl:760px"
+            sizes="sm:100vw md:50vw lg:260px xl:460px"
             alt="Album's cover"
             loading="lazy"
           />
@@ -198,7 +198,7 @@ onMounted(() => {
             :src="getCoverUrl(favorites[2])"
             :width="500"
             :height="(500 / getCover(favorites[2]).metadata.width) * getCover(favorites[2]).metadata.height"
-            sizes="sm:100vw md:50vw lg:500px xl:700px"
+            sizes="sm:100vw md:50vw lg:200px xl:500px"
             alt="Album's cover"
             loading="lazy"
           />
@@ -238,7 +238,7 @@ onMounted(() => {
             :src="getCoverUrl(favorites[3])"
             :width="460"
             :height="(460 / getCover(favorites[3]).metadata.width) * getCover(favorites[3]).metadata.height"
-            sizes="sm:100vw md:50vw lg:460px xl:660px"
+            sizes="sm:100vw md:50vw lg:260px xl:460px"
             alt="Album's cover"
             loading="lazy"
           />
