@@ -26,7 +26,7 @@ const currentPage = ref<number>(1)
 
 const cdnBaseUrl = useRuntimeConfig().public.cdnBaseUrl
 
-const { pending: pendingRecent, data: albumsRecent, error: errorRecent } = await useFutch<{ data: Album[] }>('/albums', {
+const { pending: pendingRecent, data: albumsRecent, error: errorRecent } = await useFutch<{ data: Partial<Album>[] }>('/albums', {
   key: 'recent',
   params: {
     limit: 5,
@@ -34,25 +34,64 @@ const { pending: pendingRecent, data: albumsRecent, error: errorRecent } = await
     order: 'desc'
   },
   lazy: true,
-  default: () => shallowRef()
+  immediate: process.client,
+  default: () => shallowRef(),
+  transform: ({ data }) => {
+    return {
+      data: data.map((album: Partial<Album>) => ({
+        id: album.id,
+        name: album.name,
+        cover: album.cover,
+        coverFallback: album.coverFallback,
+        favorite: album.favorite,
+        featured: album.featured
+      }))
+    }
+  }
 })
 
-const { pending: pendingFavorites, data: albumsFavorites, error: errorFavorites } = await useFutch<{ data: Album[] }>('/albums', {
+const { pending: pendingFavorites, data: albumsFavorites, error: errorFavorites } = await useFutch<{ data: Partial<Album>[] }>('/albums', {
   key: 'favorites',
   params: {
     favorites: true
   },
   lazy: true,
-  default: () => shallowRef()
+  immediate: process.client,
+  default: () => shallowRef(),
+  transform: ({ data }) => {
+    return {
+      data: data.map((album: Partial<Album>) => ({
+        id: album.id,
+        name: album.name,
+        cover: album.cover,
+        coverFallback: album.coverFallback,
+        favorite: album.favorite,
+        featured: album.featured
+      }))
+    }
+  }
 })
 
-const { pending, data: albums, error } = await useFutch<{ albums: Album[], pages: number }>('/albums', {
+const { pending, data: albums, error } = await useFutch<{ data: Partial<Album>[] }>('/albums', {
   params: {
     page: currentPage.value
   },
   lazy: true,
   watch: [currentPage],
-  default: () => shallowRef()
+  immediate: process.client,
+  default: () => shallowRef(),
+  transform: ({ data }) => {
+    return {
+      data: data.map((album: Partial<Album>) => ({
+        id: album.id,
+        name: album.name,
+        cover: album.cover,
+        coverFallback: album.coverFallback,
+        favorite: album.favorite,
+        featured: album.featured
+      }))
+    }
+  }
 })
 
 watch(albumsRecent, (newAlbums) => {
@@ -65,17 +104,10 @@ watch(albumsFavorites, (newAlbums) => {
 
 watch(albums, (newAlbums) => {
   albums.value = newAlbums
-  pages.value = newAlbums.pages
 })
 
-const getCoverUrl = (album: Album) => {
+const getCoverUrl = (album: Partial<Album>) => {
   return album.cover ? `${cdnBaseUrl}/covers/${encodeURIComponent(album.cover.name)}` : album.coverFallback ? `${cdnBaseUrl}/s-files/${encodeURIComponent(album.coverFallback.name)}` : ''
-}
-
-const changePage = (index: number) => {
-  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-
-  currentPage.value = index
 }
 </script>
 
@@ -157,7 +189,8 @@ const changePage = (index: number) => {
               <div class="card-img-top image-container">
                 <nuxt-img
                   :src="getCoverUrl(album)"
-                  width="380"
+                  width="350"
+                  height="120"
                   fit="cover"
                   class="img-fluid"
                   :alt="`${album.name}'s thumbnail`"
@@ -256,7 +289,8 @@ const changePage = (index: number) => {
               <div class="card-img-top image-container">
                 <nuxt-img
                   :src="getCoverUrl(album)"
-                  width="380"
+                  width="350"
+                  height="120"
                   fit="cover"
                   class="img-fluid"
                   :alt="`${album.name}'s thumbnail`"
@@ -355,7 +389,8 @@ const changePage = (index: number) => {
               <div class="card-img-top image-container">
                 <nuxt-img
                   :src="getCoverUrl(album)"
-                  width="380"
+                  width="350"
+                  height="120"
                   fit="cover"
                   class="img-fluid"
                   :alt="`${album.name}'s thumbnail`"
@@ -451,8 +486,7 @@ section {
 
 .image-container {
 	background: rgb(24, 24, 24);
-	height: 120px;
-	width: auto;
+	height: 7.5rem;
 	position: relative;
 	overflow: hidden;
 
