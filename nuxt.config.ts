@@ -15,6 +15,7 @@ export default defineNuxtConfig({
 
   experimental: {
     typedPages: true,
+    typescriptBundlerResolution: true,
     headNext: true
   },
 
@@ -120,10 +121,11 @@ export default defineNuxtConfig({
       headers: false
     },
 
+    site: {
+      url: process.env.BASE_URL
+    },
+
     sitemap: {
-      site: {
-        url: process.env.BASE_URL
-      },
       urls: async () => {
         const apiURL = process.env.API_BASE_URL
         const data = await fetch(`${apiURL}/sitemap`).catch(() => {})
