@@ -4,14 +4,20 @@ import type { Album } from '@/types/albums'
 import VanillaTilt from 'vanilla-tilt'
 
 const props = withDefaults(defineProps<{
-  albums?: Album[]
+  albums: {
+    featured: Album[]
+    favorites: Album[]
+  }
 }>(), {
-  albums: () => []
+  albums: () => ({
+    featured: [],
+    favorites: []
+  })
 })
 const { isDesktop } = useDevice()
 const cdnBaseUrl = useRuntimeConfig().public.cdnBaseUrl
 
-const albums = ref<Album[]>(props.albums ?? [])
+const albums = computed<{ featured: Album[]; favorites: Album[] }>(() => props.albums)
 
 const getCover = (album: Album) => {
   return album.cover ?? album.coverFallback
@@ -22,7 +28,7 @@ const getCoverUrl = (album: Album) => {
 }
 
 const favorites = computed<Album[]>(() => {
-  return albums.value.filter((album) => album.favorite).map((album) => {
+  return albums.value.favorites.map((album) => {
     album.url = `/albums/${album.id}`
 
     return album
@@ -30,7 +36,7 @@ const favorites = computed<Album[]>(() => {
 })
 
 const featured = computed<Album|null>(() => {
-  const album = albums.value?.find((album) => album.featured)
+  const album = albums.value.featured[0]
   if (!album) return null
 
   album.url = `/albums/${album.id}`
