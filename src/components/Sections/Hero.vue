@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const { $Gradient: Gradient } = useNuxtApp()
-
 onMounted(() => {
   const gradient = new Gradient()
 
@@ -20,19 +18,19 @@ onMounted(() => {
 
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
+            <li class="nav-item me-3">
               <NuxtLink class="nav-link" to="/albums">
                 Albums
               </NuxtLink>
             </li>
 
-            <li>
+            <li class="nav-item me-3">
               <a class="nav-link" href="https://www.instagram.com/adriansalvadore/" rel="noreferrer" target="_blank" aria-label="My Instagram Profile">
                 <Icon name="ph:instagram-logo-duotone" size="1.5em" />
               </a>
             </li>
 
-            <li>
+            <li class="nav-item me-3">
               <a class="nav-link" href="https://vimeo.com/user181229489" rel="noreferrer" target="_blank" aria-label="My Vimeo Profile">
                 <Icon name="ph:video-duotone" size="1.5em" />
               </a>
