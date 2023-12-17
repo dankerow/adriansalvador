@@ -1,3 +1,6 @@
+// @ts-nocheck
+/* eslint-disable */
+
 /*
 *   Stripe WebGl Gradient Animation by Stripe.com
 *   ScrollObserver functionality to disable animation when not scrolled into view has been disabled and
