@@ -21,7 +21,6 @@ useHead({
   ]
 })
 
-const pages = ref<number>(0)
 const currentPage = ref<number>(1)
 
 const cdnBaseUrl = useRuntimeConfig().public.cdnBaseUrl
