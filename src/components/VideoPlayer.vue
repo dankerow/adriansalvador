@@ -141,6 +141,7 @@ onUnmounted(() => {
       muted
       controls
       playsinline
+      :poster="poster"
       @click="toggleVideoPlayback"
     >
       <source
