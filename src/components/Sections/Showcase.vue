@@ -27,8 +27,9 @@ withDefaults(defineProps<{
         <h1 class="display-5 fw-bold lh-1">
           Showcase
         </h1>
+
         <p class="fs-3 lh-1">
-          Here you can find some of my films.
+          Here you can find some of my selected work.
         </p>
       </div>
     </div>
