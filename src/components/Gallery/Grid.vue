@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<Props>(), {
   gap: 20
 })
 
-const imagesData = ref<any[]>(props.images)
+const imagesData = computed<any[]>(() => props.images)
 const lightbox = ref<PhotoSwipeLightbox | null>(null)
 
 onMounted(() => {
@@ -60,10 +60,6 @@ onUnmounted(() => {
     lightbox.value?.destroy()
     lightbox.value = null
   }
-})
-
-watch(() => props.images, (newImages) => {
-  imagesData.value = newImages
 })
 </script>
 
