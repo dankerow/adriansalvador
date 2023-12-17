@@ -11,7 +11,6 @@ if (!album.value) {
   throw createError({ statusCode: 404, statusMessage: 'Album Not Found' })
 }
 
-const pages = ref<number>(0)
 const currentPage = ref<number>(1)
 
 const { data: images, pending: pendingImages, error: errorImages } = await useFutch<{ data: Partial<AlbumFile>[], count: number, pages: number }>(`/albums/${params.id}/files`,
@@ -39,7 +38,6 @@ const { data: images, pending: pendingImages, error: errorImages } = await useFu
 
 watch(images, (newImages) => {
   images.value = newImages
-  pages.value = newImages?.pages
 })
 
 useHead({
@@ -159,7 +157,7 @@ const getImagesView = computed<AlbumFile[]>(() => {
     <Pagination
       :pinned="true"
       :current-page="currentPage"
-      :pages="pages"
+      :pages="images?.pages"
       @next-page="changePage(currentPage + 1)"
       @previous-page="changePage(currentPage - 1)"
       @change-page="changePage"
