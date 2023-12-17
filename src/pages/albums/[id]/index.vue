@@ -14,7 +14,7 @@ if (!album.value) {
 const pages = ref<number>(0)
 const currentPage = ref<number>(1)
 
-const { data: images, pending: pendingImages, error: errorImages } = await useFutch<{ data: AlbumFile[], count: number, pages: number }>(`/albums/${params.id}/files`,
+const { data: images, pending: pendingImages, error: errorImages } = await useFutch<{ data: Partial<AlbumFile>[], count: number, pages: number }>(`/albums/${params.id}/files`,
   {
     params: {
       limit: 50,
@@ -22,12 +22,24 @@ const { data: images, pending: pendingImages, error: errorImages } = await useFu
     },
     lazy: true,
     watch: [currentPage],
-    default: () => shallowRef()
+    deep: false,
+    default: () => shallowRef({ data: [], count: 0, pages: 0 }),
+    transform: ({ data, count, pages }) => {
+      return {
+        data: data.map((image: any) => ({
+          id: image.id,
+          name: image.name,
+          metadata: image.metadata
+        })),
+        count,
+        pages
+      }
+    }
   })
 
 watch(images, (newImages) => {
   images.value = newImages
-  pages.value = newImages.pages
+  pages.value = newImages?.pages
 })
 
 useHead({
