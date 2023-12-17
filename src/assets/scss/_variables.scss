@@ -191,16 +191,9 @@ $form-select-focus-box-shadow:    null !default;
 
 // Navs
 
-$nav-link-padding-y:                .25rem !default;
-$nav-link-padding-x:                1rem !default;
 $nav-link-transition:               color .3s ease-in-out, background-color .3s ease-in-out, border-color .3s ease-in-out !default;
 
 // Navbar
-
-$navbar-padding-y:                  $spacer * .875 !default;
-$navbar-padding-x:                  null !default;
-
-$navbar-brand-font-size:            $font-size-sm !default;
 
 $navbar-toggler-transition:         box-shadow .3s ease-in-out !default;
 
