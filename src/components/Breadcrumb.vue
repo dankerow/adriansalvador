@@ -26,6 +26,7 @@ defineProps<{
             <span class="visually-hidden">Home</span>
           </NuxtLink>
         </li>
+
         <template v-for="link in links" :key="link.name">
           <li v-if="link.path" class="breadcrumb-item">
             <NuxtLink class="link-body-emphasis fw-semibold text-decoration-none" :to="link.path">
