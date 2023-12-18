@@ -10,7 +10,22 @@ export default defineNuxtConfig({
     compressPublicAssets: {
       brotli: true,
       gzip: false
-    }
+    },
+    routeRules: {
+      '/_ipx/**': { cache: { maxAge: 24 * 60 * 60 * 365 } }
+    },
+    publicAssets: [
+      {
+        dir: 'public/js',
+        maxAge: 24 * 60 * 60 * 365, // 1 year (versioned)
+        baseURL: 'js',
+      },
+      {
+        dir: 'public/covers',
+        maxAge: 24 * 60 * 60 * 365, // 1 year (versioned)
+        baseURL: 'covers',
+      }
+    ]
   },
 
   experimental: {
@@ -114,7 +129,7 @@ export default defineNuxtConfig({
 
     purgecss: {
       keyframes: true,
-      safelist: ['dark-mode', /^pswp/, /^btn-/, /^dropdown/, /^masonry/, 'icon-link', 'svg']
+      safelist: ['dark-mode', /^pswp/, /^btn-/, /^dropdown/, /^masonry/, 'icon-link', 'svg', 'img']
     },
 
     security: {
