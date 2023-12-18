@@ -158,8 +158,6 @@ const getImagesView = computed<AlbumFile[]>(() => {
       :pinned="true"
       :current-page="currentPage"
       :pages="images?.pages"
-      @next-page="changePage(currentPage + 1)"
-      @previous-page="changePage(currentPage - 1)"
       @change-page="changePage"
     />
   </div>
