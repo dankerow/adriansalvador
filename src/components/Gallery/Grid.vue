@@ -20,11 +20,12 @@ const props = withDefaults(defineProps<Props>(), {
 
 const imagesData = computed<any[]>(() => props.images)
 const lightbox = ref<PhotoSwipeLightbox | null>(null)
+const masonry = ref<HTMLElement>()
 
 onMounted(() => {
-  if (!lightbox.value) {
+  if (!lightbox.value && masonry.value) {
     lightbox.value = new PhotoSwipeLightbox({
-      gallery: '.masonry-wall',
+      gallery: masonry.value.$el,
       children: 'a',
       pswpModule: () => import('photoswipe'),
       wheelToZoom: true
@@ -65,6 +66,7 @@ onUnmounted(() => {
 
 <template>
   <masonry-wall
+    ref="masonry"
     :items="imagesData"
     :column-width="columnWidth"
     :min-columns="minColumns"
@@ -74,40 +76,38 @@ onUnmounted(() => {
     :scroll-container="scrollContainer"
   >
     <template #default="{ item }">
-      <div class="image-container" :style="{ height: `${((columnWidth + gap) / (item.metadata.width / item.metadata.height)).toFixed(0)}px` }">
-        <a
-          :href="item.url"
-          :data-pswp-width="item.metadata.width"
-          :data-pswp-height="item.metadata.height"
-          rel="noreferrer"
-          aria-label="View image"
-        >
-          <nuxt-img
-            class="img-fluid"
-            format="webp"
-            :src="item.url"
-            :width="columnWidth + gap"
-            :height="((columnWidth + gap) / (item.metadata.width / item.metadata.height)).toFixed(0)"
-            :sizes="`sm:50vw md:${(columnWidth) + gap}px lg:${(columnWidth) + gap + 100}px xl:${((columnWidth) + gap) + 200}px`"
-            loading="lazy"
-            draggable="false"
-            :alt="item.name"
-          />
-        </a>
+      <a
+        :href="item.url"
+        :data-pswp-width="item.metadata.width"
+        :data-pswp-height="item.metadata.height"
+        rel="noreferrer"
+        aria-label="View image"
+      >
+        <nuxt-img
+          class="w-100"
+          format="webp"
+          :src="item.url"
+          :width="columnWidth + 50 + gap"
+          :height="((columnWidth + 50 + gap) / (item.metadata.width / item.metadata.height)).toFixed(0)"
+          :sizes="`sm:50vw md:${(columnWidth) + gap}px lg:${(columnWidth) + gap + 100}px xl:${((columnWidth) + gap) + 200}px`"
+          loading="lazy"
+          draggable="false"
+          :alt="item.name"
+        />
+      </a>
 
-        <div v-if="item.album" class="hidden-caption-content">
-          <NuxtLink :to="`/albums/${item.album.id}`">
-            {{ item.album.name }}
-          </NuxtLink>
-        </div>
+      <div v-if="item.album" class="hidden-caption-content">
+        <NuxtLink :to="`/albums/${item.album.id}`">
+          {{ item.album.name }}
+        </NuxtLink>
       </div>
     </template>
   </masonry-wall>
 </template>
 
 <style lang="scss">
-.image-container {
-  border-radius: 0.10rem;
+.masonry-item {
+  border-radius: 0.15rem;
   background-color: #141414;
   overflow: hidden;
   position: relative;
