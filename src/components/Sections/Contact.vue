@@ -28,9 +28,10 @@
       </div>
 
       <div class="col-lg-7 mx-auto text-center">
-        <h1 class="display-6 fw-bold text-body-emphasis">
+        <h3 class="display-6 fw-bold text-body-emphasis">
           Any inquiries or collaborations?
-        </h1>
+        </h3>
+
         <p class="fs-3 mb-4">
           Let's get in touch! I'm always eager to chat with you about anything related to my work. Whether you want to ask me something, share your ideas, or hire me for a project, I'm all ears!
         </p>

@@ -69,9 +69,9 @@ onMounted(() => {
         }"
         class="ms-4"
       >
-        <h1 class="display-5 fw-bold lh-1">
+        <h2 class="display-5 fw-bold lh-1">
           Showcase
-        </h1>
+        </h2>
 
         <p class="fs-3 lh-1">
           Here you can find some of my selected work.
