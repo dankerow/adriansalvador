@@ -111,346 +111,336 @@ const getCoverUrl = (album: Partial<Album>) => {
 </script>
 
 <template>
-  <div>
-    <section class="min-vh-100 py-4">
-      <Breadcrumb :links="[{ name: 'Albums' }]" class="mb-6" />
+  <section class="min-vh-100 pt-6 pb-4">
+    <Breadcrumb :links="[{ name: 'Albums' }]" class="mb-6" />
 
-      <div class="container">
-        <h1
-          v-motion="{
-            initial: { opacity: 0, y: 100 },
-            visibleOnce: {
-              y: 0,
-              opacity: 1
-            }
-          }"
-          class="mb-3"
-        >
-          Capturing Memories: My Photography Albums
-        </h1>
+    <div class="container">
+      <h1
+        v-motion="{
+          initial: { opacity: 0, y: 100 },
+          visibleOnce: {
+            y: 0,
+            opacity: 1
+          }
+        }"
+        class="mb-3"
+      >
+        Capturing Memories: My Photography Albums
+      </h1>
 
-        <p
-          v-motion="{
-            initial: { opacity: 0, y: 100 },
-            visibleOnce: {
-              y: 0,
-              opacity: 1
-            }
-          }"
-        >
-          Browse my collection of captivating albums and experience the beauty of our world through my lens.
-          From breathtaking landscapes to intimate portraits, my albums tell a story that will leave you in awe.
-          Explore now and see the world from a new perspective.
-        </p>
+      <p
+        v-motion="{
+          initial: { opacity: 0, y: 100 },
+          visibleOnce: {
+            y: 0,
+            opacity: 1
+          }
+        }"
+      >
+        Browse my collection of captivating albums and experience the beauty of our world through my lens.
+        From breathtaking landscapes to intimate portraits, my albums tell a story that will leave you in awe.
+        Explore now and see the world from a new perspective.
+      </p>
 
-        <hr class="my-5">
+      <hr class="my-5">
 
-        <h2 class="mb-4">
-          Recently published albums
-        </h2>
+      <h2 class="mb-4">
+        Recently published albums
+      </h2>
 
-        <div
-          v-if="pendingRecent"
-          v-motion="{
-            initial: { opacity: 0, y: 100 },
-            visibleOnce: {
-              y: 0,
-              opacity: 1
-            }
-          }"
-          class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4 mb-6"
-        >
-          <div v-for="(index) in 5" :key="index" class="col">
-            <div class="card shadow-sm">
-              <div class="card-img-top image-container d-flex align-items-center justify-content-center">
-                <h2>#?</h2>
-              </div>
+      <div
+        v-if="pendingRecent"
+        v-motion="{
+          initial: { opacity: 0, y: 100 },
+          visibleOnce: {
+            y: 0,
+            opacity: 1
+          }
+        }"
+        class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4 mb-6"
+      >
+        <div v-for="(index) in 5" :key="index" class="col">
+          <div class="card shadow-sm">
+            <div class="card-img-top image-container d-flex align-items-center justify-content-center">
+              <h2>#?</h2>
+            </div>
 
-              <div class="card-body">
-                <div class="hstack">
-                  <div>
-                    <Icon name="ph:folder-duotone" class="me-2" />
-                  </div>
-                  <div>
-                    <h4 class="card-title text-truncate mb-0">
-                      # # # # # # # #
-                    </h4>
-                  </div>
+            <div class="card-body">
+              <div class="hstack">
+                <div>
+                  <Icon name="ph:folder-duotone" class="me-2" />
+                </div>
+                <div>
+                  <h4 class="card-title text-truncate mb-0">
+                    # # # # # # # #
+                  </h4>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <div v-else-if="albumsRecent?.data.length" class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4 mb-6">
-          <div v-for="album in albumsRecent.data" :key="album.id" class="col">
-            <div class="card shadow-sm">
-              <div class="card-img-top image-container">
-                <nuxt-img
-                  :src="getCoverUrl(album)"
-                  width="350"
-                  height="150"
-                  fit="cover"
-                  :alt="`${album.name}'s thumbnail`"
-                  loading="lazy"
-                />
-              </div>
-
-              <div class="card-body">
-                <div class="hstack gap-2">
-                  <div>
-                    <Icon name="ph:folder-duotone" />
-                  </div>
-                  <div class="text-truncate">
-                    <h4 class="card-title mb-0">
-                      {{ album.name }}
-                    </h4>
-                  </div>
-                  <div class="ms-auto">
-                    <Icon name="material-symbols:open-in-new" class="open-new" size="1em" />
-                  </div>
-                </div>
-              </div>
-
-              <NuxtLink
-                :to="`/albums/${album.id}`"
-                class="stretched-link"
-              />
-            </div>
-          </div>
-        </div>
-
-        <template v-else-if="!albumsRecent?.data.length">
-          <div class="alert alert-secondary" role="alert">
-            <h2 class="alert-heading h4 fw-bolder">
-              Uhm, you caught me lacking.
-            </h2>
-            <p class="mb-0">
-              Nothing to display here yet. Please check back later.
-            </p>
-          </div>
-        </template>
-
-        <template v-else-if="errorRecent">
-          <div class="alert alert-danger" role="alert">
-            <h2 class="alert-heading h4 fw-bolder">
-              Something went wrong
-            </h2>
-            <p class="mb-0">
-              We couldn't load the albums. Please try again later.
-            </p>
-          </div>
-        </template>
-
-        <hr>
-
-        <h2 class="mb-4">
-          Featured & Favorites albums
-        </h2>
-
-        <div
-          v-if="pendingFavorites"
-          v-motion="{
-            initial: { opacity: 0, y: 100 },
-            visibleOnce: {
-              y: 0,
-              opacity: 1
-            }
-          }"
-          class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4 mb-6"
-        >
-          <div v-for="(index) in 5" :key="index" class="col">
-            <div class="card shadow-sm">
-              <div class="card-img-top image-container d-flex align-items-center justify-content-center">
-                <h2>#?</h2>
-              </div>
-
-              <div class="card-body">
-                <div class="hstack">
-                  <div>
-                    <Icon name="ph:folder-duotone" class="me-2" />
-                  </div>
-                  <div>
-                    <h4 class="card-title text-truncate mb-0">
-                      # # # # # # # #
-                    </h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div v-else-if="albumsFavorites?.data.length" class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4 mb-6">
-          <div v-for="album in albumsFavorites.data" :key="album.id" class="col">
-            <div class="card shadow-sm">
-              <div class="card-img-top image-container">
-                <nuxt-img
-                  :src="getCoverUrl(album)"
-                  width="350"
-                  height="150"
-                  fit="cover"
-                  :alt="`${album.name}'s thumbnail`"
-                  loading="lazy"
-                />
-              </div>
-
-              <div class="card-body">
-                <div class="hstack gap-2">
-                  <div>
-                    <Icon name="ph:folder-duotone" />
-                  </div>
-                  <div class="text-truncate">
-                    <h4 class="card-title mb-0">
-                      {{ album.name }}
-                    </h4>
-                  </div>
-                  <div class="ms-auto">
-                    <Icon name="material-symbols:open-in-new" class="open-new" size="1em" />
-                  </div>
-                </div>
-              </div>
-
-              <NuxtLink
-                :to="`/albums/${album.id}`"
-                class="stretched-link"
-              />
-            </div>
-          </div>
-        </div>
-
-        <template v-else-if="!albumsFavorites?.data.length">
-          <div class="alert alert-secondary" role="alert">
-            <h2 class="alert-heading h4 fw-bolder">
-              Uhm, you caught me lacking.
-            </h2>
-            <p class="mb-0">
-              Nothing to display here yet. Please check back later.
-            </p>
-          </div>
-        </template>
-
-        <template v-else-if="errorFavorites">
-          <div class="alert alert-danger" role="alert">
-            <h2 class="alert-heading h4 fw-bolder">
-              Something went wrong
-            </h2>
-            <p class="mb-0">
-              We couldn't load the albums. Please try again later.
-            </p>
-          </div>
-        </template>
-
-        <hr>
-
-        <h2 class="mb-4">
-          More albums
-        </h2>
-
-        <div
-          v-if="pending"
-          v-motion="{
-            initial: { opacity: 0, y: 100 },
-            visibleOnce: {
-              y: 0,
-              opacity: 1
-            }
-          }"
-          class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4 mb-6"
-        >
-          <div v-for="(index) in 25" :key="index" class="col">
-            <div class="card shadow-sm">
-              <div class="card-img-top image-container d-flex align-items-center justify-content-center">
-                <h2>#?</h2>
-              </div>
-
-              <div class="card-body">
-                <div class="hstack">
-                  <div>
-                    <Icon name="ph:folder-duotone" class="me-2" />
-                  </div>
-                  <div>
-                    <h4 class="card-title text-truncate mb-0">
-                      # # # # # # # #
-                    </h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div v-else-if="albums?.data.length" class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4 mb-6">
-          <div v-for="album in albums.data" :key="album.id" class="col">
-            <div class="card shadow-sm">
-              <div class="card-img-top image-container">
-                <nuxt-img
-                  :src="getCoverUrl(album)"
-                  width="350"
-                  height="150"
-                  fit="cover"
-                  :alt="`${album.name}'s thumbnail`"
-                  loading="lazy"
-                />
-              </div>
-
-              <div class="card-body">
-                <div class="hstack gap-2">
-                  <div>
-                    <Icon v-if="album.favorite || album.featured" name="ph:folder-star-duotone" />
-                    <Icon v-else name="ph:folder-duotone" />
-                  </div>
-                  <div class="text-truncate">
-                    <h4 class="card-title mb-0">
-                      {{ album.name }}
-                    </h4>
-                  </div>
-                  <div class="ms-auto">
-                    <Icon name="material-symbols:open-in-new" class="open-new" size="1em" />
-                  </div>
-                </div>
-              </div>
-
-              <NuxtLink
-                :to="`/albums/${album.id}`"
-                class="stretched-link"
-              />
-            </div>
-          </div>
-        </div>
-
-        <template v-else-if="!albums?.data.length">
-          <div class="alert alert-secondary" role="alert">
-            <h2 class="alert-heading h4 fw-bolder">
-              Uhm, you caught me lacking.
-            </h2>
-            <p class="mb-0">
-              Nothing to display here yet. Please check back later.
-            </p>
-          </div>
-        </template>
-
-        <template v-else-if="error">
-          <div class="alert alert-danger" role="alert">
-            <h2 class="alert-heading h4 fw-bolder">
-              Something went wrong
-            </h2>
-            <p class="mb-0">
-              We couldn't load the albums. Please try again later.
-            </p>
-          </div>
-        </template>
       </div>
-    </section>
 
-    <!-- <Pagination
-      :current-page="currentPage"
-      :pages="pages"
-      @next-page="changePage(currentPage + 1)"
-      @previous-page="changePage(currentPage - 1)"
-      @change-page="changePage"
-    /> -->
-  </div>
+      <div v-else-if="albumsRecent?.data.length" class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4 mb-6">
+        <div v-for="album in albumsRecent.data" :key="album.id" class="col">
+          <div class="card shadow-sm">
+            <div class="card-img-top image-container">
+              <nuxt-img
+                :src="getCoverUrl(album)"
+                width="350"
+                height="150"
+                fit="cover"
+                :alt="`${album.name}'s thumbnail`"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="card-body">
+              <div class="hstack gap-2">
+                <div>
+                  <Icon name="ph:folder-duotone" />
+                </div>
+                <div class="text-truncate">
+                  <h4 class="card-title mb-0">
+                    {{ album.name }}
+                  </h4>
+                </div>
+                <div class="ms-auto">
+                  <Icon name="material-symbols:open-in-new" class="open-new" size="1em" />
+                </div>
+              </div>
+            </div>
+
+            <NuxtLink
+              :to="`/albums/${album.id}`"
+              class="stretched-link"
+            />
+          </div>
+        </div>
+      </div>
+
+      <template v-else-if="!albumsRecent?.data.length">
+        <div class="alert alert-secondary" role="alert">
+          <h2 class="alert-heading h4 fw-bolder">
+            Uhm, you caught me lacking.
+          </h2>
+          <p class="mb-0">
+            Nothing to display here yet. Please check back later.
+          </p>
+        </div>
+      </template>
+
+      <template v-else-if="errorRecent">
+        <div class="alert alert-danger" role="alert">
+          <h2 class="alert-heading h4 fw-bolder">
+            Something went wrong
+          </h2>
+          <p class="mb-0">
+            We couldn't load the albums. Please try again later.
+          </p>
+        </div>
+      </template>
+
+      <hr>
+
+      <h2 class="mb-4">
+        Featured & Favorites albums
+      </h2>
+
+      <div
+        v-if="pendingFavorites"
+        v-motion="{
+          initial: { opacity: 0, y: 100 },
+          visibleOnce: {
+            y: 0,
+            opacity: 1
+          }
+        }"
+        class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4 mb-6"
+      >
+        <div v-for="(index) in 5" :key="index" class="col">
+          <div class="card shadow-sm">
+            <div class="card-img-top image-container d-flex align-items-center justify-content-center">
+              <h2>#?</h2>
+            </div>
+
+            <div class="card-body">
+              <div class="hstack">
+                <div>
+                  <Icon name="ph:folder-duotone" class="me-2" />
+                </div>
+                <div>
+                  <h4 class="card-title text-truncate mb-0">
+                    # # # # # # # #
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div v-else-if="albumsFavorites?.data.length" class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4 mb-6">
+        <div v-for="album in albumsFavorites.data" :key="album.id" class="col">
+          <div class="card shadow-sm">
+            <div class="card-img-top image-container">
+              <nuxt-img
+                :src="getCoverUrl(album)"
+                width="350"
+                height="150"
+                fit="cover"
+                :alt="`${album.name}'s thumbnail`"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="card-body">
+              <div class="hstack gap-2">
+                <div>
+                  <Icon name="ph:folder-duotone" />
+                </div>
+                <div class="text-truncate">
+                  <h4 class="card-title mb-0">
+                    {{ album.name }}
+                  </h4>
+                </div>
+                <div class="ms-auto">
+                  <Icon name="material-symbols:open-in-new" class="open-new" size="1em" />
+                </div>
+              </div>
+            </div>
+
+            <NuxtLink
+              :to="`/albums/${album.id}`"
+              class="stretched-link"
+            />
+          </div>
+        </div>
+      </div>
+
+      <template v-else-if="!albumsFavorites?.data.length">
+        <div class="alert alert-secondary" role="alert">
+          <h2 class="alert-heading h4 fw-bolder">
+            Uhm, you caught me lacking.
+          </h2>
+          <p class="mb-0">
+            Nothing to display here yet. Please check back later.
+          </p>
+        </div>
+      </template>
+
+      <template v-else-if="errorFavorites">
+        <div class="alert alert-danger" role="alert">
+          <h2 class="alert-heading h4 fw-bolder">
+            Something went wrong
+          </h2>
+          <p class="mb-0">
+            We couldn't load the albums. Please try again later.
+          </p>
+        </div>
+      </template>
+
+      <hr>
+
+      <h2 class="mb-4">
+        More albums
+      </h2>
+
+      <div
+        v-if="pending"
+        v-motion="{
+          initial: { opacity: 0, y: 100 },
+          visibleOnce: {
+            y: 0,
+            opacity: 1
+          }
+        }"
+        class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4 mb-6"
+      >
+        <div v-for="(index) in 25" :key="index" class="col">
+          <div class="card shadow-sm">
+            <div class="card-img-top image-container d-flex align-items-center justify-content-center">
+              <h2>#?</h2>
+            </div>
+
+            <div class="card-body">
+              <div class="hstack">
+                <div>
+                  <Icon name="ph:folder-duotone" class="me-2" />
+                </div>
+                <div>
+                  <h4 class="card-title text-truncate mb-0">
+                    # # # # # # # #
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div v-else-if="albums?.data.length" class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4 mb-6">
+        <div v-for="album in albums.data" :key="album.id" class="col">
+          <div class="card shadow-sm">
+            <div class="card-img-top image-container">
+              <nuxt-img
+                :src="getCoverUrl(album)"
+                width="350"
+                height="150"
+                fit="cover"
+                :alt="`${album.name}'s thumbnail`"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="card-body">
+              <div class="hstack gap-2">
+                <div>
+                  <Icon v-if="album.favorite || album.featured" name="ph:folder-star-duotone" />
+                  <Icon v-else name="ph:folder-duotone" />
+                </div>
+                <div class="text-truncate">
+                  <h4 class="card-title mb-0">
+                    {{ album.name }}
+                  </h4>
+                </div>
+                <div class="ms-auto">
+                  <Icon name="material-symbols:open-in-new" class="open-new" size="1em" />
+                </div>
+              </div>
+            </div>
+
+            <NuxtLink
+              :to="`/albums/${album.id}`"
+              class="stretched-link"
+            />
+          </div>
+        </div>
+      </div>
+
+      <template v-else-if="!albums?.data.length">
+        <div class="alert alert-secondary" role="alert">
+          <h2 class="alert-heading h4 fw-bolder">
+            Uhm, you caught me lacking.
+          </h2>
+          <p class="mb-0">
+            Nothing to display here yet. Please check back later.
+          </p>
+        </div>
+      </template>
+
+      <template v-else-if="error">
+        <div class="alert alert-danger" role="alert">
+          <h2 class="alert-heading h4 fw-bolder">
+            Something went wrong
+          </h2>
+          <p class="mb-0">
+            We couldn't load the albums. Please try again later.
+          </p>
+        </div>
+      </template>
+    </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>

@@ -90,7 +90,7 @@ const getImagesView = computed<AlbumFile[]>(() => {
 
 <template>
   <div>
-    <section class="min-vh-100 pt-4">
+    <section class="min-vh-100 pt-6 pb-4">
       <Breadcrumb :links="[{ name: 'Albums', path: '/albums' }, { name: album?.name }]" class="mb-6" />
 
       <div class="container">
