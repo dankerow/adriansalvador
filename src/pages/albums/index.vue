@@ -189,9 +189,8 @@ const getCoverUrl = (album: Partial<Album>) => {
                 <nuxt-img
                   :src="getCoverUrl(album)"
                   width="350"
-                  height="120"
+                  height="150"
                   fit="cover"
-                  class="img-fluid"
                   :alt="`${album.name}'s thumbnail`"
                   loading="lazy"
                 />
@@ -289,9 +288,8 @@ const getCoverUrl = (album: Partial<Album>) => {
                 <nuxt-img
                   :src="getCoverUrl(album)"
                   width="350"
-                  height="120"
+                  height="150"
                   fit="cover"
-                  class="img-fluid"
                   :alt="`${album.name}'s thumbnail`"
                   loading="lazy"
                 />
@@ -389,9 +387,8 @@ const getCoverUrl = (album: Partial<Album>) => {
                 <nuxt-img
                   :src="getCoverUrl(album)"
                   width="350"
-                  height="120"
+                  height="150"
                   fit="cover"
-                  class="img-fluid"
                   :alt="`${album.name}'s thumbnail`"
                   loading="lazy"
                 />
@@ -485,12 +482,13 @@ section {
 
 .image-container {
 	background: rgb(24, 24, 24);
-	height: 7.5rem;
+	height: 8.5rem;
 	position: relative;
 	overflow: hidden;
 
 	img {
 		image-rendering: crisp-edges;
+    image-rendering: -webkit-crisp-edges;
 		transition: transform .3s ease-in-out;
 		position: absolute;
 		top: 50%;
