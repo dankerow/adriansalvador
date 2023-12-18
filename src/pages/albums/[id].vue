@@ -5,7 +5,7 @@ const colorMode = useColorMode()
 const params = useRoute().params
 const cdnBaseUrl = useRuntimeConfig().public.cdnBaseUrl
 
-const { data: album } = await useFutch<{ data: Album }>(`/albums/${params.id}`)
+const { data: album } = await useFutch<Album>(`/albums/${params.id}`)
 
 if (!album.value) {
   throw createError({ statusCode: 404, statusMessage: 'Album Not Found' })
@@ -91,17 +91,17 @@ const getImagesView = computed<AlbumFile[]>(() => {
 <template>
   <div>
     <section class="min-vh-100 pt-4">
-      <Breadcrumb :links="[{ name: 'Albums', path: '/albums' }, { name: album.name }]" class="mb-6" />
+      <Breadcrumb :links="[{ name: 'Albums', path: '/albums' }, { name: album?.name }]" class="mb-6" />
 
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 align-items-center text-start justify-content-center justify-content-md-between">
           <div class="col">
-            <h1 class="h3 fw-bold mb-0">
-              {{ album.name }}
+            <h1 class="fw-bold mb-0">
+              {{ album?.name }}
             </h1>
 
             <p class="information">
-              {{ album.fileCount }} images
+              {{ album?.fileCount }} images
             </p>
           </div>
 
@@ -109,7 +109,7 @@ const getImagesView = computed<AlbumFile[]>(() => {
             <div class="row gx-2 justify-content-end">
               <div class="col col-md-auto">
                 <button
-                  :class="`btn ${colorMode.value !== 'light' ? 'btn-secondary' : 'btn-gray text-primary'}`"
+                  :class="`btn ${colorMode.value !== 'light' ? 'btn-light' : 'btn-gray text-primary'}`"
                   type="button"
                   aria-label="Share album's link"
                   @click.prevent="share"
@@ -120,10 +120,10 @@ const getImagesView = computed<AlbumFile[]>(() => {
 
               <div class="col col-md-auto">
                 <a
-                  :class="`btn ${colorMode.value !== 'light' ? 'btn-dark text-light' : 'btn-gray text-primary'}`"
+                  :class="`btn ${colorMode.value !== 'light' ? 'btn-dark' : 'btn-gray text-primary'}`"
                   type="button"
                   aria-label="Download all album's images"
-                  :href="`${cdnBaseUrl}/albums/${album.id}/download`"
+                  :href="`${cdnBaseUrl}/albums/${album?.id}/download`"
                   rel="noreferrer"
                   download
                   @click.stop="onDownload"
@@ -172,7 +172,6 @@ section {
 
 .information {
 	color: #636363;
-	font-size: 0.875rem;
 }
 
 .dark-mode {
