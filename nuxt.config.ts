@@ -176,7 +176,8 @@ export default defineNuxtConfig({
 
         return data?.json()
       },
-      experimentalWarmUp: true
+      experimentalWarmUp: true,
+      experimentalCompression: true
     }
   }
 })
