@@ -1,16 +1,10 @@
 <script setup lang="ts">
 useHead({
-  htmlAttrs: {
-    lang: 'en-US',
-    dir: 'ltr'
-  },
   title: null,
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} - Adrian Salvador` : 'Adrian Salvador | Photographer'
   },
   meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    { name: 'description', content: 'Capturing the essence of people through a lens.' },
     {
       name: 'twitter:card',
       content: 'summary'
@@ -49,18 +43,6 @@ useHead({
       name: 'og:image',
       property: 'og:image',
       content: 'https://salvadoradrian.com/icon.png'
-    }
-  ],
-  link: [
-    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-    { rel: 'preconnect', href: 'https://cdn.salvadoradrian.com' },
-    { rel: 'dns-prefetch', href: 'https://cdnjs.cloudflare.com' }
-  ],
-  script: [
-    {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/js/bootstrap.bundle.min.js',
-      type: 'text/javascript',
-      defer: true
     }
   ]
 })
@@ -157,7 +139,7 @@ onMounted(() => {
 <template>
   <div>
     <Loader />
-    <LazyCursor />
+    <Cursor />
 
     <Header v-show="!isHome" />
 
@@ -178,16 +160,18 @@ onMounted(() => {
       />
     </svg>
 
-    <NuxtPage
-      :transition="{
-        mode: 'out-in',
-        css: false,
-        onEnter,
-        onAfterEnter,
-        onBeforeLeave,
-        onLeave
-      }"
-    />
+    <div>
+      <NuxtPage
+        :transition="{
+          mode: 'out-in',
+          css: false,
+          onEnter,
+          onAfterEnter,
+          onBeforeLeave,
+          onLeave
+        }"
+      />
+    </div>
 
     <Footer />
   </div>

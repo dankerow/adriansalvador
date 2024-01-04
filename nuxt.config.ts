@@ -38,6 +38,34 @@ export default defineNuxtConfig({
     '@/assets/scss/bedrock.scss'
   ],
 
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: 'en-US',
+        dir: 'ltr'
+      },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: 'Capturing the essence of people through a lens.' },
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'preconnect', href: 'https://cdn.salvadoradrian.com' },
+        { rel: 'preconnect', href: 'https://cdnjs.cloudflare.com' },
+        { rel: 'dns-prefetch', href: 'https://cdnjs.cloudflare.com' },
+        { rel: 'dns-prefetch', href: 'https://cdn.salvadoradrian.com' }
+      ],
+      script: [
+        {
+          src: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/js/bootstrap.bundle.min.js',
+          type: 'text/javascript',
+          defer: true
+        }
+      ]
+    }
+  },
+
   modules: [
     '@kevinmarrec/nuxt-pwa',
     '@nuxt/image',
