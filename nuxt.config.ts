@@ -144,7 +144,7 @@ export default defineNuxtConfig({
       'nuxt-gtag',
       'nuxt-purgecss',
       'nuxt-security',
-      'nuxt-simple-sitemap'
+      '@nuxtjs/sitemap'
     ],
 
     gtag: {
