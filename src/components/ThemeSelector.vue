@@ -15,27 +15,25 @@ const setTheme = (theme: string) => {
 
 <template>
   <div class="btn-group dropup-center dropup">
-    <ColorScheme>
-      <button class="btn btn-sm" :class="{ 'btn-white': colorMode.value === 'light', 'btn-dark': colorMode.value === 'dark' }" type="button" disabled>
-        Theme Preference:
-      </button>
+    <button class="btn btn-sm" :class="{ 'btn-white': colorMode.value === 'light', 'btn-dark': colorMode.value === 'dark' }" type="button" disabled>
+      Theme Preference:
+    </button>
 
-      <button class="btn btn-sm dropdown-toggle" :class="{ 'btn-white': colorMode.value === 'light', 'btn-dark': colorMode.value === 'dark' }" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        {{ colorMode.preference }}
-      </button>
+    <button class="btn btn-sm dropdown-toggle" :class="{ 'btn-white': colorMode.value === 'light', 'btn-dark': colorMode.value === 'dark' }" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      {{ colorMode.preference }}
+    </button>
 
-      <ul class="dropdown-menu">
-        <li
-          v-for="theme of availableThemes"
-          :key="theme"
-          @click="setTheme(theme)"
-        >
-          <span class="dropdown-item text-capitalize">
-            {{ theme }}
-          </span>
-        </li>
-      </ul>
-    </ColorScheme>
+    <ul class="dropdown-menu">
+      <li
+        v-for="theme of availableThemes"
+        :key="theme"
+        @click="setTheme(theme)"
+      >
+        <span class="dropdown-item text-capitalize">
+          {{ theme }}
+        </span>
+      </li>
+    </ul>
   </div>
 </template>
 
