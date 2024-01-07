@@ -157,7 +157,7 @@ export default defineNuxtConfig({
 
     purgecss: {
       keyframes: true,
-      safelist: ['dark-mode', /^pswp/, /^btn-/, /^dropdown/, /^masonry/, 'icon-link', 'svg', 'img']
+      safelist: ['dark-mode', /^pswp/, /^btn-/, /^dropdown/, /^masonry/, 'icon-link', 'svg', 'img', 'show']
     },
 
     security: {
