@@ -18,12 +18,12 @@ export default defineNuxtConfig({
       {
         dir: 'public/js',
         maxAge: 24 * 60 * 60 * 365, // 1 year (versioned)
-        baseURL: 'js',
+        baseURL: 'js'
       },
       {
         dir: 'public/covers',
         maxAge: 24 * 60 * 60 * 365, // 1 year (versioned)
-        baseURL: 'covers',
+        baseURL: 'covers'
       }
     ]
   },
