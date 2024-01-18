@@ -45,8 +45,6 @@ export default defineNuxtConfig({
         dir: 'ltr'
       },
       meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'description', content: 'Capturing the essence of people through a lens.' },
       ],
       link: [
