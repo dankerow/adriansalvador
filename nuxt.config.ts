@@ -8,6 +8,9 @@ export default defineNuxtConfig({
 
   nitro: {
     minify: true,
+    experimental: {
+      sourceMapMinify: true
+    },
     compressPublicAssets: {
       brotli: true,
       gzip: false
