@@ -1,8 +1,14 @@
 <script setup lang="ts">
+const colorMode = useColorMode()
+
 onMounted(() => {
   const gradient = new Gradient()
 
   gradient.initGradient('#gradient-canvas-hero')
+
+  watch(() => colorMode.preference, () => {
+    gradient.initGradient('#gradient-canvas-hero')
+  })
 })
 </script>
 
@@ -59,7 +65,6 @@ onMounted(() => {
 .hero {
   &::before {
     background-size: 2rem 2rem;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), radial-gradient(circle, rgb(255, 255, 255, 0.4) 0.063rem, rgba(255, 255, 255, 0) 0.063rem);
     content: '';
     height: 100%;
     position: absolute;
@@ -79,14 +84,23 @@ onMounted(() => {
 }
 
 #gradient-canvas-hero {
-  --gradient-color-1: #000000;
-  --gradient-color-2: #242424;
-  --gradient-color-3: #222222;
-  --gradient-color-4: #181818;
+  --gradient-color-1: #ffffff;
+  --gradient-color-2: #dbdbdb;
+  --gradient-color-3: #dddddd;
+  --gradient-color-4: #e7e7e7;
 
   height: 100%;
   position: absolute;
   width: 100%;
   z-index: -1;
+}
+
+.dark-mode {
+  #gradient-canvas-hero {
+    --gradient-color-1: #000000;
+    --gradient-color-2: #242424;
+    --gradient-color-3: #222222;
+    --gradient-color-4: #181818;
+  }
 }
 </style>
