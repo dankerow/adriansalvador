@@ -125,19 +125,34 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss">
-.masonry-item {
-  border-radius: 0.15rem;
-  background-color: #141414;
-  overflow: hidden;
-  position: relative;
-  user-select: none;
+.masonry-wall {
+  &:hover {
+    .masonry-item {
+      img {
+        &:not(:hover) {
+          filter: grayscale(1);
+          opacity: 0.5;
+        }
+      }
+    }
+  }
 
-  img {
-    image-rendering: crisp-edges;
-    transition: transform .3s ease-in-out;
+  .masonry-item {
+    border-radius: 0.15rem;
+    background-color: #141414;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
 
-    &:hover {
-      transform: scale(1.05);
+    img {
+      image-rendering: crisp-edges;
+      transition: transform .3s ease-in-out, filter .3s ease-in-out, opacity .3s ease-in-out;
+      width: 100%;
+      height: 100%;
+
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
 }
