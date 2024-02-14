@@ -33,7 +33,7 @@
     "@vueuse/core": "^10.7.2",
     "@vueuse/nuxt": "^10.7.2",
     "eslint": "^8.56.0",
-    "nuxt": "3.10.1",
+    "nuxt": "3.10.2",
     "nuxt-gtag": "^1.1.2",
     "nuxt-icon": "^0.6.8",
     "nuxt-purgecss": "^2.0.0",
