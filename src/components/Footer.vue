@@ -5,7 +5,7 @@
         <div class="row align-items-center justify-content-center">
           <div class="col-auto">
             <p class="mb-0">
-              © {{ new Date().getFullYear() }} Adrian Salvador. Made by
+              © 2022 - {{ new Date().getFullYear() }} Adrian Salvador. Made by
               <a class="d-inline-block position-relative" href="https://danmutombo.com" rel="noopener" target="_blank">
                 Dan Mutombo
               </a>
