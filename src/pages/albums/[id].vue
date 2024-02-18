@@ -137,20 +137,18 @@ const getImagesView = computed<AlbumFile[]>(() => {
 
         <hr>
 
-        <div>
-          <AlbumsLoadingCards v-if="pendingImages" />
-          <GalleryGrid v-else-if="images?.data" :images="getImagesView" />
-          <template v-else-if="errorImages">
-            <div class="alert alert-danger" role="alert">
-              <h2 class="alert-heading h6 fw-bolder">
-                Something went wrong
-              </h2>
-              <p class="mb-0">
-                We couldn't load the images for this album. Please try again later.
-              </p>
-            </div>
-          </template>
-        </div>
+        <AlbumsLoadingCards v-if="pendingImages" />
+        <GalleryGrid v-else-if="images?.data" :images="getImagesView" />
+        <template v-else-if="errorImages">
+          <div class="alert alert-danger" role="alert">
+            <h2 class="alert-heading h6 fw-bolder">
+              Something went wrong
+            </h2>
+            <p class="mb-0">
+              We couldn't load the images for this album. Please try again later.
+            </p>
+          </div>
+        </template>
       </div>
     </section>
 
