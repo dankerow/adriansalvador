@@ -71,8 +71,8 @@ devDependencies:
     specifier: 3.10.3
     version: 3.10.3(@types/node@20.11.24)(eslint@8.57.0)(sass@1.71.1)(typescript@5.3.3)(vite@5.1.4)
   nuxt-gtag:
-    specifier: ^1.2.1
-    version: 1.2.1
+    specifier: ^2.0.4
+    version: 2.0.4
   nuxt-icon:
     specifier: ^0.6.8
     version: 0.6.8(nuxt@3.10.3)(vite@5.1.4)(vue@3.4.19)
@@ -6446,10 +6446,10 @@ packages:
       - supports-color
     dev: false
 
-  /nuxt-gtag@1.2.1:
-    resolution: {integrity: sha512-2ss0HLoSmA4wiu5WDSFuVZBT5T4qH+XFqau614OK3idIYeY88uG2Lrn7Iy/xy3jpSiMM+ux/0ziEIa4n1NGcWA==}
+  /nuxt-gtag@2.0.4:
+    resolution: {integrity: sha512-oQgLc+GlxX0W0buYW+HYv6G+W5rS2yARA3kITOYN4rPURRbbK15G9XzKErUF8hhQLmTUj3rFGQmWeVzrWuscig==}
     dependencies:
-      '@nuxt/kit': 3.10.2
+      '@nuxt/kit': 3.10.3
       defu: 6.1.4
       pathe: 1.1.2
       ufo: 1.4.0
