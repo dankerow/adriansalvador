@@ -6,7 +6,7 @@
 @import "utilities";
 @import "bootstrap/scss/root";
 
-@import "reboot";
+@import "bootstrap/scss/reboot";
 @import "bootstrap/scss/type";
 @import "bootstrap/scss/images";
 @import "bootstrap/scss/containers";
@@ -31,3 +31,31 @@
 @import "bootstrap/scss/helpers";
 
 @import "bootstrap/scss/utilities/api";
+
+
+html {
+  height: 100%;
+  overscroll-behavior-y: none;
+}
+
+body {
+  font-synthesis: none;
+  overflow-y: auto;
+  text-rendering: optimizeLegibility;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(50, 50, 50);
+  }
+
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
