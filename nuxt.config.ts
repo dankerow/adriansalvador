@@ -71,12 +71,11 @@ export default defineNuxtConfig({
 
   modules: [
     '@kevinmarrec/nuxt-pwa',
+    '@nuxt/fonts',
     '@nuxt/image',
     '@nuxtjs/color-mode',
     '@nuxtjs/critters',
     '@nuxtjs/device',
-    '@nuxtjs/fontaine',
-    '@nuxtjs/google-fonts',
     '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
     'nuxt-icon'
@@ -89,6 +88,12 @@ export default defineNuxtConfig({
 
   device: {
     refreshOnResize: true
+  },
+
+  fonts: {
+    experimental: {
+      processCSSVariables: true
+    }
   },
 
   googleFonts: {
