@@ -96,15 +96,6 @@ export default defineNuxtConfig({
     }
   },
 
-  googleFonts: {
-    families: {
-      Archivo: {
-        wght: [400, 500, 600, 700, 800, 900]
-      }
-    },
-    display: 'swap'
-  },
-
   pwa: {
     meta: {
       mobileAppIOS: true,
