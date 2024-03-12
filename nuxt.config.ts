@@ -9,7 +9,6 @@ export default defineNuxtConfig({
   nitro: {
     minify: true,
     experimental: {
-      sourceMapMinify: true,
       typescriptBundlerResolution: true
     },
     compressPublicAssets: {
@@ -35,7 +34,6 @@ export default defineNuxtConfig({
 
   experimental: {
     typedPages: true,
-    typescriptBundlerResolution: true,
     headNext: true
   },
 
