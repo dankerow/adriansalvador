@@ -110,6 +110,7 @@ onUnmounted(() => {
             :sizes="`sm:50vw md:${getImageDimensions(item).width}px lg:${(getImageDimensions(item).width) + 100}px xl:${(getImageDimensions(item).width) + 200}px`"
             loading="lazy"
             draggable="false"
+            decoding="async"
             :alt="item.name"
           />
         </a>
