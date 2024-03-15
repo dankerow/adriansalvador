@@ -4,8 +4,6 @@ module.exports = {
   apps: [
     {
       name: 'adriansalvador',
-      exec_mode: 'cluster',
-      instances: 2,
       env: {
         ...env.parsed
       },
