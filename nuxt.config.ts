@@ -15,9 +15,6 @@ export default defineNuxtConfig({
       brotli: true,
       gzip: false
     },
-    routeRules: {
-      '/_ipx/**': { cache: { maxAge: 24 * 60 * 60 * 365 } }
-    },
     publicAssets: [
       {
         dir: 'public/js',
