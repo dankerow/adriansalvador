@@ -29,11 +29,11 @@
     "@nuxtjs/critters": "^0.6.0",
     "@nuxtjs/device": "^3.1.1",
     "@nuxtjs/sitemap": "^5.1.2",
-    "@types/node": "^20.11.27",
+    "@types/node": "^20.11.29",
     "@vueuse/core": "^10.9.0",
     "@vueuse/nuxt": "^10.9.0",
     "eslint": "^8.57.0",
-    "nuxt": "3.10.3",
+    "nuxt": "3.11.1",
     "nuxt-gtag": "^2.0.5",
     "nuxt-icon": "^0.6.9",
     "nuxt-purgecss": "^2.0.0",
@@ -46,5 +46,5 @@
     "Firefox ESR",
     "not dead"
   ],
-  "packageManager": "pnpm@8.15.4"
+  "packageManager": "pnpm@8.15.5"
 }
