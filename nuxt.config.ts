@@ -87,6 +87,7 @@ export default defineNuxtConfig({
 
   fonts: {
     experimental: {
+      addPreloadLinks: true,
       processCSSVariables: true
     }
   },
