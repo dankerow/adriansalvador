@@ -107,7 +107,9 @@ onUnmounted(() => {
           <nuxt-img
             format="webp"
             :src="item.url"
-            :sizes="`sm:50vw md:${getImageDimensions(item).width}px lg:${(getImageDimensions(item).width) + 100}px xl:${(getImageDimensions(item).width) + 200}px`"
+            :width="getImageDimensions(item).width"
+            :height="getImageDimensions(item).height"
+            sizes="xs:30vw sm:30vw md:30vw lg:30vw xl:30vw"
             loading="lazy"
             draggable="false"
             decoding="async"
@@ -116,7 +118,7 @@ onUnmounted(() => {
         </a>
 
         <div v-if="item.album" class="hidden-caption-content">
-          <NuxtLink :to="`/albums/${item.album.id}`">
+          <NuxtLink :to="`/albums/${item.album._id}`">
             {{ item.album.name }}
           </NuxtLink>
         </div>
