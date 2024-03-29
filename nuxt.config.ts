@@ -65,12 +65,12 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@kevinmarrec/nuxt-pwa',
     '@nuxt/fonts',
     '@nuxt/image',
     '@nuxtjs/color-mode',
     '@nuxtjs/critters',
     '@nuxtjs/device',
+    '@vite-pwa/nuxt',
     '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
     'nuxt-icon'
@@ -93,11 +93,6 @@ export default defineNuxtConfig({
   },
 
   pwa: {
-    meta: {
-      mobileAppIOS: true,
-      name: 'Adrian Salvador | Photographer',
-      appleStatusBarStyle: 'black-translucent'
-    },
     manifest: {
       name: 'Adrian Salvador | Photographer',
       start_url: '/',
@@ -105,9 +100,10 @@ export default defineNuxtConfig({
       lang: 'en',
       display: 'fullscreen',
       background_color: '#fff',
+      theme_color: '#1b1b1b'
     },
-    workbox: {
-      enabled: false
+    pwaAssets: {
+      image: './public/icon.png',
     }
   },
 
