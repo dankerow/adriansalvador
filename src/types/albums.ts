@@ -1,5 +1,5 @@
 export interface AlbumFile {
-  readonly id: string
+  readonly _id: string
   name: string
   url?: string
   readonly type: string
@@ -12,7 +12,7 @@ export interface AlbumFile {
 }
 
 export interface Album {
-  readonly id: string
+  readonly _id: string
   name: string
   url?: string
   draft: boolean
