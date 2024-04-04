@@ -52,10 +52,14 @@ definePageMeta({
         name: 'Familiar Faces',
         contentUrl: 'https://cdn.salvadoradrian.com/files/Sequence 02.mp4'
       }
-    },
+    }
+  ]
+})
+
+useHead({
+  script: [
     {
-      type: 'text/javascript',
-      url: 'https://player.vimeo.com/api/player.js',
+      src: '/js/Gradient.min.js',
       defer: true
     }
   ]
@@ -64,41 +68,63 @@ definePageMeta({
 const { $gsap: gsap } = useNuxtApp()
 const cdnBaseUrl = useRuntimeConfig().public.cdnBaseUrl
 
-const { data: albumsFavorites } = await useFutch<{ data: Album[] }>('/albums', {
+const { data: albums } = await useAsyncData<{ featured: Album[], favorites: Album[] }>('featured-albums', () => useFaetch('/albums', {
   params: {
+    featured: true,
     favorites: true
-  },
+  }
+}),
+{
   lazy: true,
-  default: () => shallowRef({ data: [] })
+  deep: false,
+  default: () => ({ featured: [], favorites: [] }),
+  transform: ({ data }: { data: Album[] }) => {
+    return {
+      featured: data.filter((album) => album.featured).map((album: Partial<Album>) => ({
+        _id: album._id,
+        name: album.name,
+        url: `/albums/${album._id}`,
+        cover: album.cover,
+        coverFallback: album.coverFallback,
+        favorite: album.favorite,
+        featured: album.featured
+      })),
+      favorites: data.filter((album) => album.favorite).map((album: Partial<Album>) => ({
+        _id: album._id,
+        name: album.name,
+        url: `/albums/${album._id}`,
+        cover: album.cover,
+        coverFallback: album.coverFallback,
+        favorite: album.favorite,
+        featured: album.featured
+      }))
+    }
+  }
 })
 
-const { data: albumFeatured } = await useFutch<{ data: Album[] }>('/albums', {
-  params: {
-    featured: true
-  },
+const { pending: pendingImages, data: randomImages, error: errorImages } = await useFutch<Partial<AlbumFile>[]>('/files/random', {
   lazy: true,
-  default: () => shallowRef({ data: [] })
+  deep: false,
+  default: () => [],
+  transform: (data) => {
+    return data.map((image: Partial<AlbumFile>) => ({
+      _id: image._id,
+      name: image.name,
+      metadata: image.metadata,
+      album: image.album
+    }))
+  }
 })
 
-const { pending: pendingImages, data: randomImages, error: errorImages } = await useFutch<AlbumFile[]>('/files/random', {
-  lazy: true,
-  default: () => shallowRef([])
-})
+const getRandomImagesView = computed<Partial<AlbumFile>[] | []>(() => {
+  const data = randomImages.value
 
-watch(randomImages, (newRandomImages) => {
-  randomImages.value = newRandomImages
-})
-
-const getRandomImagesView = computed<AlbumFile[] | []>(() => {
-  const data = randomImages.value || []
-
-  return data.map((image: AlbumFile) => ({
+  return data.map((image: Partial<AlbumFile>) => ({
     ...image,
     url: `${cdnBaseUrl}/s-files/${encodeURIComponent(image.name)}`
   }))
 })
 
-const rootElement = ref<HTMLElement|null>(null)
 const filmsTrack = ref<HTMLElement|null>(null)
 const filmsContainer = ref<HTMLElement|null>(null)
 const track = ref<HTMLElement|null>(null)
@@ -117,15 +143,18 @@ onMounted(() => {
       xPercent: -100,
       ease: 'none'
     })
+})
 
+onUnmounted(() => {
+  gsap.killTweensOf(track.value)
 })
 </script>
 
 <template>
-  <div ref="rootElement">
+  <div>
     <SectionsHero />
 
-    <SectionsShowcase :albums="[...albumsFavorites?.data, ...albumFeatured?.data]" />
+    <SectionsShowcase :albums="albums" />
 
     <section class="gallery-preview pt-5 pb-10 min-vh-100 h-100">
       <div class="container-fluid">
@@ -142,9 +171,9 @@ onMounted(() => {
           }"
           class="ms-4 mb-5"
         >
-          <h1 class="display-5 fw-bold lh-1">
+          <h2 class="display-5 fw-bold lh-1">
             Gallery
-          </h1>
+          </h2>
 
           <div
             v-motion="{
@@ -170,29 +199,27 @@ onMounted(() => {
           </div>
         </div>
 
-        <template v-if="pendingImages">
-          <AlbumsLoadingCards
-            v-motion="{
-              initial: { opacity: 0, y: 100 },
-              visibleOnce: {
-                y: 0,
-                opacity: 1
-              }
-            }"
-          />
-        </template>
+        <AlbumsLoadingCards
+          v-if="pendingImages"
+          v-motion="{
+            initial: { opacity: 0, y: 100 },
+            visibleOnce: {
+              y: 0,
+              opacity: 1
+            }
+          }"
+        />
 
         <template v-else-if="errorImages">
           <p>{{ errorImages }}</p>
         </template>
 
-        <template v-else-if="randomImages">
-          <GalleryGrid
-            :images="getRandomImagesView"
-            :min-columns="1"
-            :max-columns="6"
-          />
-        </template>
+        <GalleryGrid
+          v-else-if="randomImages"
+          :images="getRandomImagesView"
+          :min-columns="1"
+          :max-columns="6"
+        />
       </div>
     </section>
 
@@ -208,9 +235,10 @@ onMounted(() => {
           }"
           class="ms-4"
         >
-          <h1 class="display-5 fw-bold lh-1">
+          <h2 class="display-5 fw-bold lh-1">
             Films
-          </h1>
+          </h2>
+
           <p class="fs-3 lh-1">
             Here you can find some of my films.
           </p>
@@ -222,7 +250,7 @@ onMounted(() => {
           <div ref="track" class="track position-relative h-100 flex-grow-0 flex-shrink-0" style="flex-basis: 0; transform: translate(0%, 0px);">
             <div class="d-flex h-100 align-items-stretch justify-content-start" style="margin-right: -100vw;">
               <div class="d-flex justify-content-center align-items-center panel position-relative overflow-hidden vw-100 vh-100 flex-grow-0 flex-shrink-0" style="flex-basis: auto">
-                <VideoPlayer :src="`${cdnBaseUrl}/s-files/clip00526680.mp4`" poster="@/assets/images/clip00526680.png" />
+                <VideoPlayer :src="`${cdnBaseUrl}/s-files/clip00526680.mp4`" poster="/covers/clip00526680-poster.webp" />
               </div>
 
               <div class="d-flex justify-content-center align-items-center panel position-relative overflow-hidden vw-100 vh-100 flex-grow-0 flex-shrink-0" style="flex-basis: auto">
@@ -230,7 +258,7 @@ onMounted(() => {
               </div>
 
               <div class="d-flex justify-content-center align-items-center panel position-relative overflow-hidden vw-100 vh-100 flex-grow-0 flex-shrink-0" style="flex-basis: auto">
-                <VideoPlayer :src="`${cdnBaseUrl}/s-files/reflections.mp4`" poster="@/assets/images/reflections-poster.jpg" />
+                <VideoPlayer :src="`${cdnBaseUrl}/s-files/reflections.mp4`" poster="/covers/reflections-poster.webp" />
               </div>
             </div>
           </div>
@@ -248,6 +276,7 @@ onMounted(() => {
               <div class="card-body text-center">
                 <div style="padding:56.25% 0 0 0;position:relative;">
                   <iframe
+                    title="The Spot"
                     src="https://player.vimeo.com/video/733139039?h=4e51f52b13&title=0&byline=0&portrait=0"
                     class="border-0"
                     style="position:absolute;top:0;left:0;width:100%;height:100%;"
@@ -270,6 +299,7 @@ onMounted(() => {
               <div class="card-body">
                 <div style="padding:56.25% 0 0 0;position:relative;">
                   <iframe
+                    title="Sophie Wake Up"
                     src="https://player.vimeo.com/video/756745468?h=101bafbac3&title=0&byline=0&portrait=0"
                     class="border-0"
                     style="position:absolute;top:0;left:0;width:100%;height:100%;"
@@ -292,6 +322,7 @@ onMounted(() => {
               <div class="card-body">
                 <div style="padding:56.25% 0 0 0;position:relative;">
                   <iframe
+                    title="Familiar Faces"
                     src="https://player.vimeo.com/video/733133632?h=d9334f5298&title=0&byline=0&portrait=0"
                     class="border-0"
                     style="position:absolute;top:0;left:0;width:100%;height:100%;"
@@ -320,16 +351,16 @@ onMounted(() => {
 .overlay {
   box-shadow: 1rem 0.125rem 1.25rem 1.25rem rgb(10, 10, 10);
   background: rgb(10, 10, 10);
+  height: 5.438rem;
   overflow: hidden;
   width: 100%;
-  height: 5.438rem;
 
   span {
     animation: animate 2.5s linear infinite;
     background: linear-gradient(90deg, rgb(10, 10, 10), #fff, rgb(10, 10, 10)) no-repeat;
+    background-clip: text;
     background-size: 80%;
     color: rgb(10, 10, 10);
-    background-clip: text;
     -webkit-text-stroke: 0.188rem rgba(255, 255, 255, 0);
   }
 }
@@ -354,6 +385,10 @@ onMounted(() => {
     border-color: rgba(255, 255, 255, 0.25);
     transform: scale(1.05);
   }
+}
+
+.gallery-preview, .films {
+  will-change: transform;
 }
 
 .gallery-preview {

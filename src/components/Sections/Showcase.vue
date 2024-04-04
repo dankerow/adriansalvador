@@ -17,7 +17,10 @@ const props = withDefaults(defineProps<{
 const { isDesktop } = useDevice()
 const cdnBaseUrl = useRuntimeConfig().public.cdnBaseUrl
 
-const albums = computed<{ featured: Album[]; favorites: Album[] }>(() => props.albums)
+const albums = computed<{ featured: Album; favorites: Album[] }>(() => ({
+  featured: props.albums.featured[0],
+  favorites: props.albums.favorites
+}))
 
 const getCover = (album: Album) => {
   return album.cover ?? album.coverFallback
@@ -26,22 +29,6 @@ const getCover = (album: Album) => {
 const getCoverUrl = (album: Album) => {
   return album.cover ? `${cdnBaseUrl}/covers/${encodeURIComponent(album.cover.name)}` : album.coverFallback ? `${cdnBaseUrl}/s-files/${encodeURIComponent(album.coverFallback.name)}` : ''
 }
-
-const favorites = computed<Album[]>(() => {
-  return albums.value.favorites.map((album) => {
-    album.url = `/albums/${album.id}`
-
-    return album
-  })
-})
-
-const featured = computed<Album|null>(() => {
-  const album = albums.value.featured[0]
-  if (!album) return null
-
-  album.url = `/albums/${album.id}`
-  return album
-})
 
 onMounted(() => {
   if (isDesktop) {
@@ -95,28 +82,30 @@ onMounted(() => {
           >
             <div class="cover">
               <nuxt-img
-                v-if="favorites[0] && getCover(favorites[0])"
+                v-if="albums.favorites[0] && getCover(albums.favorites[0])"
                 format="webp"
-                :src="getCoverUrl(favorites[0])"
+                :src="getCoverUrl(albums.favorites[0])"
                 :width="460"
-                :height="(460 / getCover(favorites[0]).metadata.width) * getCover(favorites[0]).metadata.height"
-                sizes="sm:100vw md:50vw lg:260px xl:460px"
-                alt="Album's cover"
+                :height="(460 / getCover(albums.favorites[0]).metadata.width) * getCover(albums.favorites[0]).metadata.height"
+                sizes="xs:30vw sm:30vw md:30vw lg:30vw xl:20vw"
                 loading="lazy"
+                decoding="async"
+                :alt="`${albums.favorites[0].name} album's cover`"
               />
+
               <div class="overlay" />
             </div>
 
             <div class="card-body">
               <h2 class="album-title">
-                {{ favorites[0] ? favorites[0].name : 'X' }}
+                {{ albums.favorites[0] ? albums.favorites[0].name : 'X' }}
               </h2>
             </div>
 
             <NuxtLink
-              v-if="favorites[0] && favorites[0].url"
-              :to="favorites[0]?.url"
-              :aria-label="`View ${favorites[0].name} album`"
+              v-if="albums.favorites[0] && albums.favorites[0].url"
+              :to="albums.favorites[0]?.url"
+              :aria-label="`View ${albums.favorites[0].name} album`"
               class="stretched-link"
             />
           </div>
@@ -138,28 +127,30 @@ onMounted(() => {
           >
             <div class="cover">
               <nuxt-img
-                v-if="favorites[1] && getCover(favorites[1])"
+                v-if="albums.favorites[1] && getCover(albums.favorites[1])"
                 format="webp"
-                :src="getCoverUrl(favorites[1])"
+                :src="getCoverUrl(albums.favorites[1])"
                 :width="500"
-                :height="(500 / getCover(favorites[1]).metadata.width) * getCover(favorites[1]).metadata.height"
-                sizes="sm:100vw md:50vw lg:300px xl:500px"
-                alt="Album's cover"
+                :height="(500 / getCover(albums.favorites[1]).metadata.width) * getCover(albums.favorites[1]).metadata.height"
+                sizes="xs:30vw sm:30vw md:30vw lg:30vw xl:20vw"
                 loading="lazy"
+                decoding="async"
+                :alt="`${albums.favorites[1].name} album's cover`"
               />
+
               <div class="overlay" />
             </div>
 
             <div class="card-body">
               <h2 class="album-title">
-                {{ favorites[1] ? favorites[1].name : 'X' }}
+                {{ albums.favorites[1] ? albums.favorites[1].name : 'X' }}
               </h2>
             </div>
 
             <NuxtLink
-              v-if="favorites[1] && favorites[1].url"
-              :to="favorites[1].url"
-              :aria-label="`View ${favorites[1].name} album`"
+              v-if="albums.favorites[1] && albums.favorites[1].url"
+              :to="albums.favorites[1].url"
+              :aria-label="`View ${albums.favorites[1].name} album`"
               class="stretched-link"
             />
           </div>
@@ -188,28 +179,30 @@ onMounted(() => {
 
             <div class="cover">
               <nuxt-img
-                v-if="featured"
+                v-if="albums.featured"
                 format="webp"
-                :src="getCoverUrl(featured)"
+                :src="getCoverUrl(albums.featured)"
                 :width="560"
-                :height="(560 / getCover(featured).metadata.width) * getCover(featured).metadata.height"
-                sizes="sm:100vw md:50vw lg:260px xl:460px"
-                alt="Album's cover"
+                :height="(560 / getCover(albums.featured).metadata.width) * getCover(albums.featured).metadata.height"
+                sizes="xs:30vw sm:30vw md:30vw lg:30vw xl:20vw"
                 loading="lazy"
+                decoding="async"
+                :alt="`${albums.featured.name} album's cover`"
               />
+
               <div class="overlay" />
             </div>
 
             <div class="card-body">
               <h2 class="album-title">
-                {{ featured ? featured.name : 'X' }}
+                {{ albums.featured ? albums.featured.name : 'X' }}
               </h2>
             </div>
 
             <NuxtLink
-              v-if="featured && featured.url"
-              :to="featured?.url"
-              :aria-label="`View ${featured.name} album`"
+              v-if="albums.featured && albums.featured.url"
+              :to="albums.featured?.url"
+              :aria-label="`View ${albums.featured.name} album`"
               class="stretched-link"
             />
           </div>
@@ -228,28 +221,29 @@ onMounted(() => {
           >
             <div class="cover">
               <nuxt-img
-                v-if="favorites[2] && getCover(favorites[2])"
+                v-if="albums.favorites[2] && getCover(albums.favorites[2])"
                 format="webp"
-                :src="getCoverUrl(favorites[2])"
+                :src="getCoverUrl(albums.favorites[2])"
                 :width="500"
-                :height="(500 / getCover(favorites[2]).metadata.width) * getCover(favorites[2]).metadata.height"
-                sizes="sm:100vw md:50vw lg:200px xl:500px"
+                :height="(500 / getCover(albums.favorites[2]).metadata.width) * getCover(albums.favorites[2]).metadata.height"
+                sizes="xs:30vw sm:30vw md:30vw lg:30vw xl:20vw"
                 alt="Album's cover"
                 loading="lazy"
               />
+
               <div class="overlay" />
             </div>
 
             <div class="card-body">
               <h2 class="card-title album-title">
-                {{ favorites[2] ? favorites[2].name : 'X' }}
+                {{ albums.favorites[2] ? albums.favorites[2].name : 'X' }}
               </h2>
             </div>
 
             <NuxtLink
-              v-if="favorites[2] && favorites[2].url"
-              :to="favorites[2]?.url"
-              :aria-label="`View ${favorites[2].name} album`"
+              v-if="albums.favorites[2] && albums.favorites[2].url"
+              :to="albums.favorites[2]?.url"
+              :aria-label="`View ${albums.favorites[2].name} album`"
               class="stretched-link"
             />
           </div>
@@ -269,28 +263,30 @@ onMounted(() => {
           >
             <div class="cover">
               <nuxt-img
-                v-if="favorites[3] && getCover(favorites[3])"
+                v-if="albums.favorites[3] && getCover(albums.favorites[3])"
                 format="webp"
-                :src="getCoverUrl(favorites[3])"
+                :src="getCoverUrl(albums.favorites[3])"
                 :width="460"
-                :height="(460 / getCover(favorites[3]).metadata.width) * getCover(favorites[3]).metadata.height"
-                sizes="sm:100vw md:50vw lg:260px xl:460px"
-                alt="Album's cover"
+                :height="(460 / getCover(albums.favorites[3]).metadata.width) * getCover(albums.favorites[3]).metadata.height"
+                sizes="xs:30vw sm:30vw md:30vw lg:30vw xl:20vw"
                 loading="lazy"
+                decoding="async"
+                :alt="`${albums.favorites[3].name} album's cover`"
               />
+
               <div class="overlay" />
             </div>
 
             <div class="card-body">
               <h2 class="album-title">
-                {{ favorites[3] ? favorites[3].name : 'X' }}
+                {{ albums.favorites[3] ? albums.favorites[3].name : 'X' }}
               </h2>
             </div>
 
             <NuxtLink
-              v-if="favorites[3] && favorites[3].url"
-              :to="favorites[3]?.url"
-              :aria-label="`View ${favorites[3].name} album`"
+              v-if="albums.favorites[3] && albums.favorites[3].url"
+              :to="albums.favorites[3]?.url"
+              :aria-label="`View ${albums.favorites[3].name} album`"
               class="stretched-link"
             />
           </div>

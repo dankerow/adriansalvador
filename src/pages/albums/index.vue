@@ -32,13 +32,12 @@ const { pending: pendingRecent, data: albumsRecent, error: errorRecent } = await
     sort: 'postedAt',
     order: 'desc'
   },
+  deep: false,
   lazy: true,
-  immediate: process.client,
-  default: () => shallowRef(),
   transform: ({ data }) => {
     return {
       data: data.map((album: Partial<Album>) => ({
-        id: album.id,
+        _id: album._id,
         name: album.name,
         cover: album.cover,
         coverFallback: album.coverFallback,
@@ -52,15 +51,15 @@ const { pending: pendingRecent, data: albumsRecent, error: errorRecent } = await
 const { pending: pendingFavorites, data: albumsFavorites, error: errorFavorites } = await useFutch<{ data: Partial<Album>[] }>('/albums', {
   key: 'favorites',
   params: {
-    favorites: true
+    favorites: true,
+    featured: true
   },
+  deep: false,
   lazy: true,
-  immediate: process.client,
-  default: () => shallowRef(),
   transform: ({ data }) => {
     return {
       data: data.map((album: Partial<Album>) => ({
-        id: album.id,
+        _id: album._id,
         name: album.name,
         cover: album.cover,
         coverFallback: album.coverFallback,
@@ -75,14 +74,13 @@ const { pending, data: albums, error } = await useFutch<{ data: Partial<Album>[]
   params: {
     page: currentPage.value
   },
+  deep: false,
   lazy: true,
   watch: [currentPage],
-  immediate: process.client,
-  default: () => shallowRef(),
   transform: ({ data }) => {
     return {
       data: data.map((album: Partial<Album>) => ({
-        id: album.id,
+        _id: album._id,
         name: album.name,
         cover: album.cover,
         coverFallback: album.coverFallback,
@@ -91,18 +89,6 @@ const { pending, data: albums, error } = await useFutch<{ data: Partial<Album>[]
       }))
     }
   }
-})
-
-watch(albumsRecent, (newAlbums) => {
-  albumsRecent.value = newAlbums
-})
-
-watch(albumsFavorites, (newAlbums) => {
-  albumsFavorites.value = newAlbums
-})
-
-watch(albums, (newAlbums) => {
-  albums.value = newAlbums
 })
 
 const getCoverUrl = (album: Partial<Album>) => {
@@ -182,16 +168,18 @@ const getCoverUrl = (album: Partial<Album>) => {
       </div>
 
       <div v-else-if="albumsRecent?.data.length" class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4 mb-6">
-        <div v-for="album in albumsRecent.data" :key="album.id" class="col">
+        <div v-for="album in albumsRecent.data" :key="album._id" class="col">
           <div class="card shadow-sm">
             <div class="card-img-top image-container">
               <nuxt-img
+                v-if="album.cover || album.coverFallback"
                 :src="getCoverUrl(album)"
                 width="350"
-                height="150"
+                height="200"
                 fit="cover"
-                :alt="`${album.name}'s thumbnail`"
                 loading="lazy"
+                decoding="async"
+                :alt="`${album.name}'s thumbnail`"
               />
             </div>
 
@@ -212,7 +200,7 @@ const getCoverUrl = (album: Partial<Album>) => {
             </div>
 
             <NuxtLink
-              :to="`/albums/${album.id}`"
+              :to="`/albums/${album._id}`"
               class="stretched-link"
             />
           </div>
@@ -281,16 +269,18 @@ const getCoverUrl = (album: Partial<Album>) => {
       </div>
 
       <div v-else-if="albumsFavorites?.data.length" class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4 mb-6">
-        <div v-for="album in albumsFavorites.data" :key="album.id" class="col">
+        <div v-for="album in albumsFavorites.data" :key="album._id" class="col">
           <div class="card shadow-sm">
             <div class="card-img-top image-container">
               <nuxt-img
+                v-if="album.cover || album.coverFallback"
                 :src="getCoverUrl(album)"
                 width="350"
-                height="150"
+                height="200"
                 fit="cover"
-                :alt="`${album.name}'s thumbnail`"
                 loading="lazy"
+                decoding="async"
+                :alt="`${album.name}'s thumbnail`"
               />
             </div>
 
@@ -311,7 +301,7 @@ const getCoverUrl = (album: Partial<Album>) => {
             </div>
 
             <NuxtLink
-              :to="`/albums/${album.id}`"
+              :to="`/albums/${album._id}`"
               class="stretched-link"
             />
           </div>
@@ -380,16 +370,18 @@ const getCoverUrl = (album: Partial<Album>) => {
       </div>
 
       <div v-else-if="albums?.data.length" class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4 mb-6">
-        <div v-for="album in albums.data" :key="album.id" class="col">
+        <div v-for="album in albums.data" :key="album._id" class="col">
           <div class="card shadow-sm">
             <div class="card-img-top image-container">
               <nuxt-img
+                v-if="album.cover || album.coverFallback"
                 :src="getCoverUrl(album)"
                 width="350"
-                height="150"
+                height="200"
                 fit="cover"
-                :alt="`${album.name}'s thumbnail`"
                 loading="lazy"
+                decoding="async"
+                :alt="`${album.name}'s thumbnail`"
               />
             </div>
 
@@ -411,7 +403,7 @@ const getCoverUrl = (album: Partial<Album>) => {
             </div>
 
             <NuxtLink
-              :to="`/albums/${album.id}`"
+              :to="`/albums/${album._id}`"
               class="stretched-link"
             />
           </div>
@@ -472,7 +464,7 @@ section {
 
 .image-container {
 	background: rgb(24, 24, 24);
-	height: 8.5rem;
+	height: 10rem;
 	position: relative;
 	overflow: hidden;
 

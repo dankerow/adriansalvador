@@ -19,15 +19,16 @@ const { data: images, pending: pendingImages, error: errorImages } = await useFu
       limit: 50,
       page: currentPage
     },
+    deep: false,
     lazy: true,
     watch: [currentPage],
-    deep: false,
-    default: () => shallowRef({ data: [], count: 0, pages: 0 }),
+    default: () => ({ data: [], count: 0, pages: 0 }),
     transform: ({ data, count, pages }) => {
       return {
         data: data.map((image: any) => ({
-          id: image.id,
+          _id: image._id,
           name: image.name,
+          url: `${cdnBaseUrl}/s-files/${encodeURIComponent(image.name)}`,
           metadata: image.metadata
         })),
         count,
@@ -35,10 +36,6 @@ const { data: images, pending: pendingImages, error: errorImages } = await useFu
       }
     }
   })
-
-watch(images, (newImages) => {
-  images.value = newImages
-})
 
 useHead({
   title: () => album.value.name,
@@ -78,14 +75,6 @@ const onDownload = async () => {
     label: album.value.name
   })
 }
-
-const getImagesView = computed<AlbumFile[]>(() => {
-  return images.value.data.map((image: any) => {
-    image.url = `${cdnBaseUrl}/s-files/${encodeURIComponent(image.name)}`
-
-    return image
-  })
-})
 </script>
 
 <template>
@@ -123,7 +112,7 @@ const getImagesView = computed<AlbumFile[]>(() => {
                   :class="`btn ${colorMode.value !== 'light' ? 'btn-dark' : 'btn-gray text-primary'}`"
                   type="button"
                   aria-label="Download all album's images"
-                  :href="`${cdnBaseUrl}/albums/${album?.id}/download`"
+                  :href="`${cdnBaseUrl}/albums/${album?._id}/download`"
                   rel="noreferrer"
                   download
                   @click.stop="onDownload"
@@ -138,7 +127,7 @@ const getImagesView = computed<AlbumFile[]>(() => {
         <hr>
 
         <AlbumsLoadingCards v-if="pendingImages" />
-        <GalleryGrid v-else-if="images?.data" :images="getImagesView" />
+        <GalleryGrid v-else-if="images?.data" :images="images.data" />
         <template v-else-if="errorImages">
           <div class="alert alert-danger" role="alert">
             <h2 class="alert-heading h6 fw-bolder">
