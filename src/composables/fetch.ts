@@ -6,7 +6,7 @@ export const useFaetch = <T>(url: string, options: NitroFetchOptions<Request> = 
   const config = useRuntimeConfig()
 
   const defaults: NitroFetchOptions<Request> = {
-    baseURL: config.public.apiBaseUrl
+    baseURL: config.public.cdnBaseUrl
   }
 
   const params = defu(options, defaults)
@@ -18,7 +18,7 @@ export const useFutch = <T>(url: string, options: UseFetchOptions<T> = {}) => {
   const config = useRuntimeConfig()
 
   const defaults: UseFetchOptions<T> = {
-    baseURL: config.public.apiBaseUrl,
+    baseURL: config.public.cdnBaseUrl,
     key: url
   }
 

@@ -113,7 +113,6 @@ export default defineNuxtConfig({
 
     runtimeConfig: {
       public: {
-        apiBaseUrl: process.env.API_BASE_URL_DEV,
         cdnBaseUrl: process.env.CDN_BASE_URL_DEV
       }
     },
@@ -126,7 +125,6 @@ export default defineNuxtConfig({
   $production: {
     runtimeConfig: {
       public: {
-        apiBaseUrl: process.env.API_BASE_URL,
         cdnBaseUrl: process.env.CDN_BASE_URL
       }
     },
@@ -161,8 +159,8 @@ export default defineNuxtConfig({
 
     sitemap: {
       urls: async () => {
-        const apiURL = process.env.API_BASE_URL
-        const data = await fetch(`${apiURL}/sitemap`).catch(() => {})
+        const cdnURL = process.env.CDN_BASE_URL
+        const data = await fetch(`${cdnURL}/sitemap`).catch(() => {})
         if (!data?.ok) return []
 
         return data?.json()
