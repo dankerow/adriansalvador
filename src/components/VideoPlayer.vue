@@ -9,14 +9,14 @@ withDefaults(defineProps<{
 
 const videoPlayer = ref<HTMLElement | null>(null)
 const video = ref<HTMLMediaElement | null>(null)
-const hideControls = ref<boolean>(true)
 const playbackButton = ref<HTMLButtonElement | null>(null)
 const volumeControl = ref<HTMLInputElement | null>(null)
 const seekBar = ref<HTMLInputElement | null>(null)
+const seekHoverBar = ref<HTMLDivElement | null> (null)
+const seekHoverPosition = ref<number>(0)
+const hideControls = ref<boolean>(true)
 const isPaused = ref<boolean>(true)
 const isMuted = ref<boolean>(true)
-const seekHoverBar = ref<HTMLDivElement | null> (null)
-const seekHoverPos = ref<number>(0)
 
 const toggleVideoPlayback = () => {
   if (video.value?.paused) {
@@ -75,7 +75,7 @@ const mouseEnter = () => {
 
 const mouseMove = (event: MouseEvent) => {
   const rect = (event.currentTarget as HTMLDivElement).getBoundingClientRect()
-  seekHoverPos.value = event.clientX - rect.left
+  seekHoverPosition.value = event.clientX - rect.left
 }
 
 const mouseLeave = () => {
@@ -159,7 +159,7 @@ onUnmounted(() => {
         @click="seekBarClicked"
       >
         <progress ref="seekBar" value="0" max="1" />
-        <div ref="seekHoverBar" class="seek-hover-bar" :style="{ left: `${seekHoverPos}px` }" />
+        <div ref="seekHoverBar" class="seek-hover-bar" :style="{ left: `${seekHoverPosition}px` }" />
       </div>
 
       <div class="bottom-controls d-flex justify-content-between align-items-center">
