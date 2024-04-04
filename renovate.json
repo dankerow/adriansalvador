@@ -10,7 +10,7 @@
   "commitMessageTopic": "{{depName}}",
   "dependencyDashboard": true,
   "rebaseWhen": "conflicted",
-  "ignoreDeps": ["bootstrap"],
+  "ignoreDeps": ["bootstrap", "nuxt-security"],
   "labels": ["dependencies"],
   "packageRules": [
     {
