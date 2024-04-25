@@ -1,8 +1,9 @@
 <script setup lang="ts">
 const error = useError() as any
 
-if (process.dev)
+if (import.meta.dev) {
   console.error(error)
+}
 
 const reload = async () => {
   try {
