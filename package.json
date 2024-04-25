@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
-    "@nuxt/eslint-config": "^0.3.9",
+    "@nuxt/eslint": "^0.3.9",
     "@nuxt/fonts": "^0.6.1",
     "@nuxt/image": "1.6.0",
     "@nuxtjs/color-mode": "3.4.0",
@@ -34,7 +34,7 @@
     "@vite-pwa/nuxt": "^0.6.0",
     "@vueuse/core": "^10.9.0",
     "@vueuse/nuxt": "^10.9.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.1.1",
     "nuxt": "^3.11.2",
     "nuxt-gtag": "^2.0.5",
     "nuxt-icon": "^0.6.10",
