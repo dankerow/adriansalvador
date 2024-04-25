@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const error = useError() as any
+const error = useError()
 
 if (import.meta.dev) {
   console.error(error)

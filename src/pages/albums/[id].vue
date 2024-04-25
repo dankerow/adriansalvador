@@ -25,7 +25,7 @@ const { data: images, pending: pendingImages, error: errorImages } = await useFu
     default: () => ({ data: [], count: 0, pages: 0 }),
     transform: ({ data, count, pages }) => {
       return {
-        data: data.map((image: any) => ({
+        data: data.map((image) => ({
           _id: image._id,
           name: image.name,
           url: `${cdnBaseUrl}/s-files/${encodeURIComponent(image.name)}`,

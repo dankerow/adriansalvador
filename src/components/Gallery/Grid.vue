@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import type { AlbumFile } from '@/types/albums'
+
 import PhotoSwipeLightbox from 'photoswipe/lightbox'
 import 'photoswipe/photoswipe.css'
 
 interface Props {
-  images: any[]
+  images: AlbumFile[]
   ssrColumns?: number
   columnWidth?: number
   minColumns?: number
@@ -18,11 +20,11 @@ const props = withDefaults(defineProps<Props>(), {
   gap: 20
 })
 
-const imagesData = computed<any[]>(() => props.images)
+const imagesData = computed<AlbumFile[]>(() => props.images)
 const lightbox = ref<PhotoSwipeLightbox | null>(null)
 const masonry = ref<HTMLElement>()
 
-const getImageDimensions = (image: any) => {
+const getImageDimensions = (image: AlbumFile) => {
   const width = image.metadata.width
   const height = image.metadata.height
 
