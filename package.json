@@ -25,7 +25,7 @@
     "@nuxt/eslint": "^0.3.10",
     "@nuxt/fonts": "^0.6.1",
     "@nuxt/image": "1.6.0",
-    "@nuxtjs/color-mode": "3.4.0",
+    "@nuxtjs/color-mode": "3.4.1",
     "@nuxtjs/critters": "^0.7.1",
     "@nuxtjs/device": "^3.1.1",
     "@nuxtjs/sitemap": "^5.1.4",
