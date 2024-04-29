@@ -41,8 +41,8 @@ devDependencies:
     specifier: 1.6.0
     version: 1.6.0(rollup@2.79.1)
   '@nuxtjs/color-mode':
-    specifier: 3.4.0
-    version: 3.4.0(rollup@2.79.1)
+    specifier: 3.4.1
+    version: 3.4.1(rollup@2.79.1)
   '@nuxtjs/critters':
     specifier: ^0.7.1
     version: 0.7.1(rollup@2.79.1)
@@ -2091,7 +2091,7 @@ packages:
       '@nuxt/devtools': 1.1.5(@unocss/reset@0.59.4)(floating-vue@5.2.2)(nuxt@3.11.2)(rollup@2.79.1)(unocss@0.59.4)(vite@5.2.10)(vue@3.4.25)
       '@nuxt/devtools-kit': 1.1.5(nuxt@3.11.2)(rollup@2.79.1)(vite@5.2.10)
       '@nuxt/kit': 3.11.2(rollup@2.79.1)
-      '@nuxtjs/color-mode': 3.4.0(rollup@2.79.1)
+      '@nuxtjs/color-mode': 3.4.1(rollup@2.79.1)
       '@unocss/core': 0.58.9
       '@unocss/nuxt': 0.58.9(postcss@8.4.38)(rollup@2.79.1)(vite@5.2.10)(webpack@5.91.0)
       '@unocss/preset-attributify': 0.58.9
@@ -2580,12 +2580,12 @@ packages:
       - vue-tsc
     dev: true
 
-  /@nuxtjs/color-mode@3.4.0(rollup@2.79.1):
-    resolution: {integrity: sha512-rS51nG3zW8ksOwNubIP3BPQ+vBL0r2M6td1kkB/VaR1e1uVtNfWlBPfZjb604bgNCE2AeRNqaI0CrxkfnQ6h6Q==}
+  /@nuxtjs/color-mode@3.4.1(rollup@2.79.1):
+    resolution: {integrity: sha512-vZgJqDstxInGw3RGSWbLoCLXtU1mvh1LLeuEA/X3a++DYA4ifwSbNoiSiOyb9qZHFEwz1Xr99H71sXV4IhOaEg==}
     dependencies:
       '@nuxt/kit': 3.11.2(rollup@2.79.1)
       pathe: 1.1.2
-      pkg-types: 1.0.3
+      pkg-types: 1.1.0
       semver: 7.6.0
     transitivePeerDependencies:
       - rollup
