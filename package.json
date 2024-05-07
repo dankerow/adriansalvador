@@ -28,8 +28,8 @@
     "@nuxtjs/color-mode": "3.4.1",
     "@nuxtjs/critters": "^0.7.1",
     "@nuxtjs/device": "^3.1.1",
-    "@nuxtjs/sitemap": "^5.1.4",
-    "@types/node": "^20.12.8",
+    "@nuxtjs/sitemap": "^5.1.5",
+    "@types/node": "^20.12.10",
     "@vite-pwa/assets-generator": "^0.2.4",
     "@vite-pwa/nuxt": "^0.7.0",
     "@vueuse/core": "^10.9.0",
@@ -39,7 +39,7 @@
     "nuxt-gtag": "^2.0.5",
     "nuxt-icon": "^0.6.10",
     "nuxt-purgecss": "^2.0.0",
-    "sass": "^1.76.0",
+    "sass": "^1.77.0",
     "typescript": "^5.4.5"
   },
   "browserslist": [
@@ -48,5 +48,5 @@
     "Firefox ESR",
     "not dead"
   ],
-  "packageManager": "pnpm@9.0.6"
+  "packageManager": "pnpm@9.1.0"
 }
