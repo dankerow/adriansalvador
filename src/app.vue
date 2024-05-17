@@ -141,7 +141,7 @@ onMounted(() => {
     <NuxtPwaAssets />
 
     <Loader />
-    <Cursor />
+    <LazyCursor />
 
     <Header v-show="!isHome" />
 
