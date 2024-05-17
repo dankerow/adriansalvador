@@ -47,6 +47,15 @@ useHead({
   ]
 })
 
+useScriptNpm({
+  packageName: 'bootstrap',
+  file: 'dist/js/bootstrap.min.js',
+  version: '5.3.3',
+  scriptOptions: {
+    bundle: true
+  }
+})
+
 const { $gsap: gsap, $ScrollTrigger: ScrollTrigger } = useNuxtApp()
 const { page } = useCounter()
 const colorMode = useColorMode()
