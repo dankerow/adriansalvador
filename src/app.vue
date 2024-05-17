@@ -138,6 +138,8 @@ onMounted(() => {
 
 <template>
   <div>
+    <NuxtPwaAssets />
+
     <Loader />
     <Cursor />
 
