@@ -32,7 +32,6 @@ const { pending: pendingRecent, data: albumsRecent, error: errorRecent } = await
     sort: 'postedAt',
     order: 'desc'
   },
-  deep: false,
   lazy: true,
   transform: ({ data }) => {
     return {
@@ -54,7 +53,6 @@ const { pending: pendingFavorites, data: albumsFavorites, error: errorFavorites 
     favorites: true,
     featured: true
   },
-  deep: false,
   lazy: true,
   transform: ({ data }) => {
     return {
@@ -74,7 +72,6 @@ const { pending, data: albums, error } = await useFutch<{ data: Partial<Album>[]
   params: {
     page: currentPage.value
   },
-  deep: false,
   lazy: true,
   watch: [currentPage],
   transform: ({ data }) => {

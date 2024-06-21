@@ -19,7 +19,6 @@ const { data: images, pending: pendingImages, error: errorImages } = await useFu
       limit: 50,
       page: currentPage
     },
-    deep: false,
     lazy: true,
     watch: [currentPage],
     default: () => ({ data: [], count: 0, pages: 0 }),

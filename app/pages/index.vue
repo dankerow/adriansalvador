@@ -76,7 +76,6 @@ const { data: albums } = await useAsyncData<{ featured: Album[], favorites: Albu
 }),
 {
   lazy: true,
-  deep: false,
   default: () => ({ featured: [], favorites: [] }),
   transform: ({ data }: { data: Album[] }) => {
     return {
