@@ -1,6 +1,7 @@
 export default defineNuxtConfig({
-  rootDir: './',
-  srcDir: 'src',
+  future: {
+    compatibilityVersion: 4,
+  },
 
   typescript: {
     strict: true,
