@@ -74,7 +74,7 @@ onMounted(() => {
 
   .bottom {
     h1 {
-      font-size: calc(1.5rem + 8vw);
+      font-size: calc(1rem + 6vw);
     }
 
     p {
