@@ -123,15 +123,10 @@ export default defineNuxtConfig({
     },
 
     modules: [
-      'nuxt-gtag',
       'nuxt-purgecss',
       'nuxt-security',
       '@nuxtjs/sitemap'
     ],
-
-    gtag: {
-      id: process.env.GTAG_ID ?? undefined,
-    },
 
     image: {
       domains: [process.env.CDN_BASE_URL as string]
