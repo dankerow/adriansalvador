@@ -117,6 +117,7 @@ export default defineNuxtConfig({
 
   $production: {
     runtimeConfig: {
+      gtagId: process.env.GTAG_ID ?? undefined,
       public: {
         cdnBaseUrl: process.env.CDN_BASE_URL
       }
