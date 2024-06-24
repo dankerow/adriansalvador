@@ -143,7 +143,8 @@ export default defineNuxtConfig({
     },
 
     security: {
-      headers: false
+      headers: false,
+      rateLimiter: false
     },
 
     site: {
