@@ -96,7 +96,7 @@ export default defineNuxtConfig({
       theme_color: '#1b1b1b'
     },
     pwaAssets: {
-      image: './public/icon.png',
+      image: '../public/icon.png',
     }
   },
 
