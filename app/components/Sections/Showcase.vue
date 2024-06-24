@@ -47,20 +47,32 @@ onMounted(() => {
         v-motion="{
           initial: {
             opacity: 0,
-            x: -100
+            y: -100
           },
           visibleOnce: {
-            x: 0,
+            y: 0,
             opacity: 1
           }
         }"
-        class="ms-4"
+        class="text-uppercase ms-4"
       >
-        <h2 class="display-5 fw-bold lh-1">
+        <h2 class="display-5 fw-bold lh-1 mb-2">
           Showcase
         </h2>
 
-        <p class="fs-3 lh-1">
+        <p
+          v-motion="{
+            initial: {
+              opacity: 0,
+              y: 100
+            },
+            visibleOnce: {
+              y: 0,
+              opacity: 1
+            }
+          }"
+          class="lead text-body-secondary"
+        >
           Here you can find some of my selected work.
         </p>
       </div>
@@ -71,7 +83,10 @@ onMounted(() => {
         <div class="col-lg-2">
           <div
             v-motion="{
-              initial: { opacity: 0, x: -100 },
+              initial: {
+                opacity: 0,
+                x: -100
+              },
               visibleOnce: {
                 x: 0,
                 opacity: 1
