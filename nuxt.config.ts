@@ -59,6 +59,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@nuxt/fonts',
+    '@nuxt/icon',
     '@nuxt/image',
     '@nuxt/scripts',
     '@nuxtjs/color-mode',
@@ -66,8 +67,7 @@ export default defineNuxtConfig({
     '@nuxtjs/device',
     '@vite-pwa/nuxt',
     '@vueuse/nuxt',
-    '@vueuse/motion/nuxt',
-    'nuxt-icon'
+    '@vueuse/motion/nuxt'
   ],
 
   colorMode: {

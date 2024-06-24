@@ -23,6 +23,7 @@
   "devDependencies": {
     "@nuxt/eslint": "^0.3.13",
     "@nuxt/fonts": "^0.7.0",
+    "@nuxt/icon": "^1.0.0",
     "@nuxt/image": "1.7.0",
     "@nuxt/scripts": "^0.5.1",
     "@nuxtjs/color-mode": "3.4.1",
@@ -37,7 +38,6 @@
     "eslint": "^9.5.0",
     "nuxt": "^3.12.2",
     "nuxt-gtag": "^2.0.6",
-    "nuxt-icon": "^0.6.10",
     "nuxt-purgecss": "^2.0.0",
     "sass": "^1.77.6",
     "typescript": "^5.5.2"
