@@ -78,8 +78,8 @@ const onDownload = async () => {
 
 <template>
   <div>
-    <section class="min-vh-100 pt-6 pb-4">
-      <Breadcrumb :links="[{ name: 'Albums', path: '/albums' }, { name: album?.name }]" class="mb-6" />
+    <section class="min-vh-100 pt-10 pb-4">
+      <Breadcrumb :links="[{ name: 'Work', path: '/work' }, { name: album?.name }]" class="mb-6" />
 
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 align-items-center text-start justify-content-center justify-content-md-between">
