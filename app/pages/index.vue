@@ -82,7 +82,7 @@ const { data: albums } = await useAsyncData<{ featured: Album[], favorites: Albu
       featured: data.filter((album) => album.featured).map((album: Partial<Album>) => ({
         _id: album._id,
         name: album.name,
-        url: `/albums/${album._id}`,
+        url: `/work/${album._id}`,
         cover: album.cover,
         coverFallback: album.coverFallback,
         favorite: album.favorite,
@@ -91,7 +91,7 @@ const { data: albums } = await useAsyncData<{ featured: Album[], favorites: Albu
       favorites: data.filter((album) => album.favorite).map((album: Partial<Album>) => ({
         _id: album._id,
         name: album.name,
-        url: `/albums/${album._id}`,
+        url: `/work/${album._id}`,
         cover: album.cover,
         coverFallback: album.coverFallback,
         favorite: album.favorite,
@@ -156,21 +156,21 @@ onUnmounted(() => {
     <SectionsShowcase :albums="albums" />
 
     <section class="gallery-preview pt-5 pb-10 min-vh-100 h-100">
-      <div class="container-fluid">
+      <div class="container-fluid px-4">
         <div
           v-motion="{
             initial: {
               opacity: 0,
-              x: -100
+              y: -100
             },
             visibleOnce: {
-              x: 0,
+              y: 0,
               opacity: 1
             }
           }"
-          class="ms-4 mb-5"
+          class="text-uppercase ms-4 mb-5"
         >
-          <h2 class="display-5 fw-bold lh-1">
+          <h2 class="display-5 fw-bold lh-1 mb-2">
             Gallery
           </h2>
 
@@ -182,17 +182,17 @@ onUnmounted(() => {
                 opacity: 1
               }
             }"
-            class="hstack gap-3"
+            class="text-body-secondary hstack gap-3"
           >
-            <div class="text-body-secondary">
+            <div>
               Here you can find a selection of my favorite photos.
             </div>
 
             <div class="vr" />
 
-            <div class="text-body-secondary">
-              <NuxtLink to="/albums" class="text-decoration-underline">
-                Albums
+            <div>
+              <NuxtLink to="/work" class="text-decoration-underline link-offset-3 link-underline link-underline-opacity-25 link-underline-opacity-75-hover">
+                See more of my work
               </NuxtLink>
             </div>
           </div>
@@ -226,19 +226,22 @@ onUnmounted(() => {
       <div class="container-fluid">
         <div
           v-motion="{
-            initial: { opacity: 0, x: -100 },
+            initial: {
+              opacity: 0,
+              y: -100
+            },
             visibleOnce: {
-              x: 0,
+              y: 0,
               opacity: 1
             }
           }"
-          class="ms-4"
+          class="ms-4 text-uppercase"
         >
-          <h2 class="display-5 fw-bold lh-1">
+          <h2 class="display-5 fw-bold lh-1 mb-2">
             Films
           </h2>
 
-          <p class="fs-3 lh-1">
+          <p class="lead text-body-secondary">
             Here you can find some of my films.
           </p>
         </div>
@@ -248,15 +251,18 @@ onUnmounted(() => {
         <div ref="filmsContainer" class="align-items-stretch position-sticky d-flex overflow-hidden start-0 top-0 w-100 z-0 justify-content-start" style="bottom: auto;">
           <div ref="track" class="track position-relative h-100 flex-grow-0 flex-shrink-0" style="flex-basis: 0; transform: translate(0%, 0px);">
             <div class="d-flex h-100 align-items-stretch justify-content-start" style="margin-right: -100vw;">
-              <div class="d-flex justify-content-center align-items-center panel position-relative overflow-hidden vw-100 vh-100 flex-grow-0 flex-shrink-0" style="flex-basis: auto">
+              <div class="d-flex justify-content-center align-items-center panel position-relative overflow-hidden vw-100 vh-100 flex-grow-0 flex-shrink-0 flex-column" style="flex-basis: auto">
+                <h2 class="text-uppercase mt-5">a stoner's archive</h2>
                 <VideoPlayer :src="`${cdnBaseUrl}/s-files/clip00526680.mp4`" poster="/covers/clip00526680-poster.webp" />
               </div>
 
-              <div class="d-flex justify-content-center align-items-center panel position-relative overflow-hidden vw-100 vh-100 flex-grow-0 flex-shrink-0" style="flex-basis: auto">
+              <div class="d-flex justify-content-center align-items-center panel position-relative overflow-hidden vw-100 vh-100 flex-grow-0 flex-shrink-0 flex-column" style="flex-basis: auto">
+                <h2 class="text-uppercase mt-5">teaching a cat how to roll a joint</h2>
                 <VideoPlayer :src="`${cdnBaseUrl}/s-files/Sequence 02.mp4`" />
               </div>
 
-              <div class="d-flex justify-content-center align-items-center panel position-relative overflow-hidden vw-100 vh-100 flex-grow-0 flex-shrink-0" style="flex-basis: auto">
+              <div class="d-flex justify-content-center align-items-center panel position-relative overflow-hidden vw-100 vh-100 flex-grow-0 flex-shrink-0 flex-column" style="flex-basis: auto">
+                <h2 class="text-uppercase mt-5">reflections</h2>
                 <VideoPlayer :src="`${cdnBaseUrl}/s-files/reflections.mp4`" poster="/covers/reflections-poster.webp" />
               </div>
             </div>
@@ -265,80 +271,42 @@ onUnmounted(() => {
       </div>
 
       <div class="container">
-        <div class="row row-cols-1 row-cols-lg-3">
-          <div class="col mb-3 mb-sm-0">
-            <div class="card shadow">
-              <div class="card-header text-center">
-                The Spot
-              </div>
-
-              <div class="card-body text-center">
-                <div style="padding:56.25% 0 0 0;position:relative;">
-                  <iframe
-                    title="The Spot"
-                    src="https://player.vimeo.com/video/733139039?h=4e51f52b13&title=0&byline=0&portrait=0"
-                    class="border-0"
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    allowfullscreen
-                    referrerpolicy="no-referrer"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
+        <div class="row row-cols-1 row-cols-lg-2 g-4">
+          <div class="col">
+            <ScriptVimeoPlayer
+              :id="733139039"
+              url="https://vimeo.com/733139039"
+              :responsive="true"
+              :title="true"
+              :byline="false"
+              :portrait="false"
+            />
           </div>
 
-          <div class="col mb-3 mb-sm-0">
-            <div class="card shadow">
-              <div class="card-header text-center">
-                Sophie Wake Up
-              </div>
-
-              <div class="card-body">
-                <div style="padding:56.25% 0 0 0;position:relative;">
-                  <iframe
-                    title="Sophie Wake Up"
-                    src="https://player.vimeo.com/video/756745468?h=101bafbac3&title=0&byline=0&portrait=0"
-                    class="border-0"
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    allowfullscreen
-                    referrerpolicy="no-referrer"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
+          <div class="col">
+            <ScriptVimeoPlayer
+              :id="756745468"
+              url="https://vimeo.com/756745468"
+              :title="true"
+              :responsive="true"
+              :byline="false"
+              :portrait="false"
+            />
           </div>
 
-          <div class="col mb-3 mb-sm-0">
-            <div class="card shadow">
-              <div class="card-header text-center">
-                Familiar Faces
-              </div>
-
-              <div class="card-body">
-                <div style="padding:56.25% 0 0 0;position:relative;">
-                  <iframe
-                    title="Familiar Faces"
-                    src="https://player.vimeo.com/video/733133632?h=d9334f5298&title=0&byline=0&portrait=0"
-                    class="border-0"
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    allowfullscreen
-                    referrerpolicy="no-referrer"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
+          <div class="col">
+            <ScriptVimeoPlayer
+              :id="733133632"
+              url="https://vimeo.com/733133632"
+              :title="true"
+              :responsive="true"
+              :byline="false"
+              :portrait="false"
+            />
           </div>
         </div>
       </div>
     </section>
-
-    <LazySectionsContact />
   </div>
 </template>
 
@@ -373,19 +341,6 @@ onUnmounted(() => {
   }
 }
 
-.card {
-  backdrop-filter: blur(0.75rem);
-  background-image: linear-gradient(0deg, rgba(4, 4, 4, 0.3) 10%, rgba(8, 8, 8, 0.3) 100%);
-  border: 0.094rem solid rgba(255, 255, 255, 0.15);
-  transition: border 0.3s ease-in-out, background-image 0.3s ease-in-out, transform 0.3s ease-in-out;
-
-  &:hover {
-    background-image: linear-gradient(0deg, rgba(4, 4, 4, 0.5) 10%, rgba(8, 8, 8, 0.5) 100%);
-    border-color: rgba(255, 255, 255, 0.25);
-    transform: scale(1.05);
-  }
-}
-
 .gallery-preview, .films {
   will-change: transform;
 }
@@ -395,19 +350,17 @@ onUnmounted(() => {
   z-index: 50;
 }
 
+.films {
+  background-image: radial-gradient(circle at center, white 0%, #fafafa 100%);
+}
+
 .dark-mode {
 	.gallery-preview {
 		background-image: radial-gradient(ellipse at center, black 0%, #101010 100%);
 	}
 
-  .card {
-    background-image: linear-gradient(0deg, rgba(4, 4, 4, 0.3) 10%, rgba(8, 8, 8, 0.3) 100%);
-    border-color: rgba(100, 100, 100, 0.15);
-
-    &:hover {
-      background-image: linear-gradient(0deg, rgba(4, 4, 4, 0.5) 10%, rgba(8, 8, 8, 0.5) 100%);
-      border-color: rgba(100, 100, 100, 0.25);
-    }
+  .films {
+    background-image: radial-gradient(circle at center, black 0%, #101010 100%);
   }
 }
 </style>
