@@ -35,6 +35,18 @@ export default defineNuxtConfig({
     headNext: true
   },
 
+  routeRules: {
+    '/': {
+      swr: 60 * 60
+    },
+    '/work': {
+      swr: 60 * 60
+    },
+    '/work/**': {
+      swr: 60 * 60
+    }
+  },
+
   css: [
     '@/assets/scss/bedrock.scss'
   ],
