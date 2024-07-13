@@ -158,5 +158,7 @@ export default defineNuxtConfig({
       experimentalWarmUp: true,
       experimentalCompression: true
     }
-  }
+  },
+
+  compatibilityDate: '2024-07-03'
 })
