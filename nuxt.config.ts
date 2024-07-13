@@ -67,7 +67,7 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
     '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
-    "nuxt-build-cache"
+    'nuxt-build-cache'
   ],
 
   colorMode: {
