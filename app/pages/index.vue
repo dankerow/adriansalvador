@@ -198,7 +198,7 @@ onUnmounted(() => {
           </div>
         </div>
 
-        <AlbumsLoadingCards
+        <AlbumsSkeleton
           v-if="pendingImages"
           v-motion="{
             initial: { opacity: 0, y: 100 },
