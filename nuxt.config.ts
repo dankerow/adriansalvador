@@ -39,6 +39,9 @@ export default defineNuxtConfig({
     '/': {
       swr: 60 * 60
     },
+    '/about': {
+      prerender: true
+    },
     '/work': {
       swr: 60 * 60
     },
