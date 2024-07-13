@@ -101,7 +101,7 @@ const { data: albums } = await useAsyncData<{ featured: Album[], favorites: Albu
   }
 })
 
-const { pending: pendingImages, data: randomImages, error: errorImages } = await useFutch<Partial<AlbumFile>[]>('/files/random', {
+const { status: statusImages, data: randomImages, error: errorImages } = await useFutch<Partial<AlbumFile>[]>('/files/random', {
   lazy: true,
   deep: false,
   default: () => [],
@@ -199,7 +199,7 @@ onUnmounted(() => {
         </div>
 
         <AlbumsSkeleton
-          v-if="pendingImages"
+          v-if="statusImages"
           v-motion="{
             initial: { opacity: 0, y: 100 },
             visibleOnce: {

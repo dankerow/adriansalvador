@@ -23,7 +23,7 @@ useHead({
 
 const currentPage = ref<number>(1)
 
-const { pending: pendingRecent, data: albumsRecent, error: errorRecent } = await useFutch<{ data: Partial<Album>[] }>('/albums', {
+const { status: statusRecent, data: albumsRecent, error: errorRecent } = await useFutch<{ data: Partial<Album>[] }>('/albums', {
   key: 'recent',
   params: {
     limit: 5,
@@ -45,7 +45,7 @@ const { pending: pendingRecent, data: albumsRecent, error: errorRecent } = await
   }
 })
 
-const { pending: pendingFavorites, data: albumsFavorites, error: errorFavorites } = await useFutch<{ data: Partial<Album>[] }>('/albums', {
+const { status: statusFavorites, data: albumsFavorites, error: errorFavorites } = await useFutch<{ data: Partial<Album>[] }>('/albums', {
   key: 'favorites',
   params: {
     favorites: true,
@@ -66,7 +66,7 @@ const { pending: pendingFavorites, data: albumsFavorites, error: errorFavorites 
   }
 })
 
-const { pending, data: albums, error } = await useFutch<{ data: Partial<Album>[] }>('/albums', {
+const { status, data: albums, error } = await useFutch<{ data: Partial<Album>[] }>('/albums', {
   params: {
     page: currentPage.value
   },
@@ -127,7 +127,7 @@ const { pending, data: albums, error } = await useFutch<{ data: Partial<Album>[]
       </h2>
 
       <div
-        v-if="pendingRecent"
+        v-if="statusRecent"
         v-motion="{
           initial: { opacity: 0, y: 100 },
           visibleOnce: {
@@ -196,7 +196,7 @@ const { pending, data: albums, error } = await useFutch<{ data: Partial<Album>[]
       </h2>
 
       <div
-        v-if="pendingFavorites"
+        v-if="statusFavorites"
         v-motion="{
           initial: { opacity: 0, y: 100 },
           visibleOnce: {
@@ -266,7 +266,7 @@ const { pending, data: albums, error } = await useFutch<{ data: Partial<Album>[]
       </h2>
 
       <div
-        v-if="pending"
+        v-if="status"
         v-motion="{
           initial: {
             opacity: 0,
