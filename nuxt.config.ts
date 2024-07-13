@@ -86,6 +86,7 @@ export default defineNuxtConfig({
   },
 
   pwa: {
+    minify: true,
     manifest: {
       name: 'Adrian Salvador | Photographer',
       start_url: '/',
