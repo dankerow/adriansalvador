@@ -31,8 +31,7 @@ export default defineNuxtConfig({
   },
 
   experimental: {
-    typedPages: true,
-    headNext: true
+    typedPages: true
   },
 
   routeRules: {
