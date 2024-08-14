@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@vueuse/motion": "2.2.3",
-    "@yeger/vue-masonry-wall": "^5.0.12",
+    "@yeger/vue-masonry-wall": "^5.0.14",
     "bootstrap": "5.3.3",
     "gsap": "^3.12.5",
     "nuxt-security": "^1.4.3",
@@ -21,27 +21,27 @@
     "vanilla-tilt": "^1.8.1"
   },
   "devDependencies": {
-    "@nuxt/eslint": "^0.3.13",
-    "@nuxt/fonts": "^0.7.1",
-    "@nuxt/icon": "^1.1.1",
+    "@nuxt/eslint": "^0.5.0",
+    "@nuxt/fonts": "^0.7.2",
+    "@nuxt/icon": "^1.4.5",
     "@nuxt/image": "1.7.0",
-    "@nuxt/scripts": "^0.6.4",
+    "@nuxt/scripts": "^0.6.6",
     "@nuxtjs/color-mode": "3.4.2",
-    "@nuxtjs/critters": "^0.7.1",
+    "@nuxtjs/critters": "^0.7.2",
     "@nuxtjs/device": "^3.1.1",
-    "@nuxtjs/sitemap": "^5.3.4",
-    "@types/node": "^20.14.10",
+    "@nuxtjs/sitemap": "^5.3.5",
+    "@types/node": "^20.14.15",
     "@vite-pwa/assets-generator": "^0.2.4",
     "@vite-pwa/nuxt": "^0.9.1",
-    "@vueuse/core": "^10.11.0",
-    "@vueuse/nuxt": "^10.11.0",
-    "eslint": "^9.7.0",
+    "@vueuse/core": "^10.11.1",
+    "@vueuse/nuxt": "^10.11.1",
+    "eslint": "^9.9.0",
     "nuxt": "^3.12.3",
     "nuxt-build-cache": "^0.1.1",
-    "nuxt-gtag": "^2.0.7",
+    "nuxt-gtag": "^2.1.0",
     "nuxt-purgecss": "^2.0.0",
     "sass": "^1.77.8",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.4"
   },
   "browserslist": [
     "> 0.5%",
@@ -49,5 +49,5 @@
     "Firefox ESR",
     "not dead"
   ],
-  "packageManager": "pnpm@9.5.0"
+  "packageManager": "pnpm@9.7.1"
 }
