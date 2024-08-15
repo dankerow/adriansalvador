@@ -31,16 +31,17 @@ const getImageDimensions = (image: AlbumFile) => {
   const ratio = width / height
 
   const columnWidth = props.columnWidth
-  const gap = props.gap
+  const defaultWidthForMobile = 360; // Example default width
+  const effectiveClientWidth = masonry.value?.$el.clientWidth > 0 ? masonry.value?.$el.clientWidth : defaultWidthForMobile;
 
-  const columns = Math.floor((masonry.value?.$el.clientWidth || 0) / (columnWidth + gap))
+  const columns = Math.floor(effectiveClientWidth / columnWidth)
 
-  const imageWidth = Math.min((masonry.value?.$el.clientWidth || 0) / columns, columnWidth)
+  const imageWidth = Math.min(effectiveClientWidth / columns, columnWidth)
   const imageHeight = imageWidth / ratio
 
   return {
-    width: imageWidth,
-    height: imageHeight
+    width: +imageWidth.toFixed(2),
+    height: +imageHeight.toFixed(2)
   }
 }
 
@@ -48,7 +49,7 @@ onMounted(() => {
   if (!lightbox.value && masonry.value) {
     lightbox.value = new PhotoSwipeLightbox({
       gallery: masonry.value.$el,
-      children: 'a',
+      children: '.masonry-item',
       pswpModule: () => import('photoswipe'),
       wheelToZoom: true
     })
@@ -98,7 +99,7 @@ onUnmounted(() => {
     :scroll-container="scrollContainer"
   >
     <template #default="{ item }">
-      <div class="img-container" :style="{ width: `${getImageDimensions(item).width}px`, height: `${getImageDimensions(item).height}px` }">
+      <div class="img-container" :style="{ minWidth: `${getImageDimensions(item).width}px`, minHeight: `${getImageDimensions(item).height}px` }">
         <a
           :href="item.url"
           :data-pswp-width="item.metadata.width"
@@ -111,16 +112,16 @@ onUnmounted(() => {
             :src="item.url"
             :width="getImageDimensions(item).width"
             :height="getImageDimensions(item).height"
-            sizes="xs:30vw sm:30vw md:30vw lg:30vw xl:30vw"
-            loading="lazy"
+            sizes="xs:100vw sm:50vw md:33vw lg:25vw xl:20vw"
             draggable="false"
-            decoding="async"
+            placeholder
+            loading="lazy"
             :alt="item.name"
           />
         </a>
 
         <div v-if="item.album" class="hidden-caption-content">
-          <NuxtLink :to="`/albums/${item.album._id}`">
+          <NuxtLink :to="`/work/${item.album._id}`">
             {{ item.album.name }}
           </NuxtLink>
         </div>
