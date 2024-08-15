@@ -1,4 +1,23 @@
 <script setup lang="ts">
+definePageMeta({
+  title: 'About',
+  description: 'An aspiring film maker who was born and raised in Saudi Arabia, but originally Filipino, Adrian is a filmmaker, photographer and overall artist open and exploring multiple medias of art. Through his immersion and integration into to different cultures he has been able to have a wider perspective of the world and its beauty. Aiming to explore subjects that evoke deep emotions of love and pain in his art.',
+  script: [
+    {
+      type: 'application/ld+json',
+      json: {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Adrian Salvador',
+        url: 'https://salvadoradrian.com/about',
+        sameAs: [
+          'https://www.instagram.com/adriansalvadore/'
+        ]
+      }
+    }
+  ]
+})
+
 useHead({
   script: [
     {
