@@ -16,7 +16,6 @@
     "@yeger/vue-masonry-wall": "^5.0.14",
     "bootstrap": "5.3.3",
     "gsap": "^3.12.5",
-    "nuxt-security": "^1.4.3",
     "photoswipe": "^5.4.4",
     "vanilla-tilt": "^1.8.1"
   },

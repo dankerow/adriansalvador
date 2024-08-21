@@ -140,7 +140,6 @@ export default defineNuxtConfig({
 
     modules: [
       'nuxt-purgecss',
-      'nuxt-security',
       '@nuxtjs/sitemap'
     ],
 
@@ -151,11 +150,6 @@ export default defineNuxtConfig({
     purgecss: {
       keyframes: true,
       safelist: ['dark-mode', /^pswp/, /^btn-/, /^dropdown/, /^masonry/, 'icon-link', 'svg', 'img', 'show']
-    },
-
-    security: {
-      headers: false,
-      rateLimiter: false
     },
 
     site: {
