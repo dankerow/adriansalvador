@@ -1,6 +1,29 @@
 <script setup lang="ts">
 import type { Album } from '@/types/albums'
 
+definePageMeta({
+  script: [
+    {
+      type: 'application/ld+json',
+      json: {
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        name: 'Albums',
+        description: 'Collections of my favorite photos from my travels and adventures.',
+        url: 'https://salvadoradrian.com/albums',
+        mainEntity: [
+          {
+            '@type': 'Photograph',
+            name: 'Albums',
+            description: 'Collections of my favorite photos from my travels and adventures.',
+            url: 'https://salvadoradrian.com/albums'
+          }
+        ]
+      }
+    }
+  ]
+})
+
 useHead({
   title: 'Albums',
   meta: [
