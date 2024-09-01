@@ -89,10 +89,6 @@ export default defineNuxtConfig({
     fallback: 'dark'
   },
 
-  device: {
-    refreshOnResize: true
-  },
-
   fonts: {
     experimental: {
       processCSSVariables: true
