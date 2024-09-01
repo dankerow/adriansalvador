@@ -199,7 +199,7 @@ onUnmounted(() => {
         </div>
 
         <AlbumsSkeleton
-          v-if="statusImages"
+          v-if="statusImages === 'pending'"
           v-motion="{
             initial: { opacity: 0, y: 100 },
             visibleOnce: {
@@ -209,12 +209,12 @@ onUnmounted(() => {
           }"
         />
 
-        <template v-else-if="errorImages">
+        <template v-else-if="statusImages === 'error' && errorImages">
           <p>{{ errorImages }}</p>
         </template>
 
         <GalleryGrid
-          v-else-if="randomImages"
+          v-else-if="statusImages === 'success' && randomImages"
           :images="getRandomImagesView"
           :min-columns="1"
           :max-columns="6"
