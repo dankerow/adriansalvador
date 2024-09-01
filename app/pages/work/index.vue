@@ -127,7 +127,7 @@ const { status, data: albums, error } = await useFutch<{ data: Partial<Album>[] 
       </h2>
 
       <div
-        v-if="statusRecent"
+        v-if="statusRecent === 'pending'"
         v-motion="{
           initial: { opacity: 0, y: 100 },
           visibleOnce: {
@@ -160,13 +160,13 @@ const { status, data: albums, error } = await useFutch<{ data: Partial<Album>[] 
         </div>
       </div>
 
-      <div v-else-if="albumsRecent?.data.length" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mb-6">
+      <div v-else-if="statusRecent === 'success' && albumsRecent?.data.length" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mb-6">
         <div v-for="album in albumsRecent.data" :key="album._id" class="col">
           <CardAlbum :album="album" />
         </div>
       </div>
 
-      <template v-else-if="!albumsRecent?.data.length">
+      <template v-else-if="statusRecent === 'success' && !albumsRecent?.data.length">
         <div class="alert alert-secondary" role="alert">
           <h2 class="alert-heading h4 fw-bolder">
             Uhm, you caught me lacking.
@@ -178,7 +178,7 @@ const { status, data: albums, error } = await useFutch<{ data: Partial<Album>[] 
         </div>
       </template>
 
-      <template v-else-if="errorRecent">
+      <template v-else-if="statusRecent === 'error' && errorRecent">
         <div class="alert alert-danger" role="alert">
           <h2 class="alert-heading h4 fw-bolder">
             Something went wrong
@@ -196,7 +196,7 @@ const { status, data: albums, error } = await useFutch<{ data: Partial<Album>[] 
       </h2>
 
       <div
-        v-if="statusFavorites"
+        v-if="statusFavorites === 'pending'"
         v-motion="{
           initial: { opacity: 0, y: 100 },
           visibleOnce: {
@@ -229,13 +229,13 @@ const { status, data: albums, error } = await useFutch<{ data: Partial<Album>[] 
         </div>
       </div>
 
-      <div v-else-if="albumsFavorites?.data.length" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mb-6">
+      <div v-else-if="statusFavorites === 'success' && albumsFavorites?.data.length" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mb-6">
         <div v-for="album in albumsFavorites.data" :key="album._id" class="col">
           <CardAlbum :album="album" />
         </div>
       </div>
 
-      <template v-else-if="!albumsFavorites?.data.length">
+      <template v-else-if="statusFavorites === 'success' && !albumsFavorites?.data.length">
         <div class="alert alert-secondary" role="alert">
           <h2 class="alert-heading h4 fw-bolder">
             Uhm, you caught me lacking.
@@ -247,7 +247,7 @@ const { status, data: albums, error } = await useFutch<{ data: Partial<Album>[] 
         </div>
       </template>
 
-      <template v-else-if="errorFavorites">
+      <template v-else-if="statusFavorites === 'error' && errorFavorites">
         <div class="alert alert-danger" role="alert">
           <h2 class="alert-heading h4 fw-bolder">
             Something went wrong
@@ -266,7 +266,7 @@ const { status, data: albums, error } = await useFutch<{ data: Partial<Album>[] 
       </h2>
 
       <div
-        v-if="status"
+        v-if="status === 'pending'"
         v-motion="{
           initial: {
             opacity: 0,
@@ -302,13 +302,13 @@ const { status, data: albums, error } = await useFutch<{ data: Partial<Album>[] 
         </div>
       </div>
 
-      <div v-else-if="albums?.data.length" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mb-6">
+      <div v-else-if="status === 'success' && albums?.data.length" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mb-6">
         <div v-for="album in albums.data" :key="album._id" class="col">
           <CardAlbum :album="album" />
         </div>
       </div>
 
-      <template v-else-if="!albums?.data.length">
+      <template v-else-if="status === 'success' && !albums?.data.length">
         <div class="alert alert-secondary" role="alert">
           <h2 class="alert-heading h4 fw-bolder">
             Uhm, you caught me lacking.
@@ -320,7 +320,7 @@ const { status, data: albums, error } = await useFutch<{ data: Partial<Album>[] 
         </div>
       </template>
 
-      <template v-else-if="error">
+      <template v-else-if="status === 'error' && error">
         <div class="alert alert-danger" role="alert">
           <h2 class="alert-heading h4 fw-bolder">
             Something went wrong
