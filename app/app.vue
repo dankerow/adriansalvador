@@ -132,8 +132,10 @@ const onLeave = (el, done) => {
     })
 }
 
-const isHome = computed(() => {
-  return route.path === '/'
+const headerIgnored = ['/', '/about']
+
+const isHeaderIgnored = computed(() => {
+  return headerIgnored.includes(route.path)
 })
 
 onMounted(() => {
@@ -152,7 +154,7 @@ onMounted(() => {
     <Loader />
     <LazyCursor />
 
-    <Header v-show="!isHome" />
+    <Header v-show="!isHeaderIgnored" />
 
     <svg
       id="transition"
