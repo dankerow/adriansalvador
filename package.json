@@ -28,7 +28,7 @@
     "@nuxtjs/color-mode": "3.4.4",
     "@nuxtjs/critters": "^0.7.2",
     "@nuxtjs/device": "^3.2.2",
-    "@nuxtjs/sitemap": "^5.3.5",
+    "@nuxtjs/sitemap": "^6.0.1",
     "@types/node": "^20.16.5",
     "@vite-pwa/assets-generator": "^0.2.6",
     "@vite-pwa/nuxt": "^0.10.5",
