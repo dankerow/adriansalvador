@@ -79,8 +79,8 @@ importers:
         specifier: ^0.1.1
         version: 0.1.1(magicast@0.3.4)(rollup@4.21.0)(webpack-sources@3.2.3)
       nuxt-gtag:
-        specifier: ^2.1.0
-        version: 2.1.0(magicast@0.3.4)(rollup@4.21.0)(webpack-sources@3.2.3)
+        specifier: ^3.0.1
+        version: 3.0.1(magicast@0.3.4)(rollup@4.21.0)(webpack-sources@3.2.3)
       nuxt-purgecss:
         specifier: ^2.0.0
         version: 2.0.0(magicast@0.3.4)(postcss@8.4.45)(rollup@4.21.0)(webpack-sources@3.2.3)
@@ -4689,8 +4689,8 @@ packages:
   nuxt-build-cache@0.1.1:
     resolution: {integrity: sha512-jn3iSYR1gdg/eK1HkgERauUu1pJSUzwJ2Oi0qOwDGrYSlO4mycJ62L0cPtpmBR2Ah/iSrMbjLOxfMMWguVEHQA==}
 
-  nuxt-gtag@2.1.0:
-    resolution: {integrity: sha512-06ES+hgMs5l98bHmsLyltbJXfVr1LAkm/5gwcncdNkz96+D0fVA+RhecIp06iDQXF+YPBE2xAgB4G5PnUn8drA==}
+  nuxt-gtag@3.0.1:
+    resolution: {integrity: sha512-dfDeL8JwvwdCddlSBXqofEVdoONVZ5yqztqoiUs+4fEL+QfAAHtK+3MaLyEVO4keZuiyVQs6XPUJyR7afTVXNg==}
 
   nuxt-purgecss@2.0.0:
     resolution: {integrity: sha512-ajTVNZ7CoHwgmR0le0mqNg+CHXuOxVAmUmvnUeBpdurHmJ2Q4fJ6xbK2vbd99Vi0COpmz/TPMNz2gGmA478kcQ==}
@@ -12811,9 +12811,9 @@ snapshots:
       - supports-color
       - webpack-sources
 
-  nuxt-gtag@2.1.0(magicast@0.3.4)(rollup@4.21.0)(webpack-sources@3.2.3):
+  nuxt-gtag@3.0.1(magicast@0.3.4)(rollup@4.21.0)(webpack-sources@3.2.3):
     dependencies:
-      '@nuxt/kit': 3.13.0(magicast@0.3.4)(rollup@4.21.0)(webpack-sources@3.2.3)
+      '@nuxt/kit': 3.13.1(magicast@0.3.4)(rollup@4.21.0)(webpack-sources@3.2.3)
       defu: 6.1.4
       pathe: 1.1.2
       ufo: 1.5.4
