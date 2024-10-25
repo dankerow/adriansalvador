@@ -37,17 +37,17 @@ const { data: images, pending: pendingImages, error: errorImages } = await useFu
   })
 
 useHead({
-  title: () => album.value.name,
+  title: () => album.value!.name,
   meta: [
     {
       name: 'og:title',
       property: 'og:title',
-      content: () => `${album.value.name} - Adrian Salvador`
+      content: () => `${album.value!.name} - Adrian Salvador`
     },
     {
       name: 'og:description',
       property: 'og:description',
-      content: () => `Discover "${album.value.name}" album. | "Capturing the essence of people through a lens."`
+      content: () => `Discover "${album.value!.name}" album. | "Capturing the essence of people through a lens."`
     }
   ]
 })
@@ -55,7 +55,7 @@ useHead({
 const share = async () => {
   const shareData = {
     title: 'Adrian Salvador',
-    text: `Discover "${album.value.name}" album.`,
+    text: `Discover "${album.value!.name}" album.`,
     url: `https://salvadoradrian.com/albums/${params.id}`
   }
 
@@ -79,23 +79,23 @@ const onDownload = async () => {
 <template>
   <div>
     <section class="min-vh-100 pt-10 pb-4">
-      <Breadcrumb :links="[{ name: 'Work', path: '/work' }, { name: album?.name }]" class="mb-6" />
+      <Breadcrumb :links="[{ name: 'Work', path: '/work' }, { name: album!.name }]" class="mb-7" />
 
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 align-items-center text-start justify-content-center justify-content-md-between">
-          <div class="col">
-            <h1 class="fw-bold mb-0">
-              {{ album?.name }}
+          <div class="col mb-4 mb-md-0">
+            <h1 class="display-6 text-body-emphasis fw-bold mb-0">
+              {{ album!.name }}
             </h1>
 
             <p class="information">
-              {{ album?.fileCount }} images
+              {{ album!.fileCount }} images
             </p>
           </div>
 
           <div class="col">
-            <div class="row gx-2 justify-content-end">
-              <div class="col col-md-auto">
+            <div class="row gx-2 justify-content-between justify-content-md-end">
+              <div class="col-auto">
                 <button
                   :class="`btn ${colorMode.value !== 'light' ? 'btn-light' : 'btn-gray text-primary'}`"
                   type="button"
@@ -106,9 +106,9 @@ const onDownload = async () => {
                 </button>
               </div>
 
-              <div class="col col-md-auto">
+              <div class="col-auto">
                 <a
-                  :class="`btn ${colorMode.value !== 'light' ? 'btn-dark' : 'btn-gray text-primary'}`"
+                  :class="`btn ${colorMode.value !== 'light' ? 'btn-light' : 'btn-gray text-primary'}`"
                   type="button"
                   aria-label="Download all album's images"
                   :href="`${cdnBaseUrl}/albums/${album?._id}/download`"
@@ -126,12 +126,13 @@ const onDownload = async () => {
         <hr>
 
         <AlbumsLoadingCards v-if="pendingImages" />
-        <GalleryGrid v-else-if="images?.data" :images="images.data" />
+        <GalleryGrid v-else-if="images && images.data" :images="images.data" />
         <template v-else-if="errorImages">
           <div class="alert alert-danger" role="alert">
             <h2 class="alert-heading h6 fw-bolder">
               Something went wrong
             </h2>
+
             <p class="mb-0">
               We couldn't load the images for this album. Please try again later.
             </p>
