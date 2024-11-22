@@ -75,9 +75,6 @@ importers:
       nuxt:
         specifier: ^3.14.1592
         version: 3.14.1592(@parcel/watcher@2.5.0)(@types/node@20.17.6)(eslint@9.15.0(jiti@2.4.0))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.27.3)(sass@1.81.0)(terser@5.36.0)(typescript@5.6.3)(vite@5.4.11(@types/node@20.17.6)(sass@1.81.0)(terser@5.36.0))
-      nuxt-build-cache:
-        specifier: ^0.1.1
-        version: 0.1.1(magicast@0.3.5)(rollup@4.27.3)
       nuxt-purgecss:
         specifier: ^2.0.0
         version: 2.0.0(magicast@0.3.5)(postcss@8.4.49)(rollup@4.27.3)
@@ -4194,9 +4191,6 @@ packages:
     resolution: {integrity: sha512-ZVu45nuDrdb7nzKW2kLGY/N1vvFYLLbUVX6gUYw4BApKGGu4+GktTR5o48dGVgMYX9A8chaugl7TL9ZYmwC9Mg==}
     engines: {node: ^16.10.0 || >=18.0.0}
     hasBin: true
-
-  nuxt-build-cache@0.1.1:
-    resolution: {integrity: sha512-jn3iSYR1gdg/eK1HkgERauUu1pJSUzwJ2Oi0qOwDGrYSlO4mycJ62L0cPtpmBR2Ah/iSrMbjLOxfMMWguVEHQA==}
 
   nuxt-purgecss@2.0.0:
     resolution: {integrity: sha512-ajTVNZ7CoHwgmR0le0mqNg+CHXuOxVAmUmvnUeBpdurHmJ2Q4fJ6xbK2vbd99Vi0COpmz/TPMNz2gGmA478kcQ==}
@@ -11012,21 +11006,6 @@ snapshots:
       boolbase: 1.0.0
 
   nuxi@3.15.0: {}
-
-  nuxt-build-cache@0.1.1(magicast@0.3.5)(rollup@4.27.3):
-    dependencies:
-      '@nuxt/kit': 3.14.1592(magicast@0.3.5)(rollup@4.27.3)
-      consola: 3.2.3
-      globby: 14.0.2
-      nanotar: 0.1.1
-      nypm: 0.3.12
-      ohash: 1.1.4
-      pkg-types: 1.2.1
-      std-env: 3.8.0
-    transitivePeerDependencies:
-      - magicast
-      - rollup
-      - supports-color
 
   nuxt-purgecss@2.0.0(magicast@0.3.5)(postcss@8.4.49)(rollup@4.27.3):
     dependencies:
