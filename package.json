@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@vueuse/motion": "2.2.6",
-    "@yeger/vue-masonry-wall": "^5.0.17",
+    "@yeger/vue-masonry-wall": "^5.0.18",
     "bootstrap": "5.3.3",
     "gsap": "^3.12.7",
     "photoswipe": "^5.4.4",
@@ -46,5 +46,5 @@
     "Firefox ESR",
     "not dead"
   ],
-  "packageManager": "pnpm@9.15.4"
+  "packageManager": "pnpm@9.15.5"
 }
