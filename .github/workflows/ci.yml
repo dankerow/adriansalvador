@@ -30,7 +30,7 @@ jobs:
           echo CDN_BASE_URL=${{ secrets.CDN_BASE_URL }} >> .env
           echo BASE_URL=${{ secrets.BASE_URL }} >> .env
       - run: corepack enable
-      - uses: pnpm/action-setup@v4.0.0
+      - uses: pnpm/action-setup@v4.1.0
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node_version }}
@@ -64,7 +64,7 @@ jobs:
           echo CDN_BASE_URL=${{ secrets.CDN_BASE_URL }} >> .env
           echo BASE_URL=${{ secrets.BASE_URL }} >> .env
       - run: corepack enable
-      - uses: pnpm/action-setup@v4.0.0
+      - uses: pnpm/action-setup@v4.1.0
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node_version }}
